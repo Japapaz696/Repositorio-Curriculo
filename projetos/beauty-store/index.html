@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Store — Cosméticos & Beleza</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ANÚNCIO TOPO -->
+    <div class="top-bar">✨ FRETE GRÁTIS em compras acima de R$ 199 — use o cupom <strong>BEAUTY10</strong> ✨</div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">BEAUTY<span>STORE</span></a>
+
+            <form class="search-bar" id="search-form">
+                <input type="search" id="search-input" placeholder="Busque por produtos, marcas, categorias...">
+                <button type="submit">🔍</button>
+            </form>
+
+            <nav class="nav-icons">
+                <button class="icon-btn" id="favoritos-btn" title="Favoritos">💖 <span id="fav-count">0</span></button>
+                <button class="icon-btn" id="cart-btn" title="Carrinho">🛒 <span id="cart-count">0</span></button>
+                <button class="icon-btn" id="user-btn" title="Minha conta">👤</button>
+            </nav>
+        </div>
+        <nav class="cat-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="#" class="cat-link active" data-cat="todos">Todos</a></li>
+                    <li><a href="#" class="cat-link" data-cat="maquiagem">Maquiagem</a></li>
+                    <li><a href="#" class="cat-link" data-cat="skincare">Skincare</a></li>
+                    <li><a href="#" class="cat-link" data-cat="perfumaria">Perfumaria</a></li>
+                    <li><a href="#" class="cat-link" data-cat="cabelos">Cabelos</a></li>
+                    <li><a href="#" class="cat-link" data-cat="corpo">Corpo & Banho</a></li>
+                    <li><a href="#" class="cat-link" data-cat="ofertas">🔥 Ofertas</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO / BANNER -->
+    <section class="banner">
+        <div class="container">
+            <div class="banner-content">
+                <span class="banner-tag">Coleção Outono/Inverno 2026</span>
+                <h1>Beleza que <em>traduz</em><br>quem você é</h1>
+                <p>Descubra nossa nova coleção de maquiagem e skincare com ingredientes de alta performance.</p>
+                <a href="#produtos" class="btn btn-primary">Ver Coleção</a>
+            </div>
+            <div class="banner-decor">💄✨💋</div>
+        </div>
+    </section>
+
+    <!-- FILTROS E PRODUTOS -->
+    <section class="produtos" id="produtos">
+        <div class="container">
+            <div class="produtos-header">
+                <h2 class="section-title">Nossos Produtos</h2>
+                <div class="filtros">
+                    <select id="filtro-ordem">
+                        <option value="destaque">Mais relevantes</option>
+                        <option value="menor">Menor preço</option>
+                        <option value="maior">Maior preço</option>
+                        <option value="novo">Novidades</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="produtos-layout">
+                <!-- SIDEBAR -->
+                <aside class="sidebar">
+                    <div class="filtro-group">
+                        <h3>Categorias</h3>
+                        <ul class="filtro-list">
+                            <li><label><input type="checkbox" class="filtro-cat" value="maquiagem"> Maquiagem</label></li>
+                            <li><label><input type="checkbox" class="filtro-cat" value="skincare"> Skincare</label></li>
+                            <li><label><input type="checkbox" class="filtro-cat" value="perfumaria"> Perfumaria</label></li>
+                            <li><label><input type="checkbox" class="filtro-cat" value="cabelos"> Cabelos</label></li>
+                            <li><label><input type="checkbox" class="filtro-cat" value="corpo"> Corpo & Banho</label></li>
+                        </ul>
+                    </div>
+                    <div class="filtro-group">
+                        <h3>Preço</h3>
+                        <ul class="filtro-list">
+                            <li><label><input type="radio" name="preco" value="0-50"> Até R$ 50</label></li>
+                            <li><label><input type="radio" name="preco" value="50-100"> R$ 50 a R$ 100</label></li>
+                            <li><label><input type="radio" name="preco" value="100-200"> R$ 100 a R$ 200</label></li>
+                            <li><label><input type="radio" name="preco" value="200+"> Acima de R$ 200</label></li>
+                        </ul>
+                    </div>
+                    <div class="filtro-group">
+                        <h3>Marca</h3>
+                        <ul class="filtro-list">
+                            <li><label><input type="checkbox" class="filtro-marca" value="Luxe"> Luxe</label></li>
+                            <li><label><input type="checkbox" class="filtro-marca" value="Glow"> Glow</label></li>
+                            <li><label><input type="checkbox" class="filtro-marca" value="Pure"> Pure</label></li>
+                            <li><label><input type="checkbox" class="filtro-marca" value="Velvet"> Velvet</label></li>
+                        </ul>
+                    </div>
+                    <button id="limpar-filtros" class="btn btn-ghost btn-small">Limpar filtros</button>
+                </aside>
+
+                <!-- GRID DE PRODUTOS -->
+                <div class="produtos-grid" id="produtos-grid">
+                    <!-- Gerado via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DETALHES -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="detail-modal" id="detail-modal"></div>
+
+    <!-- MODAL CARRINHO -->
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h2>🛒 Seu Carrinho</h2>
+            <button id="close-cart">✕</button>
+        </div>
+        <div class="cart-cupom">
+            <input type="text" id="cupom-input" placeholder="Cupom de desconto">
+            <button id="aplicar-cupom">Aplicar</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <p class="empty-cart">Seu carrinho está vazio.</p>
+        </div>
+        <div class="cart-footer" id="cart-footer" style="display:none;">
+            <div class="cart-sub"><span>Subtotal:</span><strong id="subtotal">R$ 0,00</strong></div>
+            <div class="cart-sub"><span>Frete:</span><strong id="frete">Calcular abaixo</strong></div>
+            <div class="cart-sub desconto" id="linha-desconto" style="display:none;"><span>Desconto:</span><strong id="desconto">-R$ 0,00</strong></div>
+            <div class="cart-cep">
+                <input type="text" id="cep-input" placeholder="Seu CEP (ex: 01310-100)" maxlength="9">
+                <button id="calc-frete">Calcular</button>
+            </div>
+            <div id="frete-opcoes"></div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <strong id="cart-total">R$ 0,00</strong>
+            </div>
+            <button id="finalizar" class="btn btn-primary btn-block">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- MODAL CHECKOUT -->
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-content">
+            <button class="close-checkout" id="close-checkout">✕</button>
+            <h2>Finalizar Compra</h2>
+            <form id="checkout-form">
+                <fieldset>
+                    <legend>Dados pessoais</legend>
+                    <label>Nome<input type="text" required></label>
+                    <label>CPF<input type="text" required placeholder="000.000.000-00"></label>
+                    <label>E-mail<input type="email" required></label>
+                    <label>Telefone<input type="tel" required></label>
+                </fieldset>
+                <fieldset>
+                    <legend>Endereço de entrega</legend>
+                    <label>CEP<input type="text" required id="cep-checkout"></label>
+                    <label>Endereço<input type="text" required></label>
+                    <div class="form-row">
+                        <label>Número<input type="text" required></label>
+                        <label>Complemento<input type="text"></label>
+                    </div>
+                    <label>Cidade<input type="text" required></label>
+                </fieldset>
+                <fieldset>
+                    <legend>Pagamento</legend>
+                    <label>Forma de pagamento
+                        <select required>
+                            <option value="">Selecione</option>
+                            <option>Cartão de Crédito</option>
+                            <option>PIX (5% desconto)</option>
+                            <option>Boleto</option>
+                        </select>
+                    </label>
+                    <label>Parcelas
+                        <select>
+                            <option>1x sem juros</option>
+                            <option>2x sem juros</option>
+                            <option>3x sem juros</option>
+                            <option>4x sem juros</option>
+                            <option>5x sem juros</option>
+                            <option>6x sem juros</option>
+                        </select>
+                    </label>
+                </fieldset>
+                <button type="submit" class="btn btn-primary btn-block">Confirmar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL FAVORITOS -->
+    <div class="fav-drawer" id="fav-drawer">
+        <div class="cart-header">
+            <h2>💖 Seus Favoritos</h2>
+            <button id="close-fav">✕</button>
+        </div>
+        <div class="cart-body" id="fav-body">
+            <p class="empty-cart">Você ainda não favoritou nenhum produto.</p>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>BEAUTY STORE</h4>
+                    <p>Sua loja de cosméticos favorita. Beleza, qualidade e preço justo.</p>
+                </div>
+                <div>
+                    <h4>Institucional</h4>
+                    <ul><li>Sobre nós</li><li>Trabalhe conosco</li><li>Sustentabilidade</li></ul>
+                </div>
+                <div>
+                    <h4>Ajuda</h4>
+                    <ul><li>Trocas e devoluções</li><li>Política de privacidade</li><li>Perguntas frequentes</li></ul>
+                </div>
+                <div>
+                    <h4>Newsletter</h4>
+                    <p>Receba ofertas exclusivas:</p>
+                    <form class="newsletter"><input type="email" placeholder="Seu e-mail"><button>OK</button></form>
+                </div>
+            </div>
+            <p class="footer-copy">© <span id="year"></span> Beauty Store Cosméticos — CNPJ 00.000.000/0001-00</p>
+            <a href="../../index.html" class="voltar-portfolio">← Voltar ao portfólio</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

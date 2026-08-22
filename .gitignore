@@ -1,0 +1,11 @@
+# Pastas que não fazem parte do portfólio
+.claude/
+Curriculo/
+Curriculo2/
+
+# Arquivos do sistema
+Thumbs.db
+Desktop.ini
+
+# Logs temporários
+push_log.txt

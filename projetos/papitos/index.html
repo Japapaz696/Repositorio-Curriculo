@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papitos — Hamburgueria Artesanal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">🍔 PAPITOS</a>
+            <nav class="nav">
+                <a href="#cardapio">Cardápio</a>
+                <a href="#combos">Combos</a>
+                <a href="#depoimentos">Avaliações</a>
+                <a href="#pedido" class="btn-cart">
+                    🛒 <span id="cart-count">0</span>
+                </a>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">☰</button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <span class="hero-tag">Desde 2015 • Sabor que vicia</span>
+                <h1>O melhor <span>hambúrguer artesanal</span> da cidade</h1>
+                <p>Pão brioche, blend 180g, ingredientes selecionados e a entrega mais rápida da região.</p>
+                <div class="hero-buttons">
+                    <a href="#cardapio" class="btn btn-primary">Ver Cardápio</a>
+                    <a href="#combos" class="btn btn-ghost">Combos do dia</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="burger-emoji">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Hambúrguer artesanal Papitos">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="categories" id="categorias">
+        <div class="container">
+            <div class="category-list">
+                <button class="cat-btn active" data-cat="todos">Todos</button>
+                <button class="cat-btn" data-cat="hamburgueres">Hambúrgueres</button>
+                <button class="cat-btn" data-cat="combos">Combos</button>
+                <button class="cat-btn" data-cat="bebidas">Bebidas</button>
+                <button class="cat-btn" data-cat="sobremesas">Sobremesas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARDÁPIO -->
+    <section class="menu" id="cardapio">
+        <div class="container">
+            <h2 class="section-title">Nosso Cardápio</h2>
+            <div class="menu-grid" id="menu-grid">
+                <!-- Cards gerados via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- COMBOS -->
+    <section class="combos" id="combos">
+        <div class="container">
+            <h2 class="section-title">Combos Especiais</h2>
+            <div class="combos-grid" id="combos-grid">
+                <!-- Gerado via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="reviews" id="depoimentos">
+        <div class="container">
+            <h2 class="section-title">O que dizem nossos clientes</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Melhor hambúrguer que já comi! Pão fresquinho e blend suculento. Virei cliente fiel."</p>
+                    <span class="review-author">— Marina S.</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Entrega super rápida e o combo família rende demais. Preço justo e sabor incrível."</p>
+                    <span class="review-author">— Carlos R.</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Atendimento pelo site é fácil e intuitivo. Adoro os combos de quarta!"</p>
+                    <span class="review-author">— Juliana P.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DO CARRINHO -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h2>Seu Pedido</h2>
+            <button id="close-cart">✕</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <p class="empty-cart">Seu carrinho está vazio.</p>
+        </div>
+        <div class="cart-footer" id="cart-footer" style="display:none;">
+            <div class="cart-options">
+                <label class="opt-label">
+                    <input type="radio" name="entrega" value="delivery" checked> Delivery (+R$ 8,00)
+                </label>
+                <label class="opt-label">
+                    <input type="radio" name="entrega" value="retirada"> Retirada no local
+                </label>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <strong id="cart-total">R$ 0,00</strong>
+            </div>
+            <button id="finalizar" class="btn btn-primary btn-block">Finalizar Pedido</button>
+        </div>
+    </div>
+
+    <!-- MODAL CHECKOUT -->
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-content">
+            <button class="close-checkout" id="close-checkout">✕</button>
+            <h2>Finalizar Pedido</h2>
+            <form id="checkout-form">
+                <label>Nome<input type="text" required placeholder="Seu nome"></label>
+                <label>Telefone<input type="tel" required placeholder="(11) 99999-9999"></label>
+                <label>Endereço (se delivery)<input type="text" placeholder="Rua, número, bairro"></label>
+                <label>Forma de pagamento
+                    <select required>
+                        <option value="">Selecione</option>
+                        <option>PIX</option>
+                        <option>Cartão (entrega)</option>
+                        <option>Dinheiro</option>
+                    </select>
+                </label>
+                <label>Observações<textarea rows="2" placeholder="Sem cebola, ponto da carne, etc."></textarea></label>
+                <button type="submit" class="btn btn-primary btn-block">Confirmar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <footer class="footer">
+        <p>© <span id="year"></span> Papitos Hamburgueria — Todos os direitos reservados.</p>
+        <a href="../../index.html">← Voltar ao portfólio</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
