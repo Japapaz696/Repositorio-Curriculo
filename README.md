@@ -2,7 +2,7 @@
 
 Portfólio pessoal com **3 projetos front-end completos**, desenvolvidos em **HTML, CSS e JavaScript puro** — sem frameworks e sem build, focando em fundamentos sólidos da web.
 
-🔗 **Ver online:** *(adicione aqui o link do GitHub Pages após publicar)*
+🔗 **Ver online:** [japapaz696.github.io/Repositorio-Curriculo](https://japapaz696.github.io/Repositorio-Curriculo/)
 
 ---
 
