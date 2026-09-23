@@ -3,375 +3,357 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Lucas Santana da Paz — Estudante de Análise e Desenvolvimento de Sistemas e desenvolvedor web front-end (HTML, CSS, JavaScript). Confira meus projetos e entre em contato.">
-    <meta name="keywords" content="Lucas Santana da Paz, portfólio, desenvolvedor web, front-end, HTML, CSS, JavaScript, Belo Horizonte">
+    <meta name="description" content="Lucas Santana da Paz — Desenvolvedor Web, Automação e Creative Coding. Portfólio com projetos selecionados e Creative Lab com motion design.">
+    <meta name="keywords" content="Lucas Santana da Paz, desenvolvedor web, portfólio, automação, creative coding, motion design, Belo Horizonte">
     <meta name="author" content="Lucas Santana da Paz">
     <meta name="theme-color" content="#0a0a0f">
 
-    <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Lucas Santana da Paz | Portfólio">
-    <meta property="og:description" content="Estudante de Análise e Desenvolvimento de Sistemas e desenvolvedor web front-end. Veja meus projetos em HTML, CSS e JavaScript.">
+    <meta property="og:description" content="Desenvolvedor Web • Automação • Creative Coding. Projetos selecionados e Creative Lab.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&h=630&fit=crop">
     <meta property="og:locale" content="pt_BR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Lucas Santana da Paz | Portfólio">
-    <meta name="twitter:description" content="Estudante de Análise e Desenvolvimento de Sistemas e desenvolvedor web front-end.">
+    <meta name="twitter:description" content="Desenvolvedor Web • Automação • Creative Coding">
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0f'/><text x='50' y='68' font-size='52' font-family='monospace' font-weight='bold' text-anchor='middle' fill='%238b5cf6'>&lt;/&gt;</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0f'/><text x='50' y='68' font-size='42' font-family='monospace' font-weight='bold' text-anchor='middle' fill='%23ffffff'>LS</text></svg>">
 
-    <title>Lucas Santana da Paz | Portfólio — Desenvolvedor Web</title>
+    <title>Lucas Santana da Paz | Portfólio — Desenvolvedor Web & Creative Coding</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
-    <!-- Header / Navbar -->
-    <header class="navbar">
+    <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+    <!-- Navigation -->
+    <header class="navbar" role="banner">
         <div class="container nav-inner">
-            <a href="#" class="logo">&lt;Lucas /&gt;</a>
-            <nav>
+            <a href="#" class="logo" aria-label="Início">Lucas</a>
+            <nav class="nav" role="navigation" aria-label="Navegação principal">
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#experiencia">Experiência</a></li>
-                    <li><a href="#formacao">Formação</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
-                    <li><a href="#habilidades">Habilidades</a></li>
-                    <li><a href="#cursos">Cursos</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#work" class="nav-link">Work</a></li>
+                    <li><a href="#creative-lab" class="nav-link">Creative Lab</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
-            <div class="nav-actions">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">🌙</button>
-                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-links">
-                    <span class="menu-bar"></span>
-                    <span class="menu-bar"></span>
-                    <span class="menu-bar"></span>
-                </button>
-            </div>
+            <button type="button" id="menu-toggle" class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-links">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
         </div>
     </header>
 
-    <main>
-        <!-- Apresentação inicial -->
-        <section class="hero">
+    <main id="conteudo">
+        <!-- Hero -->
+        <section class="hero" id="hero" aria-labelledby="hero-title">
             <div class="container">
-                <div class="hero-avatar" aria-hidden="true"><span>&lt;/&gt;</span></div>
-                <p class="hero-greeting">Olá, eu sou</p>
-                <h1 class="hero-name">Lucas Santana da Paz</h1>
-                <h2 class="hero-role">Estudante de Análise e Desenvolvimento de Sistemas</h2>
-                <p class="hero-bio">
-                    Em constante aprendizado, construindo projetos e explorando novas tecnologias.
-                    Busco oportunidade na área de TI para aplicar conhecimentos em desenvolvimento web e continuar evoluindo tecnicamente.
-                </p>
-                <div class="hero-info">
-                    <span class="hero-info-item">
-                        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="" class="info-icon"> Belo Horizonte, MG
-                    </span>
-                    <span class="hero-info-item">
-                        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="" class="info-icon"> (31) 97340-3545
-                    </span>
-                    <span class="hero-info-item">
-                        <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="" class="info-icon"> lucaspaz696@gmail.com
-                    </span>
+                <div class="hero-content">
+                    <p class="hero-greeting" aria-hidden="true">Desenvolvedor Web</p>
+                    <h1 id="hero-title" class="hero-name">Lucas Santana da Paz</h1>
+                    <p class="hero-role">Desenvolvimento Web • Software • Automação</p>
+                    <p class="hero-bio">Estudante de Análise e Desenvolvimento de Sistemas. Construo interfaces funcionais, automatizo processos e crio experiências digitais com código e motion.</p>
+                    <div class="hero-cta">
+                        <a href="#work" class="btn btn-primary">Ver projetos</a>
+                        <a href="#contact" class="btn btn-ghost">Entrar em contato</a>
+                    </div>
                 </div>
-                <div class="hero-cta">
-                    <a href="#projetos" class="btn btn-primary">Ver projetos</a>
-                    <a href="#contato" class="btn btn-ghost">Falar comigo</a>
+            </div>
+            <div class="hero-scroll" aria-hidden="true">
+                <span class="scroll-text">Scroll</span>
+                <svg class="scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Selected Work -->
+        <section class="section work" id="work" aria-labelledby="work-title">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 id="work-title" class="section-title">Selected Work</h2>
+                    <p class="section-subtitle">Projetos completos de front-end demonstrando domínio de HTML, CSS e JavaScript puro</p>
+                </header>
+
+                <div class="work-grid">
+                    <!-- Project 1: Papitos -->
+                    <article class="work-item" data-project="papitos">
+                        <div class="work-number">01</div>
+                        <div class="work-content">
+                            <header class="work-header">
+                                <span class="work-category">Web App / E-commerce</span>
+                                <h3 class="work-title">Papitos — Hamburgueria</h3>
+                            </header>
+                            <p class="work-desc">Site completo de pedidos online com cardápio digital, carrinho persistente, combos promocionais, cálculo de frete e finalização de pedido. Foco em UX de compra rápida e intuitiva.</p>
+                            <div class="work-techs">
+                                <span class="tag"><i class="devicon-html5-plain colored"></i> HTML5</span>
+                                <span class="tag"><i class="devicon-css3-plain colored"></i> CSS3</span>
+                                <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+                                <span class="tag">LocalStorage</span>
+                            </div>
+                            <div class="work-preview">
+                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&h=600&fit=crop" alt="Preview do Papitos - hamburgueria" loading="lazy">
+                            </div>
+                            <div class="work-links">
+                                <a href="projetos/papitos/index.html" class="link-btn">Ver projeto</a>
+                                <a href="https://github.com/Japapaz696/curriculo/tree/main/projetos/papitos" target="_blank" rel="noopener" class="link-btn link-btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Seu Manoel -->
+                    <article class="work-item" data-project="seu-manoel">
+                        <div class="work-number">02</div>
+                        <div class="work-content">
+                            <header class="work-header">
+                                <span class="work-category">Web Platform / Agendamento</span>
+                                <h3 class="work-title">Seu Manoel — Barbearia & Agendamento</h3>
+                            </header>
+                            <p class="work-desc">Sistema de agendamento em 4 passos: serviço, profissional, data/horário e confirmação. Bloqueio automático de horários ocupados, histórico local e interface focada em praticidade.</p>
+                            <div class="work-techs">
+                                <span class="tag"><i class="devicon-html5-plain colored"></i> HTML5</span>
+                                <span class="tag"><i class="devicon-css3-plain colored"></i> CSS3</span>
+                                <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+                                <span class="tag">LocalStorage</span>
+                            </div>
+                            <div class="work-preview">
+                                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1200&h=600&fit=crop" alt="Preview do Seu Manoel - barbearia" loading="lazy">
+                            </div>
+                            <div class="work-links">
+                                <a href="projetos/seu-manoel/index.html" class="link-btn">Ver projeto</a>
+                                <a href="https://github.com/Japapaz696/curriculo/tree/main/projetos/seu-manoel" target="_blank" rel="noopener" class="link-btn link-btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Beauty Store -->
+                    <article class="work-item" data-project="beauty-store">
+                        <div class="work-number">03</div>
+                        <div class="work-content">
+                            <header class="work-header">
+                                <span class="work-category">E-commerce / Front-end</span>
+                                <h3 class="work-title">Beauty Store — Cosméticos & Beleza</h3>
+                            </header>
+                            <p class="work-desc">E-commerce completo com catálogo, filtros, busca, página de detalhes com avaliações, favoritos, carrinho, cupons, cálculo de frete por CEP e checkout simulado.</p>
+                            <div class="work-techs">
+                                <span class="tag"><i class="devicon-html5-plain colored"></i> HTML5</span>
+                                <span class="tag"><i class="devicon-css3-plain colored"></i> CSS3</span>
+                                <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+                                <span class="tag">LocalStorage</span>
+                            </div>
+                            <div class="work-preview">
+                                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&h=600&fit=crop" alt="Preview da Beauty Store - cosméticos" loading="lazy">
+                            </div>
+                            <div class="work-links">
+                                <a href="projetos/beauty-store/index.html" class="link-btn">Ver projeto</a>
+                                <a href="https://github.com/Japapaz696/curriculo/tree/main/projetos/beauty-store" target="_blank" rel="noopener" class="link-btn link-btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Sobre -->
-        <section id="sobre" class="section section-alt">
+        <!-- Creative Lab -->
+        <section class="section creative-lab" id="creative-lab" aria-labelledby="creative-title">
             <div class="container">
-                <h2 class="section-title">Sobre Mim</h2>
-                <p class="section-subtitle">Conheça minha trajetória e objetivos profissionais</p>
+                <header class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 id="creative-title" class="section-title">Creative Lab</h2>
+                    <p class="section-subtitle">Motion, publicidade e entretenimento</p>
+                </header>
 
-                <div class="sobre-grid">
-                    <div class="sobre-card sobre-card-destaque">
-                        <h3>Dados Pessoais</h3>
-                        <ul class="dados-pessoais">
-                            <li><strong>Cidade:</strong> Belo Horizonte, MG</li>
-                            <li><strong>País:</strong> Brasil</li>
-                            <li><strong>Telefone:</strong> (31) 97340-3545</li>
-                            <li><strong>E-mail:</strong> lucaspaz696@gmail.com</li>
-                        </ul>
-                    </div>
-
-                    <div class="sobre-card">
-                        <h3>Perfil Profissional</h3>
-                        <p>Durante meu estágio em Logística na <strong>Pirelli</strong>, participei de processos de gerenciamento de estoque e distribuição, entendendo a importância da eficiência operacional em grandes empresas. Essa experiência me deu visão prática de como otimizar fluxos e apoiar resultados concretos.</p>
-                        <p>Atuando como <strong>Vistoriador Veicular</strong>, realizei mais de 15.000 vistorias, garantindo conformidade e segurança para clientes e órgãos como o DETRAN. Esse trabalho desenvolveu minha atenção a detalhes, responsabilidade e capacidade de análise técnica.</p>
-                        <p>No campo da tecnologia, estou cursando <strong>Análise e Desenvolvimento de Sistemas</strong> e complementando com cursos de HTML, CSS e JavaScript, nos quais desenvolvi páginas web responsivas e adquiri domínio em lógica de programação.</p>
-                        <p>Meus principais pontos fortes: <strong>comprometimento, resiliência, pensamento crítico, organização</strong> e <strong>capacidade de adaptação</strong> para aprender novas tecnologias rapidamente.</p>
-                    </div>
-
-                    <div class="sobre-card">
-                        <h3>Objetivo Profissional</h3>
-                        <p>Atuar na área de <strong>Tecnologia da Informação</strong>, com foco em <strong>desenvolvimento de sistemas e soluções web</strong>.</p>
-                        <p>Busco uma oportunidade que me permita aplicar os conhecimentos adquiridos na graduação em Análise e Desenvolvimento de Sistemas e em cursos complementares de HTML, CSS e JavaScript, além de continuar evoluindo tecnicamente.</p>
-                        <p>Pretendo contribuir com o crescimento da empresa por meio de dedicação, aprendizado contínuo e inovação, enquanto avanço na minha carreira e consolido minhas competências na área de tecnologia.</p>
-                    </div>
-
-                    <div class="sobre-card">
-                        <h3>Idiomas</h3>
-                        <div class="idioma-item">
-                            <span class="idioma-nome">Inglês</span>
-                            <span class="idioma-nivel">Pré-Intermediário</span>
-                            <div class="idioma-barra">
-                                <div class="idioma-progresso" style="width: 40%;"></div>
+                <div class="lab-grid">
+                    <!-- NEXA -->
+                    <article class="lab-item lab-nexa" data-video="nexa">
+                        <div class="lab-header">
+                            <span class="lab-number">01</span>
+                            <div class="lab-meta">
+                                <h3 class="lab-title">NEXA</h3>
+                                <span class="lab-category">Business / Product Motion</span>
                             </div>
+                        </div>
+                        <div class="lab-video-wrapper">
+                            <video id="nexa-video" class="lab-video"
+                                   src="assets/ai-creative-lab/projeto-01/video/NEXA.mp4"
+                                   muted
+                                   playsinline
+                                   loop
+                                   preload="metadata"
+                                   aria-label="NEXA - Business Intelligence dashboard animation">
+                            </video>
+                            <button type="button" class="lab-play" aria-label="Reproduzir NEXA" aria-controls="nexa-video">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                                    <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.5"/>
+                                    <polygon points="18,14 18,34 34,24" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="lab-desc">Conceito visual para dashboards de Business Intelligence. Explora métricas em tempo real, visualização de dados complexos e estética corporativa sofisticada para produtos enterprise.</p>
+                    </article>
+
+                    <!-- PULSE -->
+                    <article class="lab-item lab-pulse" data-video="pulse">
+                        <div class="lab-header">
+                            <span class="lab-number">02</span>
+                            <div class="lab-meta">
+                                <h3 class="lab-title">PULSE</h3>
+                                <span class="lab-category">Creative Product Campaign</span>
+                            </div>
+                        </div>
+                        <div class="lab-video-wrapper">
+                            <video id="pulse-video" class="lab-video"
+                                   src="assets/ai-creative-lab/projeto-01/video/PULSE.mp4"
+                                   muted
+                                   playsinline
+                                   loop
+                                   preload="metadata"
+                                   aria-label="PULSE - Sneaker product campaign animation">
+                            </video>
+                            <button type="button" class="lab-play" aria-label="Reproduzir PULSE" aria-controls="pulse-video">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                                    <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.5"/>
+                                    <polygon points="18,14 18,34 34,24" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="lab-desc">Campanha conceitual de produto explorando motion design, kinetic typography e direção visual. Tênis como protagonista em narrativa visual dinâmica e colorida.</p>
+                    </article>
+
+                    <!-- VOID CLASH -->
+                    <article class="lab-item lab-void" data-video="void">
+                        <div class="lab-header">
+                            <span class="lab-number">03</span>
+                            <div class="lab-meta">
+                                <h3 class="lab-title">VOID CLASH</h3>
+                                <span class="lab-category">Entertainment Animation</span>
+                            </div>
+                        </div>
+                        <div class="lab-video-wrapper">
+                            <video id="void-video" class="lab-video"
+                                   src="assets/ai-creative-lab/projeto-01/video/VOID%20CLASH.mp4"
+                                   muted
+                                   playsinline
+                                   loop
+                                   preload="metadata"
+                                   aria-label="VOID CLASH - Anime-style action animation">
+                            </video>
+                            <button type="button" class="lab-play" aria-label="Reproduzir VOID CLASH" aria-controls="void-video">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                                    <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.5"/>
+                                    <polygon points="18,14 18,34 34,24" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="lab-desc">Animação de entretenimento com estética anime. Cena de ação coreografada, efeitos visuais cinematográficos e direção de arte focada em impacto visual narrativo.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section about" id="about" aria-labelledby="about-title">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 id="about-title" class="section-title">About</h2>
+                </header>
+
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Estudante de Análise e Desenvolvimento de Sistemas (4º período) no Centro Universitário Newton Paiva. Atualmente estagiário de Suporte Técnico na Teknisa, trabalhando com SQL, atendimento e SLA.</p>
+                        <p>Experiência prévia como Vistoriador Veicular (15.000+ vistorias em 2 anos) e Estagiário de Logística na Pirelli. Essa bagagem trouxe disciplina, atenção a detalhes e visão de processos.</p>
+                        <p>No desenvolvimento, foco em front-end vanilla (HTML, CSS, JavaScript), automação com n8n, APIs e webhooks. Busco unir engenharia de software com direção visual — daí o Creative Lab.</p>
+                    </div>
+                    <div class="about-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Base</span>
+                            <span class="meta-value">Belo Horizonte, MG</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Formação</span>
+                            <span class="meta-value">ADS — 4º período</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Atual</span>
+                            <span class="meta-value">Estagiário Teknisa</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Inglês</span>
+                            <span class="meta-value">Pré-Intermediário</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experiência Profissional -->
-        <section id="experiencia" class="section">
+        <!-- Experience -->
+        <section class="section experience" id="experience" aria-labelledby="exp-title">
             <div class="container">
-                <h2 class="section-title">Experiência Profissional</h2>
-                <p class="section-subtitle">Minha trajetória no mercado de trabalho</p>
+                <header class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 id="exp-title" class="section-title">Experience</h2>
+                </header>
 
                 <div class="timeline">
-                    <!-- Teknisa -->
                     <article class="timeline-item">
-                        <div class="timeline-marker"></div>
+                        <div class="timeline-marker" aria-hidden="true"></div>
                         <div class="timeline-content">
-                            <div class="timeline-header">
+                            <header class="timeline-header">
                                 <h3>Estagiário de Suporte Técnico</h3>
-                                <span class="timeline-empresa">Teknisa</span>
-                                <span class="timeline-periodo">Jan/2026 — Presente</span>
-                            </div>
-                            <p class="timeline-local">Belo Horizonte, MG</p>
-                            <ul class="timeline-atividades">
-                                <li>Suporte e atendimento a clientes via chat, e-mail e telefone para esclarecimento de dúvidas e resolução de problemas</li>
-                                <li>Registro e acompanhamento de todos os atendimentos no sistema interno, garantindo rastreabilidade e SLA</li>
-                                <li>Tramitação e liberação de solicitações de clientes, controle de indicadores de tempo médio de resposta e conclusão</li>
-                                <li>Consultas em base de dados <strong>SQL</strong> para investigação e resolução de ocorrências técnicas</li>
-                                <li>Participação em treinamentos contínuos sobre produtos e soluções Teknisa (software de gestão)</li>
+                                <span class="timeline-company">Teknisa</span>
+                                <time class="timeline-period" datetime="2026-01">Jan 2026 — Presente</time>
+                            </header>
+                            <p class="timeline-location">Belo Horizonte, MG</p>
+                            <ul class="timeline-activities">
+                                <li>Suporte a clientes via chat, e-mail e telefone; gestão de SLA e indicadores</li>
+                                <li>Consultas SQL para investigação e resolução de ocorrências técnicas</li>
+                                <li>Registro e rastreabilidade de atendimentos no sistema interno</li>
+                                <li>Treinamentos contínuos em software de gestão empresarial</li>
                             </ul>
                         </div>
                     </article>
 
-                    <!-- Newcity Car -->
                     <article class="timeline-item">
-                        <div class="timeline-marker"></div>
+                        <div class="timeline-marker" aria-hidden="true"></div>
                         <div class="timeline-content">
-                            <div class="timeline-header">
+                            <header class="timeline-header">
                                 <h3>Vistoriador Veicular</h3>
-                                <span class="timeline-empresa">Newcity Car</span>
-                                <span class="timeline-periodo">Jan/2024 — Dez/2025</span>
-                            </div>
-                            <p class="timeline-local">Belo Horizonte, MG</p>
-                            <ul class="timeline-atividades">
-                                <li>Realização de <strong>mais de 15.000 vistorias</strong> em 2 anos (DETRAN e cautelares)</li>
-                                <li>Análise técnica e documental de veículos, verificação de conformidade e identificação de irregularidades</li>
-                                <li>Garantia de segurança e qualidade nos processos de compra, venda e transferência veicular</li>
-                                <li>Desenvolvimento de atenção aos detalhes, responsabilidade, organização e compromisso com normas</li>
-                                <li>Atuação direta com órgãos reguladores (DETRAN) e documentação veicular</li>
+                                <span class="timeline-company">Newcity Car</span>
+                                <time class="timeline-period" datetime="2024-01">Jan 2024 — Dez 2025</time>
+                            </header>
+                            <p class="timeline-location">Belo Horizonte, MG</p>
+                            <ul class="timeline-activities">
+                                <li>15.000+ vistorias (DETRAN e cautelares) em 2 anos</li>
+                                <li>Análise técnica e documental, conformidade e segurança veicular</li>
+                                <li>Atuação direta com órgãos reguladores e documentação</li>
                             </ul>
                         </div>
                     </article>
 
-                    <!-- Pirelli -->
                     <article class="timeline-item">
-                        <div class="timeline-marker"></div>
+                        <div class="timeline-marker" aria-hidden="true"></div>
                         <div class="timeline-content">
-                            <div class="timeline-header">
+                            <header class="timeline-header">
                                 <h3>Estagiário de Logística</h3>
-                                <span class="timeline-empresa">Pirelli</span>
-                                <span class="timeline-periodo">Jan/2021 — Ago/2021</span>
-                            </div>
-                            <p class="timeline-local">Contagem, MG</p>
-                            <ul class="timeline-atividades">
-                                <li>Controle e organização de estoque no setor de vendas de pneus</li>
-                                <li>Acompanhamento de pedidos e suporte às rotinas administrativas e operacionais</li>
-                                <li>Atendimento interno e compreensão do fluxo logístico em empresa de grande porte</li>
-                                <li>Desenvolvimento de organização, responsabilidade e trabalho em equipe</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Habilidades Office - Exemplos Práticos -->
-                <div class="office-skills">
-                    <h3>Pacote Office — Exemplos Práticos do Dia a Dia Corporativo</h3>
-                    <p class="office-intro">Domínio intermediário com aplicação real em ambientes corporativos:</p>
-
-                    <div class="office-grid">
-                        <div class="office-card">
-                            <div class="office-front">
-                                <div class="office-icon">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/732/732220.png" alt="Excel">
-                                </div>
-                                <h4>Excel</h4>
-                                <ul>
-                                    <li><strong>Tabelas Dinâmicas:</strong> Resumo de grandes volumes de dados para relatórios gerenciais</li>
-                                    <li><strong>PROCV/PROCX/ÍNDICE+CORRESP:</strong> Busca e cruzamento de dados entre planilhas</li>
-                                    <li><strong>Dashboards:</strong> Criação de painéis visuais com gráficos, segmentadores e KPIs</li>
-                                    <li><strong>Power Query:</strong> Importação, limpeza e transformação automática de dados</li>
-                                    <li><strong>Validação de dados:</strong> Listas suspensas, regras de entrada para padronização</li>
-                                    <li><strong>Formatação condicional:</strong> Alertas visuais para metas, prazos, desvios</li>
-                                </ul>
-                            </div>
-                            <div class="office-back" aria-hidden="true">
-                                <div class="demo-window">
-                                    <div class="demo-titlebar"><span></span><span></span><span></span><em>vendas_2026.xlsx</em></div>
-                                    <div class="demo-formula"><i>fx</i> <b>=SOMASE(B:B;"Norte";C:C)</b></div>
-                                    <div class="demo-sheet">
-                                        <div class="row head col4"><i>A</i><i>B — Região</i><i>C — Vendas</i><i>D — Meta</i></div>
-                                        <div class="row col4"><i>1</i><i>Norte</i><i>R$ 45.200</i><i class="ok">✓ 102%</i></div>
-                                        <div class="row col4"><i>2</i><i>Sul</i><i>R$ 31.800</i><i class="warn">⚠ 87%</i></div>
-                                        <div class="row col4"><i>3</i><i>Leste</i><i>R$ 52.400</i><i class="ok">✓ 118%</i></div>
-                                        <div class="row col4"><i>4</i><i>Oeste</i><i>R$ 27.900</i><i class="bad">✕ 71%</i></div>
-                                        <div class="row total col4"><i></i><i>TOTAL GERAL</i><i colspan="2">R$ 157.300</i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="office-card">
-                            <div class="office-front">
-                                <div class="office-icon">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/732/732233.png" alt="Word">
-                                </div>
-                                <h4>Word</h4>
-                                <ul>
-                                    <li><strong>Relatórios formais:</strong> Estruturação, sumário automático, numeração de capítulos</li>
-                                    <li><strong>Formatação ABNT/ABNT2:</strong> Trabalhos acadêmicos, normas técnicas</li>
-                                    <li><strong>Mesclagem de correspondência:</strong> Cartas, etiquetas, contratos em lote</li>
-                                    <li><strong>Templates corporativos:</strong> Criação de modelos padronizados com estilos, cabeçalhos/rodapés</li>
-                                    <li><strong>Controle de alterações:</strong> Revisão colaborativa, comentários, comparação de versões</li>
-                                </ul>
-                            </div>
-                            <div class="office-back" aria-hidden="true">
-                                <div class="demo-window">
-                                    <div class="demo-titlebar"><span></span><span></span><span></span><em>relatorio_2026.docx</em></div>
-                                    <div class="demo-doc">
-                                        <h5>1. Introdução</h5>
-                                        <p class="type-line" style="--w:96%">Este relatório apresenta os resultados do primeiro semestre de 2026,</p>
-                                        <p class="type-line" style="--w:92%">com análise de vendas, indicadores operacionais e projeções.</p>
-                                        <p class="type-line" style="--w:60%">Os dados foram consolidados via Power Query.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="office-card">
-                            <div class="office-front">
-                                <div class="office-icon">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/732/732248.png" alt="PowerPoint">
-                                </div>
-                                <h4>PowerPoint</h4>
-                                <ul>
-                                    <li><strong>Apresentações executivas:</strong> Storytelling com dados, hierarquia visual clara</li>
-                                    <li><strong>Dashboards em slides:</strong> Gráficos vinculados ao Excel, atualização automática</li>
-                                    <li><strong>Templates mestres:</strong> Slide master, layouts corporativos, identidade visual</li>
-                                    <li><strong>Animações sutis:</strong> Transições profissionais, foco no conteúdo</li>
-                                    <li><strong>Exportação:</strong> PDF interativo, vídeo, pacote de apresentação</li>
-                                </ul>
-                            </div>
-                            <div class="office-back" aria-hidden="true">
-                                <div class="demo-window">
-                                    <div class="demo-titlebar"><span></span><span></span><span></span><em>apresentacao_resultados.pptx</em></div>
-                                    <div class="ppt-stage">
-                                        <!-- Slide 1: capa -->
-                                        <div class="ppt-slide" style="text-align:center; padding-top:22px;">
-                                            <p style="font-size:0.55rem; color:#06b6d4; letter-spacing:2px; margin-bottom:4px;">RELATÓRIO ANUAL</p>
-                                            <h5 style="font-size:0.85rem; color:#1a1a25;">Resultados 2026</h5>
-                                            <p style="font-size:0.58rem; color:#6b6b80; margin-top:4px;">Diretoria Comercial • Lucas S. Paz</p>
-                                        </div>
-                                        <!-- Slide 2: indicadores -->
-                                        <div class="ppt-slide">
-                                            <div class="slide-title">📈 Indicadores-chave</div>
-                                            <div class="slide-bullet">Receita cresceu pelo 3º trimestre seguido</div>
-                                            <div class="slide-kpi">
-                                                <div class="kpi-box"><b>+18%</b><span>Receita</span></div>
-                                                <div class="kpi-box"><b>96%</b><span>Meta</span></div>
-                                                <div class="kpi-box"><b>-12%</b><span>Custos</span></div>
-                                            </div>
-                                        </div>
-                                        <!-- Slide 3: gráfico -->
-                                        <div class="ppt-slide">
-                                            <div class="slide-title">Vendas por trimestre</div>
-                                            <div class="demo-chart">
-                                                <div class="bar b1"></div>
-                                                <div class="bar b2"></div>
-                                                <div class="bar b3"></div>
-                                                <div class="bar b4"></div>
-                                            </div>
-                                        </div>
-                                        <div class="ppt-dots"><i></i><i></i><i></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="office-card">
-                            <div class="office-front">
-                                <div class="office-icon">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/732/732223.png" alt="Outlook">
-                                </div>
-                                <h4>Outlook & Teams</h4>
-                                <ul>
-                                    <li><strong>Gestão de agenda:</strong> Compromissos recorrentes, salas, fusos horários</li>
-                                    <li><strong>Regras e automações:</strong> Organização automática de e-mails por pastas/categorias</li>
-                                    <li><strong>Compartilhamento de calendários:</strong> Disponibilidade da equipe, agendamento eficiente</li>
-                                    <li><strong>Teams:</strong> Canais, reuniões, compartilhamento de arquivos no SharePoint</li>
-                                    <li><strong>Tarefas/Planner:</strong> Acompanhamento de demandas, prazos e responsáveis</li>
-                                </ul>
-                            </div>
-                            <div class="office-back" aria-hidden="true">
-                                <div class="demo-window">
-                                    <div class="demo-titlebar"><span></span><span></span><span></span><em>Caixa de Entrada</em></div>
-                                    <div class="demo-mail">
-                                        <div class="mail-row unread"><span class="dot"></span><b>Equipe TI</b> Reunião às 14h <time>09:12</time></div>
-                                        <div class="mail-row unread"><span class="dot"></span><b>RH</b> Contracheque disponível <time>08:40</time></div>
-                                        <div class="mail-row"><b>Financeiro</b> Nota fiscal aprovada <time>Ontem</time></div>
-                                        <div class="mail-row"><b>Suporte</b> Chamado #4521 resolvido <time>Ontem</time></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Formação Acadêmica -->
-        <section id="formacao" class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">Formação Acadêmica</h2>
-                <p class="section-subtitle">Minha jornada de aprendizado</p>
-
-                <div class="timeline">
-                    <article class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Análise e Desenvolvimento de Sistemas</h3>
-                                <span class="timeline-empresa">Graduação</span>
-                                <span class="timeline-periodo">4º Período • Cursando</span>
-                            </div>
-                            <p class="formacao-info">
-                                <strong>Instituição:</strong> Centro Universitário Newton Paiva — Wyden<br>
-                                <strong>Polo:</strong> Newton Paiva — Caiçaras — Belo Horizonte, MG<br>
-                                <strong>Turno:</strong> Noite
-                            </p>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.75rem;">Conteúdo programático em desenvolvimento:</p>
-                            <ul class="timeline-atividades">
-                                <li>Lógica de programação e algoritmos</li>
-                                <li>Desenvolvimento web (HTML, CSS, JavaScript)</li>
-                                <li>Banco de dados e SQL</li>
-                                <li>Engenharia de software e boas práticas</li>
-                                <li>Análise de requisitos e resolução de problemas</li>
+                                <span class="timeline-company">Pirelli</span>
+                                <time class="timeline-period" datetime="2021-01">Jan 2021 — Ago 2021</time>
+                            </header>
+                            <p class="timeline-location">Contagem, MG</p>
+                            <ul class="timeline-activities">
+                                <li>Controle de estoque e acompanhamento de pedidos no setor de vendas</li>
+                                <li>Suporte a rotinas administrativas e operacionais</li>
+                                <li>Visão de fluxo logístico em empresa de grande porte</li>
                             </ul>
                         </div>
                     </article>
@@ -379,250 +361,128 @@
             </div>
         </section>
 
-        <!-- Projetos -->
-        <section id="projetos" class="section">
+        <!-- Capabilities / Stack -->
+        <section class="section capabilities" id="capabilities" aria-labelledby="cap-title">
             <div class="container">
-                <h2 class="section-title">Projetos</h2>
-                <p class="section-subtitle">Aplicações web completas demonstrando diferentes habilidades de front-end</p>
-                <div class="projects-grid">
+                <header class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 id="cap-title" class="section-title">Capabilities</h2>
+                    <p class="section-subtitle">Tecnologias e ferramentas que uso no dia a dia</p>
+                </header>
 
-                    <!-- Projeto 1: Papitos Hamburgueria -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=400&fit=crop" alt="Papitos Hamburgueria">
-                        </div>
-                        <h3 class="project-title">Papitos — Hamburgueria</h3>
-                        <p class="project-desc">
-                            Site completo para pedidos online de uma hamburgueria, desenvolvido com foco em uma experiência de compra rápida e intuitiva. Possui cardápio digital, categorias de produtos, personalização dos pedidos, carrinho de compras, cálculo do total, escolha entre delivery e retirada e finalização do pedido.
-                        </p>
-                        <div class="project-techs">
-                            <span class="tag"><i class="devicon-html5-plain colored"></i> HTML5</span>
-                            <span class="tag"><i class="devicon-css3-plain colored"></i> CSS3</span>
-                            <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
-                            <span class="tag">LocalStorage</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="projetos/papitos/index.html" class="link-btn">Ver projeto ↗</a>
-                            <a href="https://github.com/Japapaz696/curriculo/tree/main/projetos/papitos" target="_blank" rel="noopener" class="link-btn link-btn-secondary"><i class="devicon-github-original"></i> Código</a>
-                        </div>
-                    </article>
-
-                    <!-- Projeto 2: Seu Manoel — Barbearia & Agendamento -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&h=400&fit=crop" alt="Seu Manoel Barbearia">
-                        </div>
-                        <h3 class="project-title">Seu Manoel — Barbearia &amp; Agendamento</h3>
-                        <p class="project-desc">
-                            Aplicação web para gerenciamento de agendamentos de uma barbearia, permitindo que clientes consultem os serviços disponíveis, escolham o profissional, selecionem data e horário e confirmem seu atendimento. Interface desenvolvida com foco em praticidade, organização e experiência do usuário.
-                        </p>
-                        <div class="project-techs">
-                            <span class="tag"><i class="devicon-html5-plain colored"></i> HTML5</span>
-                            <span class="tag"><i class="devicon-css3-plain colored"></i> CSS3</span>
-                            <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
-                            <span class="tag">LocalStorage</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="projetos/seu-manoel/index.html" class="link-btn">Ver projeto ↗</a>
-                            <a href="https://github.com/Japapaz696/curriculo/tree/main/projetos/seu-manoel" target="_blank" rel="noopener" class="link-btn link-btn-secondary"><i class="devicon-github-original"></i> Código</a>
-                        </div>
-                    </article>
-
-                    <!-- Projeto 3: Beauty Store — Cosméticos -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=400&fit=crop" alt="Beauty Store Cosméticos">
-                        </div>
-                        <h3 class="project-title">Beauty Store — Cosméticos &amp; Beleza</h3>
-                        <p class="project-desc">
-                            E-commerce de cosméticos desenvolvido para proporcionar uma experiência completa de compra online. A aplicação conta com catálogo de produtos, categorias, busca, filtros, página de detalhes, avaliações, favoritos, carrinho de compras, cálculo de frete, cupons e checkout simulado.
-                        </p>
-                        <div class="project-techs">
-                            <span class="tag"><i class="devicon-html5-plain colored"></i> HTML5</span>
-                            <span class="tag"><i class="devicon-css3-plain colored"></i> CSS3</span>
-                            <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
-                            <span class="tag">LocalStorage</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="projetos/beauty-store/index.html" class="link-btn">Ver projeto ↗</a>
-                            <a href="https://github.com/Japapaz696/curriculo/tree/main/projetos/beauty-store" target="_blank" rel="noopener" class="link-btn link-btn-secondary"><i class="devicon-github-original"></i> Código</a>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Habilidades -->
-        <section id="habilidades" class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">Habilidades</h2>
-                <p class="section-subtitle">Tecnologias que estou estudando e usando</p>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3><i class="devicon-html5-plain colored"></i> Front-end</h3>
+                <div class="cap-grid">
+                    <div class="cap-category">
+                        <h3>Front-end</h3>
                         <ul>
-                            <li><i class="devicon-html5-plain colored"></i> HTML5</li>
-                            <li><i class="devicon-css3-plain colored"></i> CSS3</li>
-                            <li><i class="devicon-javascript-plain colored"></i> JavaScript</li>
+                            <li>HTML5 <span class="cap-note">semântico, acessível</span></li>
+                            <li>CSS3 <span class="cap-note">Grid, Flexbox, custom props, animações</span></li>
+                            <li>JavaScript (ES6+) <span class="cap-note">DOM, APIs, módulos, LocalStorage</span></li>
+                            <li>React <span class="cap-note">componentes, hooks, state</span></li>
                         </ul>
                     </div>
-                    <div class="skill-category">
-                        <h3><i class="devicon-java-plain colored"></i> Back-end &amp; Dados</h3>
+                    <div class="cap-category">
+                        <h3>Back-end & Dados</h3>
                         <ul>
-                            <li><i class="devicon-java-plain colored"></i> Java</li>
-                            <li><i class="devicon-mysql-plain colored"></i> SQL (consultas em base de dados)</li>
-                            <li><i class="devicon-logos-database-plain"></i> Lógica de programação</li>
+                            <li>Node.js <span class="cap-note">Express, APIs REST</span></li>
+                            <li>SQL <span class="cap-note">queries, joins, índices, procedures</span></li>
+                            <li>PostgreSQL / SQL Server</li>
                         </ul>
                     </div>
-                    <div class="skill-category">
-                        <h3><img src="https://cdn-icons-png.flaticon.com/512/732/732220.png" alt="Office" class="skill-header-icon"> Pacote Office</h3>
+                    <div class="cap-category">
+                        <h3>Automation & IA</h3>
                         <ul>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/732/732220.png" alt="Excel" class="skill-icon-sm"> Excel (tabelas dinâmicas, PROCV, dashboards)</li>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/732/732233.png" alt="Word" class="skill-icon-sm"> Word (relatórios, ABNT)</li>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/732/732248.png" alt="PowerPoint" class="skill-icon-sm"> PowerPoint (apresentações executivas)</li>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/732/732223.png" alt="Outlook" class="skill-icon-sm"> Outlook &amp; Teams</li>
+                            <li>n8n <span class="cap-note">workflows, webhooks, integrações</span></li>
+                            <li>APIs REST / GraphQL</li>
+                            <li>Webhooks & Event-driven</li>
+                            <li>Prompt Engineering</li>
                         </ul>
                     </div>
-                    <div class="skill-category">
-                        <h3><i class="devicon-git-plain colored"></i> Ferramentas</h3>
+                    <div class="cap-category">
+                        <h3>Tools & Workflow</h3>
                         <ul>
-                            <li><i class="devicon-git-plain colored"></i> Git &amp; <i class="devicon-github-original"></i> GitHub</li>
-                            <li><i class="devicon-vscode-plain colored"></i> VS Code</li>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/3503/3503827.png" alt="Suporte" class="skill-icon-sm"> Sistemas de atendimento/ticketing</li>
+                            <li>Git & GitHub</li>
+                            <li>VS Code</li>
+                            <li>Figma (básico)</li>
+                            <li>Chrome DevTools</li>
                         </ul>
                     </div>
-                    <div class="skill-category">
-                        <h3><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Competências" class="skill-header-icon"> Competências</h3>
+                    <div class="cap-category">
+                        <h3>Creative & Motion</h3>
                         <ul>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Comunicação" class="skill-icon-sm"> Comunicação</li>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/3176/3176295.png" alt="Organização" class="skill-icon-sm"> Organização</li>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/166/166538.png" alt="Equipe" class="skill-icon-sm"> Trabalho em equipe</li>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/3135/3135698.png" alt="Análise" class="skill-icon-sm"> Análise crítica</li>
+                            <li>After Effects (conceitos)</li>
+                            <li>Premiere Pro (edição)</li>
+                            <li>Motion Design principles</li>
+                            <li>Video optimization para web</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Cursos Complementares -->
-        <section id="cursos" class="section section-alt">
+        <!-- Contact -->
+        <section class="section contact" id="contact" aria-labelledby="contact-title">
             <div class="container">
-                <h2 class="section-title">Cursos Complementares</h2>
-                <p class="section-subtitle">Aprimoramento contínuo fora da graduação</p>
+                <header class="section-header">
+                    <span class="section-number">06</span>
+                    <h2 id="contact-title" class="section-title">Contact</h2>
+                    <p class="section-subtitle">Disponível para oportunidades e colaborações</p>
+                </header>
 
-                <div class="cursos-grid">
-                    <article class="curso-card">
-                        <div class="curso-icon">
-                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop" alt="Análise e Desenvolvimento de Software">
-                        </div>
-                        <h3>Análise e Desenvolvimento de Software</h3>
-                        <p class="curso-local">Belo Horizonte</p>
-                        <p class="curso-periodo">Janeiro de 2024</p>
-                        <p class="curso-desc">
-                            Foco no desenvolvimento de software e soluções tecnológicas. Estudo de lógica de programação, algoritmos, desenvolvimento web, banco de dados, engenharia de software e fundamentos de sistemas. Contato com linguagens e tecnologias voltadas à criação de aplicações, além de práticas de resolução de problemas, análise de requisitos e boas práticas de programação.
-                        </p>
-                    </article>
-
-                    <article class="curso-card">
-                        <div class="curso-icon">
-                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=300&fit=crop" alt="HTML5 e CSS3">
-                        </div>
-                        <h3>HTML5 &amp; CSS3</h3>
-                        <p class="curso-local">Online / Autodidata</p>
-                        <p class="curso-periodo">Em constante evolução</p>
-                        <p class="curso-desc">
-                            Desenvolvimento de páginas web responsivas, com domínio de semântica HTML, layouts modernos com Flexbox e Grid, animações e design adaptável para diferentes dispositivos.
-                        </p>
-                    </article>
-
-                    <article class="curso-card">
-                        <div class="curso-icon">
-                            <img src="https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=400&h=300&fit=crop" alt="JavaScript">
-                        </div>
-                        <h3>JavaScript</h3>
-                        <p class="curso-local">Online / Autodidata</p>
-                        <p class="curso-periodo">Em constante evolução</p>
-                        <p class="curso-desc">
-                            Lógica de programação aplicada, manipulação do DOM, eventos, armazenamento local, consumo de APIs e construção de aplicações interativas no front-end.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Informações Adicionais -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Informações Adicionais</h2>
-                <p class="section-subtitle">Hobbies, interesses e diferenciais pessoais</p>
-
-                <div class="sobre-grid">
-                    <div class="sobre-card">
-                        <h3>Hobbies &amp; Interesses</h3>
-                        <ul class="hobbies-list">
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/2721/2721297.png" alt="Programação" class="hobby-icon"> Programação e desenvolvimento de projetos pessoais em HTML, CSS e JavaScript</li>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Leitura" class="hobby-icon"> Leitura sobre inovação tecnológica, empreendedorismo e Direito</li>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" alt="Esportes" class="hobby-icon"> Esportes, especialmente academia, como forma de manter disciplina e foco</li>
-                            <li><img src="https://cdn-icons-png.flaticon.com/512/3082/3082031.png" alt="Design" class="hobby-icon"> Design digital e criação de soluções criativas em software</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Contato -->
-        <section id="contato" class="section">
-            <div class="container">
-                <h2 class="section-title">Contato</h2>
-                <p class="section-subtitle">Vamos conversar? Me chama em um dos canais abaixo 👇</p>
                 <div class="contact-grid">
-                    <a href="mailto:lucaspaz696@gmail.com" class="contact-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="E-mail" class="contact-icon-img">
-                        <span class="contact-label">E-mail</span>
-                        <span class="contact-value">lucaspaz696@gmail.com</span>
+                    <a href="mailto:lucaspaz696@gmail.com" class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">✉</span>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">lucaspaz696@gmail.com</span>
+                        </div>
                     </a>
-                    <a href="tel:+5531973403545" class="contact-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Telefone" class="contact-icon-img">
-                        <span class="contact-label">Telefone</span>
-                        <span class="contact-value">(31) 97340-3545</span>
+                    <a href="https://www.linkedin.com/in/lucas-santana-da-paz-215816247/" target="_blank" rel="noopener" class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">in</span>
+                        <div>
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">lucas-santana-da-paz</span>
+                        </div>
                     </a>
-                    <a href="https://wa.me/5531973403545" target="_blank" rel="noopener" class="contact-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1383/1383261.png" alt="WhatsApp" class="contact-icon-img">
-                        <span class="contact-label">WhatsApp</span>
-                        <span class="contact-value">Enviar mensagem</span>
+                    <a href="https://github.com/Japapaz696" target="_blank" rel="noopener" class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">⌘</span>
+                        <div>
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">Japapaz696</span>
+                        </div>
                     </a>
-                    <a href="https://japapaz696.github.io/Repositorio-Curriculo/" target="_blank" rel="noopener" class="contact-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Portfólio" class="contact-icon-img">
-                        <span class="contact-label">Portfólio Online</span>
-                        <span class="contact-value">japapaz696.github.io</span>
-                    </a>
-                    <a href="https://github.com/Japapaz696" target="_blank" rel="noopener" class="contact-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" class="contact-icon-img">
-                        <span class="contact-label">GitHub</span>
-                        <span class="contact-value">github.com/Japapaz696</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/lucas-santana-da-paz-215816247/" target="_blank" rel="noopener" class="contact-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="contact-icon-img">
-                        <span class="contact-label">LinkedIn</span>
-                        <span class="contact-value">linkedin.com/in/lucas-santana-da-paz</span>
+                    <a href="https://wa.me/5531973403545" target="_blank" rel="noopener" class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">wa</span>
+                        <div>
+                            <span class="contact-label">WhatsApp</span>
+                            <span class="contact-value">(31) 97340-3545</span>
+                        </div>
                     </a>
                 </div>
-                <p class="contato-endereco">
-                    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="" class="info-icon-inline"> Belo Horizonte, MG — Brasil
-                </p>
+
+                <p class="contact-location">Belo Horizonte, MG — Brasil</p>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
         <div class="container">
-            <p>Feito com 💜 por Lucas — <span id="year"></span></p>
+            <p class="footer-copy">Lucas Santana da Paz</p>
+            <p class="footer-location">Belo Horizonte — MG</p>
+            <nav class="footer-nav" aria-label="Links do rodapé">
+                <a href="#work">Work</a>
+                <a href="#creative-lab">Creative Lab</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </footer>
 
-    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script src="script.js"></script>
 </body>
