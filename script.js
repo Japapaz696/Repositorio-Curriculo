@@ -95,12 +95,30 @@ document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click
 
 /* O QUE EU FAÇO — interativo */
 const services = [
-  { title: 'Desenvolvimento Web', desc: 'Sites responsivos, landing pages, sistemas e interfaces.', tech: 'HTML / CSS / JavaScript / React / Node.js' },
-  { title: 'Interfaces', desc: 'Experiência do usuário, design de interação e prototipação visual.', tech: 'Figma / CSS / Prototipagem' },
-  { title: 'IA & Automação', desc: 'Fluxos automáticos, integração de APIs e ferramentas de IA.', tech: 'Automação / IA generativa / Scripts' },
-  { title: 'Conteúdo Visual', desc: 'Vídeos, animações, elementos gráficos e experimentos digitais.', tech: 'Edição / Animação / Design' }
+  { title: 'Desenvolvimento Web', desc: 'Sites responsivos, landing pages, sistemas e interfaces.', tech: 'HTML / CSS / JavaScript / React / Node.js', demo: 'dashboard' },
+  { title: 'Interfaces', desc: 'Experiência do usuário, design de interação e prototipação visual.', tech: 'Figma / CSS / Prototipagem', demo: 'interface' },
+  { title: 'Suporte & SQL', desc: 'Suporte técnico, consulta a dados e acompanhamento de sistemas.', tech: 'SQL / Suporte / Sistemas', demo: 'sql' },
+  { title: 'IA Generativa', desc: 'Uso de IA para prototipagem, automação e criação de conteúdo.', tech: 'IA / Automação / Scripts', demo: 'ai' },
+  { title: 'Automação / Fluxos', desc: 'Fluxos automáticos, integração de APIs e ferramentas.', tech: 'Automação / APIs / Scripts', demo: 'flow' },
+  { title: 'Conteúdo Visual', desc: 'Vídeos, animações, elementos gráficos e experimentos digitais.', tech: 'Edição / Animação / Design', demo: 'visual' }
 ];
-function selectService(i) {
+function renderServiceDemo(i) {
+  const container = document.getElementById('service-demo');
+  const s = services[i];
+  if (!container) return;
+  const demoHtml = (function() {
+    const d = s.demo || 'dash';
+    if (d === 'sql') return '<div class="demo-grid"><div class="demo-card"><h4>Query SQL</h4><p>SELECT * FROM pedidos WHERE status = "aberto";</p><div class="demo-state">Estado: consultado (demo)</div></div></div>';
+    if (d === 'interface') return '<div class="demo-grid"><div class="demo-card"><h4>Interface</h4><p>Botão, campo, card — todos com contraste e foco.</p><div class="demo-state">Estado: renderizado</div></div></div>';
+    if (d === 'ai') return '<div class="demo-grid"><div class="demo-card"><h4>IA Generativa</h4><p>Prompt → protótipo visual. Sem código escrito.</p><div class="demo-state">Estado: gerado</div></div></div>';
+    if (d === 'flow') return '<div class="demo-grid"><div class="demo-card"><h4>Fluxo</h4><p>Trigger → ação → validação. Sem intervenção.</p><div class="demo-state">Estado: ativo</div></div></div>';
+    if (d === 'visual') return '<div class="demo-grid"><div class="demo-card"><h4>Visual</h4><p>Vídeo, movimento, cor. Sem framework.</p><div class="demo-state">Estado: exibido</div></div></div>';
+    return '<div class="demo-grid"><div class="demo-card"><h4>Dashboard</h4><p>Dados, filtros, total. Em tempo real.</p><div class="demo-state">Estado: ativo</div></div></div>';
+  })();
+  container.innerHTML = demoHtml;
+}
+
+/* function selectService(i) { */
   document.querySelectorAll('.service-btn').forEach((btn, idx) => btn.classList.toggle('active', idx === i) && btn.setAttribute('aria-pressed', idx === i ? 'true' : 'false'));
   const panel = document.getElementById('service-panel');
   panel.querySelector('#service-heading').textContent = services[i].title;
@@ -179,6 +197,8 @@ function showTech(btn, desc) {
 }
 
 /* Copiar email */
+document.getElementById('email-link').addEventListener('click', copyEmail);
+
 function copyEmail(e) {
   e.preventDefault();
   const val = 'lucaspaz696@gmail.com';
@@ -187,3 +207,63 @@ function copyEmail(e) {
     setTimeout(() => document.getElementById('email-feedback').textContent = 'Copiar', 2000);
   }).catch(() => document.getElementById('email-feedback').textContent = 'Não copiado');
 }
+
+document.querySelectorAll('.service-btn').forEach((btn, idx) => btn.addEventListener('click', () => selectService(idx)));
+selectService(0);
+
+
+/* Command Palette / Palette */
+const palette = document.getElementById('command-palette');
+const paletteInput = document.getElementById('palette-input');
+const paletteList = document.getElementById('palette-list');
+const paletteToggle = document.getElementById('palette-toggle');
+const paletteToggleBtn = document.querySelector('[data-open-palette]');
+const paletteBack = document.querySelector('[data-close-palette]');
+
+const paletteItems = [
+  { label: 'Projetos', href: '#projetos' },
+  { label: 'O que eu faço', href: '#o-que-faco' },
+  { label: 'Experiência', href: '#sobre' },
+  { label: 'Tecnologias', href: '#sobre' },
+  { label: 'IA', href: '#o-que-faco' },
+  { label: 'Experimentos', href: '#experimentos' },
+  { label: 'Contato', href: '#contato' },
+  { label: 'Tema', action: () => { themeToggle.click(); } }
+];
+
+function openPalette() {
+  if (!palette) return;
+  palette.hidden = false;
+  setTimeout(() => paletteInput.focus(), 50);
+  document.body.style.overflow = 'hidden';
+}
+function closePalette() {
+  if (!palette) return;
+  palette.hidden = true;
+  document.body.style.overflow = '';
+}
+function buildPaletteList(query) {
+  if (!paletteList) return;
+  const q = (query || '').toLowerCase().trim();
+  const items = paletteItems.filter(i => !q || i.label.toLowerCase().includes(q));
+  paletteList.innerHTML = items.map(i => `<li role="option"><button type="button" data-href="${i.href || ''}" data-action="${i.action ? 'action' : ''}">${i.label}</button></li>`).join('');
+  paletteList.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const href = btn.getAttribute('data-href');
+      const isAction = btn.getAttribute('data-action') === 'action';
+      closePalette();
+      if (isAction) { paletteItems.find(p=>p.label===btn.textContent.trim())?.action?.(); }
+      else if (href) { document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+}
+
+if (paletteToggle) paletteToggle.addEventListener('click', openPalette);
+if (paletteToggleBtn) paletteToggleBtn.addEventListener('click', openPalette);
+if (paletteBack) paletteBack.addEventListener('click', closePalette);
+if (paletteInput) paletteInput.addEventListener('input', () => buildPaletteList(paletteInput.value));
+document.addEventListener('keydown', (e) => {
+  if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); palette ? (palette.hidden ? openPalette() : closePalette()) : null; }
+  if (e.key === 'Escape') closePalette();
+});
+buildPaletteList('');
