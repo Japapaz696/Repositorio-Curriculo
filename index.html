@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Portfólio de Lucas Santana da Paz — Estudante de ADS e desenvolvedor web front-end.">
 <title>Lucas Santana da Paz | Portfólio</title>
 <link rel="stylesheet" href="style.css">
@@ -10,22 +11,35 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 <header class="navbar" role="banner">
 <div class="container nav-inner">
 <a href="#" class="logo" aria-label="Início">L.</a>
-<nav aria-label="Principal"><ul class="nav-links" id="nav-links">
+<nav aria-label="Principal">
+<ul class="nav-links" id="nav-links">
 <li><a href="#o-que-faco">O que eu faço</a></li>
 <li><a href="#projetos">Projetos</a></li>
+<li><a href="#como-eu-construo">Como eu construo</a></li>
 <li><a href="#experimentos">Experimentos</a></li>
 <li><a href="#sobre">Sobre</a></li>
 <li><a href="#contato">Contato</a></li>
-</ul></nav>
-<button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">&#9788;</button>
-<button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+<li class="nav-search-item"><button type="button" class="nav-search-link" data-open-palette>Buscar</button></li>
+</ul>
+</nav>
+<div class="nav-actions">
+<button type="button" id="palette-toggle" class="palette-toggle" aria-label="Abrir busca" title="Buscar (Ctrl+K)">
+<span class="palette-toggle-label">Buscar</span>
+<kbd>⌘K</kbd>
+</button>
+<button type="button" id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">&#9788;</button>
+<button type="button" id="menu-toggle" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+<span></span><span></span><span></span>
+</button>
+</div>
 </div>
 </header>
 
-<main>
+<main id="conteudo">
 <!-- HERO -->
 <section class="hero" aria-label="Apresentação">
 <div class="hero-grid" aria-hidden="true"></div>
@@ -35,7 +49,10 @@
 <p class="hero-sub">Eu crio experiências para a web.</p>
 <p class="hero-note">Desenvolvimento Web, interfaces, automações e IA.</p>
 <div class="hero-tags" aria-label="Áreas de atuação">
-<span>Desenvolvimento Web</span><span>Interfaces</span><span>IA &amp; Automação</span><span>Experiências Visuais</span>
+<span>Desenvolvimento Web</span>
+<span>Interfaces</span>
+<span>IA &amp; Automação</span>
+<span>Experiências Visuais</span>
 </div>
 <div class="hero-cta">
 <a href="#projetos" class="btn btn-primary">Ver projetos</a>
@@ -49,17 +66,20 @@
 <section id="o-que-faco" class="section" aria-label="O que eu faço">
 <div class="container">
 <h2 class="section-title"><span class="num">01</span> O que eu faço</h2>
-<p class="section-sub">Quatro áreas onde atuo com foco em resultado.</p>
+<p class="section-sub">Seis áreas em que atuo — do código à operação, com uma demonstração pequena em cada uma.</p>
 <div class="service-row" role="list" aria-label="Serviços">
-<button class="service-btn active" onclick="selectService(0)" aria-pressed="true" role="listitem" aria-label="Desenvolvimento Web">01 Desenvolvimento Web</button>
-<button class="service-btn" onclick="selectService(1)" aria-pressed="false" role="listitem" aria-label="Interfaces">02 Interfaces</button>
-<button class="service-btn" onclick="selectService(2)" aria-pressed="false" role="listitem" aria-label="IA e Automação">03 IA &amp; Automação</button>
-<button class="service-btn" onclick="selectService(3)" aria-pressed="false" role="listitem" aria-label="Conteúdo Visual">04 Conteúdo Visual</button>
+<button type="button" class="service-btn active" data-service="0" aria-pressed="true" role="listitem">01 Desenvolvimento Web</button>
+<button type="button" class="service-btn" data-service="1" aria-pressed="false" role="listitem">02 Interfaces</button>
+<button type="button" class="service-btn" data-service="2" aria-pressed="false" role="listitem">03 Suporte &amp; SQL</button>
+<button type="button" class="service-btn" data-service="3" aria-pressed="false" role="listitem">04 IA Generativa</button>
+<button type="button" class="service-btn" data-service="4" aria-pressed="false" role="listitem">05 Automação</button>
+<button type="button" class="service-btn" data-service="5" aria-pressed="false" role="listitem">06 Conteúdo Visual</button>
 </div>
 <div class="service-panel" id="service-panel" aria-live="polite">
 <h3 id="service-heading">Desenvolvimento Web</h3>
-<p id="service-desc">Sites responsivos, landing pages, sistemas e interfaces.</p>
+<p id="service-desc">Sites, landing pages e sistemas em HTML, CSS e JavaScript — do cardápio ao checkout, no navegador, sem framework.</p>
 <p id="service-tech" class="tech-line">HTML / CSS / JavaScript / React / Node.js</p>
+<div id="service-demo" class="service-demo"></div>
 </div>
 </div>
 </section>
@@ -68,13 +88,24 @@
 <section id="projetos" class="section section-alt" aria-label="Projetos">
 <div class="container">
 <h2 class="section-title"><span class="num">02</span> Projetos</h2>
-<p class="section-sub">Três projetos reais desenvolvidos com HTML, CSS e JavaScript.</p>
+<p class="section-sub">Três produtos front-end reais, com estado no navegador e fluxo completo de uso.</p>
 
 <article class="project-big" id="proj-papitos" aria-label="Papitos Hamburgueria">
 <div class="project-media"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&h=700&fit=crop" alt="Papitos Hamburgueria" loading="lazy"></div>
 <div class="project-body">
+<p class="project-kicker">Pedido online</p>
 <h3><span class="num">01</span> Papitos — Hamburgueria</h3>
-<p>Site completo para pedidos online de uma hamburgueria. Cardápio digital, categorias, personalização de pedidos, carrinho, cálculo de total, escolha entre delivery e retirada, finalização do pedido. LocalStorage para persistência.</p>
+<p class="project-context">Uma hamburgueria precisa receber pedidos pelo celular: ver o cardápio, montar o pedido e escolher entrega ou retirada, sem perder o carrinho se a página recarregar.</p>
+<h4>O que desenvolvi</h4>
+<p>Site completo de pedidos em HTML, CSS e JavaScript. Cardápio renderizado a partir de dados, carrinho com persistência e fechamento do pedido no próprio navegador.</p>
+<h4>Funcionalidades</h4>
+<ul class="project-features">
+<li>Cardápio digital com categorias (hambúrgueres, combos, bebidas, sobremesas)</li>
+<li>Combos promocionais com preço atual e anterior</li>
+<li>Carrinho com quantidade, total e persistência em LocalStorage</li>
+<li>Escolha entre delivery e retirada na finalização</li>
+</ul>
+<p class="project-learn">Aprendizado: estado de carrinho e recálculo de total sem backend — o que o usuário faz precisa sobreviver a um refresh.</p>
 <div class="tech-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>LocalStorage</span></div>
 <div class="project-actions">
 <a href="projetos/papitos/index.html" class="btn btn-primary">Explorar projeto</a>
@@ -85,8 +116,19 @@
 
 <article class="project-big alt" id="proj-manoel" aria-label="Seu Manoel Barbearia">
 <div class="project-body">
-<h3><span class="num">02</span> Seu Manoel — Barbearia &amp; Agendamento</h3>
-<p>Aplicação para gerenciamento de agendamentos de barbearia. Clientes consultam serviços, escolhem profissional, data e horário, confirmam atendimento. Foco em praticidade e experiência do usuário.</p>
+<p class="project-kicker">Agendamento em passos</p>
+<h3><span class="num">02</span> Seu Manoel — Barbearia</h3>
+<p class="project-context">Uma barbearia precisa marcar horário sem planilha: o cliente escolhe o serviço, o profissional e um horário que ainda esteja livre.</p>
+<h4>O que desenvolvi</h4>
+<p>Fluxo de agendamento em etapas, com horários ocupados bloqueados e histórico salvo no navegador. Foco em um caminho só, fácil de seguir no celular.</p>
+<h4>Funcionalidades</h4>
+<ul class="project-features">
+<li>Passos: serviço → profissional → data e hora → dados do cliente</li>
+<li>Horários já ocupados desabilitados na grade</li>
+<li>Resumo e confirmação antes de gravar</li>
+<li>Histórico em LocalStorage (“Meus agendamentos”)</li>
+</ul>
+<p class="project-learn">Aprendizado: um wizard só avança com o passo atual válido — senão o usuário se perde e o dado fica inconsistente.</p>
 <div class="tech-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>LocalStorage</span></div>
 <div class="project-actions">
 <a href="projetos/seu-manoel/index.html" class="btn btn-primary">Explorar projeto</a>
@@ -99,8 +141,19 @@
 <article class="project-big" id="proj-beauty" aria-label="Beauty Store Cosméticos">
 <div class="project-media"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&h=700&fit=crop" alt="Beauty Store Cosméticos" loading="lazy"></div>
 <div class="project-body">
-<h3><span class="num">03</span> Beauty Store — Cosméticos &amp; Beleza</h3>
-<p>E-commerce de cosméticos com catálogo, categorias, busca, filtros, detalhes, avaliações, favoritos, carrinho, cálculo de frete, cupons e checkout simulado.</p>
+<p class="project-kicker">E-commerce de catálogo</p>
+<h3><span class="num">03</span> Beauty Store — Cosméticos</h3>
+<p class="project-context">Uma loja de cosméticos precisa de vitrine com busca, filtro, favorito e um checkout que calcule frete e cupom — mesmo sendo uma simulação.</p>
+<h4>O que desenvolvi</h4>
+<p>E-commerce front-end com catálogo, detalhe do produto, favoritos, carrinho e checkout simulado. Cupons e opções de frete entram no total antes de “finalizar”.</p>
+<h4>Funcionalidades</h4>
+<ul class="project-features">
+<li>Catálogo com categorias, busca e ordenação</li>
+<li>Página de detalhes com avaliações</li>
+<li>Favoritos e carrinho em LocalStorage</li>
+<li>Frete (PAC / SEDEX), cupons e checkout simulado</li>
+</ul>
+<p class="project-learn">Aprendizado: filtro, favorito e preço final são três estados que precisam conversar — um cupom não pode ignorar o frete já escolhido.</p>
 <div class="tech-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>LocalStorage</span></div>
 <div class="project-actions">
 <a href="projetos/beauty-store/index.html" class="btn btn-primary">Explorar projeto</a>
@@ -111,13 +164,52 @@
 </div>
 </section>
 
-<!-- EXPERIMENTOS VISUAIS -->
-<section id="experimentos" class="section" aria-label="Experimentos visuais">
+<!-- COMO EU CONSTRUO -->
+<section id="como-eu-construo" class="section" aria-label="Como eu construo">
 <div class="container">
-<h2 class="section-title"><span class="num">03</span> Experimentos visuais</h2>
+<h2 class="section-title"><span class="num">03</span> Como eu construo</h2>
+<p class="section-sub">O mesmo caminho nos três projetos: entender, montar, testar, ajustar e publicar.</p>
+<ol class="build-steps">
+<li>
+<span class="build-num">01</span>
+<h3>Entender o problema</h3>
+<p>Quem usa, o que precisa acontecer, o que não pode quebrar. Pedido, horário ou compra — o fluxo vem antes da tela.</p>
+</li>
+<li>
+<span class="build-num">02</span>
+<h3>Estruturar</h3>
+<p>Seções, dados e estados. Cardápio, passos do agendamento, catálogo: o HTML descreve o produto, não só o layout.</p>
+</li>
+<li>
+<span class="build-num">03</span>
+<h3>Desenvolver</h3>
+<p>HTML, CSS e JavaScript no navegador. Interação real: clique, filtro, persistência — sem framework e sem build.</p>
+</li>
+<li>
+<span class="build-num">04</span>
+<h3>Testar</h3>
+<p>Percorrer o caminho no celular e no desktop. Carrinho vazio, horário ocupado, cupom inválido — o caso chato conta.</p>
+</li>
+<li>
+<span class="build-num">05</span>
+<h3>Ajustar</h3>
+<p>Tipo, toque, ordem das informações. Se não cabe no iPhone, a composição muda — o conteúdo permanece.</p>
+</li>
+<li>
+<span class="build-num">06</span>
+<h3>Publicar / validar</h3>
+<p>Subir, abrir de verdade, ver se o estado sobrevive ao refresh. Só então o projeto entra no portfólio.</p>
+</li>
+</ol>
+</div>
+</section>
+
+<!-- EXPERIMENTOS VISUAIS -->
+<section id="experimentos" class="section section-alt" aria-label="Experimentos visuais">
+<div class="container">
+<h2 class="section-title"><span class="num">04</span> Experimentos visuais</h2>
 <p class="section-sub">Experiências que criei explorando interface, animação e ferramentas de IA.</p>
 
-<!-- EXP 01: grande, título sobreposto, reveal -->
 <article class="exp-editorial exp-01" aria-label="Prototipagem visual — criação de elementos e assets">
 <div class="exp-media">
 <video src="assets/ai-creative-lab/experimento-01/video.mp4" preload="metadata" muted playsinline loop poster="assets/ai-creative-lab/projeto-01/thumb/thumb.png" aria-label="Prototipagem visual"></video>
@@ -129,7 +221,6 @@
 </div>
 </article>
 
-<!-- EXP 02: texto fixo + vídeo -->
 <article class="exp-editorial exp-02" aria-label="Animação de produto — interface animada">
 <div class="exp-body">
 <h3>02 — Animação de produto</h3>
@@ -141,11 +232,8 @@
 </div>
 </article>
 
-<!-- EXP 03: full-width, mínimo, hover reveal -->
 <article class="exp-editorial exp-03" aria-label="Interface futurista — experimentação visual de design">
-<div class="exp-media"
-     onmouseenter="this.querySelector('.hover-reveal').style.opacity='1';this.querySelector('.hover-reveal').style.transform='translateY(0)'"
-     onmouseleave="this.querySelector('.hover-reveal').style.opacity='0';this.querySelector('.hover-reveal').style.transform='translateY(10px)'">
+<div class="exp-media">
 <video src="assets/ai-creative-lab/experimento-03/video.mp4" preload="metadata" muted playsinline loop poster="assets/ai-creative-lab/projeto-01/thumb/thumb.png" aria-label="Interface futurista"></video>
 <div class="hover-reveal"><h3>03 — Interface futurista</h3><p>Experimentação visual de design futurista e composição de interface.</p></div>
 </div>
@@ -153,22 +241,22 @@
 </div>
 </section>
 
-<!-- SOBRE (editorial) -->
-<section id="sobre" class="section section-alt" aria-label="Sobre mim">
+<!-- SOBRE -->
+<section id="sobre" class="section" aria-label="Sobre mim">
 <div class="container">
 <div class="about-editorial">
 <div class="about-lead">
-<h2 class="section-title"><span class="num">04</span> Sobre mim</h2>
+<h2 class="section-title"><span class="num">05</span> Sobre mim</h2>
 <p class="lead-text">Eu sou Lucas, estudante de Análise e Desenvolvimento de Sistemas, criando experiências para a web.</p>
 </div>
 <div class="about-columns">
 <div class="about-text">
 <h3>Quem sou</h3>
-<p>Estudante de 4º período em Análise e Desenvolvimento de Sistemas (Newton Paiva — Wyden). Formado em logística e vistoria veicular, trabalhei na Pirelli, Newcity Car e Teknisa. Hoje foco em front-end, automação e experiências visuais.</p>
+<p>4º período de Análise e Desenvolvimento de Sistemas na Newton Paiva (Wyden). Formado em logística e vistoria veicular. Passei pela Pirelli e pela Newcity Car; hoje trabalho na Teknisa e estudo front-end, dados e IA aplicada.</p>
 <h3>O que faço</h3>
-<p>Desenvolvo sites responsivos, sistemas de interação e experimentos visuais. Trabalho com HTML, CSS, JavaScript, e explorei React, Node.js e SQL em meus estudos.</p>
+<p>Na Teknisa atuo com suporte de software: entender o que quebrou, consultar dados com SQL e acompanhar sistemas reais em produção. Em paralelo desenvolvo sites e fluxos em HTML, CSS e JavaScript — e uso IA generativa para prototipar visuais, como nos experimentos deste portfólio.</p>
 <h3>Objetivo</h3>
-<p>Atuar na TI aplicando conhecimentos em front-end, evoluindo tecnicamente e contribuindo com soluções práticas.</p>
+<p>Seguir em TI no cruzamento de front-end, suporte e dados. Quero construir interfaces que funcionam no celular, com base no que já vejo no dia a dia de software em operação.</p>
 </div>
 <div class="about-sidebar">
 <div class="timeline-editorial">
@@ -181,7 +269,7 @@
 <h4>Tecnologias</h4>
 <div class="tech-chips" role="list">
 <span class="tech-chip">HTML</span><span class="tech-chip">CSS</span><span class="tech-chip">JavaScript</span>
-<span class="tech-chip">React</span><span class="tech-chip">Node.js</span><span class="tech-chip">SQL</span>
+<span class="tech-chip">SQL</span><span class="tech-chip">React</span><span class="tech-chip">Node.js</span>
 <span class="tech-chip">Git</span><span class="tech-chip">GitHub</span>
 </div>
 </div>
@@ -191,14 +279,18 @@
 </div>
 </section>
 
-<!-- CONTATO (fechamento impactante) -->
-<section id="contato" class="section" aria-label="Contato">
+<!-- CONTATO -->
+<section id="contato" class="section section-alt" aria-label="Contato">
 <div class="container">
 <div class="contact-hero">
-<h2 class="contact-title"><span class="num">05</span> TEM_UMA_IDEIA?</h2>
+<h2 class="contact-title"><span class="num">06</span> TEM_UMA_IDEIA?</h2>
 <p class="contact-subtitle">Vamos construir algo juntos.</p>
 <div class="contact-links">
-<a href="mailto:lucaspaz696@gmail.com" class="contact-link" aria-label="E-mail" onclick="copyEmail(event)"><span>E-mail</span><span class="contact-val">lucaspaz696@gmail.com</span><span class="contact-copy">Copiar</span></a>
+<a href="mailto:lucaspaz696@gmail.com" class="contact-link" aria-label="E-mail" id="email-link">
+<span>E-mail</span>
+<span class="contact-val">lucaspaz696@gmail.com</span>
+<span class="contact-copy">Copiar</span>
+</a>
 <a href="https://github.com/Japapaz696" target="_blank" rel="noopener" class="contact-link" aria-label="GitHub"><span>GitHub</span><span class="contact-val">Japapaz696</span><span class="contact-ext">↗</span></a>
 <a href="https://www.linkedin.com/in/lucas-santana-da-paz-215816247/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn"><span>LinkedIn</span><span class="contact-val">lucas-santana-da-paz</span><span class="contact-ext">↗</span></a>
 <a href="https://wa.me/5531973403545" target="_blank" rel="noopener" class="contact-link" aria-label="WhatsApp"><span>WhatsApp</span><span class="contact-val">(31) 97340-3545</span><span class="contact-ext">↗</span></a>
@@ -209,7 +301,16 @@
 </main>
 
 <footer class="footer" role="contentinfo"><div class="container"><p>Feito com cuidado — <span id="year"></span></p></div></footer>
-<button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>
+<button type="button" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>
+
+<div id="command-palette" class="palette" hidden>
+<div class="palette-backdrop" data-close-palette></div>
+<div class="palette-panel" role="dialog" aria-modal="true" aria-labelledby="palette-label">
+<p id="palette-label" class="palette-label">Buscar no portfólio</p>
+<input type="search" id="palette-input" placeholder="Seção, projeto, contato…" aria-label="Buscar no portfólio" autocomplete="off">
+<ul id="palette-list" class="palette-list" role="listbox"></ul>
+</div>
+</div>
 
 <script src="script.js"></script>
 </body>
