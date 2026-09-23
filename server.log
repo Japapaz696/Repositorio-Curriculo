@@ -1,2 +1,9 @@
 ::1 - - [23/Sep/2026 11:11:22] "GET / HTTP/1.1" 200 -
 ::1 - - [23/Sep/2026 11:26:12] "GET / HTTP/1.1" 200 -
+::1 - - [23/Sep/2026 12:24:09] "GET / HTTP/1.1" 200 -
+::1 - - [23/Sep/2026 12:24:09] "GET /style.css HTTP/1.1" 200 -
+::1 - - [23/Sep/2026 12:24:09] "GET /script.js HTTP/1.1" 200 -
+::1 - - [23/Sep/2026 12:24:09] "HEAD /assets/ai-creative-lab/experimento-01/video.mp4 HTTP/1.1" 200 -
+::1 - - [23/Sep/2026 12:24:09] "GET /projetos/papitos/index.html HTTP/1.1" 200 -
+::1 - - [23/Sep/2026 12:24:09] "GET /projetos/seu-manoel/index.html HTTP/1.1" 200 -
+::1 - - [23/Sep/2026 12:24:09] "GET /projetos/beauty-store/index.html HTTP/1.1" 200 -

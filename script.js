@@ -118,12 +118,14 @@ function renderServiceDemo(i) {
   container.innerHTML = demoHtml;
 }
 
-/* function selectService(i) { */
+function selectService(i) {
   document.querySelectorAll('.service-btn').forEach((btn, idx) => btn.classList.toggle('active', idx === i) && btn.setAttribute('aria-pressed', idx === i ? 'true' : 'false'));
   const panel = document.getElementById('service-panel');
+  if (!panel) return;
   panel.querySelector('#service-heading').textContent = services[i].title;
   panel.querySelector('#service-desc').textContent = services[i].desc;
   panel.querySelector('#service-tech').textContent = services[i].tech;
+  renderServiceDemo(i);
 }
 
 /* Hero — movimento sutil via mouse */
@@ -190,11 +192,7 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('.exp-editorial video').forEach(v => { v.pause(); });
 }
 
-/* Tecnologias — interação */
-function showTech(btn, desc) {
-  document.getElementById('tech-desc').textContent = desc;
-  document.querySelectorAll('.tech-tag').forEach(b => b.style.opacity = b === btn ? '1' : '.5');
-}
+
 
 /* Copiar email */
 document.getElementById('email-link').addEventListener('click', copyEmail);
