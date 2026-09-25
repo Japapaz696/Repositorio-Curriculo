@@ -1,87 +1,52 @@
-# 🚀 Portfólio — Lucas Santana da Paz
+# Portfólio — Lucas Santana da Paz
 
-Portfólio pessoal com **3 projetos front-end completos**, desenvolvidos em **HTML, CSS e JavaScript puro** — sem frameworks e sem build, focando em fundamentos sólidos da web.
+Portfólio pessoal de Lucas Santana da Paz, estudante de Análise e Desenvolvimento de Sistemas. Reúne interfaces web e protótipos desenvolvidos com foco em JavaScript, experiência de uso e fundamentos da web.
 
-🔗 **Ver online:** [japapaz696.github.io/Repositorio-Curriculo](https://japapaz696.github.io/Repositorio-Curriculo/)
+**Demonstração:** [japapaz696.github.io/Repositorio-Curriculo](https://japapaz696.github.io/Repositorio-Curriculo/)
 
----
+## Sobre o projeto
 
-## 📁 Projetos
+Uma página de apresentação profissional que conecta projetos práticos, trajetória de estudos e formas de contato. Não usa framework ou etapa de build, o que facilita a publicação no GitHub Pages.
 
-### 🍔 Papitos — Hamburgueria
-Site completo de pedidos online para hamburgueria.
-- Cardápio digital com categorias e busca
-- Carrinho de compras com cálculo automático
-- Combos promocionais e personalização
-- Escolha entre delivery e retirada
-- Persistência do carrinho com LocalStorage
+## Objetivo
 
-### 💈 Seu Manoel — Barbearia & Agendamento
-Sistema de agendamento em 4 passos para barbearia.
-- Seleção de serviço, profissional, data e horário
-- Horários já ocupados bloqueados automaticamente
-- Resumo e confirmação do agendamento
-- Histórico em "Meus Agendamentos" (LocalStorage)
+Demonstrar capacidade de criar interfaces responsivas, organizar estados no navegador e documentar decisões de produto de forma clara.
 
-### 💄 Beauty Store — Cosméticos & Beleza
-E-commerce completo de cosméticos.
-- Catálogo com filtros por categoria e busca
-- Página de detalhes com avaliações
-- Favoritos, carrinho, frete e cupons de desconto
-- Checkout simulado
+## Principais funcionalidades
 
----
+- navegação por seções e layout responsivo;
+- apresentação de projetos e experimentos;
+- páginas demonstrativas de pedido, agendamento e catálogo;
+- interações em JavaScript e persistência local onde indicada pelo próprio projeto.
 
-## 🛠️ Tecnologias
+## Projetos apresentados
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![LocalStorage](https://img.shields.io/badge/LocalStorage-8b5cf6?style=flat)
+- **Papitos:** cardápio e pedido demonstrativo com carrinho.
+- **Seu Manoel:** fluxo de agendamento em etapas.
+- **Beauty Store:** catálogo demonstrativo com busca, favoritos e checkout simulado.
 
-**Destaques técnicos:**
-- Tema claro/escuro com CSS custom properties
-- Design responsivo (menu hambúrguer, grids fluidos)
-- Animações de scroll reveal com IntersectionObserver
-- Cards 3D interativos demonstrando o Pacote Office
+## Tecnologias
 
----
+HTML5 semântico, CSS3, JavaScript, LocalStorage, Git e GitHub Pages.
 
-## 📂 Estrutura
+## Acessibilidade e performance
 
-```
-OMNIROUTE/
-├── index.html          # Página principal do portfólio
-├── style.css           # Estilos do portfólio
-├── script.js           # Tema, menu mobile, animações
-└── projetos/
-    ├── papitos/        # Hamburgueria (cardápio + carrinho)
-    ├── seu-manoel/     # Barbearia (agendamento)
-    └── beauty-store/   # Cosméticos (e-commerce)
-```
+O projeto inclui link para pular ao conteúdo, textos alternativos nas imagens principais e carregamento preguiçoso nas imagens de projetos. As páginas são estáticas e não exigem instalação de dependências.
 
-## ▶️ Como rodar
+## Como executar
 
-Não precisa de nada instalado — é só abrir o `index.html` no navegador.
-
-Ou sirva localmente (opcional):
+Abra `index.html` no navegador ou use um servidor estático:
 
 ```bash
-# Python
 python -m http.server 8000
-
-# Node
-npx serve .
 ```
 
----
+## Estrutura do projeto
 
-## 📫 Contato
+- `index.html`, `style.css` e `script.js` — portfólio principal;
+- `projetos/` — demonstrações independentes;
+- `assets/` — recursos visuais do portfólio.
 
-[![GitHub](https://img.shields.io/badge/GitHub-Japapaz696-181717?style=flat&logo=github)](https://github.com/Japapaz696)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Lucas%20Santana%20da%20Paz-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/lucas-santana-da-paz-215816247/)
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-%2B55%2031%2097340--3545-25D366?style=flat&logo=whatsapp)](https://wa.me/5531973403545)
+## Autor
 
----
-
-⭐ Feito com 💜 por Lucas Santana da Paz
+[Lucas Santana da Paz](https://github.com/Japapaz696) · [LinkedIn](https://www.linkedin.com/in/lucas-santana-da-paz-215816247) · [E-mail](mailto:lucaspaz696@gmail.com)

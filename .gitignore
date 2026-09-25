@@ -9,3 +9,12 @@ Desktop.ini
 
 # Logs temporários
 push_log.txt
+
+# Dependências e dados locais
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+coverage/
