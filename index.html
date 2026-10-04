@@ -1,331 +1,287 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Portfólio de Lucas Santana da Paz — Estudante de ADS e desenvolvedor web front-end.">
-<title>Lucas Santana da Paz | Portfólio</title>
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Portfólio de Lucas Santana da Paz — desenvolvimento web, interfaces, IA e automação.">
+  <meta name="theme-color" content="#fafaf8">
+  <title>Lucas Santana da Paz — Digital Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-<header class="navbar" role="banner">
-<div class="container nav-inner">
-<a href="#" class="logo" aria-label="Início">L.</a>
-<nav aria-label="Principal">
-<ul class="nav-links" id="nav-links">
-<li><a href="#o-que-faco">O que eu faço</a></li>
-<li><a href="#projetos">Projetos</a></li>
-<li><a href="#como-eu-construo">Como eu construo</a></li>
-<li><a href="#experimentos">Experimentos</a></li>
-<li><a href="#sobre">Sobre</a></li>
-<li><a href="#contato">Contato</a></li>
-<li class="nav-search-item"><button type="button" class="nav-search-link" data-open-palette>Buscar</button></li>
-</ul>
-</nav>
-<div class="nav-actions">
-<button type="button" id="palette-toggle" class="palette-toggle" aria-label="Abrir busca" title="Buscar (Ctrl+K)">
-<span class="palette-toggle-label">Buscar</span>
-<kbd>⌘K</kbd>
-</button>
-<button type="button" id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">&#9788;</button>
-<button type="button" id="menu-toggle" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
-<span></span><span></span><span></span>
-</button>
-</div>
-</div>
-</header>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<main id="conteudo">
-<!-- HERO -->
-<section class="hero" aria-label="Apresentação">
-<div class="hero-grid" aria-hidden="true"></div>
-<div class="container hero-inner">
-<p class="hero-label">Portfólio — 2026</p>
-<h1 class="hero-title"><span class="line">LUCAS</span><span class="line">SANTANA DA PAZ</span></h1>
-<p class="hero-sub">Eu crio experiências para a web.</p>
-<p class="hero-note">Desenvolvimento Web, interfaces, automações e IA.</p>
-<div class="hero-tags" aria-label="Áreas de atuação">
-<span>Desenvolvimento Web</span>
-<span>Interfaces</span>
-<span>IA &amp; Automação</span>
-<span>Experiências Visuais</span>
-</div>
-<div class="hero-cta">
-<a href="#projetos" class="btn btn-primary">Ver projetos</a>
-<a href="#contato" class="btn btn-ghost">Entrar em contato</a>
-</div>
-<div class="scroll-hint" aria-hidden="true"><span>Rolar</span></div>
-</div>
-</section>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="#inicio" aria-label="Ir para o início">L/S</a>
+      <nav class="site-nav" aria-label="Principal">
+        <ul id="nav-links" class="nav-links">
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#work">Selected work</a></li>
+          <li><a href="#lab">Lucas / Lab</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button id="palette-toggle" class="palette-toggle" type="button" aria-haspopup="dialog" aria-controls="command-palette" aria-label="Abrir busca no portfólio">
+          <span>Buscar</span><kbd>⌘K</kbd>
+        </button>
+        <button id="theme-toggle" class="icon-button" type="button" aria-label="Ativar tema escuro" aria-pressed="false">
+          <span aria-hidden="true">◐</span>
+        </button>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-<!-- O QUE EU FAÇO -->
-<!-- QUEM SOU -->
-<section id="quem-sou" class="section" aria-label="Quem sou">
-<div class="container">
-<h2 class="section-title"><span class="num">01</span> Quem sou</h2>
-<p class="lead-text">Tecnologia começou como curiosidade e virou o caminho que quero seguir.</p>
-<div class="who-grid">
-<div class="who-card"><h3>Hoje</h3><p>Estagiário de Suporte — Teknisa</p><p class="who-meta">Atendimento, diagnóstico, SQL, indicadores, SLA.</p></div>
-<div class="who-card"><h3>Estudo</h3><p>ADS — Newton Paiva (Wyden)</p><p class="who-meta">4º período · Previsão 2027</p></div>
-<div class="who-card"><h3>Foco</h3><p>Web · Sistemas · IA · Automação</p><p class="who-meta">Front-end, dados, IA aplicada.</p></div>
-</div>
-<p class="who-para">Estudante de Análise e Desenvolvimento de Sistemas, trabalhando com suporte de software e explorando desenvolvimento web, interfaces e IA aplicada. Crio projetos próprios, uso IA como ferramenta e busco oportunidades em Tecnologia.</p>
-</div>
-</section>
-<!-- O QUE EU CONSIGO CONSTRUIR -->
-<section id="o-que-faco" class="section section-alt" aria-label="O que eu consigo construir">
-<div class="container">
-<h2 class="section-title"><span class="num">02</span> O que eu consigo construir</h2>
-<p class="section-sub">Onde posso contribuir — do código ao suporte, com uma demonstração pequena em cada uma.</p>
-<div class="service-row" role="list" aria-label="Serviços">
-<button type="button" class="service-btn active" data-service="0" aria-pressed="true" role="listitem">01 Desenvolvimento Web</button>
-<button type="button" class="service-btn" data-service="1" aria-pressed="false" role="listitem">02 Interfaces</button>
-<button type="button" class="service-btn" data-service="2" aria-pressed="false" role="listitem">03 Suporte &amp; SQL</button>
-<button type="button" class="service-btn" data-service="3" aria-pressed="false" role="listitem">04 IA Generativa</button>
-<button type="button" class="service-btn" data-service="4" aria-pressed="false" role="listitem">05 Automação</button>
-<button type="button" class="service-btn" data-service="5" aria-pressed="false" role="listitem">06 Conteúdo Visual</button>
-</div>
-<div class="service-panel" id="service-panel" aria-live="polite">
-<h3 id="service-heading">Desenvolvimento Web</h3>
-<p id="service-desc">Sites, landing pages e sistemas em HTML, CSS e JavaScript — do cardápio ao checkout, no navegador, sem framework.</p>
-<p id="service-tech" class="tech-line">HTML / CSS / JavaScript / React / Node.js</p>
-<div id="service-demo" class="service-demo"></div>
-</div>
-</div>
-</section>
+  <main id="conteudo">
+    <section id="inicio" class="hero section-anchor" aria-labelledby="hero-title">
+      <div class="hero-rule hero-rule-top" aria-hidden="true"></div>
+      <div class="shell hero-layout">
+        <div class="hero-intro">
+          <p class="eyebrow">PORTFÓLIO / 2026</p>
+          <h1 id="hero-title" class="hero-title"><span>LUCAS</span><span>SANTANA DA PAZ</span></h1>
+          <div class="hero-baseline">
+            <p>Digital Builder</p>
+            <p>Belo Horizonte, BR</p>
+          </div>
+          <p class="hero-statement">Desenvolvimento web, interfaces e automação com atenção ao que acontece quando alguém realmente usa o produto.</p>
+          <div class="hero-links" aria-label="Navegação rápida">
+            <a href="#work">Ver projetos <span aria-hidden="true">↘</span></a>
+            <a href="#lab">Abrir o Lab <span aria-hidden="true">↘</span></a>
+          </div>
+        </div>
 
-<!-- PROJETOS -->
-<section id="projetos" class="section section-alt" aria-label="Projetos">
-<div class="container">
-<h2 class="section-title"><span class="num">02</span> Projetos</h2>
-<p class="section-sub">Três produtos front-end reais, com estado no navegador e fluxo completo de uso.</p>
+        <figure class="hero-preview" data-parallax>
+          <div class="hero-preview-bar"><span>LIVE / NEXA</span><span>001</span></div>
+          <img src="assets/ai-creative-lab/projeto-01/thumb/thumb.png" width="1408" height="768" alt="Interface escura do experimento NEXA, uma plataforma de business intelligence" fetchpriority="high" decoding="async">
+          <figcaption>Interface, sistemas e experimentação visual.</figcaption>
+        </figure>
+      </div>
+      <div class="hero-rule hero-rule-bottom" aria-hidden="true"></div>
+    </section>
 
-<article class="project-big" id="proj-papitos" aria-label="Papitos Hamburgueria">
-<div class="project-media"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&h=700&fit=crop" alt="Papitos Hamburgueria" loading="lazy"></div>
-<div class="project-body">
-<p class="project-kicker">Pedido online</p>
-<h3><span class="num">01</span> Papitos — Hamburgueria</h3>
-<p class="project-context">Uma hamburgueria precisa receber pedidos pelo celular: ver o cardápio, montar o pedido e escolher entrega ou retirada, sem perder o carrinho se a página recarregar.</p>
-<h4>O que desenvolvi</h4>
-<p>Site completo de pedidos em HTML, CSS e JavaScript. Cardápio renderizado a partir de dados, carrinho com persistência e fechamento do pedido no próprio navegador.</p>
-<h4>Funcionalidades</h4>
-<ul class="project-features">
-<li>Cardápio digital com categorias (hambúrgueres, combos, bebidas, sobremesas)</li>
-<li>Combos promocionais com preço atual e anterior</li>
-<li>Carrinho com quantidade, total e persistência em LocalStorage</li>
-<li>Escolha entre delivery e retirada na finalização</li>
-</ul>
-<p class="project-learn">Aprendizado: estado de carrinho e recálculo de total sem backend — o que o usuário faz precisa sobreviver a um refresh.</p>
-<div class="tech-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>LocalStorage</span></div>
-<div class="project-actions">
-<a href="projetos/papitos/index.html" class="btn btn-primary">Explorar projeto</a>
-<a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/papitos" class="btn btn-ghost" target="_blank" rel="noopener">GitHub ↗</a>
-</div>
-</div>
-</article>
+    <section id="profile" class="profile-section section-anchor section-reveal" aria-labelledby="profile-title">
+      <div class="shell profile-layout">
+        <div>
+          <p class="section-index">01 / PROFILE</p>
+          <h2 id="profile-title" class="display-title">De suporte de software a experiências que fazem sentido na tela.</h2>
+        </div>
+        <div class="profile-copy">
+          <p>Sou Lucas, estudante de Análise e Desenvolvimento de Sistemas na Newton Paiva (Wyden) e estagiário de Suporte na Teknisa. No trabalho, aprendo a investigar problemas, consultar dados e acompanhar software em operação.</p>
+          <p>Fora dele, construo interfaces, sistemas e experimentos visuais em HTML, CSS e JavaScript — explorando IA e automação como ferramentas de processo.</p>
+          <dl class="profile-facts">
+            <div><dt>Role</dt><dd>Web developer</dd></div>
+            <div><dt>Building</dt><dd>Projetos próprios e experimentos</dd></div>
+            <div><dt>Exploring</dt><dd>IA, automação e interfaces</dd></div>
+            <div><dt>Available for</dt><dd>Oportunidades em tecnologia</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
 
-<article class="project-big alt" id="proj-manoel" aria-label="Seu Manoel Barbearia">
-<div class="project-body">
-<p class="project-kicker">Agendamento em passos</p>
-<h3><span class="num">02</span> Seu Manoel — Barbearia</h3>
-<p class="project-context">Uma barbearia precisa marcar horário sem planilha: o cliente escolhe o serviço, o profissional e um horário que ainda esteja livre.</p>
-<h4>O que desenvolvi</h4>
-<p>Fluxo de agendamento em etapas, com horários ocupados bloqueados e histórico salvo no navegador. Foco em um caminho só, fácil de seguir no celular.</p>
-<h4>Funcionalidades</h4>
-<ul class="project-features">
-<li>Passos: serviço → profissional → data e hora → dados do cliente</li>
-<li>Horários já ocupados desabilitados na grade</li>
-<li>Resumo e confirmação antes de gravar</li>
-<li>Histórico em LocalStorage (“Meus agendamentos”)</li>
-</ul>
-<p class="project-learn">Aprendizado: um wizard só avança com o passo atual válido — senão o usuário se perde e o dado fica inconsistente.</p>
-<div class="tech-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>LocalStorage</span></div>
-<div class="project-actions">
-<a href="projetos/seu-manoel/index.html" class="btn btn-primary">Explorar projeto</a>
-<a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/seu-manoel" class="btn btn-ghost" target="_blank" rel="noopener">GitHub ↗</a>
-</div>
-</div>
-<div class="project-media"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1200&h=700&fit=crop" alt="Seu Manoel Barbearia" loading="lazy"></div>
-</article>
+    <section id="work" class="work-section section-anchor section-reveal" aria-labelledby="work-title">
+      <div class="shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="section-index">02 / SELECTED WORK</p>
+            <h2 id="work-title" class="display-title">Projetos que deixam o navegador fazer o trabalho.</h2>
+          </div>
+          <p>Três produtos front-end com fluxos reais, estado persistente no navegador e decisões guiadas pelo uso.</p>
+        </div>
 
-<article class="project-big" id="proj-beauty" aria-label="Beauty Store Cosméticos">
-<div class="project-media"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&h=700&fit=crop" alt="Beauty Store Cosméticos" loading="lazy"></div>
-<div class="project-body">
-<p class="project-kicker">E-commerce de catálogo</p>
-<h3><span class="num">03</span> Beauty Store — Cosméticos</h3>
-<p class="project-context">Uma loja de cosméticos precisa de vitrine com busca, filtro, favorito e um checkout que calcule frete e cupom — mesmo sendo uma simulação.</p>
-<h4>O que desenvolvi</h4>
-<p>E-commerce front-end com catálogo, detalhe do produto, favoritos, carrinho e checkout simulado. Cupons e opções de frete entram no total antes de “finalizar”.</p>
-<h4>Funcionalidades</h4>
-<ul class="project-features">
-<li>Catálogo com categorias, busca e ordenação</li>
-<li>Página de detalhes com avaliações</li>
-<li>Favoritos e carrinho em LocalStorage</li>
-<li>Frete (PAC / SEDEX), cupons e checkout simulado</li>
-</ul>
-<p class="project-learn">Aprendizado: filtro, favorito e preço final são três estados que precisam conversar — um cupom não pode ignorar o frete já escolhido.</p>
-<div class="tech-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>LocalStorage</span></div>
-<div class="project-actions">
-<a href="projetos/beauty-store/index.html" class="btn btn-primary">Explorar projeto</a>
-<a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/beauty-store" class="btn btn-ghost" target="_blank" rel="noopener">GitHub ↗</a>
-</div>
-</div>
-</article>
-</div>
-</section>
+        <article class="case-study case-papitos" aria-labelledby="papitos-title">
+          <div class="case-topline"><span>01</span><span>Pedido online</span><span>HTML / CSS / JavaScript</span></div>
+          <div class="case-media"><img src="assets/project-previews/papitos-home.webp" width="1440" height="980" alt="Preview real da aplicação Papitos com cardápio de hambúrgueres e navegação de pedidos" loading="lazy" decoding="async"></div>
+          <div class="case-content">
+            <div class="case-title-wrap">
+              <h3 id="papitos-title">Papitos<br><em>Hamburgueria digital</em></h3>
+              <p>Do cardápio ao checkout, sem depender de framework.</p>
+            </div>
+            <dl class="case-notes">
+              <div><dt>Problema</dt><dd>Um pedido precisa ser montado no celular, mantido ao recarregar a página e finalizado como entrega ou retirada.</dd></div>
+              <div><dt>Decisão</dt><dd>Tratar o carrinho como estado da interface e persistir a escolha com LocalStorage.</dd></div>
+              <div><dt>Implementação</dt><dd>Cardápio por categoria, combos, quantidade, total e checkout em HTML, CSS e JavaScript.</dd></div>
+              <div><dt>O que funciona</dt><dd>O fluxo de pedido completo: escolha, carrinho, total e finalização simulada.</dd></div>
+            </dl>
+            <div class="case-actions">
+              <a href="projetos/papitos/index.html">Explorar projeto <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/papitos" target="_blank" rel="noopener">Ver código <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
 
-<!-- COMO EU CONSTRUO -->
-<section id="como-eu-construo" class="section" aria-label="Como eu construo">
-<div class="container">
-<h2 class="section-title"><span class="num">03</span> Como eu construo</h2>
-<p class="section-sub">O mesmo caminho nos três projetos: entender, montar, testar, ajustar e publicar.</p>
-<ol class="build-steps">
-<li>
-<span class="build-num">01</span>
-<h3>Entender o problema</h3>
-<p>Quem usa, o que precisa acontecer, o que não pode quebrar. Pedido, horário ou compra — o fluxo vem antes da tela.</p>
-</li>
-<li>
-<span class="build-num">02</span>
-<h3>Estruturar</h3>
-<p>Seções, dados e estados. Cardápio, passos do agendamento, catálogo: o HTML descreve o produto, não só o layout.</p>
-</li>
-<li>
-<span class="build-num">03</span>
-<h3>Desenvolver</h3>
-<p>HTML, CSS e JavaScript no navegador. Interação real: clique, filtro, persistência — sem framework e sem build.</p>
-</li>
-<li>
-<span class="build-num">04</span>
-<h3>Testar</h3>
-<p>Percorrer o caminho no celular e no desktop. Carrinho vazio, horário ocupado, cupom inválido — o caso chato conta.</p>
-</li>
-<li>
-<span class="build-num">05</span>
-<h3>Ajustar</h3>
-<p>Tipo, toque, ordem das informações. Se não cabe no iPhone, a composição muda — o conteúdo permanece.</p>
-</li>
-<li>
-<span class="build-num">06</span>
-<h3>Publicar / validar</h3>
-<p>Subir, abrir de verdade, ver se o estado sobrevive ao refresh. Só então o projeto entra no portfólio.</p>
-</li>
-</ol>
-</div>
-</section>
+        <article class="case-study case-manoel" aria-labelledby="manoel-title">
+          <div class="case-topline"><span>02</span><span>Agendamento em passos</span><span>HTML / CSS / JavaScript</span></div>
+          <div class="case-media"><img src="assets/project-previews/seu-manoel-home.webp" width="1440" height="980" alt="Preview real da aplicação Seu Manoel com hero de barbearia e navegação para agendamento" loading="lazy" decoding="async"></div>
+          <div class="case-content">
+            <div class="case-title-wrap">
+              <h3 id="manoel-title">Seu Manoel<br><em>Sistema de agendamento</em></h3>
+              <p>Um caminho claro antes de pedir os dados de alguém.</p>
+            </div>
+            <dl class="case-notes">
+              <div><dt>Problema</dt><dd>O cliente precisa escolher serviço, profissional e horário livre sem se perder entre telas.</dd></div>
+              <div><dt>Decisão</dt><dd>Organizar o agendamento como wizard com validação em cada etapa.</dd></div>
+              <div><dt>Implementação</dt><dd>Serviços, profissionais, grade de horários, resumo e histórico persistido no navegador.</dd></div>
+              <div><dt>O que funciona</dt><dd>Agendamentos registrados bloqueiam horários ocupados e aparecem em “Meus agendamentos”.</dd></div>
+            </dl>
+            <div class="case-actions">
+              <a href="projetos/seu-manoel/index.html">Explorar projeto <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/seu-manoel" target="_blank" rel="noopener">Ver código <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
 
-<!-- EXPERIMENTOS VISUAIS -->
-<section id="experimentos" class="section section-alt" aria-label="Experimentos visuais">
-<div class="container">
-<h2 class="section-title"><span class="num">04</span> Experimentos visuais</h2>
-<p class="section-sub">Experiências que criei explorando interface, animação e ferramentas de IA.</p>
+        <article class="case-study case-beauty" aria-labelledby="beauty-title">
+          <div class="case-topline"><span>03</span><span>Catálogo e checkout</span><span>HTML / CSS / JavaScript</span></div>
+          <div class="case-media"><img src="assets/project-previews/beauty-store-home.webp" width="1440" height="980" alt="Preview real da Beauty Store mostrando busca, categorias, banner e catálogo de cosméticos" loading="lazy" decoding="async"></div>
+          <div class="case-content">
+            <div class="case-title-wrap">
+              <h3 id="beauty-title">Beauty Store<br><em>E-commerce de cosméticos</em></h3>
+              <p>Busca, filtro e preço final precisam conversar.</p>
+            </div>
+            <dl class="case-notes">
+              <div><dt>Problema</dt><dd>Uma vitrine de produtos precisa facilitar descoberta, seleção e compra simulada sem quebrar o total.</dd></div>
+              <div><dt>Decisão</dt><dd>Conectar catálogo, filtros, favoritos, carrinho, cupom e frete em uma experiência única.</dd></div>
+              <div><dt>Implementação</dt><dd>16 produtos, busca em tempo real, ordenação, detalhes, favoritos e checkout com PAC ou SEDEX.</dd></div>
+              <div><dt>O que funciona</dt><dd>O usuário pode filtrar, favoritar, adicionar ao carrinho, aplicar cupom e calcular frete.</dd></div>
+            </dl>
+            <div class="case-actions">
+              <a href="projetos/beauty-store/index.html">Explorar projeto <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/beauty-store" target="_blank" rel="noopener">Ver código <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-<article class="exp-editorial exp-01" aria-label="Prototipagem visual — criação de elementos e assets">
-<div class="exp-media">
-<video src="assets/ai-creative-lab/experimento-01/video.mp4" preload="metadata" muted playsinline loop poster="assets/ai-creative-lab/projeto-01/thumb/thumb.png" aria-label="Prototipagem visual"></video>
-<div class="exp-label">01 — Prototipagem visual</div>
-</div>
-<div class="exp-body">
-<h3>Prototipagem visual — criação de elementos e assets</h3>
-<p>Experimento de criação de elementos visuais e prototipagem com ferramentas de IA generativa. Foco em composição, cor e ritmo visual.</p>
-</div>
-</article>
+    <section id="capabilities" class="capabilities-section section-anchor section-reveal" aria-labelledby="capabilities-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="section-index">03 / CAPABILITIES</p>
+          <h2 id="capabilities-title" class="display-title">Onde o código, o contexto e a interface se encontram.</h2>
+        </div>
+        <dl class="capabilities-list">
+          <div><dt>Web development</dt><dd>Sites responsivos, landing pages, sistemas e estados de interface.</dd></div>
+          <div><dt>Front-end &amp; interfaces</dt><dd>HTML, CSS, JavaScript, design de interação e prototipação visual.</dd></div>
+          <div><dt>Support &amp; data</dt><dd>Diagnóstico, SQL, indicadores e acompanhamento de software em operação.</dd></div>
+          <div><dt>AI &amp; automation</dt><dd>IA generativa, scripts, fluxos automáticos e integração de ferramentas.</dd></div>
+          <div><dt>Creative coding</dt><dd>Movimento, interfaces experimentais, vídeo e exploração visual.</dd></div>
+        </dl>
+      </div>
+    </section>
 
-<article class="exp-editorial exp-02" aria-label="Animação de produto — interface animada">
-<div class="exp-body">
-<h3>02 — Animação de produto</h3>
-<p>Interface animada explorando movimento de elementos digitais e transições suaves entre estados de interface.</p>
-<p class="tech-line">Animação / Interface / Tecnologia</p>
-</div>
-<div class="exp-media">
-<video src="assets/ai-creative-lab/experimento-02/video.mp4" preload="metadata" muted playsinline loop poster="assets/ai-creative-lab/projeto-01/thumb/thumb.png" aria-label="Animação de produto"></video>
-</div>
-</article>
+    <section id="lab" class="lab-section section-anchor section-reveal" aria-labelledby="lab-title">
+      <div class="shell">
+        <div class="section-heading split-heading lab-heading">
+          <div>
+            <p class="section-index">04 / LUCAS / LAB</p>
+            <h2 id="lab-title" class="display-title">Um espaço para testar antes de virar sistema.</h2>
+          </div>
+          <p>Prototipagem visual, movimento e IA como parte do processo — não como decoração.</p>
+        </div>
 
-<article class="exp-editorial exp-03" aria-label="Interface futurista — experimentação visual de design">
-<div class="exp-media">
-<video src="assets/ai-creative-lab/experimento-03/video.mp4" preload="metadata" muted playsinline loop poster="assets/ai-creative-lab/projeto-01/thumb/thumb.png" aria-label="Interface futurista"></video>
-<div class="hover-reveal"><h3>03 — Interface futurista</h3><p>Experimentação visual de design futurista e composição de interface.</p></div>
-</div>
-</article>
-</div>
-</section>
+        <div class="lab-grid">
+          <article class="lab-item lab-featured">
+            <video muted playsinline loop preload="metadata" poster="assets/ai-creative-lab/experimento-01/poster.jpg" data-lab-video aria-describedby="lab-one-copy">
+              <source src="assets/ai-creative-lab/experimento-01/video.mp4" type="video/mp4">
+            </video>
+            <div class="lab-overlay" id="lab-one-copy"><span>01 / Prototipagem visual</span><h3>Composição, assets e interfaces em estudo.</h3></div>
+            <button type="button" class="video-toggle" aria-label="Reproduzir vídeo de prototipagem visual" data-video-toggle>Reproduzir</button>
+          </article>
+          <article class="lab-item lab-second">
+            <video muted playsinline loop preload="metadata" poster="assets/ai-creative-lab/experimento-02/poster.jpg" data-lab-video aria-describedby="lab-two-copy">
+              <source src="assets/ai-creative-lab/experimento-02/video.mp4" type="video/mp4">
+            </video>
+            <div class="lab-overlay" id="lab-two-copy"><span>02 / Animação de produto</span><h3>Estados e transições de interface.</h3></div>
+            <button type="button" class="video-toggle" aria-label="Reproduzir vídeo de animação de produto" data-video-toggle>Reproduzir</button>
+          </article>
+          <article class="lab-item lab-third">
+            <video muted playsinline loop preload="metadata" poster="assets/ai-creative-lab/experimento-03/poster.jpg" data-lab-video aria-describedby="lab-three-copy">
+              <source src="assets/ai-creative-lab/experimento-03/video.mp4" type="video/mp4">
+            </video>
+            <div class="lab-overlay" id="lab-three-copy"><span>03 / Interface futurista</span><h3>Ritmo, contraste e direção visual.</h3></div>
+            <button type="button" class="video-toggle" aria-label="Reproduzir vídeo de interface futurista" data-video-toggle>Reproduzir</button>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<!-- SOBRE -->
-<section id="sobre" class="section" aria-label="Sobre mim">
-<div class="container">
-<div class="about-editorial">
-<div class="about-lead">
-<h2 class="section-title"><span class="num">05</span> Sobre mim</h2>
-<p class="lead-text">Eu sou Lucas, estudante de Análise e Desenvolvimento de Sistemas, criando experiências para a web.</p>
-</div>
-<div class="about-columns">
-<div class="about-text">
-<h3>Quem sou</h3>
-<p>4º período de Análise e Desenvolvimento de Sistemas na Newton Paiva (Wyden). Formado em logística e vistoria veicular. Passei pela Pirelli e pela Newcity Car; hoje trabalho na Teknisa e estudo front-end, dados e IA aplicada.</p>
-<h3>O que faço</h3>
-<p>Na Teknisa atuo com suporte de software: entender o que quebrou, consultar dados com SQL e acompanhar sistemas reais em produção. Em paralelo desenvolvo sites e fluxos em HTML, CSS e JavaScript — e uso IA generativa para prototipar visuais, como nos experimentos deste portfólio.</p>
-<h3>Objetivo</h3>
-<p>Seguir em TI no cruzamento de front-end, suporte e dados. Quero construir interfaces que funcionam no celular, com base no que já vejo no dia a dia de software em operação.</p>
-</div>
-<div class="about-sidebar">
-<div class="timeline-editorial">
-<h4>Experiência</h4>
-<div class="tl-item"><span class="tl-comp">Teknisa</span><span class="tl-what">Suporte Técnico</span><span class="tl-time">2026 — atual</span></div>
-<div class="tl-item"><span class="tl-comp">Newcity Car</span><span class="tl-what">Vistoriador Veicular</span><span class="tl-time">2024 — 2025</span></div>
-<div class="tl-item"><span class="tl-comp">Pirelli</span><span class="tl-what">Logística</span><span class="tl-time">2021 — 2021</span></div>
-</div>
-<div class="tech-showcase">
-<h4>Tecnologias</h4>
-<div class="tech-chips" role="list">
-<span class="tech-chip">HTML</span><span class="tech-chip">CSS</span><span class="tech-chip">JavaScript</span>
-<span class="tech-chip">SQL</span><span class="tech-chip">React</span><span class="tech-chip">Node.js</span>
-<span class="tech-chip">Git</span><span class="tech-chip">GitHub</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <section id="journey" class="journey-section section-anchor section-reveal" aria-labelledby="journey-title">
+      <div class="shell journey-layout">
+        <div>
+          <p class="section-index">05 / JOURNEY</p>
+          <h2 id="journey-title" class="display-title">Uma trajetória em movimento, não uma lista longa.</h2>
+        </div>
+        <ol class="journey-list">
+          <li><span>2021</span><div><h3>Pirelli</h3><p>Logística</p></div></li>
+          <li><span>2024—25</span><div><h3>Newcity Car</h3><p>Vistoriador veicular</p></div></li>
+          <li><span>Atual</span><div><h3>Teknisa</h3><p>Estágio em suporte de software, diagnóstico e SQL</p></div></li>
+          <li><span>Em curso</span><div><h3>ADS — Newton Paiva</h3><p>4º período, com foco em desenvolvimento e dados</p></div></li>
+          <li><span>Agora</span><div><h3>Projetos próprios</h3><p>Web, IA, automação e experiências visuais</p></div></li>
+        </ol>
+      </div>
+    </section>
 
-<!-- CONTATO -->
-<section id="contato" class="section section-alt" aria-label="Contato">
-<div class="container">
-<div class="contact-hero">
-<h2 class="contact-title"><span class="num">06</span> TEM_UMA_IDEIA?</h2>
-<p class="contact-subtitle">Vamos construir algo juntos.</p>
-<div class="contact-links">
-<a href="mailto:lucaspaz696@gmail.com" class="contact-link" aria-label="E-mail" id="email-link">
-<span>E-mail</span>
-<span class="contact-val">lucaspaz696@gmail.com</span>
-<span class="contact-copy" id="email-feedback">Copiar</span>
-</a>
-<a href="https://github.com/Japapaz696" target="_blank" rel="noopener" class="contact-link" aria-label="GitHub"><span>GitHub</span><span class="contact-val">Japapaz696</span><span class="contact-ext">↗</span></a>
-<a href="https://www.linkedin.com/in/lucas-santana-da-paz-215816247/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn"><span>LinkedIn</span><span class="contact-val">lucas-santana-da-paz</span><span class="contact-ext">↗</span></a>
-<a href="https://wa.me/5531973403545" target="_blank" rel="noopener" class="contact-link" aria-label="WhatsApp"><span>WhatsApp</span><span class="contact-val">(31) 97340-3545</span><span class="contact-ext">↗</span></a>
-</div>
-</div>
-</div>
-</section>
-</main>
+    <section id="stack" class="stack-section section-anchor section-reveal" aria-labelledby="stack-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="section-index">06 / STACK</p>
+          <h2 id="stack-title" class="display-title">Ferramentas que entram quando fazem sentido.</h2>
+        </div>
+        <dl class="stack-list">
+          <div><dt>Base</dt><dd>HTML5, CSS3, JavaScript, LocalStorage</dd></div>
+          <div><dt>Front-end</dt><dd>React, Figma, responsividade, acessibilidade</dd></div>
+          <div><dt>Dados &amp; suporte</dt><dd>SQL, indicadores, diagnóstico de sistemas</dd></div>
+          <div><dt>Back-end</dt><dd>Node.js, Express, APIs</dd></div>
+          <div><dt>Processo</dt><dd>Git, GitHub, VS Code, Chrome DevTools, IA generativa</dd></div>
+        </dl>
+      </div>
+    </section>
 
-<footer class="footer" role="contentinfo"><div class="container"><p>Feito com cuidado — <span id="year"></span></p></div></footer>
-<button type="button" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>
+    <section id="contact" class="contact-section section-anchor section-reveal" aria-labelledby="contact-title">
+      <div class="shell contact-layout">
+        <div>
+          <p class="section-index">07 / CONTACT</p>
+          <h2 id="contact-title" class="contact-title">Tem uma ideia?<br><em>Vamos construir.</em></h2>
+        </div>
+        <div class="contact-copy">
+          <p>Estou aberto a oportunidades, conversas e projetos em que uma boa interface realmente possa fazer diferença.</p>
+          <ul class="contact-links">
+            <li><a id="email-link" href="mailto:lucaspaz696@gmail.com">E-mail <span>lucaspaz696@gmail.com</span><em id="email-feedback" aria-live="polite">Copiar</em></a></li>
+            <li><a href="https://github.com/Japapaz696" target="_blank" rel="noopener">GitHub <span>Japapaz696</span><em aria-hidden="true">↗</em></a></li>
+            <li><a href="https://www.linkedin.com/in/lucas-santana-da-paz-215816247/" target="_blank" rel="noopener">LinkedIn <span>lucas-santana-da-paz</span><em aria-hidden="true">↗</em></a></li>
+            <li><a href="https://wa.me/5531973403545" target="_blank" rel="noopener">WhatsApp <span>+55 31 97340-3545</span><em aria-hidden="true">↗</em></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<div id="command-palette" class="palette" hidden>
-<div class="palette-backdrop" data-close-palette></div>
-<div class="palette-panel" role="dialog" aria-modal="true" aria-labelledby="palette-label">
-<p id="palette-label" class="palette-label">Buscar no portfólio</p>
-<input type="search" id="palette-input" placeholder="Seção, projeto, contato…" aria-label="Buscar no portfólio" autocomplete="off">
-<ul id="palette-list" class="palette-list" role="listbox"></ul>
-</div>
-</div>
+  <footer class="site-footer">
+    <div class="shell"><p>Feito por Lucas Santana da Paz <span aria-hidden="true">/</span> <span id="year"></span></p></div>
+  </footer>
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button>
 
-<script src="script.js"></script>
+  <div id="command-palette" class="palette" hidden>
+    <div class="palette-backdrop" data-close-palette></div>
+    <section class="palette-panel" role="dialog" aria-modal="true" aria-labelledby="palette-title" aria-describedby="palette-description">
+      <div class="palette-heading">
+        <div><p id="palette-title">Search Lucas</p><p id="palette-description">Navegue pelo portfólio usando seções ou comandos.</p></div>
+        <button type="button" class="palette-close" data-close-palette aria-label="Fechar busca">Esc</button>
+      </div>
+      <label class="sr-only" for="palette-input">Buscar no portfólio</label>
+      <input id="palette-input" type="search" placeholder="/work, /lab, /contact…" autocomplete="off" spellcheck="false">
+      <ul id="palette-list" class="palette-list"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
