@@ -72,4 +72,5 @@ async function main(){
     fs.writeFileSync(path.join(out,'reports','captures.json'),JSON.stringify({browserVersion:browser.version(),captureDate:new Date().toISOString(),records},null,2));
   }finally{await browser.close();for(const s of servers)await new Promise(resolve=>s.close(resolve));}
 }
-main().catch(e=>{console.error(e);process.exitCode=1;});
+module.exports={findPlaywright,staticServer,listen};
+if(require.main===module)main().catch(e=>{console.error(e);process.exitCode=1;});

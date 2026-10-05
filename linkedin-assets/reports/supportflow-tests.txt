@@ -1,0 +1,9 @@
+
+ RUN  v5.0.2 C:/Users/Lucas/AppData/Local/Temp/linkedin-supportflow-audit-20261005-91c8a1
+
+
+ Test Files  5 passed (5)
+      Tests  77 passed (77)
+   Start at  13:35:42
+   Duration  20.88s (tests 89%, import 8%, transform 2%)
+

@@ -1,0 +1,53 @@
+
+ RUN  v5.0.2 C:/Users/Lucas/AppData/Local/Temp/linkedin-supportflow-audit-20261005-91c8a1
+
+stdout | apps/backend/src/m4.integration.test.ts
+◇ injected env (0) from .env // tip: ⌘ suppress logs { quiet: true }
+
+ ❯ apps/backend/src/m4.integration.test.ts (0 test)
+stdout | apps/backend/src/m5.integration.test.ts
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+
+ ❯ apps/backend/src/m5.integration.test.ts (0 test)
+stdout | apps/backend/src/m6.integration.test.ts
+◇ injected env (0) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+
+ ❯ apps/backend/src/m6.integration.test.ts (0 test)
+stdout | apps/backend/src/auth.integration.test.ts
+◇ injected env (0) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+
+ ❯ apps/backend/src/auth.integration.test.ts (0 test)
+stdout | apps/backend/src/m7.integration.test.ts
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+
+ ❯ apps/backend/src/m7.integration.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  apps/backend/src/auth.integration.test.ts [ apps/backend/src/auth.integration.test.ts ]
+ FAIL  apps/backend/src/m4.integration.test.ts [ apps/backend/src/m4.integration.test.ts ]
+ FAIL  apps/backend/src/m5.integration.test.ts [ apps/backend/src/m5.integration.test.ts ]
+ FAIL  apps/backend/src/m6.integration.test.ts [ apps/backend/src/m6.integration.test.ts ]
+ FAIL  apps/backend/src/m7.integration.test.ts [ apps/backend/src/m7.integration.test.ts ]
+Error: Tests require a database distinct from DATABASE_URL
+ ❯ apps/backend/src/config/env.ts:23:9
+     21|
+     22| if (process.env.VITEST && !isIsolatedTestStorage(developmentDatabaseUr…
+     23|   throw new Error('Tests require a database distinct from DATABASE_URL…
+       |         ^
+     24| }
+     25|
+ ❯ apps/backend/src/services/auth.service.ts:4:1
+ ❯ apps/backend/src/controllers/auth.controller.ts:4:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+
+ Test Files  5 failed (5)
+      Tests  no tests
+   Start at  13:35:19
+   Duration  2.08s (worker 96%, environment 4%)
+
+    Isolate  5 workers spawned · ~113ms startup each (spawn + environment, per file)
+             at least ~451ms faster with isolate: false — reuses workers across files instead of one per file
+

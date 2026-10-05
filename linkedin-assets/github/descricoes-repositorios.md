@@ -12,7 +12,7 @@ Textos preparados para copiar no campo **About > Description**. Não foram publi
 | `barbearia` | Protótipo front-end para barbearia com agendamento, área do cliente e painel demonstrativo usando LocalStorage. | https://japapaz696.github.io/barbearia/ | `prototype`, `javascript`, `localstorage`, `frontend`, `scheduling` |
 | `-Conhe-a-e-agende-sua-consulta` | Página link-in-bio responsiva para reunir os canais profissionais e o agendamento de uma psicóloga. | https://japapaz696.github.io/-Conhe-a-e-agende-sua-consulta/ | `link-in-bio`, `html`, `css`, `javascript`, `responsive-design` |
 | `AGENT_CONTEXT.md` | Repositório auxiliar de contexto e documentação. | Deixar vazio. | `documentation` |
-| `SupportFlow` | Projeto pessoal de software para suporte. Consulte o README para stack, funcionalidades e estágio atual. | Preservar https://support-flow-green.vercel.app e validar conforme relatório específico. | Definir depois da auditoria específica. |
+| `SupportFlow` | Sistema de chamados em desenvolvimento com React, TypeScript, Node.js/Express e PostgreSQL. Autenticação, perfis de acesso, SLA e testes de integração. | Demo informada: https://support-flow-green.vercel.app; fluxos autenticados não validados online. | `react`, `typescript`, `nodejs`, `express`, `postgresql`, `helpdesk` |
 
 Não adicionar `ai-agent`, `whatsapp-api`, `n8n`, `make`, `postgresql` ou `production-ready` a repos que apenas mostram essas possibilidades em uma interface. Os topics devem representar o código disponível.
 

@@ -1,0 +1,12 @@
+Verificação em cópia temporária isolada, 05/10/2026.
+Comando: npm.cmd run build
+Resultado: código 0.
+
+@supportflow/shared: tsc -p tsconfig.json
+@supportflow/backend: tsc -p tsconfig.json
+@supportflow/frontend: tsc -b && vite build
+Vite 7.3.6: 43 módulos transformados.
+dist/index.html 0.40 kB
+dist/assets/index-CBhxbVIJ.css 10.36 kB
+dist/assets/index-D_--NaLk.js 264.49 kB
+Build concluído.

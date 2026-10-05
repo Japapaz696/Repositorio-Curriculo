@@ -1,0 +1,5 @@
+◇ injected env (0) from .env // tip: ⌘ override existing { override: true }
+Migration 001_initial_schema.sql already applied
+Migration 002_prepare_tickets_for_m4.sql already applied
+Migration 003_notifications.sql already applied
+Migration 004_ticket_technical_diagnostics.sql already applied

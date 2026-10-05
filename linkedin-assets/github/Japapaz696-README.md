@@ -18,7 +18,7 @@ Na Teknisa, minha atuação em suporte ao TecFood conecta investigação de prob
 | Portfólio pessoal | Trajetória, projetos e demonstrações front-end com persistência local | [Código](https://github.com/Japapaz696/Repositorio-Curriculo) · [Site](https://japapaz696.github.io/Repositorio-Curriculo/) |
 | Verônica Reis Santana | Site institucional, páginas responsivas e interface de agendamento com API Express; administração em evolução | [Código](https://github.com/Japapaz696/Site-veronica) · [Site](https://site-veronica.onrender.com) |
 | Portfolio Anna | Site pessoal com identidade visual, navegação mobile e galeria | [Código](https://github.com/Japapaz696/Portfolio-Anna) · [Site](https://japapaz696.github.io/Portfolio-Anna/) |
-| SupportFlow | Projeto pessoal de software; escopo e estágio detalhados no README do repositório | [Código](https://github.com/Japapaz696/SupportFlow) |
+| SupportFlow | Sistema de chamados em desenvolvimento, com React/TypeScript, Express, PostgreSQL, JWT, RBAC e testes de integração | [Código](https://github.com/Japapaz696/SupportFlow) |
 
 No meu portfólio também reúno estudos de interface, movimento e IA generativa. Os protótipos e as simulações são identificados nos projetos.
 
