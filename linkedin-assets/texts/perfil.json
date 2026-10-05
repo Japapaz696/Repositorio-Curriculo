@@ -1,0 +1,46 @@
+{
+  "name": "Lucas Santana da Paz",
+  "location": "Belo Horizonte, Minas Gerais, Brasil",
+  "headlines": {
+    "equilibrada": "Desenvolvimento Web | JavaScript, React e SQL | Suporte Técnico a ERP | Graduando em ADS",
+    "desenvolvimento": "Desenvolvimento Web e Front-End | JavaScript, React e Node.js | Projetos próprios | Graduando em ADS",
+    "desenvolvimento_suporte_ia": "Desenvolvimento Web | Suporte Técnico a ERP e SQL | JavaScript e React | IA e automação em projetos"
+  },
+  "headlineSelected": "equilibrada",
+  "about": "Minha trajetória reúne atendimento ao cliente, processos e tecnologia. Na logística e na vistoria veicular, desenvolvi atenção aos detalhes, responsabilidade na conferência de informações e cuidado com as demandas de quem utiliza um serviço.\n\nNa experiência como estagiário de Suporte na Teknisa, com o sistema TecFood/ERP, aprofundei esse contato com software: atendimento multicanal, registro e acompanhamento de chamados, análise de solicitações, consultas SQL e apoio técnico e funcional. Também participei de treinamentos, acompanhei indicadores e fiz a ponte entre clientes e áreas internas.\n\nHoje curso Análise e Desenvolvimento de Sistemas na Newton Paiva e construo projetos próprios para desenvolver minha base técnica. Trabalho com HTML, CSS e JavaScript e venho ampliando meus conhecimentos em React, Node.js, Express e bancos de dados. Meu portfólio reúne sites, interfaces e aplicações em desenvolvimento, com atenção à responsividade, à navegação e à experiência de uso.\n\nTambém estudo IA generativa, integrações e automação, explorando ferramentas como n8n, Make e assistentes de IA no processo de desenvolvimento. Apresento essas iniciativas como estudos e projetos, respeitando o estágio real de cada solução.\n\nBusco oportunidades de estágio e nível júnior em desenvolvimento web, front-end e suporte de software, com espaço para aprender, investigar problemas e construir soluções úteis. Trago experiência com clientes e sistemas, prática em projetos próprios e disposição para evoluir com o time.\n\nPortfólio: https://japapaz696.github.io/Repositorio-Curriculo/\nGitHub: https://github.com/Japapaz696",
+  "experiences": [
+    {
+      "company": "Teknisa",
+      "title": "Estagiário de Suporte — TecFood / ERP",
+      "dates": null,
+      "description": "Atuação em suporte técnico e funcional ao TecFood/ERP, conectando as demandas dos clientes à investigação e ao acompanhamento de soluções.\n\n• Atendimento multicanal e análise de solicitações relacionadas ao uso do sistema.\n• Registro, acompanhamento e atualização de chamados.\n• Consultas SQL para apoiar a análise de informações e a investigação de problemas.\n• Apoio em treinamentos e no acompanhamento de indicadores.\n• Interação entre clientes e áreas internas para dar continuidade às demandas.\n\nFerramentas e contexto: TecFood/ERP, SQL e sistema de chamados."
+    },
+    {
+      "company": "New City Car",
+      "title": "Vistoriador Veicular",
+      "dates": null,
+      "description": "Atuação em vistorias veiculares e atendimento ao cliente, com foco na precisão das informações e no cumprimento dos processos.\n\n• Realização de vistorias veiculares e cautelares.\n• Conferência de informações e apoio em processos relacionados à transferência.\n• Emissão de documentos e notas, além de atividades administrativas.\n• Atendimento e orientação aos clientes durante as etapas do serviço.\n\nCompetências aplicadas: atenção aos detalhes, responsabilidade, organização e comunicação com clientes."
+    },
+    {
+      "company": "Loja de pneus / Pirelli — confirmar razão social",
+      "title": "Atuação em logística — confirmar cargo formal",
+      "dates": null,
+      "description": "Experiência de curta duração em atividades de logística e apoio operacional em loja de pneus.\n\n• Apoio na organização e no controle de estoque.\n• Suporte às rotinas de distribuição e à organização de materiais.\n• Acompanhamento de processos operacionais, com atenção à conferência e ao fluxo de trabalho.\n\nCompetências aplicadas: organização, atenção aos detalhes e cumprimento de processos."
+    }
+  ],
+  "education": {
+    "institution": "Universidade Newton Paiva",
+    "degree": "Graduação tecnológica",
+    "field": "Análise e Desenvolvimento de Sistemas",
+    "dates": null,
+    "description": "Graduação em andamento em Análise e Desenvolvimento de Sistemas. Em paralelo à formação, desenvolvo projetos próprios para praticar desenvolvimento web, programação e bancos de dados, conectando o aprendizado à minha experiência com suporte de software e atendimento ao cliente."
+  },
+  "skills": ["JavaScript", "Suporte Técnico", "SQL", "HTML5", "CSS3", "React.js", "Desenvolvimento Web", "Node.js", "Git", "GitHub", "ERP", "Atendimento ao Cliente", "Resolução de Problemas", "Express.js", "Design Responsivo", "APIs REST", "PostgreSQL", "SQL Server", "Acessibilidade Web", "Automação de Processos", "Inteligência Artificial Generativa", "Comunicação", "Organização", "Atenção aos Detalhes"],
+  "contacts": {
+    "email": "lucaspaz696@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/lucas-santana-da-paz-215816247/",
+    "github": "https://github.com/Japapaz696",
+    "portfolio": "https://japapaz696.github.io/Repositorio-Curriculo/"
+  },
+  "openToWork": ["Desenvolvedor Front-End", "Desenvolvedor Web", "Estagiário de Desenvolvimento", "Analista de Suporte", "Analista de Implantação"]
+}
