@@ -1,0 +1,9 @@
+Barbearia Teste 1	5,0	(150)
+https://www.google.com/maps/place/Barbearia+Teste+1
+Rua das Flores, 123 - Castelo
+Aberto · Fecha 20:00
+
+Barbearia Teste 2	4,8	(89)
+https://www.google.com/maps/place/Barbearia+Teste+2
+Av. Brasil, 456 - Ouro Preto
+Aberto · Fecha 19:00
