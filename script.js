@@ -1,4 +1,5 @@
 const root = document.documentElement;
+root.classList.add('js');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const themeToggle = document.getElementById('theme-toggle');
 const menuToggle = document.getElementById('menu-toggle');
