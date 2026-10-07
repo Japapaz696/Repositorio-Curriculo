@@ -99,7 +99,7 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
   });
 }, { threshold: .12 });
 
-document.querySelectorAll('.section-reveal').forEach((section) => {
+document.querySelectorAll('[data-reveal]').forEach((section) => {
   if (reducedMotion.matches) section.classList.add('is-visible');
   else revealObserver.observe(section);
 });
@@ -112,8 +112,8 @@ if (heroPreview && window.matchMedia('(pointer: fine)').matches && !reducedMotio
 
   heroPreview.addEventListener('pointermove', (event) => {
     const bounds = heroPreview.getBoundingClientRect();
-    xOffset = ((event.clientX - bounds.left) / bounds.width - .5) * 8;
-    yOffset = ((event.clientY - bounds.top) / bounds.height - .5) * 6;
+    xOffset = ((event.clientX - bounds.left) / bounds.width - .5) * 6;
+    yOffset = ((event.clientY - bounds.top) / bounds.height - .5) * 4;
 
     if (frameRequested) return;
     frameRequested = true;
@@ -173,7 +173,7 @@ document.querySelectorAll('[data-video-toggle]').forEach((button) => {
 reducedMotion.addEventListener?.('change', (event) => {
   if (!event.matches) return;
   labVideos.forEach((video) => video.pause());
-  document.querySelectorAll('.section-reveal').forEach((section) => section.classList.add('is-visible'));
+  document.querySelectorAll('[data-reveal]').forEach((section) => section.classList.add('is-visible'));
 });
 
 const emailLink = document.getElementById('email-link');
@@ -193,14 +193,14 @@ emailLink?.addEventListener('click', async (event) => {
 });
 
 const paletteItems = [
-  { label: 'Profile', command: '/about', href: '#profile' },
-  { label: 'Selected work', command: '/projects', href: '#work' },
-  { label: 'Lucas / Lab', command: '/lab', href: '#lab' },
-  { label: 'Capabilities', command: '/capabilities', href: '#capabilities' },
-  { label: 'Journey', command: '/journey', href: '#journey' },
-  { label: 'Stack', command: '/stack', href: '#stack' },
-  { label: 'Contato', command: '/contact', href: '#contact' },
-  { label: 'Alternar tema', command: 'theme', action: () => themeToggle?.click() }
+  { label: 'Projetos', command: '/projetos', href: '#work' },
+  { label: 'O que faço', command: '/capacidades', href: '#capabilities' },
+  { label: 'Sobre', command: '/sobre', href: '#profile' },
+  { label: 'Lab', command: '/lab', href: '#lab' },
+  { label: 'Trajetória', command: '/trajetoria', href: '#journey' },
+  { label: 'Ferramentas', command: '/ferramentas', href: '#stack' },
+  { label: 'Contato', command: '/contato', href: '#contact' },
+  { label: 'Alternar tema', command: 'tema', action: () => themeToggle?.click() }
 ];
 
 function closePalette({ restoreFocus = true } = {}) {
