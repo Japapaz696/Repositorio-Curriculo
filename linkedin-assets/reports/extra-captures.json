@@ -1,0 +1,37 @@
+[
+  {
+    "file": "reports/veronica-agendamento-http503.png",
+    "url": "https://site-veronica.onrender.com/agendamento.html",
+    "kind": "public HTTP 503 error page; not a project screenshot",
+    "status": 503,
+    "errors": []
+  },
+  {
+    "file": "screenshots/ai-creative-lab-desktop.png",
+    "url": "https://japapaz696.github.io/Repositorio-Curriculo/",
+    "kind": "public visual studies in the portfolio",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "file": "screenshots/lucas-dev-configurador-desktop.png",
+    "url": "http://127.0.0.1:57152",
+    "kind": "local front-end configurator",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "file": "screenshots/lucas-ai-simulacao-desktop.png",
+    "url": "http://127.0.0.1:57162",
+    "kind": "local simulated conversations; no AI API",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "file": "screenshots/veronica-agendamento-desktop.png",
+    "url": "http://127.0.0.1:57207/agendamento.html",
+    "kind": "local static scheduling form; no backend or submission",
+    "status": 200,
+    "errors": []
+  }
+]

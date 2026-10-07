@@ -1,0 +1,49 @@
+{
+  "isolated": true,
+  "host": "127.0.0.1",
+  "port": 55439,
+  "database": "supportflow_demo",
+  "counts": [
+    {
+      "users": "4",
+      "tickets": "7",
+      "migrations": "4"
+    }
+  ],
+  "users": [
+    {
+      "email": "demo.manager@example.test",
+      "role": "admin"
+    },
+    {
+      "email": "gestor@example.test",
+      "role": "manager"
+    },
+    {
+      "email": "solicitante@example.test",
+      "role": "requester"
+    },
+    {
+      "email": "agente@example.test",
+      "role": "agent"
+    }
+  ],
+  "migrations": [
+    {
+      "version": 1,
+      "name": "001_initial_schema.sql"
+    },
+    {
+      "version": 2,
+      "name": "002_prepare_tickets_for_m4.sql"
+    },
+    {
+      "version": 3,
+      "name": "003_notifications.sql"
+    },
+    {
+      "version": 4,
+      "name": "004_ticket_technical_diagnostics.sql"
+    }
+  ]
+}

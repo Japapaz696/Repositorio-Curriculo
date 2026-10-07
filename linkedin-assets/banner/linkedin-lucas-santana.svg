@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1584" height="396" viewBox="0 0 1584 396" role="img" aria-label="Lucas Santana da Paz. Desenvolvimento web, suporte e automação.">
+  <rect width="1584" height="396" fill="#132B43"/>
+  <path d="M0 342H1584" stroke="#2D4962" stroke-width="1"/>
+  <g fill="none" stroke="#2D4962" stroke-width="2">
+    <path d="M-35 102H158Q191 102 191 136V198Q191 232 225 232H340"/>
+    <path d="M32 286H112Q145 286 145 252V198Q145 165 179 165H340"/>
+    <path d="M102 44V69Q102 102 135 102H220Q253 102 253 136V232"/>
+  </g>
+  <g fill="#70B7B4"><circle cx="191" cy="165" r="5"/><circle cx="253" cy="232" r="5"/><circle cx="340" cy="165" r="5"/></g>
+  <text x="428" y="186" fill="#F4F7FA" font-family="Segoe UI, sans-serif" font-size="64" font-weight="600" letter-spacing="-1.4">Lucas Santana da Paz</text>
+  <text x="432" y="239" fill="#91AAC2" font-family="Segoe UI, sans-serif" font-size="28">Desenvolvimento web, suporte e automação</text>
+  <path d="M432 281H522" stroke="#70B7B4" stroke-width="3"/>
+</svg>
