@@ -36,10 +36,12 @@ body {
 /* Header */
 .header {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(13,13,13,0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(13,13,13,0.96);
     border-bottom: 1px solid var(--border);
 }
+/* Sem backdrop-filter aqui: a propriedade criaria um bloco de contenção para o
+   menu position:fixed, fazendo o item fechado (translateX(100%)) gerar overflow
+   horizontal da página no mobile. O fundo já é 96% opaco, então o blur era imperceptível. */
 
 .header-inner {
     display: flex; align-items: center; justify-content: space-between; height: 70px;
@@ -58,10 +60,15 @@ body {
 .nav a { color: var(--text-muted); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
 .nav a:hover { color: var(--accent); }
 
+.header-actions { display: flex; align-items: center; gap: 0.75rem; }
+
 .btn-cart {
     position: relative; background: var(--card-bg); border: 1px solid var(--border);
     color: var(--text); padding: 0.6rem 1rem; border-radius: 10px; cursor: pointer; font-weight: 600;
+    font-family: inherit; font-size: 0.95rem; transition: var(--transition);
 }
+.btn-cart:hover { border-color: var(--accent); color: var(--accent); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 #cart-count {
     background: var(--accent-dark); color: #fff; font-size: 0.7rem; padding: 0.1rem 0.45rem;
     border-radius: 999px; margin-left: 0.35rem;
@@ -158,11 +165,11 @@ body {
 .review-author { font-weight: 600; color: var(--accent); font-size: 0.9rem; }
 
 /* Cart Modal */
-.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 200; opacity: 0; visibility: hidden; transition: var(--transition); }
-.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 200; opacity: 0; visibility: hidden; transition: opacity var(--transition), visibility 0s linear .2s; }
+.modal-overlay.active { opacity: 1; visibility: visible; transition: opacity var(--transition); }
 
-.cart-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 90%; max-width: 480px; max-height: 85vh; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); z-index: 201; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transition: var(--transition); }
-.cart-modal.active { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+.cart-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 90%; max-width: 480px; max-height: 85vh; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); z-index: 201; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transition: opacity var(--transition), transform var(--transition), visibility 0s linear .2s; }
+.cart-modal.active { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); transition: opacity var(--transition), transform var(--transition); }
 
 .cart-header { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
 .cart-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 1px; }
@@ -194,8 +201,8 @@ body {
 .cart-total strong { font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; color: var(--accent); letter-spacing: 1px; }
 
 /* Checkout Modal */
-.checkout-modal { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; visibility: hidden; transition: var(--transition); }
-.checkout-modal.active { opacity: 1; visibility: visible; }
+.checkout-modal { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; visibility: hidden; transition: opacity var(--transition), visibility 0s linear .2s; }
+.checkout-modal.active { opacity: 1; visibility: visible; transition: opacity var(--transition); }
 .checkout-modal::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(6px); }
 .checkout-content { position: relative; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; width: 100%; max-width: 440px; max-height: 90vh; overflow-y: auto; }
 .close-checkout { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
@@ -218,8 +225,8 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nav { position: fixed; top: 70px; right: 0; bottom: 0; width: 280px; background: var(--bg); border-left: 1px solid var(--border); flex-direction: column; padding: 2rem; gap: 1.5rem; transform: translateX(100%); transition: var(--transition); }
-    .nav.active { transform: translateX(0); }
+    .nav { position: fixed; top: 70px; right: 0; bottom: 0; width: min(280px, 85vw); background: var(--bg); border-left: 1px solid var(--border); flex-direction: column; padding: 2rem; gap: 1.5rem; transform: translateX(100%); visibility: hidden; transition: transform var(--transition), visibility 0s linear .2s; }
+    .nav.active { transform: translateX(0); visibility: visible; transition: transform var(--transition); }
     .menu-toggle { display: block; }
     .hero-inner { grid-template-columns: 1fr; text-align: center; }
     .hero-buttons { justify-content: center; }

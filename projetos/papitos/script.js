@@ -27,7 +27,31 @@ const combos = [
 ];
 
 // ===== Estado =====
-let cart = JSON.parse(localStorage.getItem('papitos-cart')) || [];
+function loadCart() {
+    try {
+        const raw = localStorage.getItem('papitos-cart');
+        const parsed = raw ? JSON.parse(raw) : [];
+        if (!Array.isArray(parsed)) return [];
+        return parsed.filter(item => item && typeof item.id === 'string'
+            && typeof item.nome === 'string'
+            && typeof item.preco === 'number' && Number.isFinite(item.preco)
+            && typeof item.qty === 'number' && item.qty > 0);
+    } catch {
+        // Dados corrompidos ou armazenamento indisponível: começa com carrinho vazio.
+        return [];
+    }
+}
+
+function saveCart() {
+    try {
+        localStorage.setItem('papitos-cart', JSON.stringify(cart));
+    } catch {
+        // O carrinho continua funcionando na sessão mesmo sem persistência.
+    }
+    updateCartCount();
+}
+
+let cart = loadCart();
 let currentCategory = 'todos';
 
 // ===== Render Cardápio =====
@@ -78,11 +102,6 @@ function renderCombos() {
 }
 
 // ===== Carrinho =====
-function saveCart() {
-    localStorage.setItem('papitos-cart', JSON.stringify(cart));
-    updateCartCount();
-}
-
 function addToCart(id) {
     const produto = produtos.find(p => p.id === id);
     const existing = cart.find(item => item.id === id);
@@ -146,12 +165,12 @@ function renderCart() {
                 <span class="cart-item-name">${item.nome}</span>
                 <span class="cart-item-price">R$ ${item.preco.toFixed(2).replace('.', ',')}</span>
                 <div class="cart-item-qty">
-                    <button class="qty-btn" onclick="changeQty(${typeof item.id === 'number' ? item.id : `'${item.id}'`}, -1)">−</button>
-                    <span class="qty-val">${item.qty}</span>
-                    <button class="qty-btn" onclick="changeQty(${typeof item.id === 'number' ? item.id : `'${item.id}'`}, 1)">+</button>
+                    <button type="button" class="qty-btn" aria-label="Diminuir quantidade de ${item.nome}" onclick="changeQty(${typeof item.id === 'number' ? item.id : `'${item.id}'`}, -1)">−</button>
+                    <span class="qty-val" aria-live="polite">${item.qty}</span>
+                    <button type="button" class="qty-btn" aria-label="Aumentar quantidade de ${item.nome}" onclick="changeQty(${typeof item.id === 'number' ? item.id : `'${item.id}'`}, 1)">+</button>
                 </div>
             </div>
-            <button class="cart-item-remove" onclick="removeFromCart(${typeof item.id === 'number' ? item.id : `'${item.id}'`})" title="Remover">🗑</button>
+            <button type="button" class="cart-item-remove" aria-label="Remover ${item.nome} do carrinho" onclick="removeFromCart(${typeof item.id === 'number' ? item.id : `'${item.id}'`})">🗑</button>
         </div>
     `).join('');
     updateTotal();
@@ -171,26 +190,71 @@ document.querySelectorAll('input[name="entrega"]').forEach(input => {
 // ===== Modal Carrinho =====
 const overlay = document.getElementById('modal-overlay');
 const cartModal = document.getElementById('cart-modal');
-document.querySelector('.btn-cart').addEventListener('click', () => {
-    renderCart();
-    overlay.classList.add('active');
-    cartModal.classList.add('active');
-});
-document.getElementById('close-cart').addEventListener('click', closeCart);
-overlay.addEventListener('click', closeCart);
-function closeCart() {
-    overlay.classList.remove('active');
-    cartModal.classList.remove('active');
+const checkoutModal = document.getElementById('checkout-modal');
+const cartTrigger = document.querySelector('.btn-cart');
+let modalReturnFocus = null;
+
+function getFocusable(container) {
+    return [...container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+        .filter(el => el.offsetParent !== null || el === document.activeElement);
 }
 
+function openModal(modal, focusTarget) {
+    modal.classList.add('active');
+    // Força recálculo de estilos: sem isso, o focus() ainda enxerga visibility:hidden
+    // (a leitura de getComputedStyle dispara o reflow síncrono).
+    void getComputedStyle(modal).visibility;
+    (focusTarget || getFocusable(modal)[0] || modal).focus();
+}
+
+function closeModal(modal) {
+    modal.classList.remove('active');
+    if (modalReturnFocus && typeof modalReturnFocus.focus === 'function') modalReturnFocus.focus();
+    modalReturnFocus = null;
+}
+
+function trapTab(event, container) {
+    if (event.key !== 'Tab') return;
+    const focusable = getFocusable(container);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+    }
+}
+
+cartTrigger.addEventListener('click', () => {
+    renderCart();
+    modalReturnFocus = cartTrigger;
+    overlay.classList.add('active');
+    openModal(cartModal, document.getElementById('close-cart'));
+    closeMenu();
+});
+document.getElementById('close-cart').addEventListener('click', () => {
+    closeModal(cartModal);
+    overlay.classList.remove('active');
+});
+overlay.addEventListener('click', () => {
+    closeModal(cartModal);
+    overlay.classList.remove('active');
+});
+
 // ===== Checkout =====
-const checkoutModal = document.getElementById('checkout-modal');
 document.getElementById('finalizar').addEventListener('click', () => {
     if (cart.length === 0) return;
-    closeCart();
-    setTimeout(() => checkoutModal.classList.add('active'), 200);
+    cartModal.classList.remove('active');
+    overlay.classList.remove('active');
+    modalReturnFocus = cartTrigger;
+    setTimeout(() => {
+        openModal(checkoutModal, document.getElementById('close-checkout'));
+    }, 200);
 });
-document.getElementById('close-checkout').addEventListener('click', () => checkoutModal.classList.remove('active'));
+document.getElementById('close-checkout').addEventListener('click', () => closeModal(checkoutModal));
 
 document.getElementById('checkout-form').addEventListener('submit', e => {
     e.preventDefault();
@@ -200,10 +264,24 @@ document.getElementById('checkout-form').addEventListener('submit', e => {
     renderCart();
     showToast('🎉 Pedido confirmado! Em preparo.');
     setTimeout(() => {
-        const modal = document.createElement('div');
-        modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:500;display:flex;align-items:center;justify-content:center;padding:1.5rem;';
-        modal.innerHTML = `<div style="background:#141414;border:1px solid #2a2a2a;border-radius:16px;padding:2.5rem;max-width:420px;text-align:center;"><div style="font-size:4rem;margin-bottom:1rem;">🎉</div><h2 style="font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:1px;margin-bottom:0.75rem;color:#f59e0b;">Pedido Confirmado!</h2><p style="color:#a0a0a0;margin-bottom:1.5rem;">Seu pedido foi recebido e já está sendo preparado. Tempo estimado: 25-35 minutos.</p><button onclick="this.closest('div').parentElement.remove()" class="btn btn-primary">Voltar ao cardápio</button></div>`;
-        document.body.appendChild(modal);
+        const overlayEl = document.createElement('div');
+        overlayEl.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:500;display:flex;align-items:center;justify-content:center;padding:1.5rem;';
+        overlayEl.innerHTML = `<div role="dialog" aria-modal="true" aria-labelledby="confirm-title" style="background:#141414;border:1px solid #2a2a2a;border-radius:16px;padding:2.5rem;max-width:420px;text-align:center;"><div aria-hidden="true" style="font-size:4rem;margin-bottom:1rem;">🎉</div><h2 id="confirm-title" style="font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:1px;margin-bottom:0.75rem;color:#f59e0b;">Pedido Confirmado!</h2><p style="color:#a0a0a0;margin-bottom:1.5rem;">Demonstração concluída: nenhum pedido real foi enviado. Em um site real, o pedido iria para a cozinha agora.</p><button type="button" class="btn btn-primary">Voltar ao cardápio</button></div>`;
+        document.body.appendChild(overlayEl);
+        const closeBtn = overlayEl.querySelector('button');
+        closeBtn.focus();
+        const dismiss = () => {
+            overlayEl.remove();
+            cartTrigger.focus();
+            document.removeEventListener('keydown', onKey);
+        };
+        const onKey = (event) => {
+            if (event.key === 'Escape') dismiss();
+            if (event.key === 'Tab') trapTab(event, overlayEl);
+        };
+        closeBtn.addEventListener('click', dismiss);
+        overlayEl.addEventListener('click', (event) => { if (event.target === overlayEl) dismiss(); });
+        document.addEventListener('keydown', onKey);
     }, 400);
 });
 
@@ -228,8 +306,50 @@ function showToast(msg) {
 }
 
 // ===== Mobile Menu =====
-document.getElementById('menu-toggle').addEventListener('click', () => {
-    document.querySelector('.nav').classList.toggle('active');
+const menuToggleEl = document.getElementById('menu-toggle');
+const navEl = document.querySelector('.nav');
+
+function closeMenu() {
+    if (!navEl || !menuToggleEl) return;
+    navEl.classList.remove('active');
+    menuToggleEl.setAttribute('aria-expanded', 'false');
+    menuToggleEl.setAttribute('aria-label', 'Abrir menu');
+}
+
+menuToggleEl.addEventListener('click', () => {
+    const open = navEl.classList.toggle('active');
+    menuToggleEl.setAttribute('aria-expanded', String(open));
+    menuToggleEl.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+});
+
+// Fecha o menu ao escolher um link (senão ele permaneceria sobre a página).
+navEl.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+// ===== Teclado: Escape fecha overlays e Tab fica preso no modal aberto =====
+document.addEventListener('keydown', (event) => {
+    const activeModal = document.querySelector('.checkout-modal.active .checkout-content')
+        || (cartModal.classList.contains('active') ? cartModal : null);
+
+    if (event.key === 'Escape') {
+        if (checkoutModal.classList.contains('active')) {
+            closeModal(checkoutModal);
+            return;
+        }
+        if (cartModal.classList.contains('active')) {
+            closeModal(cartModal);
+            overlay.classList.remove('active');
+            return;
+        }
+        if (navEl.classList.contains('active')) {
+            closeMenu();
+            menuToggleEl.focus();
+        }
+        return;
+    }
+
+    if (activeModal) trapTab(event, activeModal);
 });
 
 // ===== Init =====

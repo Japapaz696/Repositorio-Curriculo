@@ -11,11 +11,25 @@ const paletteInput = document.getElementById('palette-input');
 const paletteList = document.getElementById('palette-list');
 const paletteCloseButtons = document.querySelectorAll('[data-close-palette]');
 const year = document.getElementById('year');
+const demoDialog = document.getElementById('demo-dialog');
+const demoDialogTitle = document.getElementById('demo-dialog-title');
+const demoDialogDescription = document.getElementById('demo-dialog-description');
+const demoFullLink = document.getElementById('demo-full-link');
+const demoClose = document.getElementById('demo-close');
+const demoLoading = document.getElementById('demo-loading');
+const demoFrameHost = document.getElementById('demo-frame-host');
 
 const THEME_KEY = 'portfolio-theme';
 let paletteOpener = null;
 
 if (year) year.textContent = new Date().getFullYear();
+
+// Mostra o atalho correto da paleta: ⌘K apenas no Mac, Ctrl K nos demais sistemas.
+const isAppleDevice = /Mac|iPhone|iPad|iPod/.test(navigator.userAgentData?.platform || navigator.platform || navigator.userAgent);
+if (!isAppleDevice) {
+  document.querySelectorAll('[data-shortcut-label]').forEach((label) => { label.textContent = 'Ctrl K'; });
+  root.style.setProperty('--shortcut-hint', '"Ctrl K"');
+}
 
 function getSavedTheme() {
   try {
@@ -177,6 +191,118 @@ reducedMotion.addEventListener?.('change', (event) => {
   document.querySelectorAll('[data-reveal]').forEach((section) => section.classList.add('is-visible'));
 });
 
+const demoConfig = {
+  'seu-manoel': {
+    title: 'Seu Manoel',
+    description: 'Teste o fluxo local de agendamento, com etapas, disponibilidade e histórico no navegador.',
+    url: 'projetos/seu-manoel/index.html'
+  },
+  'beauty-store': {
+    title: 'Beauty Store',
+    description: 'Explore busca, filtros, favoritos, carrinho e checkout demonstrativo dentro da página.',
+    url: 'projetos/beauty-store/index.html'
+  },
+  papitos: {
+    title: 'Papitos',
+    description: 'Monte um pedido, filtre o cardápio e experimente o carrinho persistente da demonstração.',
+    url: 'projetos/papitos/index.html'
+  }
+};
+
+let demoOpener = null;
+let activeDemoId = null;
+let demoFrame = null;
+
+function getDemoFocusable() {
+  if (!demoDialog) return [];
+  return [...demoDialog.querySelectorAll('a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])')]
+    .filter((element) => !element.hidden && element.getAttribute('aria-hidden') !== 'true');
+}
+
+function ensureDemoFrame(config) {
+  if (demoFrame) return demoFrame;
+
+  demoFrame = document.createElement('iframe');
+  demoFrame.title = `${config.title} - demonstração interativa`;
+  demoFrame.loading = 'eager';
+  demoFrame.referrerPolicy = 'no-referrer';
+  demoFrame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-modals');
+  demoFrameHost?.append(demoFrame);
+  return demoFrame;
+}
+
+function closeDemo({ restoreFocus = true } = {}) {
+  if (!demoDialog || !demoDialog.open) return;
+  if (demoDialog.matches(':modal')) demoDialog.close();
+  else demoDialog.hidden = true;
+  document.body.classList.remove('demo-open');
+  activeDemoId = null;
+  if (restoreFocus) demoOpener?.focus();
+}
+
+function openDemo(event) {
+  const trigger = event.currentTarget;
+  const config = demoConfig[trigger.dataset.demoId];
+  if (!config || !demoDialog || !demoFrameHost) return;
+
+  demoOpener = trigger;
+  activeDemoId = trigger.dataset.demoId;
+  demoDialogTitle.textContent = config.title;
+  demoDialogDescription.textContent = config.description;
+  demoFullLink.href = config.url;
+  demoLoading.hidden = false;
+  demoLoading.textContent = 'Carregando interface local...';
+  document.body.classList.add('demo-open');
+
+  const frame = ensureDemoFrame(config);
+  frame.title = `${config.title} - demonstração interativa`;
+  frame.onload = () => {
+    if (demoLoading && frame.dataset.loadedFor === activeDemoId) demoLoading.hidden = true;
+  };
+  if (frame.dataset.loadedFor !== activeDemoId) {
+    frame.dataset.loadedFor = activeDemoId;
+    frame.src = config.url;
+  } else {
+    demoLoading.hidden = true;
+  }
+
+  if (typeof demoDialog.showModal === 'function') demoDialog.showModal();
+  else {
+    demoDialog.hidden = false;
+    demoDialog.setAttribute('open', '');
+  }
+  requestAnimationFrame(() => demoClose?.focus());
+}
+
+document.querySelectorAll('[data-demo-trigger]').forEach((trigger) => trigger.addEventListener('click', openDemo));
+demoClose?.addEventListener('click', () => closeDemo());
+demoDialog?.addEventListener('cancel', (event) => {
+  event.preventDefault();
+  closeDemo();
+});
+demoDialog?.addEventListener('click', (event) => {
+  if (event.target === demoDialog) closeDemo();
+});
+demoDialog?.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    closeDemo();
+    return;
+  }
+  if (event.key !== 'Tab') return;
+  const focusable = getDemoFocusable();
+  const first = focusable[0];
+  const last = focusable.at(-1);
+  if (!first || !last) return;
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});
+
 const emailLink = document.getElementById('email-link');
 const emailFeedback = document.getElementById('email-feedback');
 emailLink?.addEventListener('click', async (event) => {
@@ -195,6 +321,7 @@ emailLink?.addEventListener('click', async (event) => {
 
 const paletteItems = [
   { label: 'Projetos', command: '/projetos', href: '#work' },
+  { label: 'Experiência', command: '/experiencia', href: '#experience' },
   { label: 'O que faço', command: '/capacidades', href: '#capabilities' },
   { label: 'Sobre', command: '/sobre', href: '#profile' },
   { label: 'Lab', command: '/lab', href: '#lab' },
@@ -208,7 +335,7 @@ function closePalette({ restoreFocus = true } = {}) {
   if (!palette || palette.hidden) return;
   palette.hidden = true;
   document.body.classList.remove('palette-open');
-  if (restoreFocus) paletteOpener?.focus();
+  if (restoreFocus && paletteOpener instanceof HTMLElement) paletteOpener.focus();
 }
 
 function renderPalette(query = '') {
@@ -251,7 +378,8 @@ function renderPalette(query = '') {
 function openPalette(event) {
   if (!palette || !paletteInput) return;
   closeMenu();
-  paletteOpener = event?.currentTarget || document.activeElement;
+  const opener = event?.currentTarget;
+  paletteOpener = (opener instanceof HTMLElement && opener !== document.body) ? opener : (document.activeElement instanceof HTMLElement ? document.activeElement : null);
   palette.hidden = false;
   document.body.classList.add('palette-open');
   paletteInput.value = '';

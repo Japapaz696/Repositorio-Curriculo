@@ -568,9 +568,12 @@ function validateCurrentPhase() {
         }
     }
 
-    if (state.phase === 'time' && !getSelectedSlot()) {
-        announce('Escolha um horário disponível para continuar.');
-        return false;
+    if (state.phase === 'time') {
+        const selectedSlot = getSelectedSlot();
+        if (!selectedSlot || !selectedSlot.available) {
+            announce('Escolha um horário disponível para continuar.');
+            return false;
+        }
     }
 
     return canAdvance(state.phase, state.draft);

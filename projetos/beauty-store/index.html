@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beauty Store — Cosméticos & Beleza</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%92%96%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,15 +20,16 @@
         <div class="container header-inner">
             <a href="#" class="logo">BEAUTY<span>STORE</span></a>
 
-            <form class="search-bar" id="search-form">
+            <form class="search-bar" id="search-form" role="search">
+                <label class="sr-only" for="search-input">Buscar produtos</label>
                 <input type="search" id="search-input" placeholder="Busque por produtos, marcas, categorias...">
-                <button type="submit">🔍</button>
+                <button type="submit" aria-label="Buscar">🔍</button>
             </form>
 
-            <nav class="nav-icons">
-                <button class="icon-btn" id="favoritos-btn" title="Favoritos">💖 <span id="fav-count">0</span></button>
-                <button class="icon-btn" id="cart-btn" title="Carrinho">🛒 <span id="cart-count">0</span></button>
-                <button class="icon-btn" id="user-btn" title="Minha conta">👤</button>
+            <nav class="nav-icons" aria-label="Atalhos da conta">
+                <button class="icon-btn" id="favoritos-btn" type="button" aria-label="Abrir favoritos" aria-haspopup="dialog" aria-controls="fav-drawer" title="Favoritos">💖 <span id="fav-count" aria-live="polite">0</span></button>
+                <button class="icon-btn" id="cart-btn" type="button" aria-label="Abrir carrinho" aria-haspopup="dialog" aria-controls="cart-drawer" title="Carrinho">🛒 <span id="cart-count" aria-live="polite">0</span></button>
+                <button class="icon-btn" id="user-btn" type="button" aria-label="Minha conta (demonstração)" title="Minha conta">👤</button>
             </nav>
         </div>
         <nav class="cat-nav">
@@ -64,6 +66,7 @@
             <div class="produtos-header">
                 <h2 class="section-title">Nossos Produtos</h2>
                 <div class="filtros">
+                    <label class="sr-only" for="filtro-ordem">Ordenar produtos</label>
                     <select id="filtro-ordem">
                         <option value="destaque">Mais relevantes</option>
                         <option value="menor">Menor preço</option>
@@ -120,14 +123,15 @@
     <div class="detail-modal" id="detail-modal"></div>
 
     <!-- MODAL CARRINHO -->
-    <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title">
         <div class="cart-header">
-            <h2>🛒 Seu Carrinho</h2>
-            <button id="close-cart">✕</button>
+            <h2 id="cart-drawer-title">🛒 Seu Carrinho</h2>
+            <button id="close-cart" type="button" aria-label="Fechar carrinho">✕</button>
         </div>
         <div class="cart-cupom">
+            <label class="sr-only" for="cupom-input">Cupom de desconto</label>
             <input type="text" id="cupom-input" placeholder="Cupom de desconto">
-            <button id="aplicar-cupom">Aplicar</button>
+            <button id="aplicar-cupom" type="button">Aplicar</button>
         </div>
         <div class="cart-body" id="cart-body">
             <p class="empty-cart">Seu carrinho está vazio.</p>
@@ -137,23 +141,24 @@
             <div class="cart-sub"><span>Frete:</span><strong id="frete">Calcular abaixo</strong></div>
             <div class="cart-sub desconto" id="linha-desconto" style="display:none;"><span>Desconto:</span><strong id="desconto">-R$ 0,00</strong></div>
             <div class="cart-cep">
-                <input type="text" id="cep-input" placeholder="Seu CEP (ex: 01310-100)" maxlength="9">
-                <button id="calc-frete">Calcular</button>
+                <label class="sr-only" for="cep-input">CEP para cálculo de frete</label>
+                <input type="text" id="cep-input" placeholder="Seu CEP (ex: 01310-100)" maxlength="9" inputmode="numeric">
+                <button id="calc-frete" type="button">Calcular</button>
             </div>
             <div id="frete-opcoes"></div>
             <div class="cart-total">
                 <span>Total:</span>
                 <strong id="cart-total">R$ 0,00</strong>
             </div>
-            <button id="finalizar" class="btn btn-primary btn-block">Finalizar Compra</button>
+            <button id="finalizar" class="btn btn-primary btn-block" type="button">Finalizar Compra</button>
         </div>
     </div>
 
     <!-- MODAL CHECKOUT -->
     <div class="checkout-modal" id="checkout-modal">
-        <div class="checkout-content">
-            <button class="close-checkout" id="close-checkout">✕</button>
-            <h2>Finalizar Compra</h2>
+        <div class="checkout-content" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+            <button class="close-checkout" id="close-checkout" type="button" aria-label="Fechar finalização">✕</button>
+            <h2 id="checkout-title">Finalizar Compra</h2>
             <form id="checkout-form">
                 <fieldset>
                     <legend>Dados pessoais</legend>
@@ -199,10 +204,10 @@
     </div>
 
     <!-- MODAL FAVORITOS -->
-    <div class="fav-drawer" id="fav-drawer">
+    <div class="fav-drawer" id="fav-drawer" role="dialog" aria-modal="true" aria-labelledby="fav-drawer-title">
         <div class="cart-header">
-            <h2>💖 Seus Favoritos</h2>
-            <button id="close-fav">✕</button>
+            <h2 id="fav-drawer-title">💖 Seus Favoritos</h2>
+            <button id="close-fav" type="button" aria-label="Fechar favoritos">✕</button>
         </div>
         <div class="cart-body" id="fav-body">
             <p class="empty-cart">Você ainda não favoritou nenhum produto.</p>
@@ -230,7 +235,11 @@
                 <div>
                     <h4>Newsletter</h4>
                     <p>Receba ofertas exclusivas:</p>
-                    <form class="newsletter"><input type="email" placeholder="Seu e-mail"><button>OK</button></form>
+                    <form class="newsletter" id="newsletter-form">
+                        <label class="sr-only" for="newsletter-email">Seu e-mail para newsletter</label>
+                        <input type="email" id="newsletter-email" placeholder="Seu e-mail" required>
+                        <button type="submit">OK</button>
+                    </form>
                 </div>
             </div>
             <p class="footer-copy">© <span id="year"></span> Beauty Store Cosméticos — CNPJ 00.000.000/0001-00</p>

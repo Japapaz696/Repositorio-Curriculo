@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Papitos — Hamburgueria Artesanal</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%8D%94%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,21 +15,23 @@
     <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
-            <a href="#" class="logo">🍔 PAPITOS</a>
-            <nav class="nav">
+            <a href="#inicio" class="logo">🍔 PAPITOS</a>
+            <nav class="nav" id="site-nav" aria-label="Navegação principal">
                 <a href="#cardapio">Cardápio</a>
                 <a href="#combos">Combos</a>
                 <a href="#depoimentos">Avaliações</a>
-                <a href="#pedido" class="btn-cart">
-                    🛒 <span id="cart-count">0</span>
-                </a>
             </nav>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">☰</button>
+            <div class="header-actions">
+                <button type="button" class="btn-cart" aria-haspopup="dialog" aria-controls="cart-modal">
+                    🛒 <span class="sr-only">Abrir carrinho:</span> <span id="cart-count" aria-live="polite">0</span>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+            </div>
         </div>
     </header>
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="container hero-inner">
             <div class="hero-text">
                 <span class="hero-tag">Desde 2015 • Sabor que vicia</span>
@@ -106,10 +109,10 @@
 
     <!-- MODAL DO CARRINHO -->
     <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="cart-modal" id="cart-modal">
+    <div class="cart-modal" id="cart-modal" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
         <div class="cart-header">
-            <h2>Seu Pedido</h2>
-            <button id="close-cart">✕</button>
+            <h2 id="cart-modal-title">Seu Pedido</h2>
+            <button id="close-cart" type="button" aria-label="Fechar carrinho">✕</button>
         </div>
         <div class="cart-body" id="cart-body">
             <p class="empty-cart">Seu carrinho está vazio.</p>
@@ -133,9 +136,9 @@
 
     <!-- MODAL CHECKOUT -->
     <div class="checkout-modal" id="checkout-modal">
-        <div class="checkout-content">
-            <button class="close-checkout" id="close-checkout">✕</button>
-            <h2>Finalizar Pedido</h2>
+        <div class="checkout-content" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+            <button class="close-checkout" id="close-checkout" type="button" aria-label="Fechar finalização">✕</button>
+            <h2 id="checkout-title">Finalizar Pedido</h2>
             <form id="checkout-form">
                 <label>Nome<input type="text" required placeholder="Seu nome"></label>
                 <label>Telefone<input type="tel" required placeholder="(11) 99999-9999"></label>

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141412'/%3E%3Ctext x='32' y='41' font-family='monospace' font-size='26' font-weight='700' fill='%23f5f1e8' text-anchor='middle'%3EL/S%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,6 +20,7 @@
       <a class="wordmark" href="#inicio" aria-label="Ir para o início">L/S</a>
       <nav class="site-nav" aria-label="Principal">
         <ul id="nav-links" class="nav-links">
+          <li><a href="#experience">Experiência</a></li>
           <li><a href="#work">Projetos</a></li>
           <li><a href="#capabilities">O que faço</a></li>
           <li><a href="#profile">Sobre</a></li>
@@ -27,8 +29,8 @@
         </ul>
       </nav>
       <div class="header-actions">
-        <button id="palette-toggle" class="palette-toggle" type="button" aria-haspopup="dialog" aria-controls="command-palette" aria-label="Abrir busca no portfólio">
-          <span>Buscar</span><kbd>⌘K</kbd>
+        <button id="palette-toggle" class="palette-toggle" type="button" aria-haspopup="dialog" aria-controls="command-palette">
+          <span>Buscar</span><kbd data-shortcut-label>Ctrl K</kbd>
         </button>
         <button id="theme-toggle" class="icon-button" type="button" aria-label="Ativar tema escuro" aria-pressed="false">
           <span aria-hidden="true">◐</span>
@@ -47,11 +49,11 @@
         <div class="hero-intro">
           <p class="eyebrow">PORTFÓLIO PESSOAL · BELO HORIZONTE</p>
           <h1 id="hero-title" class="hero-title"><span>LUCAS</span><span>SANTANA</span><span>DA PAZ</span></h1>
-          <p class="hero-descriptor">Desenvolvimento web, front-end e interfaces.</p>
-          <p class="hero-statement">Estudante de ADS com experiência em suporte de software. Construo projetos com JavaScript, estudo SQL e sistemas em operação, e experimento automações e ferramentas de IA.</p>
+          <p class="hero-descriptor">Desenvolvimento Web | Sistemas Empresariais e ERP | SQL | Automação e IA</p>
+          <p class="hero-statement">Estudante de Análise e Desenvolvimento de Sistemas com experiência profissional em suporte técnico ao ERP TecFood na Teknisa. Unindo a investigação de sistemas à construção de interfaces funcionais.</p>
           <div class="hero-rail" aria-label="Contexto profissional">
-            <span>ADS em andamento</span>
-            <span>Experiência em suporte de software</span>
+            <span>ADS (conclusão 2027)</span>
+            <span>Suporte ERP TecFood · Teknisa</span>
             <span>JavaScript · SQL · Automação</span>
           </div>
           <div class="hero-links" aria-label="Navegação rápida">
@@ -60,13 +62,54 @@
           </div>
         </div>
 
-        <figure class="hero-preview" data-parallax>
-          <div class="hero-preview-bar"><span>ESTUDO VISUAL / NEXA</span><a href="#lab">Ver no Lab ↘</a></div>
-          <img src="assets/ai-creative-lab/projeto-01/thumb/thumb.webp" width="1408" height="768" alt="Composição do experimento visual NEXA com telas de análise e interface em ambiente de trabalho" fetchpriority="high" decoding="async">
-          <figcaption>Composição e motion para explorar interfaces. Experimento visual, não produto comercial.</figcaption>
+        <figure class="hero-preview hero-work" data-parallax aria-labelledby="hero-work-caption">
+          <div class="hero-preview-bar"><span>INTERFACES QUE CONSTRUÍ</span><a href="#work">Ver os cases ↘</a></div>
+          <div class="hero-work-canvas">
+            <div class="hero-work-primary">
+              <img src="linkedin-assets/screenshots/supportflow-dashboard-desktop.png" width="1440" height="960" alt="Dashboard real do SupportFlow com indicadores de chamados, SLA, prioridades e categorias" fetchpriority="high" decoding="async">
+            </div>
+            <div class="hero-work-secondary">
+              <img src="assets/project-previews/seu-manoel-home.webp" width="1440" height="980" alt="Interface real do Seu Manoel com apresentação da barbearia e acesso ao agendamento" decoding="async">
+            </div>
+          </div>
+          <figcaption id="hero-work-caption"><span><strong>SupportFlow</strong> · projeto próprio em desenvolvimento, validado localmente</span><span><strong>Seu Manoel</strong> · fluxo de agendamento interativo</span></figcaption>
         </figure>
       </div>
       <div class="hero-rule hero-rule-bottom" aria-hidden="true"></div>
+    </section>
+
+    <section id="experience" class="experience-section section-anchor section-reveal" data-reveal aria-labelledby="exp-title">
+      <div class="shell">
+        <div class="section-heading narrow-heading">
+          <p class="section-index">EXPERIÊNCIA PROFISSIONAL</p>
+          <h2 id="exp-title" class="display-title">Sistemas e Operações.</h2>
+          <p>Atuação técnica em software de gestão empresarial, com foco em atendimento, investigação e resolução de problemas.</p>
+        </div>
+        <div class="experience-grid">
+          <div class="exp-card">
+            <div class="exp-header">
+              <div class="exp-company">
+                <strong class="exp-brand">Teknisa</strong>
+                <span class="exp-role">Suporte Técnico ERP TecFood</span>
+              </div>
+            </div>
+            <div class="exp-body">
+              <p>Atuação no suporte ao ERP TecFood, solução voltada à gestão de empresas do setor de alimentação.</p>
+              <ul class="exp-list">
+                <li>Investigação de inconsistências e anomalias em ambiente de software empresarial.</li>
+                <li>Utilização de consultas SQL para verificação de registros e diagnóstico de divergências.</li>
+                <li>Atendimento técnico a usuários, orientando a operação do sistema e acompanhando chamados.</li>
+                <li>Análise de processos operacionais para apoiar a identificação de causas de incidentes.</li>
+              </ul>
+            </div>
+            <div class="exp-footer">
+              <span class="exp-tag">Sistemas ERP</span>
+              <span class="exp-tag">SQL</span>
+              <span class="exp-tag">Diagnóstico Técnico</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="work" class="work-section section-anchor section-reveal" data-reveal aria-labelledby="work-title">
@@ -105,7 +148,8 @@
               </ul>
             </div>
             <div class="case-actions">
-              <a href="projetos/seu-manoel/index.html">Explorar projeto <span aria-hidden="true">↗</span></a>
+              <button class="demo-trigger" type="button" data-demo-trigger data-demo-id="seu-manoel" aria-haspopup="dialog" aria-controls="demo-dialog">Testar interface <span aria-hidden="true">↗</span></button>
+              <a href="projetos/seu-manoel/index.html" target="_blank" rel="noopener">Abrir projeto completo <span aria-hidden="true">↗</span></a>
               <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/seu-manoel" target="_blank" rel="noopener">Ver código <span aria-hidden="true">↗</span></a>
             </div>
           </div>
@@ -127,7 +171,8 @@
                 <div><dt>Limite</dt><dd>Catálogo demonstrativo. Não há pagamento, estoque, rastreio ou backend real.</dd></div>
               </dl>
               <div class="case-actions">
-                <a href="projetos/beauty-store/index.html">Explorar projeto <span aria-hidden="true">↗</span></a>
+                <button class="demo-trigger" type="button" data-demo-trigger data-demo-id="beauty-store" aria-haspopup="dialog" aria-controls="demo-dialog">Testar interface <span aria-hidden="true">↗</span></button>
+                <a href="projetos/beauty-store/index.html" target="_blank" rel="noopener">Abrir projeto completo <span aria-hidden="true">↗</span></a>
                 <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/beauty-store" target="_blank" rel="noopener">Ver código <span aria-hidden="true">↗</span></a>
               </div>
             </div>
@@ -147,7 +192,8 @@
                 <div><dt>Limite</dt><dd>Não existe pagamento, envio real ou cliente comercial. É uma demonstração de fluxo.</dd></div>
               </dl>
               <div class="case-actions">
-                <a href="projetos/papitos/index.html">Explorar projeto <span aria-hidden="true">↗</span></a>
+                <button class="demo-trigger" type="button" data-demo-trigger data-demo-id="papitos" aria-haspopup="dialog" aria-controls="demo-dialog">Testar interface <span aria-hidden="true">↗</span></button>
+                <a href="projetos/papitos/index.html" target="_blank" rel="noopener">Abrir projeto completo <span aria-hidden="true">↗</span></a>
                 <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/papitos" target="_blank" rel="noopener">Ver código <span aria-hidden="true">↗</span></a>
               </div>
             </div>
@@ -163,7 +209,10 @@
             <p class="section-index">NOTA TÉCNICA</p>
             <h3 id="supportflow-title">SupportFlow</h3>
           </div>
-          <p>O diretório atual contém apenas o pacote compartilhado compilado com tipos de tickets, SLA, auth, notificações e diagnóstico técnico. É uma boa evidência de modelagem de domínio, mas não entra como case principal porque não há app executável, backend, banco, testes ou telas no estado presente do projeto.</p>
+          <div class="supportflow-note">
+            <p>Projeto próprio de sistema de atendimento em desenvolvimento, com React/Vite, backend, PostgreSQL, autenticação e fluxos de tickets, SLA e notificações. Há build, migrações, typecheck, testes e capturas locais com dados sintéticos registrados no projeto.</p>
+            <p>Ele não entra como demo embutida: uma reprodução honesta exige backend, banco, autenticação e dados. As telas reais aparecem como evidência visual, não como uma simulação estática.</p>
+          </div>
         </aside>
       </div>
     </section>
@@ -171,16 +220,38 @@
     <section id="capabilities" class="capabilities-section section-anchor section-reveal" data-reveal aria-labelledby="capabilities-title">
       <div class="shell">
         <div class="section-heading narrow-heading">
-          <p class="section-index">O QUE CONSIGO CONSTRUIR</p>
-          <h2 id="capabilities-title" class="display-title">Habilidade ligada a entrega.</h2>
+          <p class="section-index">COMPETÊNCIAS E DOMÍNIO</p>
+          <h2 id="capabilities-title" class="display-title">Técnica aplicada a entrega.</h2>
         </div>
-        <dl class="capabilities-list">
-          <div><dt>Interfaces web</dt><dd>Construo páginas, catálogos, formulários e fluxos responsivos com atenção a semântica, hierarquia, teclado e diferentes larguras.</dd><dd class="capability-evidence">Papitos · Beauty Store · portfólio</dd></div>
-          <div><dt>JavaScript de interface</dt><dd>Implemento busca, filtros, etapas, validações, modais, carrinhos e estados que respondem às escolhas de quem usa.</dd><dd class="capability-evidence">Seu Manoel · Papitos · Beauty Store</dd></div>
-          <div><dt>Sistemas e suporte</dt><dd>Minha experiência em suporte ajuda a observar comportamento de software, fluxo operacional e sintomas antes de propor solução.</dd><dd class="capability-evidence">Experiência prática</dd></div>
-          <div><dt>Dados</dt><dd>Estudo SQL e leitura de dados dentro do nível que consigo comprovar: consultas, diagnóstico básico e relação entre dado e operação.</dd><dd class="capability-evidence">SQL em estudo e suporte</dd></div>
-          <div><dt>Automação e IA</dt><dd>Experimento scripts, ferramentas de IA e fluxos automáticos para prototipar ideias e reduzir tarefas repetitivas.</dd><dd class="capability-evidence">Experimentação · Lab</dd></div>
-        </dl>
+        <div class="capabilities-matrix">
+          <div class="matrix-column">
+            <h3 class="matrix-title">Desenvolvimento Web</h3>
+            <ul class="matrix-list">
+              <li><strong>Interfaces:</strong> HTML5, CSS3 e layouts responsivos.</li>
+              <li><strong>Interatividade:</strong> JavaScript moderno e manipulação de DOM.</li>
+              <li><strong>UX/UI:</strong> Hierarquia visual, semântica e acessibilidade.</li>
+              <li class="matrix-evidence">Evidência: Papitos, Beauty Store, Portfólio.</li>
+            </ul>
+          </div>
+          <div class="matrix-column">
+            <h3 class="matrix-title">Sistemas e Dados</h3>
+            <ul class="matrix-list">
+              <li><strong>ERP:</strong> Suporte e operação de softwares empresariais.</li>
+              <li><strong>SQL:</strong> Consultas para diagnóstico e verificação de dados.</li>
+              <li><strong>Análise:</strong> Investigação de inconsistências e apoio à identificação de causas.</li>
+              <li class="matrix-evidence">Evidência: Experiência profissional na Teknisa.</li>
+            </ul>
+          </div>
+          <div class="matrix-column">
+            <h3 class="matrix-title">Automação e IA</h3>
+            <ul class="matrix-list">
+              <li><strong>Em estudo:</strong> Automação de processos com n8n.</li>
+              <li><strong>Em experimentação:</strong> Consumo de APIs e conectores.</li>
+              <li><strong>Em estudo:</strong> LLMs e ferramentas de IA generativa.</li>
+              <li class="matrix-evidence">Evidência: Estudos e experimentos no Lab.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -188,15 +259,16 @@
       <div class="shell profile-layout">
         <div>
           <p class="section-index">SOBRE</p>
-          <h2 id="profile-title" class="display-title">Aprendo sistemas no trabalho e interfaces nos projetos.</h2>
+          <h2 id="profile-title" class="display-title">Entre a análise de sistemas e a criação de interfaces.</h2>
         </div>
         <div class="profile-copy">
-          <p>Tenho formação em andamento em Análise e Desenvolvimento de Sistemas e experiência prática com suporte de software. Esse contato com diagnóstico, operação e SQL influencia como penso interface: primeiro entender o comportamento, depois construir a solução.</p>
-          <p>Nos projetos pessoais, transformo estudo em fluxos navegáveis. Prefiro mostrar o que já funciona, deixar claros os limites e continuar evoluindo com JavaScript, sistemas, automação e ferramentas de IA.</p>
+          <p>Estudante de Análise e Desenvolvimento de Sistemas (previsão 2027), busco integrar a precisão do diagnóstico técnico à fluidez do desenvolvimento front-end.</p>
+          <p>Minha experiência no suporte ao ERP TecFood, na Teknisa, me ensinou a olhar para o software através da operação do usuário. Aprendi a investigar inconsistências, analisar dados via SQL e traduzir problemas complexos em resoluções técnicas eficientes.</p>
+          <p>Hoje, aplico esse olhar analítico em projetos próprios com JavaScript, enquanto estudo automações com n8n e a aplicação de inteligência artificial para otimizar fluxos de trabalho.</p>
           <dl class="profile-facts">
-            <div><dt>Agora</dt><dd>Construção de projetos próprios e evolução técnica</dd></div>
-            <div><dt>Formação</dt><dd>ADS em andamento</dd></div>
-            <div><dt>Prática</dt><dd>Interfaces, JavaScript e suporte de software</dd></div>
+            <div><dt>Formação</dt><dd>ADS em andamento (conclusão 2027)</dd></div>
+            <div><dt>Foco Atual</dt><dd>Desenvolvimento Web e Automação de Processos</dd></div>
+            <div><dt>Experiência</dt><dd>Suporte ERP e Diagnóstico de Sistemas</dd></div>
           </dl>
         </div>
       </div>
@@ -286,6 +358,24 @@
     <div class="shell"><p>Feito por Lucas Santana da Paz <span aria-hidden="true">/</span> <span id="year"></span></p></div>
   </footer>
   <button id="back-to-top" class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button>
+
+  <dialog id="demo-dialog" class="demo-dialog" aria-labelledby="demo-dialog-title" aria-describedby="demo-dialog-description">
+    <div class="demo-dialog__shell">
+      <header class="demo-dialog__header">
+        <div>
+          <p class="demo-dialog__kicker">DEMONSTRAÇÃO LOCAL</p>
+          <h2 id="demo-dialog-title">Abrir demonstração</h2>
+          <p id="demo-dialog-description">A interface será carregada somente agora, dentro do portfólio.</p>
+        </div>
+        <div class="demo-dialog__actions">
+          <a id="demo-full-link" href="#" target="_blank" rel="noopener">Abrir projeto completo <span aria-hidden="true">↗</span></a>
+          <button id="demo-close" class="demo-close" type="button" aria-label="Fechar demonstração">Fechar <span aria-hidden="true">Esc</span></button>
+        </div>
+      </header>
+      <p id="demo-loading" class="demo-dialog__status" role="status" aria-live="polite">Preparando demonstração.</p>
+      <div id="demo-frame-host" class="demo-frame-host" aria-live="polite"></div>
+    </div>
+  </dialog>
 
   <div id="command-palette" class="palette" hidden>
     <div class="palette-backdrop" data-close-palette></div>

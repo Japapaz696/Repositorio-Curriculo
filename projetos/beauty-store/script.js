@@ -24,10 +24,34 @@ const produtos = [
 ];
 
 // ===== Estado =====
-let cart = JSON.parse(localStorage.getItem('beauty-cart')) || [];
-let favoritos = JSON.parse(localStorage.getItem('beauty-fav')) || [];
+function loadStored(key, validator) {
+    try {
+        const raw = localStorage.getItem(key);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed.filter(validator) : [];
+    } catch {
+        // Armazenamento indisponível ou dados corrompidos: estado inicial limpo.
+        return [];
+    }
+}
+
+function store(key, value) {
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+    } catch {
+        // A funcionalidade continua na sessão mesmo sem persistência.
+    }
+}
+
+let cart = loadStored('beauty-cart', item => item
+    && typeof item.id === 'number'
+    && typeof item.nome === 'string'
+    && typeof item.preco === 'number' && Number.isFinite(item.preco)
+    && typeof item.qty === 'number' && item.qty > 0);
+let favoritos = loadStored('beauty-fav', id => typeof id === 'number');
 let cupomAplicado = null;
 let freteEscolhido = null;
+let filtroOfertas = false;
 
 const CUPONS = {
     'BEAUTY10': { tipo: 'percentual', valor: 10, label: '10% OFF' },
@@ -83,6 +107,7 @@ function aplicarFiltros(lista) {
 
     let filtered = lista;
 
+    if (filtroOfertas) filtered = filtered.filter(p => typeof p.antigo === 'number' && p.antigo > p.preco);
     if (cats.length > 0) filtered = filtered.filter(p => cats.includes(p.categoria));
     if (marcas.length > 0) filtered = filtered.filter(p => marcas.includes(p.marca));
     if (preco) {
@@ -111,11 +136,17 @@ function aplicarOrdenacao(lista) {
 }
 
 // ===== Detalhe do produto =====
+let detailReturnFocus = null;
+
 function openDetail(id) {
     const p = produtos.find(x => x.id === id);
     const modal = document.getElementById('detail-modal');
+    detailReturnFocus = document.activeElement;
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', p.nome);
     modal.innerHTML = `
-        <button class="detail-close" onclick="closeDetail()">✕</button>
+        <button class="detail-close" type="button" aria-label="Fechar detalhes do produto" onclick="closeDetail()">✕</button>
         <div class="detail-img"><img src="${p.img}" alt="${p.nome}"></div>
         <div class="detail-body">
             <span class="detail-marca">${p.marca}</span>
@@ -135,11 +166,15 @@ function openDetail(id) {
     `;
     document.getElementById('modal-overlay').classList.add('active');
     modal.classList.add('active');
+    // Foca no próximo frame: visibility ainda está em transição no frame atual.
+    requestAnimationFrame(() => modal.querySelector('.detail-close')?.focus());
 }
 
 function closeDetail() {
     document.getElementById('modal-overlay').classList.remove('active');
     document.getElementById('detail-modal').classList.remove('active');
+    if (detailReturnFocus && typeof detailReturnFocus.focus === 'function') detailReturnFocus.focus();
+    detailReturnFocus = null;
 }
 
 // ===== Favoritos =====
@@ -151,7 +186,7 @@ function toggleFav(id) {
         favoritos.push(id);
         showToast('💖 Adicionado aos favoritos');
     }
-    localStorage.setItem('beauty-fav', JSON.stringify(favoritos));
+    store('beauty-fav', favoritos);
     updateFavCount();
     renderProdutos();
     renderFavoritos();
@@ -177,7 +212,7 @@ function renderFavoritos() {
 
 // ===== Carrinho =====
 function saveCart() {
-    localStorage.setItem('beauty-cart', JSON.stringify(cart));
+    store('beauty-cart', cart);
     updateCartCount();
 }
 
@@ -259,24 +294,79 @@ function renderCart() {
 }
 
 // ===== Drawers =====
-document.getElementById('cart-btn').addEventListener('click', () => {
+let drawerReturnFocus = null;
+
+function getFocusable(container) {
+    return [...container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+        .filter(el => el.offsetParent !== null || el === document.activeElement);
+}
+
+function trapFocus(event, container) {
+    if (event.key !== 'Tab') return;
+    const focusable = getFocusable(container);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+    }
+}
+
+function openDrawer(drawerId, trigger) {
+    drawerReturnFocus = trigger || document.activeElement;
+    document.getElementById(drawerId).classList.add('active');
+    document.getElementById('modal-overlay').classList.add('active');
+    const target = document.getElementById(drawerId).querySelector('.cart-header button, .cart-header a');
+    // Foca no próximo frame: visibility ainda está em transição no frame atual.
+    requestAnimationFrame(() => {
+        (target || getFocusable(document.getElementById(drawerId))[0])?.focus();
+    });
+}
+
+function closeAllDrawers() {
+    document.getElementById('cart-drawer').classList.remove('active');
+    document.getElementById('fav-drawer').classList.remove('active');
+    document.getElementById('checkout-modal').classList.remove('active');
+    document.getElementById('modal-overlay').classList.remove('active');
+    if (drawerReturnFocus && typeof drawerReturnFocus.focus === 'function') drawerReturnFocus.focus();
+    drawerReturnFocus = null;
+}
+
+document.getElementById('cart-btn').addEventListener('click', (e) => {
     renderCart();
-    document.getElementById('cart-drawer').classList.add('active');
-    document.getElementById('modal-overlay').classList.add('active');
+    openDrawer('cart-drawer', e.currentTarget);
 });
-document.getElementById('favoritos-btn').addEventListener('click', () => {
+document.getElementById('favoritos-btn').addEventListener('click', (e) => {
     renderFavoritos();
-    document.getElementById('fav-drawer').classList.add('active');
-    document.getElementById('modal-overlay').classList.add('active');
+    openDrawer('fav-drawer', e.currentTarget);
 });
 document.getElementById('close-cart').addEventListener('click', closeAllDrawers);
 document.getElementById('close-fav').addEventListener('click', closeAllDrawers);
 document.getElementById('modal-overlay').addEventListener('click', closeAllDrawers);
-function closeAllDrawers() {
-    document.getElementById('cart-drawer').classList.remove('active');
-    document.getElementById('fav-drawer').classList.remove('active');
-    document.getElementById('modal-overlay').classList.remove('active');
-}
+
+// Escape fecha qualquer camada aberta; Tab fica contido no painel aberto.
+document.addEventListener('keydown', (event) => {
+    const detail = document.getElementById('detail-modal');
+    const success = document.querySelector('body > div[style*="z-index:500"]');
+    const openPanel = success
+        || (detail.classList.contains('active') ? detail : null)
+        || (document.querySelector('#checkout-modal.active .checkout-content')) || null;
+    const openDrawerEl = document.querySelector('.cart-drawer.active, .fav-drawer.active');
+    const activeContainer = openPanel || openDrawerEl;
+
+    if (event.key === 'Escape') {
+        if (success) return; // o próprio diálogo de sucesso gerencia seu Escape
+        if (detail.classList.contains('active')) { closeDetail(); return; }
+        if (document.getElementById('checkout-modal').classList.contains('active')) { closeAllDrawers(); return; }
+        if (openDrawerEl) closeAllDrawers();
+        return;
+    }
+    if (activeContainer) trapFocus(event, activeContainer);
+});
 
 // ===== Frete =====
 document.getElementById('calc-frete').addEventListener('click', () => {
@@ -343,24 +433,43 @@ document.getElementById('checkout-form').addEventListener('submit', e => {
     setTimeout(() => {
         const modal = document.createElement('div');
         modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:center;justify-content:center;padding:1.5rem;';
-        modal.innerHTML = `<div style="background:#fff;border-radius:20px;padding:2.5rem;max-width:420px;text-align:center;">
-            <div style="font-size:4rem;margin-bottom:1rem;">🎉</div>
-            <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;margin-bottom:0.75rem;background:linear-gradient(135deg,#ec4899,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Pedido Confirmado!</h2>
-            <p style="color:#666;margin-bottom:1.5rem;">Recebemos seu pedido! Você receberá um e-mail com o código de rastreio em breve.</p>
-            <button onclick="this.closest('div').parentElement.remove()" class="btn btn-primary">Voltar à loja</button>
+        modal.innerHTML = `<div role="dialog" aria-modal="true" aria-labelledby="beauty-confirm-title" style="background:#fff;border-radius:20px;padding:2.5rem;max-width:420px;text-align:center;">
+            <div aria-hidden="true" style="font-size:4rem;margin-bottom:1rem;">🎉</div>
+            <h2 id="beauty-confirm-title" style="font-family:'Playfair Display',serif;font-size:1.75rem;margin-bottom:0.75rem;background:linear-gradient(135deg,#ec4899,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Pedido Confirmado!</h2>
+            <p style="color:#666;margin-bottom:1.5rem;">Demonstração concluída: nenhum pedido real foi enviado e nenhum e-mail será disparado. Em uma loja de verdade, seu pedido seguiria agora para o processamento.</p>
+            <button type="button" class="btn btn-primary">Voltar à loja</button>
         </div>`;
         document.body.appendChild(modal);
+        const closeBtn = modal.querySelector('button');
+        closeBtn.focus();
+        const dismiss = () => {
+            modal.remove();
+            document.getElementById('cart-btn').focus();
+            document.removeEventListener('keydown', onKey);
+        };
+        const onKey = (event) => {
+            if (event.key === 'Escape') dismiss();
+            if (event.key === 'Tab') trapFocus(event, modal);
+        };
+        closeBtn.addEventListener('click', dismiss);
+        modal.addEventListener('click', (event) => { if (event.target === modal) dismiss(); });
+        document.addEventListener('keydown', onKey);
     }, 400);
 });
 
 // ===== Eventos de Filtros =====
 document.querySelectorAll('.filtro-cat, .filtro-marca, input[name="preco"]').forEach(el => {
-    el.addEventListener('change', renderProdutos);
+    el.addEventListener('change', () => {
+        // Filtros manuais substituem a visão de ofertas do menu de categorias.
+        filtroOfertas = false;
+        renderProdutos();
+    });
 });
 document.getElementById('filtro-ordem').addEventListener('change', renderProdutos);
 document.getElementById('limpar-filtros').addEventListener('click', () => {
     document.querySelectorAll('.filtro-cat, .filtro-marca').forEach(el => el.checked = false);
     document.querySelectorAll('input[name="preco"]').forEach(el => el.checked = false);
+    filtroOfertas = false;
     renderProdutos();
 });
 
@@ -373,15 +482,21 @@ document.querySelectorAll('.cat-link').forEach(link => {
         document.querySelectorAll('.cat-link').forEach(l => l.classList.remove('active'));
         link.classList.add('active');
         const cat = link.dataset.cat;
-        if (cat === 'todos') {
-            document.querySelectorAll('.filtro-cat').forEach(c => c.checked = false);
-        } else if (cat === 'ofertas') {
+        filtroOfertas = (cat === 'ofertas');
+        if (cat === 'todos' || cat === 'ofertas') {
             document.querySelectorAll('.filtro-cat').forEach(c => c.checked = false);
         } else {
             document.querySelectorAll('.filtro-cat').forEach(c => c.checked = (c.value === cat));
         }
         renderProdutos();
     });
+});
+
+// ===== Newsletter (demonstração) =====
+document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    showToast('✓ E-mail cadastrado na newsletter (demonstração).');
+    e.target.reset();
 });
 
 // ===== Toast =====
