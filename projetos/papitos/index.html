@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#100D0B">
     <title>Papitos — Hamburgueria Artesanal</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%8D%94%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="style.css">
@@ -12,105 +13,117 @@
 </head>
 <body>
 
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
     <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
-            <a href="#inicio" class="logo">🍔 PAPITOS</a>
+            <a href="#inicio" class="logo">PAPITOS<span class="logo-dot" aria-hidden="true">.</span></a>
             <nav class="nav" id="site-nav" aria-label="Navegação principal">
                 <a href="#cardapio">Cardápio</a>
                 <a href="#combos">Combos</a>
-                <a href="#depoimentos">Avaliações</a>
+                <a href="#como-funciona">Como funciona</a>
             </nav>
             <div class="header-actions">
                 <button type="button" class="btn-cart" aria-haspopup="dialog" aria-controls="cart-modal">
-                    🛒 <span class="sr-only">Abrir carrinho:</span> <span id="cart-count" aria-live="polite">0</span>
+                    <svg class="btn-cart-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"></circle><circle cx="17" cy="20" r="1.6"></circle><path d="M3 4h2l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h7.5a1.5 1.5 0 0 0 1.5-1.2L20 8H6"></path></svg>
+                    <span class="sr-only">Abrir carrinho:</span> <span id="cart-count" aria-live="polite">0</span>
                 </button>
-                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">
+                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- HERO -->
-    <section class="hero" id="inicio">
-        <div class="container hero-inner">
-            <div class="hero-text">
-                <span class="hero-tag">Desde 2015 • Sabor que vicia</span>
-                <h1>O melhor <span>hambúrguer artesanal</span> da cidade</h1>
-                <p>Pão brioche, blend 180g, ingredientes selecionados e a entrega mais rápida da região.</p>
-                <div class="hero-buttons">
-                    <a href="#cardapio" class="btn btn-primary">Ver Cardápio</a>
-                    <a href="#combos" class="btn btn-ghost">Combos do dia</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="burger-emoji">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Hambúrguer artesanal Papitos">
-                </div>
-            </div>
-        </div>
-    </section>
+    <main id="conteudo">
 
-    <!-- CATEGORIAS -->
-    <section class="categories" id="categorias">
-        <div class="container">
-            <div class="menu-search" role="search" aria-label="Pesquisa do cardápio">
-                <label for="menu-search">Encontre seu próximo pedido</label>
-                <input type="search" id="menu-search" placeholder="Nome, ingrediente ou categoria" autocomplete="off">
-            </div>
-            <div class="category-list" id="category-list" aria-label="Categorias do cardápio">
-                <button class="cat-btn active" data-cat="todos">Todos</button>
-                <button class="cat-btn" data-cat="hamburgueres">Hambúrgueres</button>
-                <button class="cat-btn" data-cat="combos">Combos</button>
-                <button class="cat-btn" data-cat="bebidas">Bebidas</button>
-                <button class="cat-btn" data-cat="sobremesas">Sobremesas</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- CARDÁPIO -->
-    <section class="menu" id="cardapio">
-        <div class="container">
-            <h2 class="section-title">Nosso Cardápio</h2>
-            <p class="menu-result" id="menu-result" role="status" aria-atomic="true"></p>
-            <div class="menu-grid" id="menu-grid">
-                <!-- Cards gerados via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- COMBOS -->
-    <section class="combos" id="combos">
-        <div class="container">
-            <h2 class="section-title">Combos Especiais</h2>
-            <div class="combos-grid" id="combos-grid">
-                <!-- Gerado via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- DEPOIMENTOS -->
-    <section class="reviews" id="depoimentos">
-        <div class="container">
-            <h2 class="section-title">O que dizem nossos clientes</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Melhor hambúrguer que já comi! Pão fresquinho e blend suculento. Virei cliente fiel."</p>
-                    <span class="review-author">— Marina S.</span>
+        <!-- HERO -->
+        <section class="hero" id="inicio">
+            <div class="container hero-inner">
+                <div class="hero-text">
+                    <p class="hero-eyebrow">Hamburgueria · projeto demonstrativo</p>
+                    <h1>Burger no <span>seu estilo</span>.</h1>
+                    <p class="hero-lead">Explore o cardápio, personalize seu burger e experimente o carrinho.</p>
+                    <div class="hero-actions">
+                        <a href="#cardapio" class="btn btn-primary">Explorar cardápio</a>
+                        <a href="#combos" class="hero-link">Ver combos</a>
+                    </div>
+                    <div class="hero-feature">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=160&auto=format&fit=crop" alt="" width="56" height="56">
+                        <div class="hero-feature-info">
+                            <p class="hero-feature-label">Em destaque</p>
+                            <p class="hero-feature-name">Clássico Papitos</p>
+                            <p class="hero-feature-price">R$ 28,90</p>
+                        </div>
+                        <button type="button" class="hero-feature-btn" data-action="details" data-id="1" aria-haspopup="dialog">Personalizar</button>
+                    </div>
                 </div>
-                <div class="review-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Entrega super rápida e o combo família rende demais. Preço justo e sabor incrível."</p>
-                    <span class="review-author">— Carlos R.</span>
+                <figure class="hero-figure">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1280&auto=format&fit=crop"
+                         alt="Hambúrguer artesanal com queijo derretido servido sobre superfície escura"
+                         width="1280" height="960" fetchpriority="high" loading="eager">
+                    <figcaption>Fotografia ilustrativa</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- CARDÁPIO -->
+        <section class="menu" id="cardapio">
+            <div class="container">
+                <div class="menu-head">
+                    <h2 class="section-title">Cardápio</h2>
+                    <div class="menu-search" role="search" aria-label="Pesquisa do cardápio">
+                        <label for="menu-search">Encontre seu próximo lanche</label>
+                        <input type="search" id="menu-search" placeholder="Nome, ingrediente ou categoria" autocomplete="off">
+                    </div>
                 </div>
-                <div class="review-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Atendimento pelo site é fácil e intuitivo. Adoro os combos de quarta!"</p>
-                    <span class="review-author">— Juliana P.</span>
+                <div class="category-list" id="category-list" role="group" aria-label="Categorias do cardápio">
+                    <button class="cat-btn active" data-cat="todos">Todos</button>
+                    <button class="cat-btn" data-cat="hamburgueres">Hambúrgueres</button>
+                    <button class="cat-btn" data-cat="combos">Combos</button>
+                    <button class="cat-btn" data-cat="bebidas">Bebidas</button>
+                    <button class="cat-btn" data-cat="sobremesas">Sobremesas</button>
+                </div>
+                <p class="menu-result" id="menu-result" role="status" aria-atomic="true"></p>
+                <div class="menu-grid" id="menu-grid">
+                    <!-- Cards gerados via JS -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- COMBOS -->
+        <section class="combos" id="combos">
+            <div class="container">
+                <h2 class="section-title">Combos</h2>
+                <div class="combos-grid" id="combos-grid">
+                    <!-- Gerado via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- COMO FUNCIONA (demonstração) -->
+        <section class="how" id="como-funciona">
+            <div class="container">
+                <h2 class="section-title">Como funciona esta demonstração</h2>
+                <ol class="how-list">
+                    <li>
+                        <h3>Escolha</h3>
+                        <p>Navegue pelo cardápio, pesquise por nome ou ingrediente e filtre por categoria.</p>
+                    </li>
+                    <li>
+                        <h3>Personalize</h3>
+                        <p>Abra um produto, retire ingredientes quando disponíveis, adicione extras e escreva observações.</p>
+                    </li>
+                    <li>
+                        <h3>Experimente o carrinho</h3>
+                        <p>Ajuste quantidades e revise os itens no carrinho lateral. Nenhum pedido real é enviado.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+    </main>
 
     <!-- MODAL DO CARRINHO -->
     <dialog id="product-modal" class="product-modal" aria-labelledby="product-modal-title" aria-describedby="pm-demo">
@@ -168,9 +181,10 @@
 
     <!-- MODAL CHECKOUT -->
     <div class="checkout-modal" id="checkout-modal">
-        <div class="checkout-content" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+        <div class="checkout-content" role="dialog" aria-modal="true" aria-labelledby="checkout-title" aria-describedby="checkout-demo">
             <button class="close-checkout" id="close-checkout" type="button" aria-label="Fechar finalização">✕</button>
             <h2 id="checkout-title">Finalizar Pedido</h2>
+            <p id="checkout-demo">Demonstração · nenhum dado é enviado ou armazenado.</p>
             <form id="checkout-form">
                 <label>Nome<input type="text" required placeholder="Seu nome"></label>
                 <label>Telefone<input type="tel" required placeholder="(11) 99999-9999"></label>
@@ -194,6 +208,7 @@
 
     <footer class="footer">
         <p>© <span id="year"></span> Papitos Hamburgueria — Todos os direitos reservados.</p>
+        <p class="footer-note">Demonstração de portfólio · Fotografias ilustrativas · Nenhum pedido real é enviado.</p>
         <a href="../../index.html">← Voltar ao portfólio</a>
     </footer>
 

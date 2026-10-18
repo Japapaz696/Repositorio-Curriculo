@@ -19,7 +19,17 @@ Sem commit, push ou publicação. Sem instalação de dependências.
 - [x] Correções RED→GREEN: reduced-motion Beauty, resumo da confirmação Beauty, Voltar mobile Seu Manoel (2 causas: display:none + encoberto sob a barra), contraste AA Beauty, rótulos/etapas do portfólio
 - [x] Regressão `node --test` após correções: 15/15 PASS
 - [x] Capturas de evidência (baseline do auditor + confirmação corrigida + GREENs)
-- [x] Relatório final com veredito (RELATORIO-GERAL.md) — APROVADO PARA PUBLICAÇÃO, salvo avaliação humana
+- [x] Relatório final com veredito (RELATORIO-GERAL.md) — entregue; **usuário não aprovou a publicação** e determinou concluir antes o redesign do Papitos
+- [x] Redesign premium do Papitos autorizado e implementado ("chapa editorial": hero editorial, paleta carvão/creme/laranja, cardápio compacto, combos sem preço riscado, seção "Como funciona", sem depoimentos)
+- [x] Versão servida confirmada antes de editar (pré-redesign, status 200)
+- [x] `node --test` após o redesign: 15/15 PASS
+- [x] Suítes Papitos pós-redesign: Bloco 2 15/15, Bloco 3 10/10, robustez PASS
+- [x] Matriz Papitos redesenhado — 7 resoluções + reduced-motion + teclado: 30/30 PASS (`auditoria-geral/tests/papitos-redesign.browser.js`)
+- [x] Revalidação das 6 correções da auditoria global: 7/7 PASS (`auditoria-geral/tests/verifica-correcoes.browser.js`)
+- [x] Parecer final @revisor-conteudo — 0 altos, 1 médio, 3 baixos; 4 sugestões aplicadas (checkout-demo, toast simulado, "quando disponíveis", label da busca) e revalidadas
+- [x] Parecer final @auditor-qa — PASS no escopo testado (7 viewports, 11 fluxos, a11y, todas as suítes); observação baixa `#close-checkout` aplicada (44×44 GREEN)
+- [ ] Parecer final @diretor-visual (em execução: fotos + avaliação visual)
+- [x] Verificação regressiva completa pós-aplicação: matriz Papitos redesenhado 30/30 PASS, verificações 6 correções 7/7 PASS, node --test 15/15 PASS; `#close-checkout` 44×44 GREEN, toast simulado, checkout-demo + aria-describedby.
 
 ## Achados e correções desta rodada
 

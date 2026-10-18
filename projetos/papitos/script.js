@@ -20,10 +20,11 @@ const produtos = [
     { id: 13, nome: "Petit Gateau", categoria: "sobremesas", preco: 18.90, img: "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?q=80&w=600&auto=format&fit=crop", desc: "Bolinho de chocolate com recheio cremoso e sorvete de creme." },
 ];
 
+// Combos demonstrativos. Preço único, sem descontos ou promoções.
 const combos = [
-    { id: "combo-1", nome: "Combo Quarta do Bacon", img: "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=600&auto=format&fit=crop", desc: "Promoção especial de quarta-feira!", itens: ["Bacon Lover", "Batata rústica grande", "Coca-Cola 350ml"], preco: 39.90, antigo: 49.90 },
-    { id: "combo-2", nome: "Combo Papitos Premium", img: "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=600&auto=format&fit=crop", desc: "Para quem quer o melhor.", itens: ["Smash Triplo", "Onion rings", "Milkshake Ovomaltine"], preco: 65.90, antigo: 79.90 },
-    { id: "combo-3", nome: "Combo Família", img: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=600&auto=format&fit=crop", desc: "A noite toda garantida.", itens: ["2x Clássico", "1x Bacon Lover", "Batata grande", "4x Coca 350ml"], preco: 89.90, antigo: 109.90 },
+    { id: "combo-1", nome: "Combo Bacon", img: "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=600&auto=format&fit=crop", desc: "Bacon Lover acompanhado de batata rústica e refrigerante.", itens: ["Bacon Lover", "Batata rústica grande", "Coca-Cola 350ml"], preco: 39.90 },
+    { id: "combo-2", nome: "Combo Papitos Premium", img: "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=600&auto=format&fit=crop", desc: "Smash Triplo com onion rings e milkshake.", itens: ["Smash Triplo", "Onion rings", "Milkshake Ovomaltine"], preco: 65.90 },
+    { id: "combo-3", nome: "Combo Família", img: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=600&auto=format&fit=crop", desc: "Quatro lanches, batata grande e quatro refrigerantes.", itens: ["2x Clássico", "1x Bacon Lover", "Batata grande", "4x Coca 350ml"], preco: 89.90 },
 ];
 
 // Somente ingredientes já descritos no catálogo. Bebidas e combos sem ficha
@@ -55,6 +56,7 @@ function node(tag, className, text) {
 }
 function image(src, name) {
     const img = node('img'); img.src = src; img.alt = name; img.loading = 'lazy'; img.decoding = 'async';
+    img.width = 600; img.height = 375;
     return img;
 }
 document.addEventListener('error', event => {
@@ -106,11 +108,10 @@ function renderMenu() {
         media.setAttribute('aria-label', `Ver detalhes de ${p.nome}`);
         media.setAttribute('aria-haspopup', 'dialog'); media.append(image(p.img, ''), node('span', 'details-label', 'Ver detalhes e personalizar'));
         const body = node('div', 'menu-body');
-        const row = node('div', 'menu-title-row'); row.append(node('h3', 'menu-name', p.nome), node('span', 'menu-price', money(p.preco)));
         const footer = node('div', 'menu-footer');
         const quick = action('+ Adicionar', 'quick', p.id); quick.setAttribute('aria-label', `Adicionar ${p.nome} ao carrinho`);
-        footer.append(node('span', 'menu-category', p.categoria), quick);
-        body.append(row, node('p', 'menu-desc', p.desc), footer); card.append(media, body); return card;
+        footer.append(node('span', 'menu-price', money(p.preco)), quick);
+        body.append(node('h3', 'menu-name', p.nome), node('p', 'menu-desc', p.desc), footer); card.append(media, body); return card;
     }));
     document.getElementById('menu-result').textContent = filtered.length ? `${filtered.length} ${filtered.length === 1 ? 'produto encontrado' : 'produtos encontrados'}.` : 'Nenhum produto encontrado. Tente outro termo ou categoria.';
 }
@@ -122,10 +123,10 @@ function renderCombos() {
         const card = node('article', 'combo-card'); const media = node('div', 'combo-img'); media.append(image(c.img, c.nome));
         const body = node('div', 'combo-body'); const list = node('ul', 'combo-items');
         c.itens.forEach(i => list.append(node('li', '', i)));
-        const row = node('div', 'combo-price-row'); const price = node('div');
-        price.append(node('span', 'combo-price', money(c.preco)), node('s', 'combo-old-price', money(c.antigo)));
-        row.append(price, action('+ Adicionar', 'quick', c.id));
-        body.append(node('h3', 'combo-title', c.nome), node('p', 'combo-desc', c.desc), list, row); card.append(media, body); return card;
+        const row = node('div', 'combo-price-row');
+        row.append(node('span', 'combo-price', money(c.preco)), action('+ Adicionar', 'quick', c.id));
+        const caption = node('span', 'combo-caption', 'Imagem ilustrativa de um dos itens');
+        body.append(node('h3', 'combo-title', c.nome), node('p', 'combo-desc', c.desc), list, row); card.append(media, caption, body); return card;
     }));
 }
 
@@ -317,7 +318,7 @@ document.getElementById('checkout-form').addEventListener('submit', e => {
     cart = [];
     saveCart();
     renderCart();
-    showToast('🎉 Pedido confirmado! Em preparo.');
+    showToast('🎉 Pedido simulado confirmado.');
     setTimeout(() => {
         const overlayEl = document.createElement('div');
         overlayEl.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:500;display:flex;align-items:center;justify-content:center;padding:1.5rem;';

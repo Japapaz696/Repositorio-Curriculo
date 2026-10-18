@@ -68,6 +68,12 @@ A auditoria independente do @auditor-qa (método próprio, 4 páginas × 7 largu
 - **@diretor-visual — RECEBIDO (reexecutado em 18/10):** ~35 capturas + medições de DOM/geometria/contraste (`auditoria-geral/evidencias/diretor-visual/`). Achados: (a) Papitos **não** teve evolução visual — produção idêntica pixel a pixel ao baseline; o redesign "chapa editorial" aprovado existe **só como proposta** (`DESIGN.md:3` "produção ainda não alterada"); (b) portfólio e Seu Manoel **não** têm aparência de template; Papitos e Beauty ainda têm marcadores de template; (c) a paleta preto/creme/laranja existe apenas no DESIGN.md, não no código. **3 prioridades "agora": Voltar mobile (crítica), contraste Beauty e rótulos/etapas do portfólio — todas aplicadas com GREEN (seções 3.3–3.5).** Itens adiados com justificativa: redesign integral do Papitos (exige decisão explícita), filtros mobile do Beauty (disclosure) e composição hero/cardápio do Papitos (cai junto com o redesign).
 - **Correções do @diretor-visual sobre afirmações minhas (aceitas):** 1) "Redesign do Papitos concluído" estava **errado** — confirmado por diff de 0 px contra o baseline, `git status` sem arquivos do Papitos e `DESIGN.md:3`; registrado como decisão pendente (seções 9/10). 2) Δ99px das abas **não reproduzível** (alturas constantes 427/853) — aceito e removido (seção 4). 3) Meu GREEN do Voltar (430px) **não cobria o viewport exigido** — confirmado por RED com hit-test em 390×844 e refeito (seção 3.3).
 
+### 5.1 Pareceres finais do redesign do Papitos (rodada 2, 18/10/2026)
+
+- **@revisor-conteudo — RECEBIDO (conteúdo):** 0 altos, 1 médio, 3 baixos. Verificou: nenhum termo de avaliação/invenção legado nos 3 arquivos; hero demonstrativo; seção "Como funciona" factual; combos com ids/preços preservados (39,90/65,90/89,90); catálogo 13 produtos com preços exatamente originais; textos funcionais conferidos contra o código ("não altera o preço", "+R$ 8,00", 2.000 caracteres). **4 sugestões aplicadas:** (MÉDIO) aviso `#checkout-demo` "Demonstração · nenhum dado é enviado ou armazenado." + `aria-describedby` no diálogo de checkout; (BAIXO) toast "🎉 Pedido simulado confirmado." (antes "Em preparo."); (BAIXO) passo Personalize com "retire ingredientes quando disponíveis"; (BAIXO) label da busca "Encontre seu próximo lanche". Observação registrada sem alteração: "Combo Família" existe como produto id 6 e combo-3 (mesmo preço/conteúdo consistente). Veredito do revisor após aplicação: conteúdo aprovado no escopo revisado.
+- **@auditor-qa — RECEBIDO (QA técnico, testes próprios no Edge 155):** **PASS no escopo testado.** 7/7 viewports limpos (overflow/imagens/console/rede = 0); 11/11 fluxos (busca bacon/cheddar, categoria, destaque do hero→modal, qty→R$ 86,70, adicionar, Escape+foco, reload, quick-add); acessibilidade: skip link com bypass do header comprovado (Enter → main, Tab seguinte no CTA), 10 controles com outline ≥3px, todos alvos ≥44px (menor = 44), regiões live, reduced-motion, h1 único sem salto de nível; contraste 28 combinações ≥4,5 (6,22–16,46) — leituras baixas iniciais eram estado transiente da animação; re-executou todas as suítes (15+15+10+1+30 verificações, todas verdes). **1 observação BAIXA aplicada:** `#close-checkout` media 20×38px (`style.css:281`) → ajustado para 44×44 (`min-width/min-height + inline-flex`), GREEN medido. Falsos positivos próprios isolados (limiar do skip link; contraste durante animação). Limitações: sem leitor de tela real, só Chromium/Edge, sem zoom 200%/Lighthouse; não enviou o checkout (nós o validamos por separado).
+- **@diretor-visual — PARECER FINAL AINDA PENDENTE** (sessão em andamento: curadoria de fotos + avaliação visual da implementação).
+
 ## 6. Falsos positivos descartados (com prova)
 
 1. "reviewOk=false no mobile do Seu Manoel" — artefato do script de teste (sequência de passos errada); com a mecânica correta (1 clique de Continuar = 1 fase) o review inclui "R$ 45,00" em 7/7.
@@ -101,19 +107,55 @@ Estado Git no fim: HEAD `fe6abb6`; modificados apenas os 5 arquivos acima; não 
 - Varredura axe/Lighthouse não executada; contraste medido por fórmula WCAG apenas nos tokens corrigidos do Beauty (não é varredura completa do site).
 - Persistência por viewport isolada (testada em todas as larguras do fluxo, mas cada execução parte de contexto limpo); conflito de agendamento não testado com 2 abas simultâneas (eventos de `storage`).
 - Efeitos comportamentais do reduced-motion medidos por duração computada, não por percepção.
-- **Redesign premium do Papitos ("chapa editorial") NÃO foi implementado** — direção aprovada, mas a produção permanece idêntica ao baseline (diff 0 px). Exige decisão do usuário: implementar agora ou desdobrar como etapa separada.
+- ~~**Redesign premium do Papitos ("chapa editorial") NÃO foi implementado**~~ — implementado na rodada 2 de 18/10/2026 (seção 11), após autorização do usuário.
 - Itens visuais adiados registrados pelo @diretor-visual: marcadores de template restantes no Papitos (foto flutuante, avaliações legadas, "Desde 2015") e no Beauty (emoji decorativo), disclosure de filtros mobile do Beauty, composição hero/cardápio do Papitos.
 - O seletor `:has()` no fix do Voltar exige Edge 105+/Chrome 105+/Safari 15.4+/Firefox 121+; sem suporte, degrada para o comportamento anterior (Voltar em fluxo, sem fixação).
 
 ## 10. Veredito
 
-**APROVADO PARA PUBLICAÇÃO — salvo avaliação final humana e decisão sobre o redesign do Papitos.**
+**Etapa 1 (auditoria global): concluída.** O usuário **não aprovou a publicação** neste ponto e determinou concluir antes o redesign do Papitos. A matriz **4 páginas × 7 larguras (28 células) PASS** com interações reais, `node --test` **15/15** e **3 pareceres recebidos** na primeira rodada sustentam a auditoria; **6 bugs reais** foram corrigidos com verificação RED→GREEN (reduced-motion Beauty, resumo do checkout Beauty, Voltar mobile Seu Manoel — 2 causas —, contraste AA do Beauty, duplicação de rótulo + "7→6 etapas" do portfólio) e 4 ajustes textuais do revisor.
 
-Base: matriz **4 páginas × 7 larguras (28 células) PASS** com interações reais e seletores verdadeiros, `node --test` **15/15**, e **3 pareceres recebidos** (@revisor-conteudo, @auditor-qa, @diretor-visual). **6 bugs reais** encontrados e corrigidos com verificação RED→GREEN (reduced-motion Beauty, resumo do checkout Beauty, Voltar mobile Seu Manoel — 2 causas —, contraste AA do Beauty, duplicação de rótulo + "7→6 etapas" do portfólio) e 4 ajustes textuais do revisor.
+**Etapa 2 (redesign do Papitos): implementada, testes locais verdes, pareceres finais em execução** — ver seção 11. O veredito de publicação fica suspensa até a avaliação humana final.
 
 Ressalvas:
-1. **Redesign premium do Papitos não implementado** — decisão do usuário (implementar agora ou desdobrar; ver seções 5 e 9).
-2. Limitações de método (seção 9): sem leitor de tela real, sem aparelho físico, sem Safari/Firefox, sem axe/Lighthouse.
-3. Itens visuais adiados (seção 9), todos com justificativa registrada.
+1. Limitações de método (seção 9): sem leitor de tela real, sem aparelho físico, sem Safari/Firefox, sem axe/Lighthouse.
+2. Itens visuais adiados (seção 9), todos com justificativa registrada — a maioria foi tratada pelo redesign da seção 11.
+3. Publicação suspensa por decisão do usuário, aguardando avaliação do redesign.
 
 Nenhum commit, push ou publicação foi feito.
+
+## 11. Redesign premium do Papitos — "chapa editorial" (18/10/2026, rodada 2)
+
+Autorizado explicitamente pelo usuário após a recusa de publicação. Implementação apenas em `projetos/papitos/` (index.html, style.css, script.js), sem refatoração da lógica.
+
+### 11.1 O que mudou (antes → depois)
+
+| Área | Antes | Depois |
+|---|---|---|
+| Identidade | Gradiente âmbar/vermelho, emoji de marca, fundo `#0d0d0d` neutro | Paleta carvão `#100D0B` / creme `#F6EBDD` / laranja sólido `#FF8A3D`, logo tipográfico com ponto laranja |
+| Hero | H1 "O melhor hambúrguer…", tag "Desde 2015", promessa de entrega, foto quadrada 320px flutuando em loop | Composição assimétrica texto/foto (0.85fr/1.15fr), eyebrow "Hamburgueria · projeto demonstrativo", H1 "Burger no seu estilo.", CTA + link de combos, bloco "Em destaque" com personalização real do Clássico, foto 4:3 grande com legenda "Fotografia ilustrativa", entrada única 420ms |
+| Categorias/busca | Faixa sticky com cápsulas, busca afastada do título | Título + busca na mesma linha (`.menu-head`), categorias com sublinhado laranja e wrap, resultado à esquerda |
+| Cards | Preço no topo em Bebas, chip de categoria, faixa preta "Ver detalhes" sobre a foto | Foto 16:10, nome → descrição → rodapé com preço Inter tabular + "Adicionar"; indicação de detalhes abaixo da foto; hover só borda/sombra/zoom 1.025 |
+| Combos | Preço antigo riscado, "Promoção especial de quarta-feira!" | Um único preço, desc neutras, legenda "Imagem ilustrativa de um dos itens"; `combo-1` renomeado para "Combo Bacon" (id e preço preservados) |
+| Depoimentos | 3 avaliações fictícias com estrelas | Seção "Como funciona esta demonstração" com 3 passos factuais (Escolha/Personalize/Experimente o carrinho) |
+| Conteúdo legado | "Desde 2015", "o melhor", "entrega mais rápida", promoções | Removido; footer com "Demonstração de portfólio · Fotografias ilustrativas · Nenhum pedido real é enviado." |
+| Acessibilidade | Sem skip link, emoji 🛒/☰ como controle | Skip link, landmark `<main>`, ícones SVG `aria-hidden`, `theme-color`/`color-scheme`, dimensões explícitas nas imagens, `fetchpriority=high` no hero |
+
+Preservados sem refatoração: 13 produtos + 3 combos e ids/preços, busca por nome/descrição/categoria/ingredientes, categorias, modal de personalização (remoção/adicionais/observações/quantidade), carrinho lateral `<dialog>`, persistência `papitos-cart`, checkout existente.
+
+### 11.2 Resultados comprovados
+
+| Verificação | Resultado |
+|---|---|
+| Versão servida confirmada ANTES de editar (HTTP 200, produção pré-redesign) | OK — baseline válido |
+| `node --test` (raiz) pós-redesign | **15/15 PASS** |
+| Suíte `tests/bloco-2.browser.js` | **15/15 PASS** |
+| Suíte `tests/bloco-3.browser.js` | **10/10 PASS** (drawer intacto) |
+| Suíte `tests/robustez.browser.js` | **PASS** (touch, JSON corrompido, notas 2000, fallback de imagem, storage bloqueado, contraste 7,32–8,05) |
+| Matriz do redesign `auditoria-geral/tests/papitos-redesign.browser.js` — 375/390/430/768/1024/1440/1920 + reduced-motion + teclado | **30/30 PASS** (estrutura/imagens/conteúdo sem alegações legadas, destaque→modal, busca 'bacon'=2 e 'cheddar'=1, categoria=5, quantidade→R$ 86,70, carrinho, ESC, reload persiste, quick-add, hero sem animação em reduced-motion, skip link focado) |
+| Revalidação das 6 correções da auditoria `auditoria-geral/tests/verifica-correcoes.browser.js` | **7/7 PASS** — busca mobile Beauty, favorito sob hover, reduced-motion Beauty, contraste Beauty (4,81/6,04/4,81), resumo do checkout Beauty ("1× Batom… Total R$ 49,90", carrinho zerado), rótulos/etapas do portfólio, Voltar mobile do Seu Manoel (date→professional, `hitIsBack=true`, centerY 748) |
+| Erros JS / overflow / imagens quebradas | 0 / 0 / 0 (apenas `#pm-img` vazio com modal fechado — benigno e conhecido) |
+
+### 11.3 Evidências
+
+Capturas depois: `auditoria-geral/evidencias/screenshots/papitos-redesign-{hero,cardapio,combos,carrinho}-{1440,390}.png` (baseline antes em `projetos/papitos/evidencias/redesign-premium/antes-*.png`).
