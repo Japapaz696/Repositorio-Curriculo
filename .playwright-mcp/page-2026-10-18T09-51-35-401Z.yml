@@ -1,0 +1,401 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#conteudo"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Ir para o início — Lucas Santana da Paz" [ref=e5] [cursor=pointer]:
+        - /url: "#inicio"
+        - generic [aria-hidden] [ref=e6]: L/S
+      - navigation "Principal":
+        - list:
+          - listitem:
+            - link "Experiência":
+              - /url: "#experience"
+          - listitem:
+            - link "Projetos":
+              - /url: "#work"
+          - listitem:
+            - link "O que faço":
+              - /url: "#capabilities"
+          - listitem:
+            - link "Sobre":
+              - /url: "#profile"
+          - listitem:
+            - link "Lab":
+              - /url: "#lab"
+          - listitem:
+            - link "Contato":
+              - /url: "#contact"
+      - generic [ref=e21]:
+        - button "Ctrl K" [ref=e380] [cursor=pointer]
+        - button "Ativar tema escuro" [active] [ref=e365] [cursor=pointer]:
+          - generic [aria-hidden] [ref=e26]: ◐
+        - button "Abrir menu" [ref=e381] [cursor=pointer]
+  - main [ref=e27]:
+    - region [ref=e28]:
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: PORTFÓLIO PESSOAL · BELO HORIZONTE
+          - heading "LUCAS SANTANA DA PAZ" [level=1] [ref=e33]:
+            - generic [ref=e34]: LUCAS
+            - generic [ref=e36]: SANTANA
+            - generic [ref=e38]: DA PAZ
+          - paragraph [ref=e40]: Desenvolvimento Web | Sistemas Empresariais e ERP | SQL | Automação e IA
+          - paragraph [ref=e41]: Estudante de Análise e Desenvolvimento de Sistemas com experiência profissional em suporte técnico ao ERP TecFood na Teknisa. Unindo a investigação de sistemas à construção de interfaces funcionais.
+          - generic "Contexto profissional" [ref=e42]:
+            - generic [ref=e43]: ADS (conclusão 2027)
+            - generic [ref=e44]: Suporte ERP TecFood · Teknisa
+            - generic [ref=e45]: JavaScript · SQL · Automação
+          - generic "Navegação rápida" [ref=e46]:
+            - link "Ver projetos" [ref=e47] [cursor=pointer]:
+              - /url: "#work"
+              - text: Ver projetos
+              - generic [aria-hidden] [ref=e48]: ↘
+            - link "Conhecer meu percurso" [ref=e49] [cursor=pointer]:
+              - /url: "#profile"
+              - text: Conhecer meu percurso
+              - generic [aria-hidden] [ref=e50]: ↘
+        - figure [ref=e51]:
+          - heading "Projetos em destaque" [level=2] [ref=e52]
+          - generic [ref=e53]:
+            - generic [aria-hidden] [ref=e54]: VITRINE · PROJETOS REAIS
+            - button "Pausar reprodução automática da vitrine" [ref=e56] [cursor=pointer]: Pausar
+          - group "Projeto 2 de 3" [ref=e366]:
+            - img "Cardápio da Papitos com categorias, produtos e início do fluxo de pedido" [ref=e369]
+            - generic [ref=e370]:
+              - paragraph [ref=e371]: 02 / 03 · Fluxo de pedido
+              - heading "Papitos" [level=3] [ref=e372]
+              - paragraph [ref=e373]: Do cardápio ao checkout, com carrinho persistente e entrega ou retirada.
+              - paragraph [ref=e374]:
+                - link "Abrir projeto" [ref=e375] [cursor=pointer]:
+                  - /url: projetos/papitos/index.html
+                  - text: Abrir projeto
+                  - generic [aria-hidden] [ref=e376]: ↗
+                - link "Ver case" [ref=e377] [cursor=pointer]:
+                  - /url: "#work"
+                  - text: Ver case
+                  - generic [aria-hidden] [ref=e378]: ↘
+          - generic [ref=e71]:
+            - group "Selecionar projeto da vitrine" [ref=e72]:
+              - button "Mostrar projeto Seu Manoel" [ref=e73] [cursor=pointer]
+              - button "Mostrar projeto Papitos" [ref=e74] [cursor=pointer]
+              - button "Mostrar projeto Beauty Store" [ref=e75] [cursor=pointer]
+            - status [ref=e76]: Papitos — projeto 2 de 3
+    - region [ref=e78]:
+      - generic [ref=e79]:
+        - generic [ref=e80]:
+          - paragraph [ref=e81]: EXPERIÊNCIA PROFISSIONAL
+          - heading "Sistemas e Operações." [level=2] [ref=e82]
+          - paragraph [ref=e83]: Atuação técnica em software de gestão empresarial, com foco em atendimento, investigação e resolução de problemas.
+        - generic [ref=e85]:
+          - generic [ref=e87]:
+            - strong [ref=e88]: Teknisa
+            - generic [ref=e89]: Suporte Técnico ERP TecFood
+          - generic [ref=e90]:
+            - paragraph [ref=e91]: Atuação no suporte ao ERP TecFood, solução voltada à gestão de empresas do setor de alimentação.
+            - list [ref=e92]:
+              - listitem [ref=e93]: → Investigação de inconsistências e anomalias em ambiente de software empresarial.
+              - listitem [ref=e94]: → Utilização de consultas SQL para verificação de registros e diagnóstico de divergências.
+              - listitem [ref=e95]: → Atendimento técnico a usuários, orientando a operação do sistema e acompanhando chamados.
+              - listitem [ref=e96]: → Análise de processos operacionais para apoiar a identificação de causas de incidentes.
+          - generic [ref=e97]:
+            - generic [ref=e98]: Sistemas ERP
+            - generic [ref=e99]: SQL
+            - generic [ref=e100]: Diagnóstico Técnico
+    - region [ref=e101]:
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - paragraph [ref=e104]: PROJETOS SELECIONADOS
+          - heading "Fluxos reais, limites claros." [level=2] [ref=e105]
+          - paragraph [ref=e106]: Uma seleção enxuta de projetos pessoais. Cada case mostra o que funciona, como foi pensado e onde a demonstração termina.
+        - article [ref=e107]:
+          - generic [ref=e108]:
+            - generic [ref=e109]: 01 / FLAGSHIP
+            - generic [ref=e110]: Sistema de agendamento
+            - generic [ref=e111]: Projeto pessoal · demonstração local
+          - generic [ref=e112]:
+            - strong [ref=e117]: seu-manoel / agenda
+            - img "Página inicial do projeto Seu Manoel com apresentação da barbearia e início do fluxo de serviços" [ref=e118]
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - heading [level=3] [ref=e121]:
+                - text: Seu Manoel
+                - emphasis [ref=e122]: Agendamento com regras
+              - paragraph [ref=e123]: Escolher, validar e registrar um horário sem perder o contexto.
+            - generic [ref=e124]:
+              - generic [ref=e125]:
+                - generic [ref=e126]:
+                  - term [ref=e127]: Contexto
+                  - definition [ref=e128]: Protótipo funcional de agendamento local para serviços, profissionais, datas e horários.
+                - generic [ref=e129]:
+                  - term [ref=e130]: Problema
+                  - definition [ref=e131]: O cliente precisa encontrar um horário livre sem se perder entre etapas ou escolher um intervalo ocupado.
+                - generic [ref=e132]:
+                  - term [ref=e133]: Decisão
+                  - definition [ref=e134]: Separar o fluxo em etapas validadas e isolar regras de disponibilidade em um módulo testável.
+                - generic [ref=e135]:
+                  - term [ref=e136]: Implementação
+                  - definition [ref=e137]: Wizard em JavaScript, regras de conflito, persistência local, histórico, cancelamento e testes unitários.
+                - generic [ref=e138]:
+                  - term [ref=e139]: Prova técnica
+                  - definition [ref=e140]: Reservas ativas bloqueiam slots, cancelamentos liberam horários e as regras têm cobertura com node:test.
+                - generic [ref=e141]:
+                  - term [ref=e142]: Limite
+                  - definition [ref=e143]: Demonstração local. Não tem backend, autenticação, banco ou integração com agenda remota.
+              - list "Funcionalidades comprovadas" [ref=e144]:
+                - listitem [ref=e145]: 7 etapas de agendamento
+                - listitem [ref=e146]: Regras em módulo separado
+                - listitem [ref=e147]: LocalStorage para histórico
+                - listitem [ref=e148]: Testes de disponibilidade
+            - generic [ref=e149]:
+              - button "Testar interface" [ref=e150] [cursor=pointer]:
+                - text: Testar interface
+                - generic [aria-hidden] [ref=e151]: ↗
+              - link "Abrir projeto completo" [ref=e152] [cursor=pointer]:
+                - /url: projetos/seu-manoel/index.html
+                - text: Abrir projeto completo
+                - generic [aria-hidden] [ref=e153]: ↗
+              - link "Ver código" [ref=e154] [cursor=pointer]:
+                - /url: https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/seu-manoel
+                - text: Ver código
+                - generic [aria-hidden] [ref=e155]: ↗
+        - article [ref=e156]:
+          - generic [ref=e157]:
+            - generic [ref=e158]: "02"
+            - generic [ref=e159]: Catálogo e estado de compra
+            - generic [ref=e160]: HTML / CSS / JavaScript
+          - generic [ref=e161]:
+            - img "Página inicial da Beauty Store com busca, categorias, banner e início do catálogo de cosméticos" [ref=e163]
+            - generic [ref=e164]:
+              - generic [ref=e165]:
+                - heading [level=3] [ref=e166]:
+                  - text: Beauty Store
+                  - emphasis [ref=e167]: Catálogo interativo
+                - paragraph [ref=e168]: Busca, filtros, favoritos, carrinho, cupom e frete no mesmo modelo de estado.
+              - generic [ref=e169]:
+                - generic [ref=e170]:
+                  - term [ref=e171]: Funciona
+                  - definition [ref=e172]: Busca textual, ordenação, filtros, detalhe de produto, favoritos, carrinho e checkout simulado.
+                - generic [ref=e173]:
+                  - term [ref=e174]: Limite
+                  - definition [ref=e175]: Catálogo demonstrativo. Não há pagamento, estoque, rastreio ou backend real.
+              - generic [ref=e176]:
+                - button "Testar interface" [ref=e177] [cursor=pointer]:
+                  - text: Testar interface
+                  - generic [aria-hidden] [ref=e178]: ↗
+                - link "Abrir projeto completo" [ref=e179] [cursor=pointer]:
+                  - /url: projetos/beauty-store/index.html
+                  - text: Abrir projeto completo
+                  - generic [aria-hidden] [ref=e180]: ↗
+                - link "Ver código" [ref=e181] [cursor=pointer]:
+                  - /url: https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/beauty-store
+                  - text: Ver código
+                  - generic [aria-hidden] [ref=e182]: ↗
+        - article [ref=e183]:
+          - generic [ref=e184]:
+            - generic [ref=e185]: "03"
+            - generic [ref=e186]: Fluxo de pedido
+            - generic [ref=e187]: HTML / CSS / JavaScript
+          - generic [ref=e188]:
+            - generic [ref=e189]:
+              - generic [ref=e190]:
+                - heading [level=3] [ref=e191]:
+                  - text: Papitos
+                  - emphasis [ref=e192]: Pedido no navegador
+                - paragraph [ref=e193]: Do cardápio ao checkout, com carrinho persistente e escolha entre entrega ou retirada.
+              - generic [ref=e194]:
+                - generic [ref=e195]:
+                  - term [ref=e196]: Funciona
+                  - definition [ref=e197]: 13 produtos, 3 combos, categorias, quantidades, total e finalização simulada.
+                - generic [ref=e198]:
+                  - term [ref=e199]: Limite
+                  - definition [ref=e200]: Não existe pagamento, envio real ou cliente comercial. É uma demonstração de fluxo.
+              - generic [ref=e201]:
+                - button "Testar interface" [ref=e202] [cursor=pointer]:
+                  - text: Testar interface
+                  - generic [aria-hidden] [ref=e203]: ↗
+                - link "Abrir projeto completo" [ref=e204] [cursor=pointer]:
+                  - /url: projetos/papitos/index.html
+                  - text: Abrir projeto completo
+                  - generic [aria-hidden] [ref=e205]: ↗
+                - link "Ver código" [ref=e206] [cursor=pointer]:
+                  - /url: https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/papitos
+                  - text: Ver código
+                  - generic [aria-hidden] [ref=e207]: ↗
+            - generic [ref=e208]:
+              - strong [ref=e213]: papitos / pedido
+              - img "Página inicial do projeto Papitos com apresentação da hamburgueria, categorias e começo do cardápio" [ref=e214]
+        - complementary [ref=e215]:
+          - generic [ref=e216]:
+            - paragraph [ref=e217]: NOTA TÉCNICA
+            - heading "SupportFlow" [level=3] [ref=e218]
+          - generic [ref=e219]:
+            - paragraph [ref=e220]: Projeto próprio de sistema de atendimento em desenvolvimento, com React/Vite, backend, PostgreSQL, autenticação e fluxos de tickets, SLA e notificações. Há build, migrações, typecheck, testes e capturas locais com dados sintéticos registrados no projeto.
+            - paragraph [ref=e221]: "Ele não entra como demo embutida: uma reprodução honesta exige backend, banco, autenticação e dados. As telas reais aparecem como evidência visual, não como uma simulação estática."
+    - region [ref=e222]:
+      - generic [ref=e223]:
+        - generic [ref=e224]:
+          - paragraph [ref=e225]: COMPETÊNCIAS E DOMÍNIO
+          - heading "Técnica aplicada a entrega." [level=2] [ref=e226]
+        - generic [ref=e227]:
+          - generic [ref=e228]:
+            - heading "Desenvolvimento Web" [level=3] [ref=e229]
+            - list [ref=e230]:
+              - listitem [ref=e231]:
+                - strong [ref=e232]: "Interfaces:"
+                - text: HTML5, CSS3 e layouts responsivos.
+              - listitem [ref=e233]:
+                - strong [ref=e234]: "Interatividade:"
+                - text: JavaScript moderno e manipulação de DOM.
+              - listitem [ref=e235]:
+                - strong [ref=e236]: "UX/UI:"
+                - text: Hierarquia visual, semântica e acessibilidade.
+              - listitem [ref=e237]: "Evidência: Papitos, Beauty Store, Portfólio."
+          - generic [ref=e238]:
+            - heading "Sistemas e Dados" [level=3] [ref=e239]
+            - list [ref=e240]:
+              - listitem [ref=e241]:
+                - strong [ref=e242]: "ERP:"
+                - text: Suporte e operação de softwares empresariais.
+              - listitem [ref=e243]:
+                - strong [ref=e244]: "SQL:"
+                - text: Consultas para diagnóstico e verificação de dados.
+              - listitem [ref=e245]:
+                - strong [ref=e246]: "Análise:"
+                - text: Investigação de inconsistências e apoio à identificação de causas.
+              - listitem [ref=e247]: "Evidência: Experiência profissional na Teknisa."
+          - generic [ref=e248]:
+            - heading "Automação e IA" [level=3] [ref=e249]
+            - list [ref=e250]:
+              - listitem [ref=e251]:
+                - strong [ref=e252]: "Em estudo:"
+                - text: Automação de processos com n8n.
+              - listitem [ref=e253]:
+                - strong [ref=e254]: "Em experimentação:"
+                - text: Consumo de APIs e conectores.
+              - listitem [ref=e255]:
+                - strong [ref=e256]: "Em estudo:"
+                - text: LLMs e ferramentas de IA generativa.
+              - listitem [ref=e257]: "Evidência: Estudos e experimentos no Lab."
+    - region [ref=e258]:
+      - generic [ref=e259]:
+        - generic [ref=e260]:
+          - paragraph [ref=e261]: SOBRE
+          - heading "Entre a análise de sistemas e a criação de interfaces." [level=2] [ref=e262]
+        - generic [ref=e263]:
+          - paragraph [ref=e264]: Estudante de Análise e Desenvolvimento de Sistemas (previsão 2027), busco integrar a precisão do diagnóstico técnico à fluidez do desenvolvimento front-end.
+          - paragraph [ref=e265]: Minha experiência no suporte ao ERP TecFood, na Teknisa, me ensinou a olhar para o software através da operação do usuário. Aprendi a investigar inconsistências, analisar dados via SQL e traduzir problemas complexos em resoluções técnicas eficientes.
+          - paragraph [ref=e266]: Hoje, aplico esse olhar analítico em projetos próprios com JavaScript, enquanto estudo automações com n8n e a aplicação de inteligência artificial para otimizar fluxos de trabalho.
+          - generic [ref=e267]:
+            - generic [ref=e268]:
+              - term [ref=e269]: Formação
+              - definition [ref=e270]: ADS em andamento (conclusão 2027)
+            - generic [ref=e271]:
+              - term [ref=e272]: Foco Atual
+              - definition [ref=e273]: Desenvolvimento Web e Automação de Processos
+            - generic [ref=e274]:
+              - term [ref=e275]: Experiência
+              - definition [ref=e276]: Suporte ERP e Diagnóstico de Sistemas
+    - region [ref=e277]:
+      - generic [ref=e278]:
+        - generic [ref=e279]:
+          - paragraph [ref=e280]: TRAJETÓRIA E FERRAMENTAS
+          - heading "Percurso em construção, ferramentas em uso." [level=2] [ref=e281]
+        - generic [ref=e282]:
+          - list [ref=e283]:
+            - listitem [ref=e284]:
+              - generic [ref=e285]: Atual
+              - generic [ref=e286]:
+                - heading "Projetos próprios" [level=3] [ref=e287]
+                - paragraph [ref=e288]: Web, automação, interfaces e experimentação visual
+            - listitem [ref=e289]:
+              - generic [ref=e290]: Experiência
+              - generic [ref=e291]:
+                - heading "Suporte de software" [level=3] [ref=e292]
+                - paragraph [ref=e293]: Diagnóstico, operação de sistemas e contato com SQL
+            - listitem [ref=e294]:
+              - generic [ref=e295]: Em curso
+              - generic [ref=e296]:
+                - heading "ADS" [level=3] [ref=e297]
+                - paragraph [ref=e298]: Formação em Análise e Desenvolvimento de Sistemas
+            - listitem [ref=e299]:
+              - generic [ref=e300]: 2024-25
+              - generic [ref=e301]:
+                - heading "Newcity Car" [level=3] [ref=e302]
+                - paragraph [ref=e303]: Vistoriador veicular
+            - listitem [ref=e304]:
+              - generic [ref=e305]: "2021"
+              - generic [ref=e306]:
+                - heading "Pirelli" [level=3] [ref=e307]
+                - paragraph [ref=e308]: Logística
+          - region [ref=e309]:
+            - heading "Stack com evidência" [level=3] [ref=e310]
+            - generic [ref=e311]:
+              - generic [ref=e312]:
+                - term [ref=e313]: Uso prático
+                - definition [ref=e314]: HTML5, CSS3, JavaScript, LocalStorage, Git, GitHub, Chrome DevTools
+              - generic [ref=e315]:
+                - term [ref=e316]: Prática e formação
+                - definition [ref=e317]: SQL básico, diagnóstico de sistemas, leitura de dados operacionais
+              - generic [ref=e318]:
+                - term [ref=e319]: Estudo e experimentação
+                - definition [ref=e320]: React, Node.js, Express, APIs, Figma, automação e IA generativa
+    - region [ref=e321]:
+      - generic [ref=e322]:
+        - generic [ref=e323]:
+          - paragraph [ref=e324]: LAB
+          - heading "Estudos de composição, interface e motion." [level=2] [ref=e325]
+          - paragraph [ref=e326]: Experimentos visuais e protótipos. Eles exploram ritmo, imagem e movimento; não são produtos comerciais nem projetos de cliente.
+        - generic [ref=e327]:
+          - article [ref=e328]:
+            - generic:
+              - generic: Prototipagem visual
+              - heading "Composição, assets e interfaces em estudo." [level=3]
+            - button "Reproduzir vídeo de prototipagem visual" [ref=e330] [cursor=pointer]: Reproduzir
+          - article [ref=e331]:
+            - generic:
+              - generic: Animação de produto
+              - heading "Estados e transições de interface." [level=3]
+            - button "Reproduzir vídeo de animação de produto" [ref=e333] [cursor=pointer]: Reproduzir
+          - article [ref=e334]:
+            - generic:
+              - generic: Interface futurista
+              - heading "Ritmo, contraste e direção visual." [level=3]
+            - button "Reproduzir vídeo de interface futurista" [ref=e336] [cursor=pointer]: Reproduzir
+    - region [ref=e337]:
+      - generic [ref=e338]:
+        - generic [ref=e339]:
+          - paragraph [ref=e340]: CONTATO
+          - heading [level=2] [ref=e341]:
+            - text: Quer conversar?
+            - emphasis [ref=e342]: Me chama.
+        - generic [ref=e343]:
+          - paragraph [ref=e344]: Estou aberto a feedback, conversas técnicas e oportunidades que me façam construir melhor.
+          - list [ref=e345]:
+            - listitem [ref=e346]:
+              - link "E-mail lucaspaz696@gmail.com Copiar" [ref=e347] [cursor=pointer]:
+                - /url: mailto:lucaspaz696@gmail.com
+                - text: E-mail
+                - generic [ref=e348]: lucaspaz696@gmail.com
+                - emphasis [ref=e349]: Copiar
+            - listitem [ref=e350]:
+              - link "GitHub Japapaz696" [ref=e351] [cursor=pointer]:
+                - /url: https://github.com/Japapaz696
+                - text: GitHub
+                - generic [ref=e352]: Japapaz696
+                - emphasis [aria-hidden] [ref=e353]: ↗
+            - listitem [ref=e354]:
+              - link "LinkedIn lucas-santana-da-paz" [ref=e355] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/lucas-santana-da-paz-215816247/
+                - text: LinkedIn
+                - generic [ref=e356]: lucas-santana-da-paz
+                - emphasis [aria-hidden] [ref=e357]: ↗
+            - listitem [ref=e358]:
+              - link "WhatsApp +55 31 97340-3545" [ref=e359] [cursor=pointer]:
+                - /url: https://wa.me/5531973403545
+                - text: WhatsApp
+                - generic [ref=e360]: +55 31 97340-3545
+                - emphasis [aria-hidden] [ref=e361]: ↗
+  - contentinfo [ref=e362]:
+    - paragraph [ref=e364]: Feito por Lucas Santana da Paz / 2026
+  - button "Voltar ao topo" [ref=e379] [cursor=pointer]: ↑

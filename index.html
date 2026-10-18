@@ -65,11 +65,11 @@
           </div>
         </div>
 
-        <figure class="hero-showcase" data-parallax aria-labelledby="showcase-title">
+        <figure class="hero-showcase" data-parallax role="region" aria-roledescription="carrossel" aria-labelledby="showcase-title">
           <h2 id="showcase-title" class="sr-only">Projetos em destaque</h2>
 
           <div class="showcase-bar">
-            <span aria-hidden="true">VITRINE · PROJETOS REAIS</span>
+            <span aria-hidden="true">VITRINE · PROJETOS PESSOAIS</span>
             <div class="showcase-controls">
               <button class="showcase-toggle" type="button" data-showcase-toggle aria-label="Pausar reprodução automática da vitrine">Pausar</button>
             </div>
@@ -80,10 +80,10 @@
               <div class="showcase-media">
                 <picture>
                   <source media="(max-width: 767px)" srcset="assets/project-previews/showcase-seu-manoel-mobile.png">
-                  <img src="assets/project-previews/showcase-seu-manoel-desktop.png" width="1440" height="900" alt="Tela inicial do Seu Manoel com apresentação da barbearia e acesso ao agendamento" fetchpriority="high" decoding="async">
+                  <img src="assets/project-previews/showcase-seu-manoel-desktop.jpg" width="1440" height="900" alt="Tela inicial do Seu Manoel com apresentação da barbearia e acesso ao agendamento" fetchpriority="high" decoding="async">
                 </picture>
               </div>
-              <figcaption class="showcase-meta">
+              <div class="showcase-meta">
                 <p class="showcase-index">01 / 03 · Sistema de agendamento</p>
                 <h3 class="showcase-name">Seu Manoel</h3>
                 <p class="showcase-desc">Agendamento em etapas com regras de disponibilidade testadas no navegador.</p>
@@ -91,17 +91,17 @@
                   <a href="projetos/seu-manoel/index.html" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>
                   <a href="#work">Ver case <span aria-hidden="true">↘</span></a>
                 </p>
-              </figcaption>
+              </div>
             </article>
 
             <article class="showcase-slide" data-showcase-slide role="group" aria-roledescription="slide" aria-label="Projeto 2 de 3" aria-hidden="true">
               <div class="showcase-media">
                 <picture>
-                  <source media="(max-width: 767px)" srcset="assets/project-previews/showcase-papitos-mobile.png">
-                  <img src="assets/project-previews/showcase-papitos-desktop.png" width="1440" height="900" alt="Cardápio da Papitos com categorias, produtos e início do fluxo de pedido" loading="lazy" decoding="async">
+                  <source media="(max-width: 767px)" data-srcset="assets/project-previews/showcase-papitos-mobile.png">
+                  <img data-src="assets/project-previews/showcase-papitos-desktop.jpg" width="1440" height="900" alt="Cardápio da Papitos com categorias, produtos e início do fluxo de pedido" decoding="async">
                 </picture>
               </div>
-              <figcaption class="showcase-meta">
+              <div class="showcase-meta">
                 <p class="showcase-index">02 / 03 · Fluxo de pedido</p>
                 <h3 class="showcase-name">Papitos</h3>
                 <p class="showcase-desc">Do cardápio ao checkout, com carrinho persistente e entrega ou retirada.</p>
@@ -109,17 +109,17 @@
                   <a href="projetos/papitos/index.html" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>
                   <a href="#work">Ver case <span aria-hidden="true">↘</span></a>
                 </p>
-              </figcaption>
+              </div>
             </article>
 
             <article class="showcase-slide" data-showcase-slide role="group" aria-roledescription="slide" aria-label="Projeto 3 de 3" aria-hidden="true">
               <div class="showcase-media">
                 <picture>
-                  <source media="(max-width: 767px)" srcset="assets/project-previews/showcase-beauty-store-mobile.png">
-                  <img src="assets/project-previews/showcase-beauty-store-desktop.png" width="1440" height="900" alt="Vitrine da Beauty Store com busca, categorias e catálogo de produtos" loading="lazy" decoding="async">
+                  <source media="(max-width: 767px)" data-srcset="assets/project-previews/showcase-beauty-store-mobile.png">
+                  <img data-src="assets/project-previews/showcase-beauty-store-desktop.jpg" width="1440" height="900" alt="Vitrine da Beauty Store com busca, categorias e catálogo de produtos" decoding="async">
                 </picture>
               </div>
-              <figcaption class="showcase-meta">
+              <div class="showcase-meta">
                 <p class="showcase-index">03 / 03 · Catálogo interativo</p>
                 <h3 class="showcase-name">Beauty Store</h3>
                 <p class="showcase-desc">Busca, filtros, favoritos e carrinho no mesmo modelo de estado.</p>
@@ -127,7 +127,7 @@
                   <a href="projetos/beauty-store/index.html" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>
                   <a href="#work">Ver case <span aria-hidden="true">↘</span></a>
                 </p>
-              </figcaption>
+              </div>
             </article>
           </div>
 
@@ -187,7 +187,7 @@
         </div>
 
         <article class="case-study case-featured case-manoel" aria-labelledby="manoel-title" data-reveal>
-          <div class="case-topline"><span>01 / FLAGSHIP</span><span>Sistema de agendamento</span><span>Projeto pessoal · demonstração local</span></div>
+          <div class="case-topline"><span>01 / DESTAQUE</span><span>Sistema de agendamento</span><span>Projeto pessoal · demonstração local</span></div>
           <div class="case-media case-media-manoel media-framed">
             <div class="browser-frame" aria-hidden="true"><span></span><span></span><span></span><strong>seu-manoel / agenda</strong></div>
             <img src="assets/project-previews/seu-manoel-home.webp" width="1440" height="980" alt="Página inicial do projeto Seu Manoel com apresentação da barbearia e início do fluxo de serviços" loading="lazy" decoding="async">
@@ -254,7 +254,7 @@
                 <p>Do cardápio ao checkout, com carrinho persistente e escolha entre entrega ou retirada.</p>
               </div>
               <dl class="case-notes case-notes-compact">
-                <div><dt>Funciona</dt><dd>13 produtos, 3 combos, categorias, quantidades, total e finalização simulada.</dd></div>
+                <div><dt>Funciona</dt><dd>13 itens no cardápio, incluindo 3 combos, categorias, quantidades, total e finalização simulada.</dd></div>
                 <div><dt>Limite</dt><dd>Não existe pagamento, envio real ou cliente comercial. É uma demonstração de fluxo.</dd></div>
               </dl>
               <div class="case-actions">
@@ -286,7 +286,7 @@
     <section id="capabilities" class="capabilities-section section-anchor section-reveal" data-reveal aria-labelledby="capabilities-title">
       <div class="shell">
         <div class="section-heading narrow-heading">
-          <p class="section-index">COMPETÊNCIAS E DOMÍNIO</p>
+          <p class="section-index">COMPETÊNCIAS E ÁREAS DE ATUAÇÃO</p>
           <h2 id="capabilities-title" class="display-title">Técnica aplicada a entrega.</h2>
         </div>
         <div class="capabilities-matrix">

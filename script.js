@@ -56,17 +56,34 @@ function setTheme(theme) {
 setTheme(getSavedTheme() || 'light');
 themeToggle?.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
 
+const mobileNavQuery = window.matchMedia('(max-width: 767px)');
+
+function syncNavState() {
+  if (!navLinks) return;
+  const mobile = mobileNavQuery.matches;
+  const open = navLinks.classList.contains('open');
+  // Com o menu mobile fechado, os links ficam fora da tela: remove do fluxo de
+  // foco e da tecnologia assistiva até que o menu seja reaberto.
+  if (mobile && !open) navLinks.setAttribute('inert', '');
+  else navLinks.removeAttribute('inert');
+}
+
 function closeMenu() {
   navLinks?.classList.remove('open');
   menuToggle?.setAttribute('aria-expanded', 'false');
   menuToggle?.setAttribute('aria-label', 'Abrir menu');
+  syncNavState();
 }
 
 menuToggle?.addEventListener('click', () => {
   const open = navLinks?.classList.toggle('open');
   menuToggle.setAttribute('aria-expanded', String(open));
   menuToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  syncNavState();
 });
+
+mobileNavQuery.addEventListener?.('change', syncNavState);
+syncNavState();
 
 document.querySelectorAll('.nav-links a').forEach((link) => link.addEventListener('click', closeMenu));
 document.addEventListener('click', (event) => {
@@ -159,6 +176,17 @@ if (heroShowcase) {
 
   const canRotate = () => !reducedMotion.matches && !userPaused && !hoverPaused && !focusPaused && !document.hidden;
 
+  function hydrateImages(slide) {
+    if (!slide || slide.dataset.hydrated === 'true') return;
+    slide.dataset.hydrated = 'true';
+    slide.querySelectorAll('img[data-src], source[data-srcset]').forEach((el) => {
+      if (el.dataset.src) el.src = el.dataset.src;
+      if (el.dataset.srcset) el.srcset = el.dataset.srcset;
+      el.removeAttribute('data-src');
+      el.removeAttribute('data-srcset');
+    });
+  }
+
   function stopRotation() {
     if (rotateTimer) {
       window.clearInterval(rotateTimer);
@@ -169,11 +197,12 @@ if (heroShowcase) {
   function startRotation() {
     stopRotation();
     if (!canRotate()) return;
-    rotateTimer = window.setInterval(() => showSlide(activeIndex + 1), ROTATE_INTERVAL);
+    rotateTimer = window.setInterval(() => showSlide(activeIndex + 1, { announce: false }), ROTATE_INTERVAL);
   }
 
   function showSlide(nextIndex, { announce = true } = {}) {
     activeIndex = (nextIndex + slides.length) % slides.length;
+    hydrateImages(slides[activeIndex]);
 
     slides.forEach((slide, i) => {
       const active = i === activeIndex;
@@ -232,6 +261,11 @@ if (heroShowcase) {
 
   showSlide(0, { announce: false });
   startRotation();
+
+  // Demais imagens entram depois da primeira pintura, sem competir com o LCP.
+  const hydrateRemaining = () => slides.forEach(hydrateImages);
+  if ('requestIdleCallback' in window) window.requestIdleCallback(hydrateRemaining, { timeout: 2500 });
+  else window.setTimeout(hydrateRemaining, 1500);
 }
 
 const labVideos = [...document.querySelectorAll('[data-lab-video]')];
