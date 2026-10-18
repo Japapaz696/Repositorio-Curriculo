@@ -26,16 +26,54 @@ const combos = [
     { id: "combo-3", nome: "Combo Família", img: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=600&auto=format&fit=crop", desc: "A noite toda garantida.", itens: ["2x Clássico", "1x Bacon Lover", "Batata grande", "4x Coca 350ml"], preco: 89.90, antigo: 109.90 },
 ];
 
+// Somente ingredientes já descritos no catálogo. Bebidas e combos sem ficha
+// individual não recebem ingredientes inferidos. Adicionais são demonstrativos.
+const burgerIngredients = [
+    ['Blend artesanal 180g', 'Queijo cheddar', 'Alface', 'Tomate', 'Picles', 'Molho da casa'],
+    ['Blend 180g', 'Bacon crispy', 'Queijo prato', 'Cebola caramelizada', 'Barbecue'],
+    ['Três blends smash de 90g', 'Queijo derretido', 'Cebola roxa', 'Molho especial'],
+    ['Filé de frango empanado', 'Coleslaw', 'Picles', 'Maionese de ervas'],
+    ['Hambúrguer de grão-de-bico', 'Queijo branco', 'Rúcula', 'Tomate seco']
+];
+produtos.slice(0, 5).forEach((p, index) => {
+    p.ingredientes = burgerIngredients[index];
+    p.adicionais = [
+        { id: 'cheddar-extra', nome: 'Cheddar extra', preco: 3.9 },
+        { id: 'onion-rings', nome: 'Onion rings', preco: 6.9 },
+        ...(String(p.id) === '5' ? [] : [{ id: 'bacon', nome: 'Bacon crocante', preco: 4.9 }])
+    ];
+});
+const catalog = [...produtos, ...combos];
+const money = value => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+const core = window.PapitosCart;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+function node(tag, className, text) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text !== undefined) el.textContent = text;
+    return el;
+}
+function image(src, name) {
+    const img = node('img'); img.src = src; img.alt = name; img.loading = 'lazy'; img.decoding = 'async';
+    return img;
+}
+document.addEventListener('error', event => {
+    const img = event.target;
+    if (img instanceof HTMLImageElement && !img.dataset.fallback) {
+        img.dataset.fallback = 'true'; img.src = 'assets/imagem-indisponivel.svg';
+    }
+}, true);
+function action(label, type, id, className = 'btn-add') {
+    const button = node('button', className, label); button.type = 'button';
+    button.dataset.action = type; button.dataset.id = String(id);
+    return button;
+}
 // ===== Estado =====
 function loadCart() {
     try {
         const raw = localStorage.getItem('papitos-cart');
         const parsed = raw ? JSON.parse(raw) : [];
-        if (!Array.isArray(parsed)) return [];
-        return parsed.filter(item => item && typeof item.id === 'string'
-            && typeof item.nome === 'string'
-            && typeof item.preco === 'number' && Number.isFinite(item.preco)
-            && typeof item.qty === 'number' && item.qty > 0);
+        return core.restore(parsed, catalog);
     } catch {
         // Dados corrompidos ou armazenamento indisponível: começa com carrinho vazio.
         return [];
@@ -53,77 +91,61 @@ function saveCart() {
 
 let cart = loadCart();
 let currentCategory = 'todos';
+let searchQuery = '';
+const normalize = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
 // ===== Render Cardápio =====
 function renderMenu() {
     const grid = document.getElementById('menu-grid');
-    const filtered = currentCategory === 'todos'
-        ? produtos
-        : produtos.filter(p => p.categoria === currentCategory);
-
-    grid.innerHTML = filtered.map(p => `
-        <div class="menu-card" data-category="${p.categoria}">
-            <div class="menu-img"><img src="${p.img}" alt="${p.nome}" loading="lazy"></div>
-            <div class="menu-body">
-                <div class="menu-title-row">
-                    <h3 class="menu-name">${p.nome}</h3>
-                    <span class="menu-price">R$ ${p.preco.toFixed(2).replace('.', ',')}</span>
-                </div>
-                <p class="menu-desc">${p.desc}</p>
-                <div class="menu-footer">
-                    <span class="menu-category">${p.categoria}</span>
-                    <button class="btn-add" onclick="addToCart(${p.id})">+ Adicionar</button>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    const q = normalize(searchQuery.trim());
+    const filtered = produtos.filter(p => (currentCategory === 'todos' || p.categoria === currentCategory)
+        && normalize([p.nome, p.desc, p.categoria, ...(p.ingredientes || [])].join(' ')).includes(q));
+    grid.replaceChildren(...filtered.map(p => {
+        const card = node('article', 'menu-card'); card.dataset.category = p.categoria;
+        const media = action('', 'details', p.id, 'menu-img product-details');
+        media.setAttribute('aria-label', `Ver detalhes de ${p.nome}`);
+        media.setAttribute('aria-haspopup', 'dialog'); media.append(image(p.img, ''), node('span', 'details-label', 'Ver detalhes e personalizar'));
+        const body = node('div', 'menu-body');
+        const row = node('div', 'menu-title-row'); row.append(node('h3', 'menu-name', p.nome), node('span', 'menu-price', money(p.preco)));
+        const footer = node('div', 'menu-footer');
+        const quick = action('+ Adicionar', 'quick', p.id); quick.setAttribute('aria-label', `Adicionar ${p.nome} ao carrinho`);
+        footer.append(node('span', 'menu-category', p.categoria), quick);
+        body.append(row, node('p', 'menu-desc', p.desc), footer); card.append(media, body); return card;
+    }));
+    document.getElementById('menu-result').textContent = filtered.length ? `${filtered.length} ${filtered.length === 1 ? 'produto encontrado' : 'produtos encontrados'}.` : 'Nenhum produto encontrado. Tente outro termo ou categoria.';
 }
 
 // ===== Render Combos =====
 function renderCombos() {
     const grid = document.getElementById('combos-grid');
-    grid.innerHTML = combos.map(c => `
-        <div class="combo-card">
-            <div class="combo-img"><img src="${c.img}" alt="${c.nome}" loading="lazy"></div>
-            <div class="combo-body">
-                <h3 class="combo-title">${c.nome}</h3>
-                <p class="combo-desc">${c.desc}</p>
-                <ul class="combo-items">${c.itens.map(i => `<li>✓ ${i}</li>`).join('')}</ul>
-                <div class="combo-price-row">
-                    <div>
-                        <span class="combo-price">R$ ${c.preco.toFixed(2).replace('.', ',')}</span>
-                        <span class="combo-old-price">R$ ${c.antigo.toFixed(2).replace('.', ',')}</span>
-                    </div>
-                    <button class="btn-add" onclick='addComboToCart(${JSON.stringify(c)})'>+ Adicionar</button>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    grid.replaceChildren(...combos.map(c => {
+        const card = node('article', 'combo-card'); const media = node('div', 'combo-img'); media.append(image(c.img, c.nome));
+        const body = node('div', 'combo-body'); const list = node('ul', 'combo-items');
+        c.itens.forEach(i => list.append(node('li', '', i)));
+        const row = node('div', 'combo-price-row'); const price = node('div');
+        price.append(node('span', 'combo-price', money(c.preco)), node('s', 'combo-old-price', money(c.antigo)));
+        row.append(price, action('+ Adicionar', 'quick', c.id));
+        body.append(node('h3', 'combo-title', c.nome), node('p', 'combo-desc', c.desc), list, row); card.append(media, body); return card;
+    }));
 }
 
 // ===== Carrinho =====
 function addToCart(id) {
-    const produto = produtos.find(p => p.id === id);
-    const existing = cart.find(item => item.id === id);
-    if (existing) {
-        existing.qty++;
-    } else {
-        cart.push({ id: produto.id, nome: produto.nome, preco: produto.preco, img: produto.img, qty: 1 });
-    }
+    const produto = catalog.find(p => String(p.id) === String(id));
+    if (!produto) return;
+    const item = core.makeItem(produto);
+    mergeItem(item);
     saveCart();
     showToast(`✓ ${produto.nome} adicionado!`);
 }
 
 function addComboToCart(combo) {
-    const id = combo.id;
-    const existing = cart.find(item => item.id === id);
-    if (existing) {
-        existing.qty++;
-    } else {
-        cart.push({ id: combo.id, nome: combo.nome, preco: combo.preco, img: combo.img, qty: 1 });
-    }
-    saveCart();
-    showToast(`✓ ${combo.nome} adicionado!`);
+    addToCart(combo.id);
+}
+function mergeItem(item) {
+    const same = cart.find(row => row.id === item.id);
+    if (same) same.qty = Math.min(999, same.qty + item.qty);
+    else cart.push(item);
 }
 
 function updateCartCount() {
@@ -132,16 +154,16 @@ function updateCartCount() {
 }
 
 function changeQty(id, delta) {
-    const item = cart.find(i => i.id === id);
+    const item = cart.find(i => i.id === String(id));
     if (!item) return;
-    item.qty += delta;
-    if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+    item.qty = Math.min(999, item.qty + delta);
+    if (item.qty <= 0) cart = cart.filter(i => i.id !== String(id));
     saveCart();
     renderCart();
 }
 
 function removeFromCart(id) {
-    cart = cart.filter(i => i.id !== id);
+    cart = cart.filter(i => i.id !== String(id));
     saveCart();
     renderCart();
 }
@@ -158,26 +180,28 @@ function renderCart() {
     }
 
     footer.style.display = 'block';
-    body.innerHTML = cart.map(item => `
-        <div class="cart-item">
-            <div class="cart-item-img"><img src="${item.img}" alt="${item.nome}"></div>
-            <div class="cart-item-info">
-                <span class="cart-item-name">${item.nome}</span>
-                <span class="cart-item-price">R$ ${item.preco.toFixed(2).replace('.', ',')}</span>
-                <div class="cart-item-qty">
-                    <button type="button" class="qty-btn" aria-label="Diminuir quantidade de ${item.nome}" onclick="changeQty(${typeof item.id === 'number' ? item.id : `'${item.id}'`}, -1)">−</button>
-                    <span class="qty-val" aria-live="polite">${item.qty}</span>
-                    <button type="button" class="qty-btn" aria-label="Aumentar quantidade de ${item.nome}" onclick="changeQty(${typeof item.id === 'number' ? item.id : `'${item.id}'`}, 1)">+</button>
-                </div>
-            </div>
-            <button type="button" class="cart-item-remove" aria-label="Remover ${item.nome} do carrinho" onclick="removeFromCart(${typeof item.id === 'number' ? item.id : `'${item.id}'`})">🗑</button>
-        </div>
-    `).join('');
+    body.replaceChildren(...cart.map(item => {
+        const row = node('div', 'cart-item');
+        const media = node('div', 'cart-item-img'); media.append(image(item.img, ''));
+        const info = node('div', 'cart-item-info');
+        info.append(node('span', 'cart-item-name', item.nome), node('span', 'cart-item-price', `${money(item.preco)} / unidade`));
+        if (item.remove.length) info.append(node('p', 'cart-custom', `Sem: ${item.remove.join(', ')}`));
+        if (item.addons.length) info.append(node('p', 'cart-custom', `Adicionais: ${item.addons.map(a => a.nome).join(', ')}`));
+        if (item.notes) info.append(node('p', 'cart-custom cart-notes', `Observações: ${item.notes}`));
+        const quantity = node('div', 'cart-item-qty');
+        const minus = action('−', 'decrease', item.id, 'qty-btn'); minus.setAttribute('aria-label', `Diminuir quantidade de ${item.nome}`);
+        const plus = action('+', 'increase', item.id, 'qty-btn'); plus.setAttribute('aria-label', `Aumentar quantidade de ${item.nome}`);
+        quantity.append(minus, node('span', 'qty-val', item.qty), plus);
+        const edit = action('Editar personalização', 'edit', item.id, 'cart-edit');
+        info.append(quantity, edit);
+        const remove = action('✕', 'remove', item.id, 'cart-item-remove'); remove.setAttribute('aria-label', `Remover ${item.nome}`);
+        row.append(media, info, remove); return row;
+    }));
     updateTotal();
 }
 
 function updateTotal() {
-    const subtotal = cart.reduce((sum, item) => sum + item.preco * item.qty, 0);
+    const subtotal = cart.reduce((sum, item) => sum + core.lineCents(item), 0) / 100;
     const entrega = document.querySelector('input[name="entrega"]:checked')?.value === 'delivery' ? 8 : 0;
     const total = subtotal + entrega;
     document.getElementById('cart-total').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
@@ -187,12 +211,44 @@ document.querySelectorAll('input[name="entrega"]').forEach(input => {
     input.addEventListener('change', updateTotal);
 });
 
-// ===== Modal Carrinho =====
-const overlay = document.getElementById('modal-overlay');
+// ===== Carrinho lateral e transferência entre modais =====
 const cartModal = document.getElementById('cart-modal');
 const checkoutModal = document.getElementById('checkout-modal');
 const cartTrigger = document.querySelector('.btn-cart');
 let modalReturnFocus = null;
+let pagePreviousOverflow = null;
+let drawerScrollTop = 0;
+
+// Um único bloqueio durante drawer → produto/checkout → retorno/fechamento.
+function lockPageScroll() {
+    if (pagePreviousOverflow === null) pagePreviousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+}
+function unlockPageScroll() {
+    if (pagePreviousOverflow === null) return;
+    document.body.style.overflow = pagePreviousOverflow;
+    pagePreviousOverflow = null;
+}
+function openCartDrawer({ restoreFocus = true } = {}) {
+    if (cartModal.open) return;
+    if (restoreFocus) { modalReturnFocus = cartTrigger; drawerScrollTop = 0; }
+    renderCart(); closeMenu(); lockPageScroll();
+    cartModal.classList.add('active');
+    cartModal.showModal();
+    document.getElementById('cart-body').scrollTop = drawerScrollTop;
+    document.getElementById('close-cart').focus({ preventScroll: true });
+}
+function closeCartDrawer(reason = 'dismiss') {
+    if (!cartModal.open) return;
+    drawerScrollTop = document.getElementById('cart-body').scrollTop;
+    cartModal.classList.remove('active');
+    cartModal.close();
+    if (reason === 'dismiss') {
+        unlockPageScroll();
+        (modalReturnFocus?.isConnected ? modalReturnFocus : cartTrigger).focus({ preventScroll: true });
+        modalReturnFocus = null;
+    }
+}
 
 function getFocusable(container) {
     return [...container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')]
@@ -200,6 +256,7 @@ function getFocusable(container) {
 }
 
 function openModal(modal, focusTarget) {
+    lockPageScroll();
     modal.classList.add('active');
     // Força recálculo de estilos: sem isso, o focus() ainda enxerga visibility:hidden
     // (a leitura de getComputedStyle dispara o reflow síncrono).
@@ -209,7 +266,8 @@ function openModal(modal, focusTarget) {
 
 function closeModal(modal) {
     modal.classList.remove('active');
-    if (modalReturnFocus && typeof modalReturnFocus.focus === 'function') modalReturnFocus.focus();
+    unlockPageScroll();
+    if (modalReturnFocus && typeof modalReturnFocus.focus === 'function') modalReturnFocus.focus({ preventScroll: true });
     modalReturnFocus = null;
 }
 
@@ -228,37 +286,34 @@ function trapTab(event, container) {
     }
 }
 
-cartTrigger.addEventListener('click', () => {
-    renderCart();
-    modalReturnFocus = cartTrigger;
-    overlay.classList.add('active');
-    openModal(cartModal, document.getElementById('close-cart'));
-    closeMenu();
-});
-document.getElementById('close-cart').addEventListener('click', () => {
-    closeModal(cartModal);
-    overlay.classList.remove('active');
-});
-overlay.addEventListener('click', () => {
-    closeModal(cartModal);
-    overlay.classList.remove('active');
+cartTrigger.addEventListener('click', () => openCartDrawer());
+document.getElementById('close-cart').addEventListener('click', () => closeCartDrawer());
+cartModal.addEventListener('cancel', event => { event.preventDefault(); closeCartDrawer(); });
+cartModal.addEventListener('keydown', event => trapTab(event, cartModal));
+let drawerPointerOutside = false;
+function outsideDrawer(event) {
+    const r = cartModal.getBoundingClientRect();
+    return event.target === cartModal && (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom);
+}
+cartModal.addEventListener('pointerdown', event => { drawerPointerOutside = outsideDrawer(event); });
+cartModal.addEventListener('click', event => {
+    if (drawerPointerOutside && outsideDrawer(event)) closeCartDrawer();
+    drawerPointerOutside = false;
 });
 
 // ===== Checkout =====
 document.getElementById('finalizar').addEventListener('click', () => {
     if (cart.length === 0) return;
-    cartModal.classList.remove('active');
-    overlay.classList.remove('active');
+    closeCartDrawer('checkout');
     modalReturnFocus = cartTrigger;
-    setTimeout(() => {
-        openModal(checkoutModal, document.getElementById('close-checkout'));
-    }, 200);
+    openModal(checkoutModal, document.getElementById('close-checkout'));
 });
 document.getElementById('close-checkout').addEventListener('click', () => closeModal(checkoutModal));
 
 document.getElementById('checkout-form').addEventListener('submit', e => {
     e.preventDefault();
     checkoutModal.classList.remove('active');
+    unlockPageScroll();
     cart = [];
     saveCart();
     renderCart();
@@ -285,15 +340,124 @@ document.getElementById('checkout-form').addEventListener('submit', e => {
     }, 400);
 });
 
-// ===== Filtro de categorias =====
-document.querySelectorAll('.cat-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentCategory = btn.dataset.cat;
-        renderMenu();
-        document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
+// ===== Pesquisa e categorias: um listener delegado, sem anúncio do grid inteiro =====
+document.getElementById('category-list').addEventListener('click', event => {
+    const button = event.target.closest('[data-cat]');
+    if (!button) return;
+    currentCategory = button.dataset.cat;
+    document.querySelectorAll('.cat-btn').forEach(b => {
+        const active = b === button; b.classList.toggle('active', active); b.setAttribute('aria-pressed', String(active));
     });
+    renderMenu();
+    document.getElementById('cardapio').scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
+});
+let searchTimer;
+const searchInput = document.getElementById('menu-search');
+searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value; clearTimeout(searchTimer); searchTimer = setTimeout(renderMenu, 150);
+});
+searchInput.addEventListener('search', () => { searchQuery = searchInput.value; clearTimeout(searchTimer); renderMenu(); });
+
+// ===== ProductModal: dialog nativo isola fundo, retém foco e trata Escape =====
+const productDialog = document.getElementById('product-modal');
+const productForm = document.getElementById('product-form');
+let productState = null;
+let productReturnFocus = null;
+let productFromCart = false;
+function selection(kind, values) {
+    return values.map((value, index) => {
+        const label = node('label', 'pm-option'); const input = node('input');
+        input.type = 'checkbox'; input.name = kind;
+        input.value = kind === 'remove' ? value : value.id;
+        input.id = `pm-${kind}-${index}`;
+        input.checked = kind === 'remove' ? productState.remove.includes(value) : productState.addons.includes(value.id);
+        label.append(input, node('span', '', kind === 'remove' ? value : value.nome));
+        if (kind === 'addons') label.append(node('strong', '', `+ ${money(value.preco)}`));
+        return label;
+    });
+}
+function openProductModal(product, item = null, trigger = document.activeElement) {
+    if (!product || productDialog.open) return;
+    productReturnFocus = trigger;
+    productFromCart = Boolean(item);
+    if (productFromCart) closeCartDrawer('edit');
+    productState = { product, editing: item?.id ?? null, qty: item?.qty ?? 1, remove: [...(item?.remove || [])], addons: (item?.addons || []).map(a => a.id), notes: item?.notes ?? '' };
+    document.getElementById('pm-img').src = product.img;
+    document.getElementById('pm-img').alt = product.nome;
+    delete document.getElementById('pm-img').dataset.fallback;
+    document.getElementById('product-modal-title').textContent = product.nome;
+    document.getElementById('pm-desc').textContent = product.desc;
+    document.getElementById('pm-price-base').textContent = money(product.preco);
+    const ingredients = product.ingredientes || [];
+    document.getElementById('pm-ingredients-section').hidden = !ingredients.length;
+    document.getElementById('pm-ingredients').textContent = ingredients.join(' · ');
+    document.getElementById('pm-remove-section').hidden = !ingredients.length;
+    document.getElementById('pm-remove').replaceChildren(...selection('remove', ingredients));
+    document.getElementById('pm-addons-section').hidden = !product.adicionais?.length;
+    document.getElementById('pm-addons').replaceChildren(...selection('addons', product.adicionais || []));
+    document.getElementById('pm-notes').value = productState.notes;
+    document.getElementById('pm-add-btn').textContent = item ? 'Salvar alterações' : 'Adicionar ao carrinho';
+    updateProductTotal();
+    lockPageScroll();
+    productDialog.showModal(); productDialog.scrollTop = 0;
+    document.getElementById('product-modal-close').focus();
+}
+function updateProductTotal() {
+    const item = core.makeItem(productState.product, productState, productState.qty);
+    document.getElementById('pm-qty-val').textContent = productState.qty;
+    document.getElementById('pm-total').textContent = money(core.lineCents(item) / 100);
+    document.getElementById('pm-qty-dec').disabled = productState.qty <= 1;
+    document.getElementById('pm-qty-inc').disabled = productState.qty >= 99;
+}
+productForm.addEventListener('change', event => {
+    if (!['remove', 'addons'].includes(event.target.name)) return;
+    productState[event.target.name] = [...productForm.querySelectorAll(`input[name="${event.target.name}"]:checked`)].map(input => input.value);
+    updateProductTotal();
+});
+document.getElementById('pm-notes').addEventListener('input', event => { productState.notes = event.target.value; });
+document.getElementById('pm-qty-inc').addEventListener('click', () => { productState.qty = Math.min(99, productState.qty + 1); updateProductTotal(); });
+document.getElementById('pm-qty-dec').addEventListener('click', () => { productState.qty = Math.max(1, productState.qty - 1); updateProductTotal(); });
+document.getElementById('product-modal-close').addEventListener('click', () => productDialog.close());
+productDialog.addEventListener('click', event => { if (event.target === productDialog) { const r = productDialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) productDialog.close(); } });
+productDialog.addEventListener('close', () => {
+    if (productFromCart) {
+        openCartDrawer({ restoreFocus: false });
+        // A edição pode recriar a linha ou mudar sua chave; restaure o foco a um controle vivo.
+        const edit = [...document.querySelectorAll('[data-action="edit"]')].find(b => b.dataset.id === productState?.editing);
+        (edit || document.getElementById('close-cart')).focus();
+    } else {
+        unlockPageScroll();
+        if (productReturnFocus?.isConnected) productReturnFocus.focus({ preventScroll: true });
+        else searchInput.focus();
+    }
+    productState = null;
+});
+productDialog.addEventListener('keydown', event => { if (event.key === 'Tab') trapTab(event, productDialog); });
+productForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const item = core.makeItem(productState.product, productState, productState.qty);
+    if (productState.editing) cart = cart.filter(row => row.id !== productState.editing);
+    mergeItem(item); saveCart();
+    showToast(productState.editing ? 'Personalização atualizada.' : 'Produto personalizado adicionado.');
+    productDialog.close();
+});
+
+// IDs são apenas dados de propriedades DOM, nunca código, HTML ou seletores CSS.
+document.addEventListener('click', event => {
+    const button = event.target.closest('button[data-action]');
+    if (!button) return;
+    const { action: type, id } = button.dataset;
+    if (type === 'quick') return addToCart(id);
+    if (type === 'details') return openProductModal(catalog.find(p => String(p.id) === id), null, button);
+    const item = cart.find(row => row.id === id);
+    if (!item) return;
+    if (type === 'edit') return openProductModal(catalog.find(p => String(p.id) === item.baseId), item, button);
+    const rowIndex = cart.indexOf(item);
+    if (type === 'remove') removeFromCart(id);
+    if (type === 'increase' || type === 'decrease') changeQty(id, type === 'increase' ? 1 : -1);
+    const rows = document.querySelectorAll('.cart-item');
+    const row = rows[Math.min(rowIndex, rows.length - 1)];
+    (row?.querySelector(`[data-action="${type}"]`) || row?.querySelector('button') || document.getElementById('close-cart')).focus();
 });
 
 // ===== Toast =====
@@ -329,17 +493,12 @@ navEl.querySelectorAll('a[href^="#"]').forEach(link => {
 
 // ===== Teclado: Escape fecha overlays e Tab fica preso no modal aberto =====
 document.addEventListener('keydown', (event) => {
-    const activeModal = document.querySelector('.checkout-modal.active .checkout-content')
-        || (cartModal.classList.contains('active') ? cartModal : null);
+    if (productDialog.open || cartModal.open) return; // Dialogs nativos têm seus próprios handlers.
+    const activeModal = document.querySelector('.checkout-modal.active .checkout-content');
 
     if (event.key === 'Escape') {
         if (checkoutModal.classList.contains('active')) {
             closeModal(checkoutModal);
-            return;
-        }
-        if (cartModal.classList.contains('active')) {
-            closeModal(cartModal);
-            overlay.classList.remove('active');
             return;
         }
         if (navEl.classList.contains('active')) {
@@ -357,3 +516,4 @@ document.getElementById('year').textContent = new Date().getFullYear();
 renderMenu();
 renderCombos();
 updateCartCount();
+document.querySelectorAll('.cat-btn').forEach(b => b.setAttribute('aria-pressed', String(b.classList.contains('active'))));

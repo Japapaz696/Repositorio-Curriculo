@@ -53,7 +53,11 @@
     <!-- CATEGORIAS -->
     <section class="categories" id="categorias">
         <div class="container">
-            <div class="category-list">
+            <div class="menu-search" role="search" aria-label="Pesquisa do cardápio">
+                <label for="menu-search">Encontre seu próximo pedido</label>
+                <input type="search" id="menu-search" placeholder="Nome, ingrediente ou categoria" autocomplete="off">
+            </div>
+            <div class="category-list" id="category-list" aria-label="Categorias do cardápio">
                 <button class="cat-btn active" data-cat="todos">Todos</button>
                 <button class="cat-btn" data-cat="hamburgueres">Hambúrgueres</button>
                 <button class="cat-btn" data-cat="combos">Combos</button>
@@ -67,6 +71,7 @@
     <section class="menu" id="cardapio">
         <div class="container">
             <h2 class="section-title">Nosso Cardápio</h2>
+            <p class="menu-result" id="menu-result" role="status" aria-atomic="true"></p>
             <div class="menu-grid" id="menu-grid">
                 <!-- Cards gerados via JS -->
             </div>
@@ -108,11 +113,38 @@
     </section>
 
     <!-- MODAL DO CARRINHO -->
-    <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="cart-modal" id="cart-modal" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
+    <dialog id="product-modal" class="product-modal" aria-labelledby="product-modal-title" aria-describedby="pm-demo">
+        <form id="product-form">
+            <div class="product-layout">
+                <div class="product-media"><img id="pm-img" alt="" width="600" height="600"><p id="pm-demo">Personalização demonstrativa. Nenhum pedido é enviado.</p></div>
+                <div class="product-content">
+                    <button type="button" id="product-modal-close" class="product-close" aria-label="Fechar detalhes">✕</button>
+                    <p class="product-eyebrow">Do seu jeito</p>
+                    <h2 id="product-modal-title"></h2>
+                    <p id="pm-desc"></p>
+                    <p class="product-base">Preço base <strong id="pm-price-base"></strong></p>
+                    <section id="pm-ingredients-section"><h3>Ingredientes</h3><p id="pm-ingredients"></p></section>
+                    <fieldset id="pm-remove-section"><legend>Remover ingredientes</legend><p>Marque o que deseja retirar. Não altera o preço.</p><div id="pm-remove"></div></fieldset>
+                    <fieldset id="pm-addons-section"><legend>Adicionais disponíveis</legend><p>Valores demonstrativos por unidade.</p><div id="pm-addons"></div></fieldset>
+                    <label for="pm-notes">Observações</label>
+                    <textarea id="pm-notes" rows="2" maxlength="2000" placeholder="Conte como prefere seu produto"></textarea>
+                    <small>Até 2.000 caracteres. Não informe dados pessoais.</small>
+                </div>
+            </div>
+            <div class="product-footer">
+                <div class="pm-qty"><button type="button" id="pm-qty-dec" aria-label="Diminuir quantidade">−</button><output id="pm-qty-val" aria-label="Quantidade">1</output><button type="button" id="pm-qty-inc" aria-label="Aumentar quantidade">+</button></div>
+                <p class="pm-price" role="status" aria-atomic="true">Total <strong id="pm-total"></strong></p>
+                <button type="submit" class="btn btn-primary" id="pm-add-btn">Adicionar ao carrinho</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="cart-modal" id="cart-modal" aria-labelledby="cart-modal-title" aria-describedby="cart-demo">
         <div class="cart-header">
-            <h2 id="cart-modal-title">Seu Pedido</h2>
-            <button id="close-cart" type="button" aria-label="Fechar carrinho">✕</button>
+            <div>
+                <h2 id="cart-modal-title">Seu pedido</h2>
+                <p id="cart-demo">Demonstração · nenhum pedido será enviado.</p>
+            </div>
+            <button id="close-cart" type="button" aria-label="Fechar carrinho" autofocus>✕</button>
         </div>
         <div class="cart-body" id="cart-body">
             <p class="empty-cart">Seu carrinho está vazio.</p>
@@ -132,7 +164,7 @@
             </div>
             <button id="finalizar" class="btn btn-primary btn-block">Finalizar Pedido</button>
         </div>
-    </div>
+    </dialog>
 
     <!-- MODAL CHECKOUT -->
     <div class="checkout-modal" id="checkout-modal">
@@ -158,13 +190,14 @@
     </div>
 
     <!-- TOAST -->
-    <div class="toast" id="toast"></div>
+    <div class="toast" id="toast" role="status"></div>
 
     <footer class="footer">
         <p>© <span id="year"></span> Papitos Hamburgueria — Todos os direitos reservados.</p>
         <a href="../../index.html">← Voltar ao portfólio</a>
     </footer>
 
+    <script src="cart-core.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

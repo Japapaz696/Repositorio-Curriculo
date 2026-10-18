@@ -136,136 +136,53 @@ document.querySelectorAll('[data-reveal]').forEach((section) => {
   else revealObserver.observe(section);
 });
 
-const heroPreview = document.querySelector('[data-parallax]');
-if (heroPreview && window.matchMedia('(pointer: fine)').matches && !reducedMotion.matches) {
-  let frameRequested = false;
-  let xOffset = 0;
-  let yOffset = 0;
+/* Hero panel: abas de resumo com teclado, sem dependências (enhancement) */
+const heroTabsRoot = document.querySelector('[data-hero-tabs]');
+if (heroTabsRoot) {
+  const heroTabs = Array.from(heroTabsRoot.querySelectorAll('[role="tab"]'));
+  const heroPanels = heroTabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
+  const heroTabpanels = heroTabsRoot.querySelector('.hero-tabpanels');
+  let heroResizeTimer = 0;
 
-  heroPreview.addEventListener('pointermove', (event) => {
-    const bounds = heroPreview.getBoundingClientRect();
-    xOffset = ((event.clientX - bounds.left) / bounds.width - .5) * 6;
-    yOffset = ((event.clientY - bounds.top) / bounds.height - .5) * 4;
+  const heroStabilize = () => {
+    const selected = heroTabs.findIndex((tab) => tab.getAttribute('aria-selected') === 'true');
+    let max = 0;
+    heroPanels.forEach((panel, index) => {
+      panel.hidden = false;
+      max = Math.max(max, panel.offsetHeight);
+      panel.hidden = index !== selected;
+    });
+    if (heroTabpanels) heroTabpanels.style.minHeight = max ? `${max}px` : '';
+  };
 
-    if (frameRequested) return;
-    frameRequested = true;
-    requestAnimationFrame(() => {
-      heroPreview.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-      frameRequested = false;
+  const heroSelectTab = (index, moveFocus) => {
+    heroTabs.forEach((tab, i) => {
+      const active = i === index;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      heroPanels[i].hidden = !active;
+    });
+    if (moveFocus) heroTabs[index].focus();
+  };
+
+  heroTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => heroSelectTab(index, false));
+    tab.addEventListener('keydown', (event) => {
+      let next = null;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % heroTabs.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + heroTabs.length) % heroTabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = heroTabs.length - 1;
+      if (next !== null) { event.preventDefault(); heroSelectTab(next, true); }
     });
   });
 
-  heroPreview.addEventListener('pointerleave', () => {
-    heroPreview.style.transform = '';
+  heroStabilize();
+  window.addEventListener('resize', () => {
+    window.clearTimeout(heroResizeTimer);
+    heroResizeTimer = window.setTimeout(heroStabilize, 150);
   });
-}
-
-// Vitrine do hero: rotação automática com pausa acessível e respeito a reduced-motion.
-const heroShowcase = document.querySelector('.hero-showcase');
-if (heroShowcase) {
-  const slides = [...heroShowcase.querySelectorAll('[data-showcase-slide]')];
-  const dots = [...heroShowcase.querySelectorAll('[data-showcase-dot]')];
-  const toggle = heroShowcase.querySelector('[data-showcase-toggle]');
-  const status = heroShowcase.querySelector('[data-showcase-status]');
-  const ROTATE_INTERVAL = 6000;
-  let activeIndex = 0;
-  let rotateTimer = null;
-  let userPaused = false;
-  let hoverPaused = false;
-  let focusPaused = false;
-
-  const canRotate = () => !reducedMotion.matches && !userPaused && !hoverPaused && !focusPaused && !document.hidden;
-
-  function hydrateImages(slide) {
-    if (!slide || slide.dataset.hydrated === 'true') return;
-    slide.dataset.hydrated = 'true';
-    slide.querySelectorAll('img[data-src], source[data-srcset]').forEach((el) => {
-      if (el.dataset.src) el.src = el.dataset.src;
-      if (el.dataset.srcset) el.srcset = el.dataset.srcset;
-      el.removeAttribute('data-src');
-      el.removeAttribute('data-srcset');
-    });
-  }
-
-  function stopRotation() {
-    if (rotateTimer) {
-      window.clearInterval(rotateTimer);
-      rotateTimer = null;
-    }
-  }
-
-  function startRotation() {
-    stopRotation();
-    if (!canRotate()) return;
-    rotateTimer = window.setInterval(() => showSlide(activeIndex + 1, { announce: false }), ROTATE_INTERVAL);
-  }
-
-  function showSlide(nextIndex, { announce = true } = {}) {
-    activeIndex = (nextIndex + slides.length) % slides.length;
-    hydrateImages(slides[activeIndex]);
-
-    slides.forEach((slide, i) => {
-      const active = i === activeIndex;
-      slide.classList.toggle('is-active', active);
-      slide.setAttribute('aria-hidden', String(!active));
-      slide.querySelectorAll('a, button').forEach((control) => { control.tabIndex = active ? 0 : -1; });
-    });
-
-    dots.forEach((dot, i) => {
-      const active = i === activeIndex;
-      dot.classList.toggle('is-active', active);
-      if (active) dot.setAttribute('aria-current', 'true');
-      else dot.removeAttribute('aria-current');
-    });
-
-    if (announce && status) {
-      const name = slides[activeIndex]?.querySelector('.showcase-name')?.textContent?.trim() || '';
-      status.textContent = `${name} — projeto ${activeIndex + 1} de ${slides.length}`;
-    }
-  }
-
-  dots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      showSlide(Number(dot.dataset.showcaseDot));
-      startRotation();
-    });
-  });
-
-  toggle?.addEventListener('click', () => {
-    userPaused = !userPaused;
-    toggle.textContent = userPaused ? 'Retomar' : 'Pausar';
-    toggle.setAttribute('aria-label', userPaused ? 'Retomar reprodução automática da vitrine' : 'Pausar reprodução automática da vitrine');
-    if (canRotate()) startRotation();
-    else stopRotation();
-  });
-
-  heroShowcase.addEventListener('pointerenter', () => { hoverPaused = true; stopRotation(); });
-  heroShowcase.addEventListener('pointerleave', () => { hoverPaused = false; startRotation(); });
-  heroShowcase.addEventListener('focusin', () => { focusPaused = true; stopRotation(); });
-  heroShowcase.addEventListener('focusout', (event) => {
-    if (heroShowcase.contains(event.relatedTarget)) return;
-    focusPaused = false;
-    startRotation();
-  });
-
-  document.addEventListener('visibilitychange', () => { if (document.hidden) stopRotation(); else startRotation(); });
-  reducedMotion.addEventListener?.('change', () => { if (reducedMotion.matches) stopRotation(); else startRotation(); });
-
-  if ('IntersectionObserver' in window) {
-    const showcaseObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) startRotation();
-      else stopRotation();
-    }, { threshold: 0.35 });
-    showcaseObserver.observe(heroShowcase);
-  }
-
-  showSlide(0, { announce: false });
-  startRotation();
-
-  // Demais imagens entram depois da primeira pintura, sem competir com o LCP.
-  const hydrateRemaining = () => slides.forEach(hydrateImages);
-  if ('requestIdleCallback' in window) window.requestIdleCallback(hydrateRemaining, { timeout: 2500 });
-  else window.setTimeout(hydrateRemaining, 1500);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(heroStabilize);
 }
 
 const labVideos = [...document.querySelectorAll('[data-lab-video]')];

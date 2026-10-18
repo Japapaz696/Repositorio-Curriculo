@@ -1,0 +1,39 @@
+- generic [active] [ref=f31e1]:
+  - paragraph [ref=f31e2]: PRÉVIA · CONCEITO A · NÃO É O SITE REAL
+  - region "Prévia do conceito A" [ref=f31e3]:
+    - generic [ref=f31e4]:
+      - generic [ref=f31e5]:
+        - paragraph [ref=f31e6]: Prévia · Conceito A
+        - heading "Lucas Santana da Paz" [level=1] [ref=f31e7]:
+          - generic [ref=f31e8]: Lucas
+          - generic [ref=f31e9]: Santana
+          - generic [ref=f31e10]: da Paz
+        - paragraph [ref=f31e11]: Desenvolvimento Web | Sistemas Empresariais e ERP | SQL | Automação e IA
+        - paragraph [ref=f31e12]: Estudante de Análise e Desenvolvimento de Sistemas com experiência profissional em suporte técnico ao ERP TecFood na Teknisa. Unindo a investigação de sistemas à construção de interfaces funcionais.
+      - generic "Painel profissional interativo" [ref=f31e13]:
+        - generic [ref=f31e14]: Trajetória · Painel interativo
+        - tablist "Áreas da trajetória" [ref=f31e20]:
+          - tab "Experiência" [selected] [ref=f31e21] [cursor=pointer]
+          - tab "Competências" [ref=f31e22] [cursor=pointer]
+          - tab "Evolução" [ref=f31e23] [cursor=pointer]
+        - tabpanel "Experiência" [ref=f31e25]:
+          - generic [ref=f31e26]:
+            - generic [ref=f31e27]: Atual
+            - generic [ref=f31e28]:
+              - strong [ref=f31e29]: Teknisa
+              - paragraph [ref=f31e30]: Suporte Técnico ao ERP TecFood
+              - list [ref=f31e31]:
+                - listitem [ref=f31e32]: Atendimento técnico a usuários e acompanhamento de chamados.
+                - listitem [ref=f31e33]: Investigação de divergências e anomalias no ambiente do software.
+                - listitem [ref=f31e34]: Consultas SQL para verificação de registros e diagnóstico.
+          - generic [ref=f31e35]:
+            - generic [ref=f31e36]: 2024–25
+            - generic [ref=f31e37]:
+              - strong [ref=f31e38]: Newcity Car
+              - paragraph [ref=f31e39]: Vistoriador veicular
+          - generic [ref=f31e40]:
+            - generic [ref=f31e41]: "2021"
+            - generic [ref=f31e42]:
+              - strong [ref=f31e43]: Pirelli
+              - paragraph [ref=f31e44]: Logística
+        - paragraph [ref=f31e45]: PRÉVIA ESTÁTICA · CONTEÚDO VERIFICADO DO PORTFÓLIO

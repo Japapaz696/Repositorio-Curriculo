@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141412'/%3E%3Ctext x='32' y='41' font-family='monospace' font-size='26' font-weight='700' fill='%23f5f1e8' text-anchor='middle'%3EL/S%3C/text%3E%3C/svg%3E">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -64,82 +65,60 @@
             <a href="#profile">Conhecer meu percurso <span aria-hidden="true">↘</span></a>
           </div>
         </div>
-
-        <figure class="hero-showcase" data-parallax role="region" aria-roledescription="carrossel" aria-labelledby="showcase-title">
-          <h2 id="showcase-title" class="sr-only">Projetos em destaque</h2>
-
-          <div class="showcase-bar">
-            <span aria-hidden="true">VITRINE · PROJETOS PESSOAIS</span>
-            <div class="showcase-controls">
-              <button class="showcase-toggle" type="button" data-showcase-toggle aria-label="Pausar reprodução automática da vitrine">Pausar</button>
+          <div class="hero-panel" data-hero-tabs>
+            <div class="hero-panel-top">
+              <p class="section-index">Perfil em resumo</p>
+              <div class="hero-tablist" role="tablist" aria-label="Áreas do resumo do perfil">
+                <button type="button" class="hero-tab" role="tab" id="hero-tab-exp" aria-selected="true" aria-controls="hero-panel-exp">Experiência</button>
+                <button type="button" class="hero-tab" role="tab" id="hero-tab-comp" aria-selected="false" aria-controls="hero-panel-comp" tabindex="-1">Competências</button>
+                <button type="button" class="hero-tab" role="tab" id="hero-tab-evo" aria-selected="false" aria-controls="hero-panel-evo" tabindex="-1">Evolução</button>
+              </div>
+            </div>
+            <div class="hero-tabpanels">
+              <div class="hero-tabpanel" role="tabpanel" id="hero-panel-exp" aria-labelledby="hero-tab-exp" tabindex="0">
+                <h3 class="hero-panel-heading">Experiência</h3>
+                <p class="hero-panel-kicker">Experiência profissional · Estágio anterior</p>
+                <p class="hero-panel-title">Suporte ao ERP TecFood na Teknisa</p>
+                <ul class="hero-panel-list">
+                  <li>Atendimento técnico e acompanhamento de chamados</li>
+                  <li>Consultas SQL para verificação de registros</li>
+                  <li>Investigação de divergências em processos</li>
+                </ul>
+                <p class="hero-panel-note">Outras experiências: Newcity Car — Vistoriador veicular (2024–2025) · Pirelli — Logística (2021)</p>
+                <a class="hero-more" href="#experience">Ver detalhes da experiência <span aria-hidden="true">↘</span></a>
+              </div>
+              <div class="hero-tabpanel" role="tabpanel" id="hero-panel-comp" aria-labelledby="hero-tab-comp" tabindex="0" hidden>
+                <h3 class="hero-panel-heading">Competências</h3>
+                <div class="hero-chips">
+                  <div class="hero-chip">
+                    <p class="hero-chip-name">Desenvolvimento Web</p>
+                    <p class="hero-badge hero-badge--practice">Prática em projetos</p>
+                    <p class="hero-chip-desc">HTML5, CSS3 e layouts responsivos · JavaScript e manipulação de DOM</p>
+                  </div>
+                  <div class="hero-chip">
+                    <p class="hero-chip-name">Sistemas e Dados</p>
+                    <p class="hero-badge hero-badge--pro">Experiência profissional</p>
+                    <p class="hero-chip-desc">ERP TecFood em suporte · consultas SQL básicas para diagnóstico</p>
+                  </div>
+                  <div class="hero-chip">
+                    <p class="hero-chip-name">Automação e IA</p>
+                    <p class="hero-badge hero-badge--study">Em estudo</p>
+                    <p class="hero-chip-desc">Automação com n8n, consumo de APIs e uso de LLMs</p>
+                  </div>
+                </div>
+                <a class="hero-more" href="#capabilities">Ver competências <span aria-hidden="true">↘</span></a>
+              </div>
+              <div class="hero-tabpanel" role="tabpanel" id="hero-panel-evo" aria-labelledby="hero-tab-evo" tabindex="0" hidden>
+                <h3 class="hero-panel-heading">Evolução</h3>
+                <ul class="hero-panel-list">
+                  <li>Análise e Desenvolvimento de Sistemas — conclusão prevista em 2027</li>
+                  <li>Projetos próprios em demonstração local: Seu Manoel, Papitos e Beauty Store</li>
+                  <li>Estudo de automação e IA generativa (n8n, APIs e LLMs)</li>
+                </ul>
+                <a class="hero-more" href="#journey">Ver trajetória completa <span aria-hidden="true">↘</span></a>
+              </div>
             </div>
           </div>
-
-          <div class="showcase-stage" data-showcase-stage>
-            <article class="showcase-slide is-active" data-showcase-slide role="group" aria-roledescription="slide" aria-label="Projeto 1 de 3">
-              <div class="showcase-media">
-                <picture>
-                  <source media="(max-width: 767px)" srcset="assets/project-previews/showcase-seu-manoel-mobile.png">
-                  <img src="assets/project-previews/showcase-seu-manoel-desktop.jpg" width="1440" height="900" alt="Tela inicial do Seu Manoel com apresentação da barbearia e acesso ao agendamento" fetchpriority="high" decoding="async">
-                </picture>
-              </div>
-              <div class="showcase-meta">
-                <p class="showcase-index">01 / 03 · Sistema de agendamento</p>
-                <h3 class="showcase-name">Seu Manoel</h3>
-                <p class="showcase-desc">Agendamento em etapas com regras de disponibilidade testadas no navegador.</p>
-                <p class="showcase-actions">
-                  <a href="projetos/seu-manoel/index.html" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>
-                  <a href="#work">Ver case <span aria-hidden="true">↘</span></a>
-                </p>
-              </div>
-            </article>
-
-            <article class="showcase-slide" data-showcase-slide role="group" aria-roledescription="slide" aria-label="Projeto 2 de 3" aria-hidden="true">
-              <div class="showcase-media">
-                <picture>
-                  <source media="(max-width: 767px)" data-srcset="assets/project-previews/showcase-papitos-mobile.png">
-                  <img data-src="assets/project-previews/showcase-papitos-desktop.jpg" width="1440" height="900" alt="Cardápio da Papitos com categorias, produtos e início do fluxo de pedido" decoding="async">
-                </picture>
-              </div>
-              <div class="showcase-meta">
-                <p class="showcase-index">02 / 03 · Fluxo de pedido</p>
-                <h3 class="showcase-name">Papitos</h3>
-                <p class="showcase-desc">Do cardápio ao checkout, com carrinho persistente e entrega ou retirada.</p>
-                <p class="showcase-actions">
-                  <a href="projetos/papitos/index.html" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>
-                  <a href="#work">Ver case <span aria-hidden="true">↘</span></a>
-                </p>
-              </div>
-            </article>
-
-            <article class="showcase-slide" data-showcase-slide role="group" aria-roledescription="slide" aria-label="Projeto 3 de 3" aria-hidden="true">
-              <div class="showcase-media">
-                <picture>
-                  <source media="(max-width: 767px)" data-srcset="assets/project-previews/showcase-beauty-store-mobile.png">
-                  <img data-src="assets/project-previews/showcase-beauty-store-desktop.jpg" width="1440" height="900" alt="Vitrine da Beauty Store com busca, categorias e catálogo de produtos" decoding="async">
-                </picture>
-              </div>
-              <div class="showcase-meta">
-                <p class="showcase-index">03 / 03 · Catálogo interativo</p>
-                <h3 class="showcase-name">Beauty Store</h3>
-                <p class="showcase-desc">Busca, filtros, favoritos e carrinho no mesmo modelo de estado.</p>
-                <p class="showcase-actions">
-                  <a href="projetos/beauty-store/index.html" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>
-                  <a href="#work">Ver case <span aria-hidden="true">↘</span></a>
-                </p>
-              </div>
-            </article>
-          </div>
-
-          <div class="showcase-footer">
-            <div class="showcase-dots" role="group" aria-label="Selecionar projeto da vitrine">
-              <button class="showcase-dot is-active" type="button" data-showcase-dot="0" aria-label="Mostrar projeto Seu Manoel" aria-current="true"></button>
-              <button class="showcase-dot" type="button" data-showcase-dot="1" aria-label="Mostrar projeto Papitos"></button>
-              <button class="showcase-dot" type="button" data-showcase-dot="2" aria-label="Mostrar projeto Beauty Store"></button>
-            </div>
-            <p class="sr-only" role="status" data-showcase-status>Seu Manoel — projeto 1 de 3</p>
-          </div>
-        </figure>
       </div>
       <div class="hero-rule hero-rule-bottom" aria-hidden="true"></div>
     </section>
@@ -156,7 +135,7 @@
             <div class="exp-header">
               <div class="exp-company">
                 <strong class="exp-brand">Teknisa</strong>
-                <span class="exp-role">Suporte Técnico ERP TecFood</span>
+                <span class="exp-role">Estágio · Suporte Técnico ERP TecFood</span>
               </div>
             </div>
             <div class="exp-body">

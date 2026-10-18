@@ -1,0 +1,57 @@
+- generic [active] [ref=f29e1]:
+  - paragraph [ref=f29e2]: PRÉVIA · CONCEITO B · NÃO É O SITE REAL
+  - region "Prévia do conceito B" [ref=f29e3]:
+    - generic [ref=f29e4]:
+      - generic [ref=f29e5]:
+        - paragraph [ref=f29e6]: Prévia · Conceito B
+        - heading "Lucas Santana da Paz" [level=1] [ref=f29e7]:
+          - generic [ref=f29e8]: Lucas
+          - generic [ref=f29e9]: Santana
+          - generic [ref=f29e10]: da Paz
+        - paragraph [ref=f29e11]: Desenvolvimento Web | Sistemas Empresariais e ERP | SQL | Automação e IA
+        - paragraph [ref=f29e12]: Estudante de Análise e Desenvolvimento de Sistemas com experiência profissional em suporte técnico ao ERP TecFood na Teknisa. Unindo a investigação de sistemas à construção de interfaces funcionais.
+      - generic "Linha do tempo da trajetória" [ref=f29e13]:
+        - generic [ref=f29e14]:
+          - generic [ref=f29e15]: Trajetória · Linha do tempo
+          - generic [ref=f29e16]: Em evolução
+        - list [ref=f29e17]:
+          - listitem [ref=f29e18]:
+            - button "Atual Teknisa Suporte Técnico ao ERP TecFood" [ref=f29e19] [cursor=pointer]:
+              - generic [ref=f29e20]: Atual
+              - generic [ref=f29e21]:
+                - strong [ref=f29e22]: Teknisa
+                - text: Suporte Técnico ao ERP TecFood
+            - region "Detalhes da experiência na Teknisa":
+              - generic [ref=f29e25]:
+                - text: Suporte a usuários do ERP TecFood, voltado à gestão de empresas do setor de alimentação.
+                - list [ref=f29e26]:
+                  - listitem [ref=f29e27]: Atendimento técnico e acompanhamento de chamados.
+                  - listitem [ref=f29e28]: Investigação de divergências em ambiente de software empresarial.
+                  - listitem [ref=f29e29]: Consultas SQL para verificação de registros e diagnóstico.
+          - listitem [ref=f29e30]:
+            - button "2024–25 Newcity Car Vistoriador veicular" [ref=f29e31] [cursor=pointer]:
+              - generic [ref=f29e32]: 2024–25
+              - generic [ref=f29e33]:
+                - strong [ref=f29e34]: Newcity Car
+                - text: Vistoriador veicular
+            - region "Detalhes da experiência na Newcity Car":
+              - generic [ref=f29e37]: Vistoria veicular, com conferência e registro de informações de veículos.
+          - listitem [ref=f29e38]:
+            - button "2021 Pirelli Logística" [ref=f29e39] [cursor=pointer]:
+              - generic [ref=f29e40]: "2021"
+              - generic [ref=f29e41]:
+                - strong [ref=f29e42]: Pirelli
+                - text: Logística
+            - region "Detalhes da experiência na Pirelli":
+              - generic [ref=f29e45]: Atuação em logística — primeira experiência profissional registrada no portfólio.
+          - listitem [ref=f29e46]:
+            - button "Em curso Análise e Desenvolvimento de Sistemas Graduação · conclusão prevista 2027" [ref=f29e47] [cursor=pointer]:
+              - generic [ref=f29e48]: Em curso
+              - generic [ref=f29e49]:
+                - strong [ref=f29e50]: Análise e Desenvolvimento de Sistemas
+                - text: Graduação · conclusão prevista 2027
+            - region "Detalhes da formação":
+              - list [ref=f29e54]:
+                - listitem [ref=f29e55]: "Projetos próprios no navegador: Seu Manoel, Papitos e Beauty Store."
+                - listitem [ref=f29e56]: Estudo de automação de processos, APIs e ferramentas de IA generativa.
+        - paragraph [ref=f29e57]: PRÉVIA ESTÁTICA · DATAS E CARGOS CONFORME O PORTFÓLIO
