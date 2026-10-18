@@ -18,3 +18,33 @@ node_modules/
 *.log
 .DS_Store
 coverage/
+
+# Material comercial e dados de prospecção — nunca versionar
+documentos/
+
+# Artefatos de ferramentas locais e capturas de trabalho em andamento
+.playwright-mcp/
+.visual-audit/
+.claude-temp/
+opencode.json.backup-*
+antes/
+depois/
+previews/
+
+# Capturas soltas na raiz do projeto
+screenshot-*.png
+final-*.png
+audit-1440-full.png
+evidencia-menu-mobile-aberto.png
+portfolio-desktop-1440.png
+portfolio-mobile-390.png
+
+# Arquivos de captura acidental / backups locais
+/cd
+/utput
+/opencode
+/how --stat --oneline 5a92307
+
+# Vídeos: o index.html usa as cópias em assets/ai-creative-lab
+assets/creative/
+assets/ai-creative-lab/projeto-01/video/
