@@ -135,7 +135,6 @@ a { color: inherit; }
 .hero-tabpanel { outline-offset: 3px; animation: hero-panel-in .3s var(--ease); }
 .hero-tabpanel[hidden] { display: none; }
 @keyframes hero-panel-in { from { opacity: 0; transform: translateY(.4rem); } to { opacity: 1; transform: none; } }
-.hero-panel-heading { display: none; margin: 0 0 .8rem; font-family: var(--font-display); font-size: 1.15rem; letter-spacing: -.03em; }
 .hero-panel-kicker { margin: 0; color: var(--accent-text); font: 500 .68rem/1.3 var(--font-mono); letter-spacing: .07em; text-transform: uppercase; }
 .hero-panel-title { margin: .4rem 0 0; font-family: var(--font-display); font-size: clamp(1.2rem, 1.7vw, 1.55rem); font-weight: 700; letter-spacing: -.035em; line-height: 1.08; }
 .hero-panel-list { display: grid; gap: .45rem; margin: .9rem 0 0; padding: 0; list-style: none; }
@@ -154,7 +153,6 @@ a { color: inherit; }
 .hero-more span { color: var(--accent-text); }
 .hero-more:hover { color: var(--accent-text); }
 html:not(.js) .hero-tablist { display: none; }
-html:not(.js) .hero-panel-heading { display: block; }
 html:not(.js) .hero-tabpanel[hidden] { display: block; }
 html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top: 1.6rem; border-top: 1px solid var(--border); }
 

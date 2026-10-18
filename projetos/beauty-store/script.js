@@ -423,6 +423,22 @@ document.getElementById('close-checkout').addEventListener('click', () => checko
 
 document.getElementById('checkout-form').addEventListener('submit', e => {
     e.preventDefault();
+    const resumo = (() => {
+        const subtotal = cart.reduce((s, i) => s + i.preco * i.qty, 0);
+        const frete = freteEscolhido ? freteEscolhido.valor : 0;
+        let desconto = 0;
+        if (cupomAplicado) {
+            if (cupomAplicado.tipo === 'percentual') desconto = subtotal * cupomAplicado.valor / 100;
+            else if (cupomAplicado.tipo === 'fixo') desconto = cupomAplicado.valor;
+        }
+        const freteFinal = cupomAplicado?.tipo === 'frete' ? 0 : frete;
+        return {
+            itens: cart.map(i => ({ nome: i.nome, qty: i.qty, preco: i.preco })),
+            subtotal, desconto, frete: freteFinal,
+            total: subtotal - desconto + freteFinal
+        };
+    })();
+    const brl = v => `R$ ${v.toFixed(2).replace('.', ',')}`;
     checkoutModal.classList.remove('active');
     cart = [];
     cupomAplicado = null;
@@ -436,6 +452,13 @@ document.getElementById('checkout-form').addEventListener('submit', e => {
         modal.innerHTML = `<div role="dialog" aria-modal="true" aria-labelledby="beauty-confirm-title" style="background:#fff;border-radius:20px;padding:2.5rem;max-width:420px;text-align:center;">
             <div aria-hidden="true" style="font-size:4rem;margin-bottom:1rem;">🎉</div>
             <h2 id="beauty-confirm-title" style="font-family:'Playfair Display',serif;font-size:1.75rem;margin-bottom:0.75rem;background:linear-gradient(135deg,#ec4899,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Pedido Confirmado!</h2>
+            <div style="text-align:left;border:1px solid #eee;border-radius:12px;padding:1rem 1.1rem;margin-bottom:1rem;font-size:.9rem;color:#333;">
+                <ul style="margin:0 0 .6rem;padding-left:1.1rem;">${resumo.itens.map(i => `<li style="margin:.2rem 0;">${i.qty}× ${i.nome} — ${brl(i.preco * i.qty)}</li>`).join('')}</ul>
+                <div style="display:flex;justify-content:space-between;"><span>Subtotal</span><span>${brl(resumo.subtotal)}</span></div>
+                ${resumo.desconto > 0 ? `<div style="display:flex;justify-content:space-between;"><span>Desconto</span><span>-${brl(resumo.desconto)}</span></div>` : ''}
+                <div style="display:flex;justify-content:space-between;"><span>Frete</span><span>${brl(resumo.frete)}</span></div>
+                <div style="display:flex;justify-content:space-between;font-weight:800;border-top:1px solid #eee;margin-top:.45rem;padding-top:.45rem;"><span>Total</span><span>${brl(resumo.total)}</span></div>
+            </div>
             <p style="color:#666;margin-bottom:1.5rem;">Demonstração concluída: nenhum pedido real foi enviado e nenhum e-mail será disparado. Em uma loja de verdade, seu pedido seguiria agora para o processamento.</p>
             <button type="button" class="btn btn-primary">Voltar à loja</button>
         </div>`;
