@@ -17,7 +17,10 @@
 
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="wordmark" href="#inicio" aria-label="Ir para o início">L/S</a>
+      <a class="wordmark" href="#inicio" aria-label="Ir para o início — Lucas Santana da Paz">
+        <span class="wordmark-mark" aria-hidden="true">L<span class="wordmark-slash">/</span>S</span>
+        <span class="wordmark-name" aria-hidden="true">Lucas Santana da Paz</span>
+      </a>
       <nav class="site-nav" aria-label="Principal">
         <ul id="nav-links" class="nav-links">
           <li><a href="#experience">Experiência</a></li>
@@ -48,7 +51,7 @@
       <div class="shell hero-layout">
         <div class="hero-intro">
           <p class="eyebrow">PORTFÓLIO PESSOAL · BELO HORIZONTE</p>
-          <h1 id="hero-title" class="hero-title"><span>LUCAS</span><span>SANTANA</span><span>DA PAZ</span></h1>
+          <h1 id="hero-title" class="hero-title"><span class="hero-line"><span class="hero-line-inner">LUCAS</span></span><span class="hero-line"><span class="hero-line-inner">SANTANA</span></span><span class="hero-line"><span class="hero-line-inner">DA PAZ</span></span></h1>
           <p class="hero-descriptor">Desenvolvimento Web | Sistemas Empresariais e ERP | SQL | Automação e IA</p>
           <p class="hero-statement">Estudante de Análise e Desenvolvimento de Sistemas com experiência profissional em suporte técnico ao ERP TecFood na Teknisa. Unindo a investigação de sistemas à construção de interfaces funcionais.</p>
           <div class="hero-rail" aria-label="Contexto profissional">
@@ -62,17 +65,80 @@
           </div>
         </div>
 
-        <figure class="hero-preview hero-work" data-parallax aria-labelledby="hero-work-caption">
-          <div class="hero-preview-bar"><span>INTERFACES QUE CONSTRUÍ</span><a href="#work">Ver os cases ↘</a></div>
-          <div class="hero-work-canvas">
-            <div class="hero-work-primary">
-              <img src="linkedin-assets/screenshots/supportflow-dashboard-desktop.png" width="1440" height="960" alt="Dashboard real do SupportFlow com indicadores de chamados, SLA, prioridades e categorias" fetchpriority="high" decoding="async">
-            </div>
-            <div class="hero-work-secondary">
-              <img src="assets/project-previews/seu-manoel-home.webp" width="1440" height="980" alt="Interface real do Seu Manoel com apresentação da barbearia e acesso ao agendamento" decoding="async">
+        <figure class="hero-showcase" data-parallax aria-labelledby="showcase-title">
+          <h2 id="showcase-title" class="sr-only">Projetos em destaque</h2>
+
+          <div class="showcase-bar">
+            <span aria-hidden="true">VITRINE · PROJETOS REAIS</span>
+            <div class="showcase-controls">
+              <button class="showcase-toggle" type="button" data-showcase-toggle aria-label="Pausar reprodução automática da vitrine">Pausar</button>
             </div>
           </div>
-          <figcaption id="hero-work-caption"><span><strong>SupportFlow</strong> · projeto próprio em desenvolvimento, validado localmente</span><span><strong>Seu Manoel</strong> · fluxo de agendamento interativo</span></figcaption>
+
+          <div class="showcase-stage" data-showcase-stage>
+            <article class="showcase-slide is-active" data-showcase-slide role="group" aria-roledescription="slide" aria-label="Projeto 1 de 3">
+              <div class="showcase-media">
+                <picture>
+                  <source media="(max-width: 767px)" srcset="assets/project-previews/showcase-seu-manoel-mobile.png">
+                  <img src="assets/project-previews/showcase-seu-manoel-desktop.png" width="1440" height="900" alt="Tela inicial do Seu Manoel com apresentação da barbearia e acesso ao agendamento" fetchpriority="high" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="showcase-meta">
+                <p class="showcase-index">01 / 03 · Sistema de agendamento</p>
+                <h3 class="showcase-name">Seu Manoel</h3>
+                <p class="showcase-desc">Agendamento em etapas com regras de disponibilidade testadas no navegador.</p>
+                <p class="showcase-actions">
+                  <a href="projetos/seu-manoel/index.html" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>
+                  <a href="#work">Ver case <span aria-hidden="true">↘</span></a>
+                </p>
+              </figcaption>
+            </article>
+
+            <article class="showcase-slide" data-showcase-slide role="group" aria-roledescription="slide" aria-label="Projeto 2 de 3" aria-hidden="true">
+              <div class="showcase-media">
+                <picture>
+                  <source media="(max-width: 767px)" srcset="assets/project-previews/showcase-papitos-mobile.png">
+                  <img src="assets/project-previews/showcase-papitos-desktop.png" width="1440" height="900" alt="Cardápio da Papitos com categorias, produtos e início do fluxo de pedido" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="showcase-meta">
+                <p class="showcase-index">02 / 03 · Fluxo de pedido</p>
+                <h3 class="showcase-name">Papitos</h3>
+                <p class="showcase-desc">Do cardápio ao checkout, com carrinho persistente e entrega ou retirada.</p>
+                <p class="showcase-actions">
+                  <a href="projetos/papitos/index.html" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>
+                  <a href="#work">Ver case <span aria-hidden="true">↘</span></a>
+                </p>
+              </figcaption>
+            </article>
+
+            <article class="showcase-slide" data-showcase-slide role="group" aria-roledescription="slide" aria-label="Projeto 3 de 3" aria-hidden="true">
+              <div class="showcase-media">
+                <picture>
+                  <source media="(max-width: 767px)" srcset="assets/project-previews/showcase-beauty-store-mobile.png">
+                  <img src="assets/project-previews/showcase-beauty-store-desktop.png" width="1440" height="900" alt="Vitrine da Beauty Store com busca, categorias e catálogo de produtos" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="showcase-meta">
+                <p class="showcase-index">03 / 03 · Catálogo interativo</p>
+                <h3 class="showcase-name">Beauty Store</h3>
+                <p class="showcase-desc">Busca, filtros, favoritos e carrinho no mesmo modelo de estado.</p>
+                <p class="showcase-actions">
+                  <a href="projetos/beauty-store/index.html" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>
+                  <a href="#work">Ver case <span aria-hidden="true">↘</span></a>
+                </p>
+              </figcaption>
+            </article>
+          </div>
+
+          <div class="showcase-footer">
+            <div class="showcase-dots" role="group" aria-label="Selecionar projeto da vitrine">
+              <button class="showcase-dot is-active" type="button" data-showcase-dot="0" aria-label="Mostrar projeto Seu Manoel" aria-current="true"></button>
+              <button class="showcase-dot" type="button" data-showcase-dot="1" aria-label="Mostrar projeto Papitos"></button>
+              <button class="showcase-dot" type="button" data-showcase-dot="2" aria-label="Mostrar projeto Beauty Store"></button>
+            </div>
+            <p class="sr-only" role="status" data-showcase-status>Seu Manoel — projeto 1 de 3</p>
+          </div>
         </figure>
       </div>
       <div class="hero-rule hero-rule-bottom" aria-hidden="true"></div>

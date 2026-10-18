@@ -143,6 +143,97 @@ if (heroPreview && window.matchMedia('(pointer: fine)').matches && !reducedMotio
   });
 }
 
+// Vitrine do hero: rotação automática com pausa acessível e respeito a reduced-motion.
+const heroShowcase = document.querySelector('.hero-showcase');
+if (heroShowcase) {
+  const slides = [...heroShowcase.querySelectorAll('[data-showcase-slide]')];
+  const dots = [...heroShowcase.querySelectorAll('[data-showcase-dot]')];
+  const toggle = heroShowcase.querySelector('[data-showcase-toggle]');
+  const status = heroShowcase.querySelector('[data-showcase-status]');
+  const ROTATE_INTERVAL = 6000;
+  let activeIndex = 0;
+  let rotateTimer = null;
+  let userPaused = false;
+  let hoverPaused = false;
+  let focusPaused = false;
+
+  const canRotate = () => !reducedMotion.matches && !userPaused && !hoverPaused && !focusPaused && !document.hidden;
+
+  function stopRotation() {
+    if (rotateTimer) {
+      window.clearInterval(rotateTimer);
+      rotateTimer = null;
+    }
+  }
+
+  function startRotation() {
+    stopRotation();
+    if (!canRotate()) return;
+    rotateTimer = window.setInterval(() => showSlide(activeIndex + 1), ROTATE_INTERVAL);
+  }
+
+  function showSlide(nextIndex, { announce = true } = {}) {
+    activeIndex = (nextIndex + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      const active = i === activeIndex;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+      slide.querySelectorAll('a, button').forEach((control) => { control.tabIndex = active ? 0 : -1; });
+    });
+
+    dots.forEach((dot, i) => {
+      const active = i === activeIndex;
+      dot.classList.toggle('is-active', active);
+      if (active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+
+    if (announce && status) {
+      const name = slides[activeIndex]?.querySelector('.showcase-name')?.textContent?.trim() || '';
+      status.textContent = `${name} — projeto ${activeIndex + 1} de ${slides.length}`;
+    }
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      showSlide(Number(dot.dataset.showcaseDot));
+      startRotation();
+    });
+  });
+
+  toggle?.addEventListener('click', () => {
+    userPaused = !userPaused;
+    toggle.textContent = userPaused ? 'Retomar' : 'Pausar';
+    toggle.setAttribute('aria-label', userPaused ? 'Retomar reprodução automática da vitrine' : 'Pausar reprodução automática da vitrine');
+    if (canRotate()) startRotation();
+    else stopRotation();
+  });
+
+  heroShowcase.addEventListener('pointerenter', () => { hoverPaused = true; stopRotation(); });
+  heroShowcase.addEventListener('pointerleave', () => { hoverPaused = false; startRotation(); });
+  heroShowcase.addEventListener('focusin', () => { focusPaused = true; stopRotation(); });
+  heroShowcase.addEventListener('focusout', (event) => {
+    if (heroShowcase.contains(event.relatedTarget)) return;
+    focusPaused = false;
+    startRotation();
+  });
+
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stopRotation(); else startRotation(); });
+  reducedMotion.addEventListener?.('change', () => { if (reducedMotion.matches) stopRotation(); else startRotation(); });
+
+  if ('IntersectionObserver' in window) {
+    const showcaseObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) startRotation();
+      else stopRotation();
+    }, { threshold: 0.35 });
+    showcaseObserver.observe(heroShowcase);
+  }
+
+  showSlide(0, { announce: false });
+  startRotation();
+}
+
 const labVideos = [...document.querySelectorAll('[data-lab-video]')];
 const videoObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
