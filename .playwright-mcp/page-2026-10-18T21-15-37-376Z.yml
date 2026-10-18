@@ -1,0 +1,112 @@
+- generic [active] [ref=f54e1]:
+  - link "Pular para o agendamento" [ref=f54e2] [cursor=pointer]:
+    - /url: "#booking"
+  - banner [ref=f54e3]:
+    - generic [ref=f54e4]:
+      - link "Seu Manoel, ir para o agendamento" [ref=f54e5] [cursor=pointer]:
+        - /url: "#booking"
+        - generic [aria-hidden] [ref=f54e6]: SM
+        - generic [ref=f54e7]: Seu Manoel
+      - generic [ref=f54e8]:
+        - generic [ref=f54e9]: Demonstração local
+        - link "Ver registros" [ref=f54e10] [cursor=pointer]:
+          - /url: "#local-bookings"
+  - main [ref=f54e11]:
+    - region [ref=f54e12]:
+      - heading "Agende seu horário em poucos passos." [level=1] [ref=f54e13]
+      - paragraph [ref=f54e14]: Este fluxo é uma demonstração. Os dados ficam somente neste navegador e não são enviados a uma barbearia.
+    - region "Fluxo de agendamento" [ref=f54e15]:
+      - generic [ref=f54e16]:
+        - list "Progresso do agendamento" [ref=f54e17]:
+          - listitem [ref=f54e18]:
+            - generic [aria-hidden] [ref=f54e19]: "1"
+            - generic [ref=f54e20]: Serviço
+          - listitem [ref=f54e21]:
+            - generic [aria-hidden] [ref=f54e22]: "2"
+            - generic [ref=f54e23]: Profissional
+          - listitem [ref=f54e24]:
+            - generic [aria-hidden] [ref=f54e25]: "3"
+            - generic [ref=f54e26]: Data
+          - listitem [ref=f54e27]:
+            - generic [aria-hidden] [ref=f54e28]: "4"
+            - generic [ref=f54e29]: Horário
+          - listitem [ref=f54e30]:
+            - generic [aria-hidden] [ref=f54e31]: "5"
+            - generic [ref=f54e32]: Dados
+          - listitem [ref=f54e33]:
+            - generic [aria-hidden] [ref=f54e34]: "6"
+            - generic [ref=f54e35]: Revisão
+        - region [ref=f54e37]:
+          - generic [ref=f54e38]:
+            - paragraph [ref=f54e39]: Escolha 1 de 6
+            - heading "Qual atendimento você quer?" [level=2] [ref=f54e40]
+            - paragraph [ref=f54e41]: Selecione um serviço demonstrativo para continuar.
+          - group "Serviços disponíveis" [ref=f54e42]:
+            - generic [ref=f54e44]:
+              - generic [ref=f54e45]:
+                - radio "Corte 30 min R$ 45,00" [ref=f54e46]
+                - generic [ref=f54e47]:
+                  - generic [ref=f54e48]: Corte
+                  - generic [ref=f54e49]:
+                    - generic [ref=f54e50]: 30 min
+                    - generic [ref=f54e51]: R$ 45,00
+              - generic [ref=f54e52]:
+                - radio "Barba 30 min R$ 35,00" [ref=f54e53]
+                - generic [ref=f54e54]:
+                  - generic [ref=f54e55]: Barba
+                  - generic [ref=f54e56]:
+                    - generic [ref=f54e57]: 30 min
+                    - generic [ref=f54e58]: R$ 35,00
+              - generic [ref=f54e59]:
+                - radio "Corte e barba 60 min R$ 75,00" [ref=f54e60]
+                - generic [ref=f54e61]:
+                  - generic [ref=f54e62]: Corte e barba
+                  - generic [ref=f54e63]:
+                    - generic [ref=f54e64]: 60 min
+                    - generic [ref=f54e65]: R$ 75,00
+              - generic [ref=f54e66]:
+                - radio "Cuidado facial 45 min R$ 50,00" [ref=f54e67]
+                - generic [ref=f54e68]:
+                  - generic [ref=f54e69]: Cuidado facial
+                  - generic [ref=f54e70]:
+                    - generic [ref=f54e71]: 45 min
+                    - generic [ref=f54e72]: R$ 50,00
+        - button "Continuar" [disabled] [ref=f54e74]
+      - complementary [ref=f54e75]:
+        - heading "Seu pedido" [level=2] [ref=f54e77]
+        - generic [ref=f54e79]:
+          - generic [ref=f54e80]:
+            - term [ref=f54e81]: Serviço
+            - definition [ref=f54e82]:
+              - generic [ref=f54e83]: Não escolhido
+          - generic [ref=f54e84]:
+            - term [ref=f54e85]: Profissional
+            - definition [ref=f54e86]:
+              - generic [ref=f54e87]: Não escolhido
+          - generic [ref=f54e88]:
+            - term [ref=f54e89]: Data
+            - definition [ref=f54e90]:
+              - generic [ref=f54e91]: Não escolhida
+          - generic [ref=f54e92]:
+            - term [ref=f54e93]: Horário
+            - definition [ref=f54e94]:
+              - generic [ref=f54e95]: Não escolhido
+          - generic [ref=f54e96]:
+            - term [ref=f54e97]: Duração
+            - definition [ref=f54e98]:
+              - generic [ref=f54e99]: A definir
+          - generic [ref=f54e100]:
+            - term [ref=f54e101]: Preço
+            - definition [ref=f54e102]:
+              - generic [ref=f54e103]: A definir
+    - region "Aviso sobre a demonstração" [ref=f54e104]:
+      - paragraph [ref=f54e105]:
+        - strong [ref=f54e106]: "Sobre esta demonstração:"
+        - text: os serviços, profissionais, preços e horários abaixo são fictícios e servem apenas para apresentar a experiência de agendamento.
+    - region [ref=f54e107]:
+      - heading "Registros neste navegador" [level=2] [ref=f54e110]
+      - paragraph [ref=f54e111]: Cancelamentos permanecem visíveis no histórico e liberam o horário na demonstração.
+      - generic [ref=f54e113]:
+        - heading "Nenhum registro local ainda." [level=3] [ref=f54e114]
+        - paragraph [ref=f54e115]: Conclua um agendamento demonstrativo para vê-lo aqui.
+  - status [ref=f54e116]
