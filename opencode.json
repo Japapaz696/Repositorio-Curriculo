@@ -1,5 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "plugins": [
+    "opencode-windows-encoding@6.1.0",
+    "rem-memory@2.0.1",
+    "@tarquinen/opencode-dcp@3.2.0",
+    "@plannotator/opencode@0.28.23",
+    "superpowers@git+https://github.com/obra/superpowers.git#v7.0.0"
+  ],
   "mcp": {
     "playwright": {
       "type": "local",
