@@ -1,0 +1,243 @@
+- generic [active] [ref=f64e1]:
+  - banner [ref=f64e2]:
+    - generic [ref=f64e3]:
+      - link "🍔 PAPITOS" [ref=f64e4] [cursor=pointer]:
+        - /url: "#inicio"
+      - generic [ref=f64e5]:
+        - 'button "🛒 Abrir carrinho: 1" [ref=f64e6] [cursor=pointer]':
+          - text: 🛒
+          - generic [ref=f64e7]: "Abrir carrinho:"
+          - text: "1"
+        - button "Abrir menu" [ref=f64e8] [cursor=pointer]: ☰
+  - generic [ref=f64e10]:
+    - generic [ref=f64e11]:
+      - generic [ref=f64e12]: Desde 2015 • Sabor que vicia
+      - heading "O melhor hambúrguer artesanal da cidade" [level=1] [ref=f64e13]
+      - paragraph [ref=f64e14]: Pão brioche, blend 180g, ingredientes selecionados e a entrega mais rápida da região.
+      - generic [ref=f64e15]:
+        - link "Ver Cardápio" [ref=f64e16] [cursor=pointer]:
+          - /url: "#cardapio"
+        - link "Combos do dia" [ref=f64e17] [cursor=pointer]:
+          - /url: "#combos"
+    - img "Hambúrguer artesanal Papitos" [ref=f64e20]
+  - generic [ref=f64e22]:
+    - search "Pesquisa do cardápio" [ref=f64e23]:
+      - generic [ref=f64e24]: Encontre seu próximo pedido
+      - searchbox "Encontre seu próximo pedido" [ref=f64e25]
+    - generic "Categorias do cardápio" [ref=f64e26]:
+      - button "Todos" [pressed] [ref=f64e27] [cursor=pointer]
+      - button "Hambúrgueres" [ref=f64e28] [cursor=pointer]
+      - button "Combos" [ref=f64e29] [cursor=pointer]
+      - button "Bebidas" [ref=f64e30] [cursor=pointer]
+      - button "Sobremesas" [ref=f64e31] [cursor=pointer]
+  - generic [ref=f64e33]:
+    - heading "Nosso Cardápio" [level=2] [ref=f64e34]
+    - status [ref=f64e35]: 13 produtos encontrados.
+    - generic [ref=f64e36]:
+      - article [ref=f64e37]:
+        - button "Ver detalhes de Clássico Papitos" [ref=f64e38] [cursor=pointer]:
+          - generic [ref=f64e39]: Ver detalhes e personalizar
+        - generic [ref=f64e40]:
+          - generic [ref=f64e41]:
+            - heading "Clássico Papitos" [level=3] [ref=f64e42]
+            - generic [ref=f64e43]: R$ 28,90
+          - paragraph [ref=f64e44]: Blend artesanal 180g, queijo cheddar, alface, tomate, picles e molho da casa.
+          - generic [ref=f64e45]:
+            - generic [ref=f64e46]: hamburgueres
+            - button "Adicionar Clássico Papitos ao carrinho" [ref=f64e47] [cursor=pointer]: + Adicionar
+      - article [ref=f64e48]:
+        - button "Ver detalhes de Bacon Lover" [ref=f64e49] [cursor=pointer]:
+          - generic [ref=f64e50]: Ver detalhes e personalizar
+        - generic [ref=f64e51]:
+          - generic [ref=f64e52]:
+            - heading "Bacon Lover" [level=3] [ref=f64e53]
+            - generic [ref=f64e54]: R$ 34,90
+          - paragraph [ref=f64e55]: Blend 180g, dupla de bacon crispy, queijo prato, cebola caramelizada e barbecue.
+          - generic [ref=f64e56]:
+            - generic [ref=f64e57]: hamburgueres
+            - button "Adicionar Bacon Lover ao carrinho" [ref=f64e58] [cursor=pointer]: + Adicionar
+      - article [ref=f64e59]:
+        - button "Ver detalhes de Smash Triplo" [ref=f64e60] [cursor=pointer]:
+          - generic [ref=f64e61]: Ver detalhes e personalizar
+        - generic [ref=f64e62]:
+          - generic [ref=f64e63]:
+            - heading "Smash Triplo" [level=3] [ref=f64e64]
+            - generic [ref=f64e65]: R$ 42,90
+          - paragraph [ref=f64e66]: Três blends smash de 90g, queijo derretido, cebola roxa e molho especial.
+          - generic [ref=f64e67]:
+            - generic [ref=f64e68]: hamburgueres
+            - button "Adicionar Smash Triplo ao carrinho" [ref=f64e69] [cursor=pointer]: + Adicionar
+      - article [ref=f64e70]:
+        - button "Ver detalhes de Frango Crispy" [ref=f64e71] [cursor=pointer]:
+          - generic [ref=f64e72]: Ver detalhes e personalizar
+        - generic [ref=f64e73]:
+          - generic [ref=f64e74]:
+            - heading "Frango Crispy" [level=3] [ref=f64e75]
+            - generic [ref=f64e76]: R$ 26,90
+          - paragraph [ref=f64e77]: Filé de frango empanado, coleslaw, picles e maionese de ervas.
+          - generic [ref=f64e78]:
+            - generic [ref=f64e79]: hamburgueres
+            - button "Adicionar Frango Crispy ao carrinho" [ref=f64e80] [cursor=pointer]: + Adicionar
+      - article [ref=f64e81]:
+        - button "Ver detalhes de Veggie do Chef" [ref=f64e82] [cursor=pointer]:
+          - generic [ref=f64e83]: Ver detalhes e personalizar
+        - generic [ref=f64e84]:
+          - generic [ref=f64e85]:
+            - heading "Veggie do Chef" [level=3] [ref=f64e86]
+            - generic [ref=f64e87]: R$ 29,90
+          - paragraph [ref=f64e88]: Hambúrguer de grão-de-bico, queijo branco, rúcula e tomate seco.
+          - generic [ref=f64e89]:
+            - generic [ref=f64e90]: hamburgueres
+            - button "Adicionar Veggie do Chef ao carrinho" [ref=f64e91] [cursor=pointer]: + Adicionar
+      - article [ref=f64e92]:
+        - button "Ver detalhes de Combo Família" [ref=f64e93] [cursor=pointer]:
+          - generic [ref=f64e94]: Ver detalhes e personalizar
+        - generic [ref=f64e95]:
+          - generic [ref=f64e96]:
+            - heading "Combo Família" [level=3] [ref=f64e97]
+            - generic [ref=f64e98]: R$ 89,90
+          - paragraph [ref=f64e99]: 2 clássicos + 1 bacon + batata grande + 4 refris 350ml.
+          - generic [ref=f64e100]:
+            - generic [ref=f64e101]: combos
+            - button "Adicionar Combo Família ao carrinho" [ref=f64e102] [cursor=pointer]: + Adicionar
+      - article [ref=f64e103]:
+        - button "Ver detalhes de Combo Dupla" [ref=f64e104] [cursor=pointer]:
+          - generic [ref=f64e105]: Ver detalhes e personalizar
+        - generic [ref=f64e106]:
+          - generic [ref=f64e107]:
+            - heading "Combo Dupla" [level=3] [ref=f64e108]
+            - generic [ref=f64e109]: R$ 59,90
+          - paragraph [ref=f64e110]: 2 burgers à sua escolha + batata grande + 2 refris.
+          - generic [ref=f64e111]:
+            - generic [ref=f64e112]: combos
+            - button "Adicionar Combo Dupla ao carrinho" [ref=f64e113] [cursor=pointer]: + Adicionar
+      - article [ref=f64e114]:
+        - button "Ver detalhes de Combo Kids" [ref=f64e115] [cursor=pointer]:
+          - generic [ref=f64e116]: Ver detalhes e personalizar
+        - generic [ref=f64e117]:
+          - generic [ref=f64e118]:
+            - heading "Combo Kids" [level=3] [ref=f64e119]
+            - generic [ref=f64e120]: R$ 24,90
+          - paragraph [ref=f64e121]: Mini burger + batata pequena + suco natural + brinde surpresa.
+          - generic [ref=f64e122]:
+            - generic [ref=f64e123]: combos
+            - button "Adicionar Combo Kids ao carrinho" [ref=f64e124] [cursor=pointer]: + Adicionar
+      - article [ref=f64e125]:
+        - button "Ver detalhes de Coca-Cola 350ml" [ref=f64e126] [cursor=pointer]:
+          - generic [ref=f64e127]: Ver detalhes e personalizar
+        - generic [ref=f64e128]:
+          - generic [ref=f64e129]:
+            - heading "Coca-Cola 350ml" [level=3] [ref=f64e130]
+            - generic [ref=f64e131]: R$ 7,00
+          - paragraph [ref=f64e132]: Lata gelada 350ml.
+          - generic [ref=f64e133]:
+            - generic [ref=f64e134]: bebidas
+            - button "Adicionar Coca-Cola 350ml ao carrinho" [ref=f64e135] [cursor=pointer]: + Adicionar
+      - article [ref=f64e136]:
+        - button "Ver detalhes de Suco Natural" [ref=f64e137] [cursor=pointer]:
+          - generic [ref=f64e138]: Ver detalhes e personalizar
+        - generic [ref=f64e139]:
+          - generic [ref=f64e140]:
+            - heading "Suco Natural" [level=3] [ref=f64e141]
+            - generic [ref=f64e142]: R$ 9,00
+          - paragraph [ref=f64e143]: Laranja, abacaxi ou maracujá — 500ml.
+          - generic [ref=f64e144]:
+            - generic [ref=f64e145]: bebidas
+            - button "Adicionar Suco Natural ao carrinho" [ref=f64e146] [cursor=pointer]: + Adicionar
+      - article [ref=f64e147]:
+        - button "Ver detalhes de Milkshake Ovomaltine" [ref=f64e148] [cursor=pointer]:
+          - generic [ref=f64e149]: Ver detalhes e personalizar
+        - generic [ref=f64e150]:
+          - generic [ref=f64e151]:
+            - heading "Milkshake Ovomaltine" [level=3] [ref=f64e152]
+            - generic [ref=f64e153]: R$ 16,90
+          - paragraph [ref=f64e154]: Cremoso 400ml com pedaços crocantes.
+          - generic [ref=f64e155]:
+            - generic [ref=f64e156]: bebidas
+            - button "Adicionar Milkshake Ovomaltine ao carrinho" [ref=f64e157] [cursor=pointer]: + Adicionar
+      - article [ref=f64e158]:
+        - button "Ver detalhes de Brownie com Sorvete" [ref=f64e159] [cursor=pointer]:
+          - generic [ref=f64e160]: Ver detalhes e personalizar
+        - generic [ref=f64e161]:
+          - generic [ref=f64e162]:
+            - heading "Brownie com Sorvete" [level=3] [ref=f64e163]
+            - generic [ref=f64e164]: R$ 14,90
+          - paragraph [ref=f64e165]: Brownie quentinho com bola de sorvete e calda de chocolate.
+          - generic [ref=f64e166]:
+            - generic [ref=f64e167]: sobremesas
+            - button "Adicionar Brownie com Sorvete ao carrinho" [ref=f64e168] [cursor=pointer]: + Adicionar
+      - article [ref=f64e169]:
+        - button "Ver detalhes de Petit Gateau" [ref=f64e170] [cursor=pointer]:
+          - generic [ref=f64e171]: Ver detalhes e personalizar
+        - generic [ref=f64e172]:
+          - generic [ref=f64e173]:
+            - heading "Petit Gateau" [level=3] [ref=f64e174]
+            - generic [ref=f64e175]: R$ 18,90
+          - paragraph [ref=f64e176]: Bolinho de chocolate com recheio cremoso e sorvete de creme.
+          - generic [ref=f64e177]:
+            - generic [ref=f64e178]: sobremesas
+            - button "Adicionar Petit Gateau ao carrinho" [ref=f64e179] [cursor=pointer]: + Adicionar
+  - generic [ref=f64e181]:
+    - heading "Combos Especiais" [level=2] [ref=f64e182]
+    - generic [ref=f64e183]:
+      - article [ref=f64e184]:
+        - img "Combo Quarta do Bacon" [ref=f64e186]
+        - generic [ref=f64e187]:
+          - heading "Combo Quarta do Bacon" [level=3] [ref=f64e188]
+          - paragraph [ref=f64e189]: Promoção especial de quarta-feira!
+          - list [ref=f64e190]:
+            - listitem [ref=f64e191]: Bacon Lover
+            - listitem [ref=f64e192]: Batata rústica grande
+            - listitem [ref=f64e193]: Coca-Cola 350ml
+          - generic [ref=f64e194]:
+            - generic [ref=f64e195]: R$ 39,90R$ 49,90
+            - button "+ Adicionar" [ref=f64e196] [cursor=pointer]
+      - article [ref=f64e197]:
+        - img "Combo Papitos Premium" [ref=f64e199]
+        - generic [ref=f64e200]:
+          - heading "Combo Papitos Premium" [level=3] [ref=f64e201]
+          - paragraph [ref=f64e202]: Para quem quer o melhor.
+          - list [ref=f64e203]:
+            - listitem [ref=f64e204]: Smash Triplo
+            - listitem [ref=f64e205]: Onion rings
+            - listitem [ref=f64e206]: Milkshake Ovomaltine
+          - generic [ref=f64e207]:
+            - generic [ref=f64e208]: R$ 65,90R$ 79,90
+            - button "+ Adicionar" [ref=f64e209] [cursor=pointer]
+      - article [ref=f64e210]:
+        - img "Combo Família" [ref=f64e212]
+        - generic [ref=f64e213]:
+          - heading "Combo Família" [level=3] [ref=f64e214]
+          - paragraph [ref=f64e215]: A noite toda garantida.
+          - list [ref=f64e216]:
+            - listitem [ref=f64e217]: 2x Clássico
+            - listitem [ref=f64e218]: 1x Bacon Lover
+            - listitem [ref=f64e219]: Batata grande
+            - listitem [ref=f64e220]: 4x Coca 350ml
+          - generic [ref=f64e221]:
+            - generic [ref=f64e222]: R$ 89,90R$ 109,90
+            - button "+ Adicionar" [ref=f64e223] [cursor=pointer]
+  - generic [ref=f64e225]:
+    - heading "O que dizem nossos clientes" [level=2] [ref=f64e226]
+    - generic [ref=f64e227]:
+      - generic [ref=f64e228]:
+        - generic [ref=f64e229]: ⭐⭐⭐⭐⭐
+        - paragraph [ref=f64e230]: "\"Melhor hambúrguer que já comi! Pão fresquinho e blend suculento. Virei cliente fiel.\""
+        - text: — Marina S.
+      - generic [ref=f64e231]:
+        - generic [ref=f64e232]: ⭐⭐⭐⭐⭐
+        - paragraph [ref=f64e233]: "\"Entrega super rápida e o combo família rende demais. Preço justo e sabor incrível.\""
+        - text: — Carlos R.
+      - generic [ref=f64e234]:
+        - generic [ref=f64e235]: ⭐⭐⭐⭐⭐
+        - paragraph [ref=f64e236]: "\"Atendimento pelo site é fácil e intuitivo. Adoro os combos de quarta!\""
+        - text: — Juliana P.
+  - option "Selecione" [selected]
+  - option "PIX"
+  - option "Cartão (entrega)"
+  - option "Dinheiro"
+  - status
+  - contentinfo [ref=f64e237]:
+    - paragraph [ref=f64e238]: © 2026 Papitos Hamburgueria — Todos os direitos reservados.
+    - link "← Voltar ao portfólio" [ref=f64e239] [cursor=pointer]:
+      - /url: ../../index.html

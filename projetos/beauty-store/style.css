@@ -14,7 +14,7 @@
     --border: #ececec;
     --text: #1a1a1a;
     --text-muted: #6b6b6b;
-    --text-light: #999;
+    --text-light: #6f6f6f;
     --primary: #ec4899;
     --primary-dark: #be185d;
     --secondary: #8b5cf6;
@@ -157,14 +157,15 @@ button { font-family: inherit; cursor: pointer; }
 .produto-img > img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition); }
 .produto-card:hover .produto-img > img { transform: scale(1.05); }
 .produto-img .badge {
-    position: absolute; top: 0.75rem; left: 0.75rem; background: var(--primary); color: #fff;
+    position: absolute; top: 0.75rem; left: 0.75rem; background: #be185d; color: #fff;
     padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
 }
-.produto-img .badge.desconto { background: var(--secondary); }
+.produto-img .badge.desconto { background: #7c3aed; }
 .produto-img .fav-icon {
     position: absolute; top: 0.75rem; right: 0.75rem; background: rgba(255,255,255,0.95); border: none;
     width: 36px; height: 36px; border-radius: 50%; font-size: 1rem; cursor: pointer;
     transition: var(--transition); display: flex; align-items: center; justify-content: center;
+    z-index: 1;
 }
 .produto-img .fav-icon:hover { transform: scale(1.1); }
 .produto-img .fav-icon.active { background: var(--primary); color: #fff; }
@@ -286,7 +287,9 @@ button { font-family: inherit; cursor: pointer; }
     .detail-modal { grid-template-columns: 1fr; max-width: 95%; }
     .detail-img { min-height: 220px; }
     .header-inner { grid-template-columns: auto 1fr; }
-    .search-bar { display: none; }
+    /* Busca permanece disponível no mobile: segunda linha do header. */
+    .search-bar { display: flex; grid-column: 1 / -1; grid-row: 2; max-width: none; margin: 0; }
+    .nav-icons { grid-row: 1; grid-column: 2; justify-self: end; }
     .banner .container { grid-template-columns: 1fr; text-align: center; }
     .banner-decor { font-size: 3rem; }
 }
@@ -296,4 +299,9 @@ button { font-family: inherit; cursor: pointer; }
     .nav-icons { justify-self: end; min-width: 0; }
     .icon-btn { padding: 0.5rem; font-size: 0.9rem; }
     .cat-nav ul { padding: 0.6rem 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
 }

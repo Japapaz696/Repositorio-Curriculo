@@ -1,0 +1,389 @@
+- generic [active] [ref=f46e1]:
+  - generic [ref=f46e2]:
+    - text: ✨ FRETE GRÁTIS em compras acima de R$ 199 — use o cupom
+    - strong [ref=f46e3]: BEAUTY10
+    - text: ✨
+  - banner [ref=f46e4]:
+    - generic [ref=f46e5]:
+      - link "BEAUTYSTORE" [ref=f46e6] [cursor=pointer]:
+        - /url: "#"
+      - search [ref=f46e7]:
+        - generic [ref=f46e8]: Buscar produtos
+        - searchbox "Buscar produtos" [ref=f46e9]
+        - button "Buscar" [ref=f46e10] [cursor=pointer]: 🔍
+      - navigation "Atalhos da conta" [ref=f46e11]:
+        - button "Abrir favoritos" [ref=f46e12] [cursor=pointer]:
+          - text: 💖
+          - generic [ref=f46e13]: "0"
+        - button "Abrir carrinho" [ref=f46e14] [cursor=pointer]:
+          - text: 🛒
+          - generic [ref=f46e15]: "0"
+        - button "Minha conta (demonstração)" [ref=f46e16] [cursor=pointer]: 👤
+    - navigation [ref=f46e17]:
+      - list [ref=f46e19]:
+        - listitem [ref=f46e20]:
+          - link "Todos" [ref=f46e21] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=f46e22]:
+          - link "Maquiagem" [ref=f46e23] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=f46e24]:
+          - link "Skincare" [ref=f46e25] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=f46e26]:
+          - link "Perfumaria" [ref=f46e27] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=f46e28]:
+          - link "Cabelos" [ref=f46e29] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=f46e30]:
+          - link "Corpo & Banho" [ref=f46e31] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=f46e32]:
+          - link "🔥 Ofertas" [ref=f46e33] [cursor=pointer]:
+            - /url: "#"
+  - generic [ref=f46e35]:
+    - generic [ref=f46e36]:
+      - generic [ref=f46e37]: Coleção Outono/Inverno 2026
+      - heading [level=1] [ref=f46e38]:
+        - text: Beleza que
+        - emphasis [ref=f46e39]: traduz
+        - text: quem você é
+      - paragraph [ref=f46e40]: Descubra nossa nova coleção de maquiagem e skincare com ingredientes de alta performance.
+      - link "Ver Coleção" [ref=f46e41] [cursor=pointer]:
+        - /url: "#produtos"
+    - generic [ref=f46e42]: 💄✨💋
+  - generic [ref=f46e44]:
+    - generic [ref=f46e45]:
+      - heading "Nossos Produtos" [level=2] [ref=f46e46]
+      - generic [ref=f46e47]:
+        - generic [ref=f46e48]: Ordenar produtos
+        - combobox "Ordenar produtos" [ref=f46e49] [cursor=pointer]:
+          - option "Mais relevantes" [selected]
+          - option "Menor preço"
+          - option "Maior preço"
+          - option "Novidades"
+    - generic [ref=f46e50]:
+      - complementary [ref=f46e51]:
+        - generic [ref=f46e52]:
+          - heading "Categorias" [level=3] [ref=f46e53]
+          - list [ref=f46e54]:
+            - listitem [ref=f46e55]:
+              - generic [ref=f46e56] [cursor=pointer]:
+                - checkbox "Maquiagem" [ref=f46e57]
+                - text: Maquiagem
+            - listitem [ref=f46e58]:
+              - generic [ref=f46e59] [cursor=pointer]:
+                - checkbox "Skincare" [ref=f46e60]
+                - text: Skincare
+            - listitem [ref=f46e61]:
+              - generic [ref=f46e62] [cursor=pointer]:
+                - checkbox "Perfumaria" [ref=f46e63]
+                - text: Perfumaria
+            - listitem [ref=f46e64]:
+              - generic [ref=f46e65] [cursor=pointer]:
+                - checkbox "Cabelos" [ref=f46e66]
+                - text: Cabelos
+            - listitem [ref=f46e67]:
+              - generic [ref=f46e68] [cursor=pointer]:
+                - checkbox "Corpo & Banho" [ref=f46e69]
+                - text: Corpo & Banho
+        - generic [ref=f46e70]:
+          - heading "Preço" [level=3] [ref=f46e71]
+          - list [ref=f46e72]:
+            - listitem [ref=f46e73]:
+              - generic [ref=f46e74] [cursor=pointer]:
+                - radio "Até R$ 50" [ref=f46e75]
+                - text: Até R$ 50
+            - listitem [ref=f46e76]:
+              - generic [ref=f46e77] [cursor=pointer]:
+                - radio "R$ 50 a R$ 100" [ref=f46e78]
+                - text: R$ 50 a R$ 100
+            - listitem [ref=f46e79]:
+              - generic [ref=f46e80] [cursor=pointer]:
+                - radio "R$ 100 a R$ 200" [ref=f46e81]
+                - text: R$ 100 a R$ 200
+            - listitem [ref=f46e82]:
+              - generic [ref=f46e83] [cursor=pointer]:
+                - radio "Acima de R$ 200" [ref=f46e84]
+                - text: Acima de R$ 200
+        - generic [ref=f46e85]:
+          - heading "Marca" [level=3] [ref=f46e86]
+          - list [ref=f46e87]:
+            - listitem [ref=f46e88]:
+              - generic [ref=f46e89] [cursor=pointer]:
+                - checkbox "Luxe" [ref=f46e90]
+                - text: Luxe
+            - listitem [ref=f46e91]:
+              - generic [ref=f46e92] [cursor=pointer]:
+                - checkbox "Glow" [ref=f46e93]
+                - text: Glow
+            - listitem [ref=f46e94]:
+              - generic [ref=f46e95] [cursor=pointer]:
+                - checkbox "Pure" [ref=f46e96]
+                - text: Pure
+            - listitem [ref=f46e97]:
+              - generic [ref=f46e98] [cursor=pointer]:
+                - checkbox "Velvet" [ref=f46e99]
+                - text: Velvet
+        - button "Limpar filtros" [ref=f46e100] [cursor=pointer]
+      - generic [ref=f46e101]:
+        - generic [ref=f46e102]:
+          - generic [ref=f46e103]:
+            - generic [ref=f46e104]: NOVO
+            - generic [ref=f46e105]: 29% OFF
+            - button "🤍" [ref=f46e106] [cursor=pointer]
+            - img "Batom Matte Longa Duração" [ref=f46e107]
+          - generic [ref=f46e108]:
+            - generic [ref=f46e109]: Luxe
+            - heading "Batom Matte Longa Duração" [level=3] [ref=f46e110] [cursor=pointer]
+            - generic [ref=f46e111]: ⭐ 4.8 (234)
+            - generic [ref=f46e112]:
+              - generic [ref=f46e113]: R$ 49,90
+              - generic [ref=f46e114]: R$ 69,90
+            - paragraph [ref=f46e115]: em até 6x de R$ 8,32 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e116] [cursor=pointer]
+        - generic [ref=f46e117]:
+          - generic [ref=f46e118]:
+            - button "🤍" [ref=f46e119] [cursor=pointer]
+            - img "Base Líquida HD" [ref=f46e120]
+          - generic [ref=f46e121]:
+            - generic [ref=f46e122]: Luxe
+            - heading "Base Líquida HD" [level=3] [ref=f46e123] [cursor=pointer]
+            - generic [ref=f46e124]: ⭐ 4.7 (567)
+            - generic [ref=f46e125]: R$ 89,90
+            - paragraph [ref=f46e127]: em até 6x de R$ 14,98 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e128] [cursor=pointer]
+        - generic [ref=f46e129]:
+          - generic [ref=f46e130]:
+            - generic [ref=f46e131]: BEST
+            - generic [ref=f46e132]: 19% OFF
+            - button "🤍" [ref=f46e133] [cursor=pointer]
+            - img "Paleta de Sombras Nude" [ref=f46e134]
+          - generic [ref=f46e135]:
+            - generic [ref=f46e136]: Velvet
+            - heading "Paleta de Sombras Nude" [level=3] [ref=f46e137] [cursor=pointer]
+            - generic [ref=f46e138]: ⭐ 4.9 (432)
+            - generic [ref=f46e139]:
+              - generic [ref=f46e140]: R$ 129,90
+              - generic [ref=f46e141]: R$ 159,90
+            - paragraph [ref=f46e142]: em até 6x de R$ 21,65 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e143] [cursor=pointer]
+        - generic [ref=f46e144]:
+          - generic [ref=f46e145]:
+            - button "🤍" [ref=f46e146] [cursor=pointer]
+            - img "Máscara de Cílios Volumax" [ref=f46e147]
+          - generic [ref=f46e148]:
+            - generic [ref=f46e149]: Luxe
+            - heading "Máscara de Cílios Volumax" [level=3] [ref=f46e150] [cursor=pointer]
+            - generic [ref=f46e151]: ⭐ 4.6 (891)
+            - generic [ref=f46e152]: R$ 59,90
+            - paragraph [ref=f46e154]: em até 6x de R$ 9,98 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e155] [cursor=pointer]
+        - generic [ref=f46e156]:
+          - generic [ref=f46e157]:
+            - generic [ref=f46e158]: TOP
+            - generic [ref=f46e159]: 20% OFF
+            - button "🤍" [ref=f46e160] [cursor=pointer]
+            - img "Sérum Vitamina C 20%" [ref=f46e161]
+          - generic [ref=f46e162]:
+            - generic [ref=f46e163]: Glow
+            - heading "Sérum Vitamina C 20%" [level=3] [ref=f46e164] [cursor=pointer]
+            - generic [ref=f46e165]: ⭐ 4.9 (1024)
+            - generic [ref=f46e166]:
+              - generic [ref=f46e167]: R$ 119,90
+              - generic [ref=f46e168]: R$ 149,90
+            - paragraph [ref=f46e169]: em até 6x de R$ 19,98 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e170] [cursor=pointer]
+        - generic [ref=f46e171]:
+          - generic [ref=f46e172]:
+            - button "🤍" [ref=f46e173] [cursor=pointer]
+            - img "Hidratante Facial 60h" [ref=f46e174]
+          - generic [ref=f46e175]:
+            - generic [ref=f46e176]: Pure
+            - heading "Hidratante Facial 60h" [level=3] [ref=f46e177] [cursor=pointer]
+            - generic [ref=f46e178]: ⭐ 4.7 (658)
+            - generic [ref=f46e179]: R$ 79,90
+            - paragraph [ref=f46e181]: em até 6x de R$ 13,32 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e182] [cursor=pointer]
+        - generic [ref=f46e183]:
+          - generic [ref=f46e184]:
+            - generic [ref=f46e185]: 10% OFF
+            - button "🤍" [ref=f46e186] [cursor=pointer]
+            - img "Protetor Solar Facial FPS 70" [ref=f46e187]
+          - generic [ref=f46e188]:
+            - generic [ref=f46e189]: Glow
+            - heading "Protetor Solar Facial FPS 70" [level=3] [ref=f46e190] [cursor=pointer]
+            - generic [ref=f46e191]: ⭐ 4.8 (432)
+            - generic [ref=f46e192]:
+              - generic [ref=f46e193]: R$ 89,90
+              - generic [ref=f46e194]: R$ 99,90
+            - paragraph [ref=f46e195]: em até 6x de R$ 14,98 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e196] [cursor=pointer]
+        - generic [ref=f46e197]:
+          - generic [ref=f46e198]:
+            - generic [ref=f46e199]: BEST
+            - generic [ref=f46e200]: 20% OFF
+            - button "🤍" [ref=f46e201] [cursor=pointer]
+            - img "Perfume Floral 50ml" [ref=f46e202]
+          - generic [ref=f46e203]:
+            - generic [ref=f46e204]: Velvet
+            - heading "Perfume Floral 50ml" [level=3] [ref=f46e205] [cursor=pointer]
+            - generic [ref=f46e206]: ⭐ 4.9 (312)
+            - generic [ref=f46e207]:
+              - generic [ref=f46e208]: R$ 199,90
+              - generic [ref=f46e209]: R$ 249,90
+            - paragraph [ref=f46e210]: em até 6x de R$ 33,32 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e211] [cursor=pointer]
+        - generic [ref=f46e212]:
+          - generic [ref=f46e213]:
+            - button "🤍" [ref=f46e214] [cursor=pointer]
+            - img "Body Splash Vanilla" [ref=f46e215]
+          - generic [ref=f46e216]:
+            - generic [ref=f46e217]: Pure
+            - heading "Body Splash Vanilla" [level=3] [ref=f46e218] [cursor=pointer]
+            - generic [ref=f46e219]: ⭐ 4.5 (198)
+            - generic [ref=f46e220]: R$ 49,90
+            - paragraph [ref=f46e222]: em até 6x de R$ 8,32 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e223] [cursor=pointer]
+        - generic [ref=f46e224]:
+          - generic [ref=f46e225]:
+            - button "🤍" [ref=f46e226] [cursor=pointer]
+            - img "Shampoo Reparador 300ml" [ref=f46e227]
+          - generic [ref=f46e228]:
+            - generic [ref=f46e229]: Glow
+            - heading "Shampoo Reparador 300ml" [level=3] [ref=f46e230] [cursor=pointer]
+            - generic [ref=f46e231]: ⭐ 4.6 (287)
+            - generic [ref=f46e232]: R$ 39,90
+            - paragraph [ref=f46e234]: em até 6x de R$ 6,65 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e235] [cursor=pointer]
+        - generic [ref=f46e236]:
+          - generic [ref=f46e237]:
+            - generic [ref=f46e238]: 17% OFF
+            - button "🤍" [ref=f46e239] [cursor=pointer]
+            - img "Máscara Capilar Nutrição" [ref=f46e240]
+          - generic [ref=f46e241]:
+            - generic [ref=f46e242]: Pure
+            - heading "Máscara Capilar Nutrição" [level=3] [ref=f46e243] [cursor=pointer]
+            - generic [ref=f46e244]: ⭐ 4.8 (521)
+            - generic [ref=f46e245]:
+              - generic [ref=f46e246]: R$ 49,90
+              - generic [ref=f46e247]: R$ 59,90
+            - paragraph [ref=f46e248]: em até 6x de R$ 8,32 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e249] [cursor=pointer]
+        - generic [ref=f46e250]:
+          - generic [ref=f46e251]:
+            - generic [ref=f46e252]: NOVO
+            - button "🤍" [ref=f46e253] [cursor=pointer]
+            - img "Óleo Capilar Antiqueda" [ref=f46e254]
+          - generic [ref=f46e255]:
+            - generic [ref=f46e256]: Glow
+            - heading "Óleo Capilar Antiqueda" [level=3] [ref=f46e257] [cursor=pointer]
+            - generic [ref=f46e258]: ⭐ 4.7 (234)
+            - generic [ref=f46e259]: R$ 69,90
+            - paragraph [ref=f46e261]: em até 6x de R$ 11,65 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e262] [cursor=pointer]
+        - generic [ref=f46e263]:
+          - generic [ref=f46e264]:
+            - button "🤍" [ref=f46e265] [cursor=pointer]
+            - img "Loção Corporal Hidratante" [ref=f46e266]
+          - generic [ref=f46e267]:
+            - generic [ref=f46e268]: Pure
+            - heading "Loção Corporal Hidratante" [level=3] [ref=f46e269] [cursor=pointer]
+            - generic [ref=f46e270]: ⭐ 4.6 (412)
+            - generic [ref=f46e271]: R$ 59,90
+            - paragraph [ref=f46e273]: em até 6x de R$ 9,98 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e274] [cursor=pointer]
+        - generic [ref=f46e275]:
+          - generic [ref=f46e276]:
+            - generic [ref=f46e277]: 18% OFF
+            - button "🤍" [ref=f46e278] [cursor=pointer]
+            - img "Esfoliante Corporal Café" [ref=f46e279]
+          - generic [ref=f46e280]:
+            - generic [ref=f46e281]: Pure
+            - heading "Esfoliante Corporal Café" [level=3] [ref=f46e282] [cursor=pointer]
+            - generic [ref=f46e283]: ⭐ 4.8 (678)
+            - generic [ref=f46e284]:
+              - generic [ref=f46e285]: R$ 44,90
+              - generic [ref=f46e286]: R$ 54,90
+            - paragraph [ref=f46e287]: em até 6x de R$ 7,48 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e288] [cursor=pointer]
+        - generic [ref=f46e289]:
+          - generic [ref=f46e290]:
+            - generic [ref=f46e291]: OFERTA
+            - generic [ref=f46e292]: 25% OFF
+            - button "🤍" [ref=f46e293] [cursor=pointer]
+            - img "Kit Maquiagem Completo" [ref=f46e294]
+          - generic [ref=f46e295]:
+            - generic [ref=f46e296]: Luxe
+            - heading "Kit Maquiagem Completo" [level=3] [ref=f46e297] [cursor=pointer]
+            - generic [ref=f46e298]: ⭐ 4.9 (1543)
+            - generic [ref=f46e299]:
+              - generic [ref=f46e300]: R$ 299,90
+              - generic [ref=f46e301]: R$ 399,90
+            - paragraph [ref=f46e302]: em até 6x de R$ 49,98 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e303] [cursor=pointer]
+        - generic [ref=f46e304]:
+          - generic [ref=f46e305]:
+            - button "🤍" [ref=f46e306] [cursor=pointer]
+            - img "Água Micelar 200ml" [ref=f46e307]
+          - generic [ref=f46e308]:
+            - generic [ref=f46e309]: Pure
+            - heading "Água Micelar 200ml" [level=3] [ref=f46e310] [cursor=pointer]
+            - generic [ref=f46e311]: ⭐ 4.7 (876)
+            - generic [ref=f46e312]: R$ 29,90
+            - paragraph [ref=f46e314]: em até 6x de R$ 4,98 sem juros
+            - button "Adicionar ao carrinho" [ref=f46e315] [cursor=pointer]
+  - dialog [ref=f46e316]:
+    - generic [ref=f46e317]:
+      - heading "🛒 Seu Carrinho" [level=2] [ref=f46e318]
+      - button "Fechar carrinho" [ref=f46e319] [cursor=pointer]: ✕
+    - generic [ref=f46e320]:
+      - generic [ref=f46e321]: Cupom de desconto
+      - textbox "Cupom de desconto" [ref=f46e322]
+      - button "Aplicar" [ref=f46e323] [cursor=pointer]
+    - paragraph [ref=f46e325]: Seu carrinho está vazio.
+  - option "Selecione" [selected]
+  - option "Cartão de Crédito"
+  - option "PIX (5% desconto)"
+  - option "Boleto"
+  - option "1x sem juros" [selected]
+  - option "2x sem juros"
+  - option "3x sem juros"
+  - option "4x sem juros"
+  - option "5x sem juros"
+  - option "6x sem juros"
+  - dialog [ref=f46e326]:
+    - generic [ref=f46e327]:
+      - heading "💖 Seus Favoritos" [level=2] [ref=f46e328]
+      - button "Fechar favoritos" [ref=f46e329] [cursor=pointer]: ✕
+    - paragraph [ref=f46e331]: Você ainda não favoritou nenhum produto.
+  - contentinfo [ref=f46e333]:
+    - generic [ref=f46e334]:
+      - generic [ref=f46e335]:
+        - generic [ref=f46e336]:
+          - heading "BEAUTY STORE" [level=4] [ref=f46e337]
+          - paragraph [ref=f46e338]: Sua loja de cosméticos favorita. Beleza, qualidade e preço justo.
+        - generic [ref=f46e339]:
+          - heading "Institucional" [level=4] [ref=f46e340]
+          - list [ref=f46e341]:
+            - listitem [ref=f46e342]: Sobre nós
+            - listitem [ref=f46e343]: Trabalhe conosco
+            - listitem [ref=f46e344]: Sustentabilidade
+        - generic [ref=f46e345]:
+          - heading "Ajuda" [level=4] [ref=f46e346]
+          - list [ref=f46e347]:
+            - listitem [ref=f46e348]: Trocas e devoluções
+            - listitem [ref=f46e349]: Política de privacidade
+            - listitem [ref=f46e350]: Perguntas frequentes
+        - generic [ref=f46e351]:
+          - heading "Newsletter" [level=4] [ref=f46e352]
+          - paragraph [ref=f46e353]: "Receba ofertas exclusivas:"
+          - generic [ref=f46e354]:
+            - generic [ref=f46e355]: Seu e-mail para newsletter
+            - textbox "Seu e-mail para newsletter" [ref=f46e356]:
+              - /placeholder: Seu e-mail
+            - button "OK" [ref=f46e357] [cursor=pointer]
+      - paragraph [ref=f46e358]: © 2026 Beauty Store Cosméticos — CNPJ 00.000.000/0001-00
+      - link "← Voltar ao portfólio" [ref=f46e359] [cursor=pointer]:
+        - /url: ../../index.html

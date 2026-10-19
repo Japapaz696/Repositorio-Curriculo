@@ -1,0 +1,80 @@
+- generic [active] [ref=f53e1]:
+  - link "Pular para o agendamento" [ref=f53e2] [cursor=pointer]:
+    - /url: "#booking"
+  - banner [ref=f53e3]:
+    - generic [ref=f53e4]:
+      - link "Seu Manoel, ir para o agendamento" [ref=f53e5] [cursor=pointer]:
+        - /url: "#booking"
+        - generic [aria-hidden] [ref=f53e6]: SM
+        - generic [ref=f53e7]: Seu Manoel
+      - link "Ver registros" [ref=f53e9] [cursor=pointer]:
+        - /url: "#local-bookings"
+  - main [ref=f53e10]:
+    - region [ref=f53e11]:
+      - heading "Agende seu horário em poucos passos." [level=1] [ref=f53e12]
+      - paragraph [ref=f53e13]: Este fluxo é uma demonstração. Os dados ficam somente neste navegador e não são enviados a uma barbearia.
+    - region "Fluxo de agendamento" [ref=f53e14]:
+      - generic [ref=f53e15]:
+        - list "Progresso do agendamento" [ref=f53e16]:
+          - listitem [ref=f53e17]:
+            - generic [aria-hidden] [ref=f53e18]: "1"
+            - generic [ref=f53e19]: Serviço
+          - listitem [ref=f53e20]:
+            - generic [aria-hidden] [ref=f53e21]: "2"
+          - listitem [ref=f53e22]:
+            - generic [aria-hidden] [ref=f53e23]: "3"
+          - listitem [ref=f53e24]:
+            - generic [aria-hidden] [ref=f53e25]: "4"
+          - listitem [ref=f53e26]:
+            - generic [aria-hidden] [ref=f53e27]: "5"
+          - listitem [ref=f53e28]:
+            - generic [aria-hidden] [ref=f53e29]: "6"
+        - region [ref=f53e31]:
+          - generic [ref=f53e32]:
+            - paragraph [ref=f53e33]: Escolha 1 de 6
+            - heading "Qual atendimento você quer?" [level=2] [ref=f53e34]
+            - paragraph [ref=f53e35]: Selecione um serviço demonstrativo para continuar.
+          - group "Serviços disponíveis" [ref=f53e36]:
+            - generic [ref=f53e38]:
+              - generic [ref=f53e39]:
+                - radio "Corte 30 min R$ 45,00" [ref=f53e40]
+                - generic [ref=f53e41]:
+                  - generic [ref=f53e42]: Corte
+                  - generic [ref=f53e43]:
+                    - generic [ref=f53e44]: 30 min
+                    - generic [ref=f53e45]: R$ 45,00
+              - generic [ref=f53e46]:
+                - radio "Barba 30 min R$ 35,00" [ref=f53e47]
+                - generic [ref=f53e48]:
+                  - generic [ref=f53e49]: Barba
+                  - generic [ref=f53e50]:
+                    - generic [ref=f53e51]: 30 min
+                    - generic [ref=f53e52]: R$ 35,00
+              - generic [ref=f53e53]:
+                - radio "Corte e barba 60 min R$ 75,00" [ref=f53e54]
+                - generic [ref=f53e55]:
+                  - generic [ref=f53e56]: Corte e barba
+                  - generic [ref=f53e57]:
+                    - generic [ref=f53e58]: 60 min
+                    - generic [ref=f53e59]: R$ 75,00
+              - generic [ref=f53e60]:
+                - radio "Cuidado facial 45 min R$ 50,00" [ref=f53e61]
+                - generic [ref=f53e62]:
+                  - generic [ref=f53e63]: Cuidado facial
+                  - generic [ref=f53e64]:
+                    - generic [ref=f53e65]: 45 min
+                    - generic [ref=f53e66]: R$ 50,00
+    - region "Aviso sobre a demonstração" [ref=f53e67]:
+      - paragraph [ref=f53e68]:
+        - strong [ref=f53e69]: "Sobre esta demonstração:"
+        - text: os serviços, profissionais, preços e horários abaixo são fictícios e servem apenas para apresentar a experiência de agendamento.
+    - region [ref=f53e70]:
+      - heading "Registros neste navegador" [level=2] [ref=f53e73]
+      - paragraph [ref=f53e74]: Cancelamentos permanecem visíveis no histórico e liberam o horário na demonstração.
+      - generic [ref=f53e76]:
+        - heading "Nenhum registro local ainda." [level=3] [ref=f53e77]
+        - paragraph [ref=f53e78]: Conclua um agendamento demonstrativo para vê-lo aqui.
+  - generic [ref=f53e79]:
+    - button "Ver resumo" [ref=f53e80] [cursor=pointer]
+    - button "Continuar" [disabled] [ref=f53e81]
+  - status [ref=f53e82]

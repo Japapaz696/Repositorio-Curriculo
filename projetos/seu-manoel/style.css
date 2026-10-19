@@ -592,7 +592,17 @@ input:user-invalid { border-color: var(--danger); }
     .time-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .customer-form { grid-template-columns: 1fr; }
     .customer-form .input-group:last-child { grid-column: auto; }
-    .booking-actions { display: none; }
+    .booking-actions { justify-content: flex-start; }
+    .booking-actions #continue-button { display: none; }
+    /* Voltar sempre visível e clicável acima da barra fixa em telas baixas */
+    .booking-actions:has(#back-button:not([hidden])) {
+        position: sticky;
+        bottom: calc(73px + env(safe-area-inset-bottom));
+        z-index: 10;
+        background: var(--surface);
+        border-top: 1px solid var(--line);
+        padding-top: 10px;
+    }
     .confirmation__details { grid-template-columns: 1fr; }
     .confirmation__actions { display: grid; grid-template-columns: 1fr; }
     .confirmation__actions .button { width: 100%; }
