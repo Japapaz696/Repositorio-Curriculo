@@ -60,6 +60,15 @@ Sem commit, push ou publicação. Sem instalação de dependências.
 - [x] Worktree `C:\Users\Lucas\Documents\OMNIROUTE\Curr-culo-publish-prep`, branch `prep/publish`, tracking origin/main.
 - [x] Transferência seletiva: apenas 3 arquivos papitos (index/style/script). Beauty, Seu Manoel e raiz idênticos.
 - [x] Recursos validados (previews, vídeos, cart-core, svg, booking-rules).
+- [x] Testes no worktree v1: node 15/15, bloco-2 15/15, bloco-3 10/10, robustez PASS, matriz redesign 30/30, smoke portfolio PASS.
+- [x] Commit local v1: `0b03fdb` (3 papitos, +279/-198). Fast-forward inicial OK.
+- [x] Push interrompido: origin/main avançou para `be0b7f0` (reintroduziu lixo via `41c8078`); non-fast-forward.
+- [x] Investigação remota: commits `41c8078` (565 arquivos, lixo) + `7d5feff` (merge) + `be0b7f0` (redesign + relatórios + screenshots). Nenhum segredo/CPF real/telefone real reintroduzido; apenas e-mail público e placeholders de teste.
+- [x] Higiene v2: nova branch `prep/publish-v2` + worktree `Curr-culo-publish-v2` a partir de `origin/main` (be0b7f0). 305 arquivos de desenvolvimento removidos do índice (git rm --cached), cópias locais preservadas. .gitignore/.gitattributes preservados. `opencode.json` removido do índice.
+- [x] Commit local v2: `33a2fc5` ("chore: remove development artifacts from index (prep/publish-v2)"). Working tree limpo.
+- [x] Fast-forward confirmado: origin/main (be0b7f0) é ancestral de HEAD (33a2fc5); 1 commit ahead; 305 arquivos deletados, 0 adições.
+- [x] Validação final v2: node --test 15/15; bloco-2 15/15; bloco-3 10/10; robustez PASS; matriz redesign 30/30; portfolio/beauty/manoel smoke PASS (títulos corretos, sem overflow, 0 erros JS). Links externos github.com retornam 404 (repo não publicado ainda — esperado).
+- [ ] Push/publicação — aguardando autorização do usuário.
 - [x] Testes a partir do worktree: node 15/15, bloco-2 15/15, bloco-3 10/10, robustez PASS, matriz redesign 30/30, portfólio+3 projetos 200 sem erros.
 - [x] Commit local `0b03fdb` em `prep/publish` (3 arquivos, +279/−198). Fast-forward confirmado (1 commit à frente, sem force).
 - [ ] Push/publicação — aguardando autorização explícita do usuário.
