@@ -59,6 +59,7 @@ export function isBookingRecord(value) {
         && typeof value.professionalId === 'string'
         && typeof value.professionalLabel === 'string'
         && typeof value.date === 'string'
+        && parseLocalDate(value.date) !== null
         && Number.isInteger(value.startMinute)
         && Number.isInteger(value.endMinute)
         && value.endMinute > value.startMinute
