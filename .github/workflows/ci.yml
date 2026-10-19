@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Testes das regras de agendamento
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fazer checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # A unica dependencia do projeto e o Playwright, usado apenas pela
+      # auditoria visual. O postinstall dele baixa os navegadores do Chromium,
+      # que a suite de testes nao usa -- por isso os scripts sao desativados
+      # para manter o CI rapido e deterministico.
+      - name: Instalar dependencias
+        run: npm ci --ignore-scripts
+
+      # Comando real da suite: node --test sobre o arquivo que o proprio
+      # repositorio indica no cabecalho do teste.
+      - name: Rodar os testes
+        run: node --test projetos/seu-manoel/booking-rules.test.mjs
