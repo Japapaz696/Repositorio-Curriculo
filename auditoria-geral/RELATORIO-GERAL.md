@@ -72,7 +72,7 @@ A auditoria independente do @auditor-qa (método próprio, 4 páginas × 7 largu
 
 - **@revisor-conteudo — RECEBIDO (conteúdo):** 0 altos, 1 médio, 3 baixos. Verificou: nenhum termo de avaliação/invenção legado nos 3 arquivos; hero demonstrativo; seção "Como funciona" factual; combos com ids/preços preservados (39,90/65,90/89,90); catálogo 13 produtos com preços exatamente originais; textos funcionais conferidos contra o código ("não altera o preço", "+R$ 8,00", 2.000 caracteres). **4 sugestões aplicadas:** (MÉDIO) aviso `#checkout-demo` "Demonstração · nenhum dado é enviado ou armazenado." + `aria-describedby` no diálogo de checkout; (BAIXO) toast "🎉 Pedido simulado confirmado." (antes "Em preparo."); (BAIXO) passo Personalize com "retire ingredientes quando disponíveis"; (BAIXO) label da busca "Encontre seu próximo lanche". Observação registrada sem alteração: "Combo Família" existe como produto id 6 e combo-3 (mesmo preço/conteúdo consistente). Veredito do revisor após aplicação: conteúdo aprovado no escopo revisado.
 - **@auditor-qa — RECEBIDO (QA técnico, testes próprios no Edge 155):** **PASS no escopo testado.** 7/7 viewports limpos (overflow/imagens/console/rede = 0); 11/11 fluxos (busca bacon/cheddar, categoria, destaque do hero→modal, qty→R$ 86,70, adicionar, Escape+foco, reload, quick-add); acessibilidade: skip link com bypass do header comprovado (Enter → main, Tab seguinte no CTA), 10 controles com outline ≥3px, todos alvos ≥44px (menor = 44), regiões live, reduced-motion, h1 único sem salto de nível; contraste 28 combinações ≥4,5 (6,22–16,46) — leituras baixas iniciais eram estado transiente da animação; re-executou todas as suítes (15+15+10+1+30 verificações, todas verdes). **1 observação BAIXA aplicada:** `#close-checkout` media 20×38px (`style.css:281`) → ajustado para 44×44 (`min-width/min-height + inline-flex`), GREEN medido. Falsos positivos próprios isolados (limiar do skip link; contraste durante animação). Limitações: sem leitor de tela real, só Chromium/Edge, sem zoom 200%/Lighthouse; não enviou o checkout (nós o validamos por separado).
-- **@diretor-visual — PARECER FINAL AINDA PENDENTE** (sessão em andamento: curadoria de fotos + avaliação visual da implementação).
+- **@diretor-visual — RECEBIDO (FINAL, visual):** APROVADO PARA PUBLICAÇÃO do ponto de vista visual. Evolução perceptível SIM em Hero (composição assimétrica sólida, sem loop decorativo), cardápio (bloco compacto unificado, cards com respiro, preços tabulares) e combos (superfície distinta, legenda, sem preço riscado/promoção). Seção "Como funciona" substituiu depoimentos fictícios por narrativa funcional. 3 observações não bloqueantes: (MÉDIO) repetição da foto no Hero e no destaque — resolvido na rodada de refinamento substituindo o hero por `photo-1551782450-a2132b4ba21d`; (BAIXO) legenda "Fotografia ilustrativa" discreta em 390; (BAIXO) separador de categorias pode ter menos peso. Recomendações de imagens (id2, id7, hero) aplicadas (seção 11.4). Parecer FINAL.
 
 ## 6. Falsos positivos descartados (com prova)
 
@@ -121,8 +121,6 @@ Ressalvas:
 1. Limitações de método (seção 9): sem leitor de tela real, sem aparelho físico, sem Safari/Firefox, sem axe/Lighthouse.
 2. Itens visuais adiados (seção 9), todos com justificativa registrada — a maioria foi tratada pelo redesign da seção 11.
 3. Publicação suspensa por decisão do usuário, aguardando avaliação do redesign.
-
-Nenhum commit, push ou publicação foi feito.
 
 ## 11. Redesign premium do Papitos — "chapa editorial" (18/10/2026, rodada 2)
 
@@ -176,3 +174,33 @@ Preservados sem refatoração: 13 produtos + 3 combos e ids/preços, busca por n
 - `node --test` **15/15 PASS**; `bloco-2` **15/15**; `bloco-3` **10/10**; `robustez` **PASS**; matriz redesign **30/30 PASS**; erros JS 0.
 
 **Papitos está definitivamente pronto para publicação**, salvo aprovação final do usuário. Nenhum commit, push ou publicação foi realizado.
+
+## 12. Preparação de publicação — Option C (19/10/2026)
+
+Após a recusa da publicação (seção 10), o usuário autorizou preparar uma versão limpa para push sem alterar o repositório original. Executado:
+
+- **Backup:** branch `backup/pre-publish-41c8078` → `41c8078` (working tree original preservado).
+- **Fetch:** `origin/main` = `d45ac44` (PR #1 `chore/portfolio-privacy` — remove 629 arquivos de auditoria/evidências/docs comerciais e adiciona `.gitignore`/`.gitattributes`).
+- **Worktree:** `C:\Users\Lucas\Documents\OMNIROUTE\Curr-culo-publish-prep`, branch `prep/publish` (tracking `origin/main`, HEAD `d45ac44`).
+- **Transferência seletiva:** apenas `projetos/papitos/index.html`, `style.css`, `script.js` (redesign + refinamento de fotos + acessibilidade + conteúdo). Beauty Store, Seu Manoel e raiz já presentes em `origin/main` (idênticos aos locais). `cart-core.js` idêntico.
+- **Recursos validados:** previews, vídeos experimento-01/02/03, cart-core, imagem-indisponivel.svg, booking-rules.mjs — todos existem. `projeto-01/video/video.mp4` ausente e não referenciado pelo HTML publicado (só em `projects.js`, não usado).
+- **Segurança:** sem segredos/CPF real; e-mail público, placeholders fictícios, telefone de teste.
+- **Testes executados a partir do worktree** (servidor `tools/serve.cjs` em `:8139` servindo o worktree): `node --test` 15/15; bloco-2 15/15; bloco-3 10/10; robustez PASS; matriz redesign 30/30; portfólio + 3 projetos retornam 200 sem erros JS.
+- **Commit local (sem push):** `0b03fdb` em `prep/publish` — "feat(papitos): redesign premium chapa editorial + ajustes de acessibilidade/conteudo" (3 arquivos, +279/−198).
+- **Fast-forward:** `origin/main` é ancestral de `prep/publish` (1 commit à frente). Push pode ser feito com fast-forward quando autorizado.
+
+### Arquivos alterados no commit (worktree)
+- `projetos/papitos/index.html` (+123/−92 aprox.)
+- `projetos/papitos/style.css` (+107/−172 aprox.)
+- `projetos/papitos/script.js` (+14/−15 aprox.)
+
+### Estado do repositório original
+- Intocado (backup `backup/pre-publish-41c8078` criado). Working tree original mantém as evidências/relatórios locais. Nenhum commit/push/publicação feito no original.
+
+### Pendente para publicação (aguardando autorização do usuário)
+- Push de `prep/publish` para `origin/main` (fast-forward, sem force).
+- Ativar GitHub Pages (se ainda não ativo) e validar URL pública.
+- Verificar imagens/links na URL publicada (case-sensitive, GH Pages).
+
+Nenhum commit, push ou publicação foi feito sem autorização.
+

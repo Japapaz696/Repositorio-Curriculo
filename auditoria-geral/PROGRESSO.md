@@ -52,3 +52,14 @@ Sem commit, push ou publicação. Sem instalação de dependências.
 - Lógica de carrinho/personalização/checkout do Papitos, filtros/favoritos do Beauty e regras de agendamento do Seu Manoel: preservados.
 - Arquivo `nul` (0 bytes, não rastreado): preservado, origem a esclarecer com o usuário.
 - Nome profissional "Lucas Santana da Paz" (Japapaz secundário): confirmado, não alterado.
+
+## Preparação de publicação (Option C, 19/10/2026)
+
+- [x] Backup local: branch `backup/pre-publish-41c8078` → `41c8078`.
+- [x] Fetch origin: `origin/main` = `d45ac44` (PR #1 privacy).
+- [x] Worktree `C:\Users\Lucas\Documents\OMNIROUTE\Curr-culo-publish-prep`, branch `prep/publish`, tracking origin/main.
+- [x] Transferência seletiva: apenas 3 arquivos papitos (index/style/script). Beauty, Seu Manoel e raiz idênticos.
+- [x] Recursos validados (previews, vídeos, cart-core, svg, booking-rules).
+- [x] Testes a partir do worktree: node 15/15, bloco-2 15/15, bloco-3 10/10, robustez PASS, matriz redesign 30/30, portfólio+3 projetos 200 sem erros.
+- [x] Commit local `0b03fdb` em `prep/publish` (3 arquivos, +279/−198). Fast-forward confirmado (1 commit à frente, sem force).
+- [ ] Push/publicação — aguardando autorização explícita do usuário.
