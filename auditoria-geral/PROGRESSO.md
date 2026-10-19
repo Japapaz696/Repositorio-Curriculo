@@ -28,8 +28,10 @@ Sem commit, push ou publicação. Sem instalação de dependências.
 - [x] Revalidação das 6 correções da auditoria global: 7/7 PASS (`auditoria-geral/tests/verifica-correcoes.browser.js`)
 - [x] Parecer final @revisor-conteudo — 0 altos, 1 médio, 3 baixos; 4 sugestões aplicadas (checkout-demo, toast simulado, "quando disponíveis", label da busca) e revalidadas
 - [x] Parecer final @auditor-qa — PASS no escopo testado (7 viewports, 11 fluxos, a11y, todas as suítes); observação baixa `#close-checkout` aplicada (44×44 GREEN)
-- [ ] Parecer final @diretor-visual (em execução: fotos + avaliação visual)
-- [x] Verificação regressiva completa pós-aplicação: matriz Papitos redesenhado 30/30 PASS, verificações 6 correções 7/7 PASS, node --test 15/15 PASS; `#close-checkout` 44×44 GREEN, toast simulado, checkout-demo + aria-describedby.
+- [x] Parecer final @diretor-visual — FINAL: aprovado para publicação com 3 ajustes não bloqueantes (repetição hero×destaque, legenda discreta, peso do separador); recomendações de fotos id2/id7/hero
+- [x] Refinamento final de fotografias (19/10/2026): id2, id7 e Hero com fotos distintas; alts semânticos; 16:10/cover mantidos
+- [x] Validação final: imagens carregam (HTTP 200), sem distorção/overflow; node --test 15/15; bloco-2 15/15; bloco-3 10/10; robustez PASS; matriz redesign 30/30; erros 0
+- [x] Papitos definitivamente pronto para publicação (aguardando aprovação final do usuário)
 
 ## Achados e correções desta rodada
 

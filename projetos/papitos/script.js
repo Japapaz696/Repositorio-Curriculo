@@ -6,12 +6,12 @@
 // ===== Dados do cardápio =====
 const produtos = [
     { id: 1, nome: "Clássico Papitos", categoria: "hamburgueres", preco: 28.90, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop", desc: "Blend artesanal 180g, queijo cheddar, alface, tomate, picles e molho da casa." },
-    { id: 2, nome: "Bacon Lover", categoria: "hamburgueres", preco: 34.90, img: "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=600&auto=format&fit=crop", desc: "Blend 180g, dupla de bacon crispy, queijo prato, cebola caramelizada e barbecue." },
+    { id: 2, nome: "Bacon Lover", categoria: "hamburgueres", preco: 34.90, img: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop", desc: "Blend 180g, dupla de bacon crispy, queijo prato, cebola caramelizada e barbecue." },
     { id: 3, nome: "Smash Triplo", categoria: "hamburgueres", preco: 42.90, img: "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=600&auto=format&fit=crop", desc: "Três blends smash de 90g, queijo derretido, cebola roxa e molho especial." },
     { id: 4, nome: "Frango Crispy", categoria: "hamburgueres", preco: 26.90, img: "https://images.unsplash.com/photo-1615297928064-24977384d0da?q=80&w=600&auto=format&fit=crop", desc: "Filé de frango empanado, coleslaw, picles e maionese de ervas." },
     { id: 5, nome: "Veggie do Chef", categoria: "hamburgueres", preco: 29.90, img: "https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=600&auto=format&fit=crop", desc: "Hambúrguer de grão-de-bico, queijo branco, rúcula e tomate seco." },
     { id: 6, nome: "Combo Família", categoria: "combos", preco: 89.90, img: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=600&auto=format&fit=crop", desc: "2 clássicos + 1 bacon + batata grande + 4 refris 350ml." },
-    { id: 7, nome: "Combo Dupla", categoria: "combos", preco: 59.90, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=600&auto=format&fit=crop", desc: "2 burgers à sua escolha + batata grande + 2 refris." },
+    { id: 7, nome: "Combo Dupla", categoria: "combos", preco: 59.90, img: "https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?q=80&w=600&auto=format&fit=crop", desc: "2 burgers à sua escolha + batata grande + 2 refris." },
     { id: 8, nome: "Combo Kids", categoria: "combos", preco: 24.90, img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=600&auto=format&fit=crop", desc: "Mini burger + batata pequena + suco natural + brinde surpresa." },
     { id: 9, nome: "Coca-Cola 350ml", categoria: "bebidas", preco: 7.00, img: "https://images.unsplash.com/photo-1554866585-cd94860890b7?q=80&w=600&auto=format&fit=crop", desc: "Lata gelada 350ml." },
     { id: 10, nome: "Suco Natural", categoria: "bebidas", preco: 9.00, img: "https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=600&auto=format&fit=crop", desc: "Laranja, abacaxi ou maracujá — 500ml." },
@@ -22,7 +22,7 @@ const produtos = [
 
 // Combos demonstrativos. Preço único, sem descontos ou promoções.
 const combos = [
-    { id: "combo-1", nome: "Combo Bacon", img: "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=600&auto=format&fit=crop", desc: "Bacon Lover acompanhado de batata rústica e refrigerante.", itens: ["Bacon Lover", "Batata rústica grande", "Coca-Cola 350ml"], preco: 39.90 },
+    { id: "combo-1", nome: "Combo Bacon", img: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop", desc: "Bacon Lover acompanhado de batata rústica e refrigerante.", itens: ["Bacon Lover", "Batata rústica grande", "Coca-Cola 350ml"], preco: 39.90 },
     { id: "combo-2", nome: "Combo Papitos Premium", img: "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=600&auto=format&fit=crop", desc: "Smash Triplo com onion rings e milkshake.", itens: ["Smash Triplo", "Onion rings", "Milkshake Ovomaltine"], preco: 65.90 },
     { id: "combo-3", nome: "Combo Família", img: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=600&auto=format&fit=crop", desc: "Quatro lanches, batata grande e quatro refrigerantes.", itens: ["2x Clássico", "1x Bacon Lover", "Batata grande", "4x Coca 350ml"], preco: 89.90 },
 ];
@@ -56,7 +56,7 @@ function node(tag, className, text) {
 }
 function image(src, name) {
     const img = node('img'); img.src = src; img.alt = name; img.loading = 'lazy'; img.decoding = 'async';
-    img.width = 600; img.height = 375;
+    // Nativo do CSS controla aspect-ratio; evitar height/width fixos para não distorcer 16:10.
     return img;
 }
 document.addEventListener('error', event => {
@@ -106,7 +106,7 @@ function renderMenu() {
         const card = node('article', 'menu-card'); card.dataset.category = p.categoria;
         const media = action('', 'details', p.id, 'menu-img product-details');
         media.setAttribute('aria-label', `Ver detalhes de ${p.nome}`);
-        media.setAttribute('aria-haspopup', 'dialog'); media.append(image(p.img, ''), node('span', 'details-label', 'Ver detalhes e personalizar'));
+        media.setAttribute('aria-haspopup', 'dialog'); media.append(image(p.img, p.nome), node('span', 'details-label', 'Ver detalhes e personalizar'));
         const body = node('div', 'menu-body');
         const footer = node('div', 'menu-footer');
         const quick = action('+ Adicionar', 'quick', p.id); quick.setAttribute('aria-label', `Adicionar ${p.nome} ao carrinho`);

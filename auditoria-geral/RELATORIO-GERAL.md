@@ -156,6 +156,23 @@ Preservados sem refatoração: 13 produtos + 3 combos e ids/preços, busca por n
 | Revalidação das 6 correções da auditoria `auditoria-geral/tests/verifica-correcoes.browser.js` | **7/7 PASS** — busca mobile Beauty, favorito sob hover, reduced-motion Beauty, contraste Beauty (4,81/6,04/4,81), resumo do checkout Beauty ("1× Batom… Total R$ 49,90", carrinho zerado), rótulos/etapas do portfólio, Voltar mobile do Seu Manoel (date→professional, `hitIsBack=true`, centerY 748) |
 | Erros JS / overflow / imagens quebradas | 0 / 0 / 0 (apenas `#pm-img` vazio com modal fechado — benigno e conhecido) |
 
-### 11.3 Evidências
+### 11.4 Refinamento final de fotografias (19/10/2026)
 
-Capturas depois: `auditoria-geral/evidencias/screenshots/papitos-redesign-{hero,cardapio,combos,carrinho}-{1440,390}.png` (baseline antes em `projetos/papitos/evidencias/redesign-premium/antes-*.png`).
+Último ajuste autorizado: coerência das fotos, sem alteração de funcionalidade ou design.
+
+| Arquivo | Alteração | Origem/licença |
+|---|---|---|
+| `projetos/papitos/script.js:9` (id2 Bacon Lover) | URL `photo-1558030006-450675393462` → `photo-1550547660-d9450f859349` (w=600) | Unsplash (uso livre) — substitui foto de "carne fatiada" por burger com bacon |
+| `projetos/papitos/script.js:14` (id7 Combo Dupla) | URL `photo-1573080496219-bb080dd4f877` → `photo-1596662951482-0c4ba74a6df6` (w=600) | Unsplash (uso livre) — substitui "cesta de batatas" por burger/combo |
+| `projetos/papitos/script.js:25` (combo-1) | URL atualizada para acompanhar a foto do id2 | Unsplash (uso livre) |
+| `projetos/papitos/index.html:63` (Hero figura) | URL `photo-1568901346375-…` → `photo-1551782450-a2132b4ba21d` (w=1280) | Unsplash (uso livre) — elimina repetição com id1 (Clássico) |
+| `projetos/papitos/index.html:53` (thumb do destaque) | `alt=""` → `alt="Clássico Papitos"` | — |
+| `projetos/papitos/script.js:109` (cards) | `image(p.img, '')` → `image(p.img, p.nome)` (alt semântico por produto) | — |
+
+**Validação final:**
+- HTTP 200 + `image/jpeg` para as 3 novas URLs; dimensões: hero 1280×854, id2 600×750, id7 600×901 (todas carregam, sem quebra).
+- Hero não repete a foto do id1 (contagem de `photo-1568901346375` = 2: thumb + card do Clássico, esperado).
+- `object-fit: cover` + `aspect-ratio: 16/10` + `height: auto` mantidos; sem distorção; overflow 0 em 7 larguras.
+- `node --test` **15/15 PASS**; `bloco-2` **15/15**; `bloco-3` **10/10**; `robustez` **PASS**; matriz redesign **30/30 PASS**; erros JS 0.
+
+**Papitos está definitivamente pronto para publicação**, salvo aprovação final do usuário. Nenhum commit, push ou publicação foi realizado.
