@@ -48,3 +48,19 @@ portfolio-mobile-390.png
 # Vídeos: o index.html usa as cópias em assets/ai-creative-lab
 assets/creative/
 assets/ai-creative-lab/projeto-01/video/
+
+# Editores e ferramentas locais
+.idea/
+.vscode/
+*.local
+
+# Artefatos do Playwright (dependência do projeto para a auditoria visual)
+playwright-report/
+test-results/
+blob-report/
+.playwright/
+
+# Logs e caches de ferramentas
+*.tsbuildinfo
+.vite/
+.cache/
