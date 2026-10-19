@@ -109,7 +109,8 @@
               <div class="hero-tabpanel" role="tabpanel" id="hero-panel-evo" aria-labelledby="hero-tab-evo" tabindex="0" hidden>
                 <ul class="hero-panel-list">
                   <li>Análise e Desenvolvimento de Sistemas — previsão de conclusão em 2027</li>
-                  <li>Projetos próprios em demonstração local: Seu Manoel, Papitos e Beauty Store</li>
+                  <li>Sistemas próprios: SupportFlow (API + PostgreSQL) e Site-veronica (agendamento com token por paciente)</li>
+                  <li>Demoções web: Seu Manoel, Papitos e Beauty Store</li>
                   <li>Estudo de automação e IA generativa (n8n, APIs e LLMs)</li>
                 </ul>
                 <a class="hero-more" href="#journey">Ver trajetória completa <span aria-hidden="true">↘</span></a>
@@ -252,8 +253,10 @@
             <h3 id="supportflow-title">SupportFlow</h3>
           </div>
           <div class="supportflow-note">
-            <p>Projeto próprio de sistema de atendimento em desenvolvimento, com React/Vite, backend, PostgreSQL, autenticação e fluxos de tickets, SLA e notificações. Há build, migrações, typecheck, testes e capturas locais com dados sintéticos registrados no projeto.</p>
-            <p>Ele não entra como demo embutida: uma reprodução honesta exige backend, banco, autenticação e dados. As telas reais aparecem como evidência visual, não como uma simulação estática.</p>
+            <p>Sistema de chamados próprio, em desenvolvimento: monorepo com React/Vite no front-end, API Express/TypeScript e PostgreSQL com migrations versionadas. Quatro perfis de acesso (solicitante, agente, gestor e administrador), políticas de SLA por prioridade com prazos calculados e persistidos na mesma transação do chamado, comentários públicos e internos, histórico imutável de eventos, notificações e diagnóstico técnico por chamado.</p>
+            <p><strong>116 testes automatizados</strong> — 80 de integração contra PostgreSQL 16 real, 26 de interface e 10 de contrato — com build, typecheck, lint, formatação e CI verde a cada commit. O painel administrativo é protegido por sessão JWT em cookie <code>HttpOnly</code>; o token do paciente fica só na memória do navegador.</p>
+            <p>Ele não entra como demo embutida: uma reprodução honesta exige backend, banco, autenticação e dados. As telas reais aparecem como evidência visual, não como uma simulação estática. <a href="https://github.com/Japapaz696/SupportFlow" rel="noopener">Código no GitHub</a></p>
+            <p>Os mesmos critérios valem para os outros dois sistemas próprios: <a href="https://github.com/Japapaz696/Site-veronica" rel="noopener"><strong>Site-veronica</strong></a>, agendamento de consultas com PostgreSQL, sessão administrativa em cookie <code>HttpOnly</code> e token opaco por paciente (83 testes), e <a href="https://github.com/Japapaz696/barbearia" rel="noopener"><strong>barbearia</strong></a>, demo de fidelidade com senha guardada como derivador PBKDF2 e PWA com cache offline (10 testes).</p>
           </div>
         </aside>
       </div>

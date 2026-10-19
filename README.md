@@ -17,17 +17,30 @@ Demonstrar capacidade de criar interfaces responsivas, organizar estados no nave
 - navegação por seções e layout responsivo;
 - apresentação de projetos e experimentos;
 - páginas demonstrativas de pedido, agendamento e catálogo;
-- interações em JavaScript e persistência local onde indicada pelo próprio projeto.
+- interações em JavaScript e persistência local onde indicada pelo próprio projeto;
+- lógica das regras de agendamento do Seu Manoel coberta por **21 testes** (`node:test`), executados a cada commit pelo CI.
 
 ## Projetos apresentados
 
-- **Papitos:** cardápio e pedido demonstrativo com carrinho.
-- **Seu Manoel:** fluxo de agendamento em etapas.
-- **Beauty Store:** catálogo demonstrativo com busca, favoritos e checkout simulado.
+### Demos embutidas (navegáveis nesta página)
+
+| Projeto | O que demonstra |
+|---|---|
+| **Papitos** | cardápio, carrinho e pedido no navegador |
+| **Seu Manoel** | fluxo de agendamento em etapas, com regras de conflito de horário cobertas por testes |
+| **Beauty Store** | catálogo com busca, favoritos e checkout simulado |
+
+### Sistemas próprios (código aberto)
+
+| Projeto | O que é | Destaques técnicos |
+|---|---|---|
+| **[SupportFlow](https://github.com/Japapaz696/SupportFlow)** | Sistema de chamados full stack | API Express/TypeScript, PostgreSQL com migrations versionadas, JWT com quatro perfis de acesso, SLA por prioridade, **116 testes** e CI verde |
+| **[Site-veronica](https://github.com/Japapaz696/Site-veronica)** | Agendamento de consultas | Persistência em PostgreSQL, sessão administrativa em cookie `HttpOnly`, token opaco por agendamento, **83 testes** |
+| **[barbearia](https://github.com/Japapaz696/barbearia)** | Demo de barbearia com área do cliente | Senha guardada como derivador PBKDF2, PWA com cache offline, **10 testes** |
 
 ## Tecnologias
 
-HTML5 semântico, CSS3, JavaScript, LocalStorage, Git e GitHub Pages.
+HTML5 semântico, CSS3, JavaScript, LocalStorage, Git e GitHub Pages. Nos sistemas próprios: Node.js, Express, PostgreSQL, React, TypeScript, Vite, JWT e bcrypt.
 
 ## Acessibilidade e performance
 
@@ -41,12 +54,21 @@ Abra `index.html` no navegador ou use um servidor estático:
 python -m http.server 8000
 ```
 
+### Rodar os testes
+
+```bash
+node --test projetos/seu-manoel/booking-rules.test.mjs
+```
+
+O CI (`.github/workflows/ci.yml`) roda os testes a cada commit.
+
 ## Estrutura do projeto
 
 - `index.html`, `style.css` e `script.js` — portfólio principal;
 - `projetos/` — demonstrações independentes;
-- `assets/` — recursos visuais do portfólio.
+- `assets/` — recursos visuais do portfólio;
+- `tests/` — testes das regras de agendamento.
 
 ## Autor
 
-[Lucas Santana da Paz](https://github.com/Japapaz696) · [LinkedIn](https://www.linkedin.com/in/lucas-santana-da-paz-215816247) · [E-mail](mailto:lucaspaz696@gmail.com)
+[Lucas Santana da Paz](https://github.com/Japapaz696) · [LinkedIn](https://www.linkedin.com/in/lucas-santana-da-paz-215816247/) · [E-mail](mailto:lucaspaz696@gmail.com)
