@@ -35,7 +35,7 @@ Demonstrar capacidade de criar interfaces responsivas, organizar estados no nave
 | Projeto | O que é | Destaques técnicos |
 |---|---|---|
 | **[SupportFlow](https://github.com/Japapaz696/SupportFlow)** | Sistema de chamados full stack | API Express/TypeScript, PostgreSQL com migrations versionadas, JWT com quatro perfis de acesso, SLA por prioridade, **116 testes** e CI verde |
-| **[Site-veronica](https://github.com/Japapaz696/Site-veronica)** | Agendamento de consultas | Persistência em PostgreSQL, sessão administrativa em cookie `HttpOnly`, token opaco por agendamento, **91 testes** |
+| **[Site-veronica](https://github.com/Japapaz696/Site-veronica)** | Agendamento de consultas | Persistência em PostgreSQL, sessão administrativa em cookie `HttpOnly`, token opaco por agendamento, **90 testes** |
 | **[barbearia](https://github.com/Japapaz696/barbearia)** | Demo de barbearia com área do cliente | Senha guardada como derivador PBKDF2, PWA com cache offline, **10 testes** |
 
 ## Tecnologias
