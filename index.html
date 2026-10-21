@@ -18,11 +18,12 @@
 
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="wordmark" href="#inicio" aria-label="Ir para o início — Lucas Santana da Paz">
+      <a class="wordmark" href="#inicio">
         <span class="wordmark-mark" aria-hidden="true">L<span class="wordmark-slash">/</span>S</span>
         <span class="wordmark-name" aria-hidden="true">Lucas Santana da Paz</span>
+        <span class="sr-only">Ir para o início — Lucas Santana da Paz</span>
       </a>
-      <nav class="site-nav" aria-label="Principal">
+      <nav class="site-nav">
         <ul id="nav-links" class="nav-links">
           <li><a href="#experience">Experiência</a></li>
           <li><a href="#work">Projetos</a></li>
@@ -36,7 +37,7 @@
         <button id="palette-toggle" class="palette-toggle" type="button" aria-haspopup="dialog" aria-controls="command-palette">
           <span>Buscar</span><kbd data-shortcut-label>Ctrl K</kbd>
         </button>
-        <button id="theme-toggle" class="icon-button" type="button" aria-label="Ativar tema escuro" aria-pressed="false">
+        <button id="theme-toggle" class="icon-button" type="button" aria-label="Ativar tema escuro ◐" aria-pressed="false">
           <span aria-hidden="true">◐</span>
         </button>
         <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
@@ -55,12 +56,12 @@
           <h1 id="hero-title" class="hero-title"><span class="hero-line"><span class="hero-line-inner">LUCAS</span></span><span class="hero-line"><span class="hero-line-inner">SANTANA</span></span><span class="hero-line"><span class="hero-line-inner">DA PAZ</span></span></h1>
           <p class="hero-descriptor">Desenvolvimento Web | Sistemas Empresariais e ERP | SQL | Automação e IA</p>
           <p class="hero-statement">Estudante de Análise e Desenvolvimento de Sistemas com experiência profissional em suporte técnico ao ERP TecFood na Teknisa. Unindo a investigação de sistemas à construção de interfaces funcionais.</p>
-          <div class="hero-rail" aria-label="Contexto profissional">
+          <div class="hero-rail">
             <span>ADS (previsão de conclusão em 2027)</span>
             <span>Suporte ERP TecFood · Teknisa</span>
             <span>JavaScript · SQL · Automação</span>
           </div>
-          <div class="hero-links" aria-label="Navegação rápida">
+          <div class="hero-links">
             <a href="#work">Ver projetos <span aria-hidden="true">↘</span></a>
             <a href="#profile">Conhecer meu percurso <span aria-hidden="true">↘</span></a>
           </div>
@@ -68,7 +69,7 @@
           <div class="hero-panel" data-hero-tabs>
             <div class="hero-panel-top">
               <p class="section-index">Perfil em resumo</p>
-              <div class="hero-tablist" role="tablist" aria-label="Áreas do resumo do perfil">
+              <div class="hero-tablist" role="tablist">
                 <button type="button" class="hero-tab" role="tab" id="hero-tab-exp" aria-selected="true" aria-controls="hero-panel-exp">Experiência</button>
                 <button type="button" class="hero-tab" role="tab" id="hero-tab-comp" aria-selected="false" aria-controls="hero-panel-comp" tabindex="-1">Competências</button>
                 <button type="button" class="hero-tab" role="tab" id="hero-tab-evo" aria-selected="false" aria-controls="hero-panel-evo" tabindex="-1">Evolução</button>
@@ -183,7 +184,7 @@
                 <div><dt>Prova técnica</dt><dd>Reservas ativas bloqueiam slots, cancelamentos liberam horários e as regras têm cobertura com node:test.</dd></div>
                 <div><dt>Limite</dt><dd>Demonstração local. Não tem backend, autenticação, banco ou integração com agenda remota.</dd></div>
               </dl>
-              <ul class="case-proof" aria-label="Funcionalidades comprovadas">
+              <ul class="case-proof">
                 <li>6 etapas de agendamento</li>
                 <li>Regras em módulo separado</li>
                 <li>LocalStorage para histórico</li>
@@ -256,7 +257,7 @@
             <p>Sistema de chamados próprio, em desenvolvimento: monorepo com React/Vite no front-end, API Express/TypeScript e PostgreSQL com migrations versionadas. Quatro perfis de acesso (solicitante, agente, gestor e administrador), políticas de SLA por prioridade com prazos calculados e persistidos na mesma transação do chamado, comentários públicos e internos, histórico imutável de eventos, notificações e diagnóstico técnico por chamado.</p>
             <p><strong>116 testes automatizados</strong> — 80 de integração contra PostgreSQL 16 real, 26 de interface e 10 de contrato — com build, typecheck, lint, formatação e CI verde a cada commit. O painel administrativo é protegido por sessão JWT em cookie <code>HttpOnly</code>; o token do paciente fica só na memória do navegador.</p>
             <p>Ele não entra como demo embutida: uma reprodução honesta exige backend, banco, autenticação e dados. As telas reais aparecem como evidência visual, não como uma simulação estática. <a href="https://github.com/Japapaz696/SupportFlow" rel="noopener">Código no GitHub</a></p>
-            <p>Os mesmos critérios valem para os outros três sistemas próprios: <a href="https://github.com/Japapaz696/Site-veronica" rel="noopener"><strong>Site-veronica</strong></a>, agendamento de consultas com PostgreSQL, sessão administrativa em cookie <code>HttpOnly</code> e token opaco por paciente (83 testes); <a href="https://github.com/Japapaz696/barbearia" rel="noopener"><strong>barbearia</strong></a>, demo de fidelidade com senha guardada como derivador PBKDF2 e PWA com cache offline (10 testes); e <a href="https://github.com/Japapaz696/sql-lab" rel="noopener"><strong>SQL Lab</strong></a>, laboratório de SQL para diagnóstico e suporte a ERP, com 10 cenários de consulta que rodam de verdade sobre um banco de vendas, pedidos, produtos, pagamentos, estoque e chamados (108 testes).</p>
+            <p>Os mesmos critérios valem para os outros três sistemas próprios: <a href="https://github.com/Japapaz696/Site-veronica" rel="noopener"><strong>Site-veronica</strong></a>, agendamento de consultas com PostgreSQL, sessão administrativa em cookie <code>HttpOnly</code> e token opaco por paciente (91 testes); <a href="https://github.com/Japapaz696/barbearia" rel="noopener"><strong>barbearia</strong></a>, demo de fidelidade com senha guardada como derivador PBKDF2 e PWA com cache offline (10 testes); e <a href="https://github.com/Japapaz696/sql-lab" rel="noopener"><strong>SQL Lab</strong></a>, laboratório de SQL para diagnóstico e suporte a ERP, com 10 cenários de consulta que rodam de verdade sobre um banco de vendas, pedidos, produtos, pagamentos, estoque e chamados (108 testes).</p>
           </div>
         </aside>
       </div>
@@ -402,7 +403,7 @@
   <footer class="site-footer">
     <div class="shell"><p>Feito por Lucas Santana da Paz <span aria-hidden="true">/</span> <span id="year"></span></p></div>
   </footer>
-  <button id="back-to-top" class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button>
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Voltar ao topo ↑"><span aria-hidden="true">↑</span></button>
 
   <dialog id="demo-dialog" class="demo-dialog" aria-labelledby="demo-dialog-title" aria-describedby="demo-dialog-description">
     <div class="demo-dialog__shell">
@@ -427,7 +428,7 @@
     <section class="palette-panel" role="dialog" aria-modal="true" aria-labelledby="palette-title" aria-describedby="palette-description">
       <div class="palette-heading">
         <div><p id="palette-title">Buscar no portfólio</p><p id="palette-description">Navegue por seções, comandos e tema.</p></div>
-        <button type="button" class="palette-close" data-close-palette aria-label="Fechar busca">Esc</button>
+        <button type="button" class="palette-close" data-close-palette aria-label="Fechar busca Esc"><span aria-hidden="true">Esc</span></button>
       </div>
       <label class="sr-only" for="palette-input">Buscar no portfólio</label>
       <input id="palette-input" type="search" placeholder="/projetos, /lab, /contato..." autocomplete="off" spellcheck="false">

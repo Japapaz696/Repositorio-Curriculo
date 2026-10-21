@@ -43,7 +43,7 @@ function setTheme(theme) {
   root.dataset.theme = theme;
   const dark = theme === 'dark';
   themeToggle?.setAttribute('aria-pressed', String(dark));
-  themeToggle?.setAttribute('aria-label', dark ? 'Ativar tema claro' : 'Ativar tema escuro');
+  themeToggle?.setAttribute('aria-label', dark ? 'Ativar tema claro ◐' : 'Ativar tema escuro ◐');
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0a0a0f' : '#fafaf8');
 
   try {
