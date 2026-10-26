@@ -356,7 +356,10 @@ emailLink?.addEventListener('click', async (event) => {
     emailFeedback.textContent = 'Copiado';
     window.setTimeout(() => { emailFeedback.textContent = 'Copiar'; }, 2000);
   } catch {
-    emailFeedback.textContent = 'Abrir e-mail';
+    // Se a cópia falhar, abre o cliente de e-mail em vez de deixar o
+    // link inerte: o texto "Abrir e-mail" não seria suficiente sozinho.
+    emailFeedback.textContent = 'Abrindo e-mail…';
+    window.location.href = emailLink.href;
     window.setTimeout(() => { emailFeedback.textContent = 'Copiar'; }, 2000);
   }
 });
