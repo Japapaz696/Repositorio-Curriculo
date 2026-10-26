@@ -298,13 +298,31 @@ function openDemo(event) {
 
   const frame = ensureDemoFrame(config);
   frame.title = `${config.title} - demonstração interativa`;
+  const loadingTimer = window.setTimeout(() => {
+    if (activeDemoId === trigger.dataset.demoId && demoLoading) {
+      demoLoading.hidden = false;
+      demoLoading.textContent = 'A demonstração está demorando para carregar. Tente abrir o projeto completo.';
+    }
+  }, 8000);
+
   frame.onload = () => {
+    window.clearTimeout(loadingTimer);
     if (demoLoading && frame.dataset.loadedFor === activeDemoId) demoLoading.hidden = true;
+  };
+  frame.onerror = () => {
+    window.clearTimeout(loadingTimer);
+    if (demoLoading) {
+      demoLoading.hidden = false;
+      demoLoading.textContent = 'Não foi possível carregar a demonstração. Use “Abrir projeto completo”.';
+    }
   };
   if (frame.dataset.loadedFor !== activeDemoId) {
     frame.dataset.loadedFor = activeDemoId;
+    demoLoading.hidden = false;
+    demoLoading.textContent = 'Carregando interface local...';
     frame.src = config.url;
   } else {
+    window.clearTimeout(loadingTimer);
     demoLoading.hidden = true;
   }
 
