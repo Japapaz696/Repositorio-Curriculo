@@ -433,7 +433,59 @@ paletteToggle?.addEventListener('click', openPalette);
 paletteCloseButtons.forEach((button) => button.addEventListener('click', () => closePalette()));
 paletteInput?.addEventListener('input', () => renderPalette(paletteInput.value));
 
+function getPaletteButtons() {
+  return [...palette.querySelectorAll('.palette-list button')];
+}
+
+function focusPaletteButton(index) {
+  const buttons = getPaletteButtons();
+  if (!buttons.length) return;
+  const safeIndex = Math.max(0, Math.min(buttons.length - 1, index));
+  buttons[safeIndex].focus();
+}
+
 palette?.addEventListener('keydown', (event) => {
+  const buttons = getPaletteButtons();
+  const activeIndex = buttons.indexOf(document.activeElement);
+
+  if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+    if (document.activeElement === paletteInput) {
+      event.preventDefault();
+      focusPaletteButton(0);
+      return;
+    }
+    if (activeIndex >= 0) {
+      event.preventDefault();
+      focusPaletteButton(activeIndex + 1);
+      return;
+    }
+  }
+
+  if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+    if (activeIndex > 0) {
+      event.preventDefault();
+      focusPaletteButton(activeIndex - 1);
+      return;
+    }
+    if (activeIndex === 0) {
+      event.preventDefault();
+      paletteInput?.focus();
+      return;
+    }
+  }
+
+  if (event.key === 'Home' && activeIndex >= 0) {
+    event.preventDefault();
+    focusPaletteButton(0);
+    return;
+  }
+
+  if (event.key === 'End' && activeIndex >= 0) {
+    event.preventDefault();
+    focusPaletteButton(buttons.length - 1);
+    return;
+  }
+
   if (event.key !== 'Tab') return;
   const focusable = [...palette.querySelectorAll('button:not([disabled]), input:not([disabled])')];
   const first = focusable[0];
