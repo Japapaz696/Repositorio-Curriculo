@@ -568,3 +568,147 @@ document.addEventListener('keydown', (event) => {
 });
 
 renderPalette();
+
+/* Estudos de caso técnicos (modal acessível) */
+const caseStudies = {
+  supportflow: {
+    title: 'SupportFlow',
+    description: 'Arquitetura, banco de dados, segurança e desafios de um sistema de chamados em produção.',
+    tabs: [
+      { id: 'architecture', label: 'Arquitetura', html: '<h3>Arquitetura</h3><p>Monorepo com front-end React/Vite, API Express/TypeScript e PostgreSQL. A API usa JWT em memória, RBAC para quatro perfis e SLA calculado e persistido na mesma transação do chamado.</p><ul><li>Comentários públicos e internos.</li><li>Histórico imutável de eventos.</li><li>Notificações e diagnóstico por chamado.</li></ul>' },
+      { id: 'database', label: 'Banco de Dados', html: '<h3>Banco de Dados</h3><p>PostgreSQL 16 com migrations versionadas. Tabelas para usuários, chamados, comentários, eventos e políticas de SLA, com chaves estrangeiras e transações.</p><ul><li>110 testes de integração contra banco real.</li><li>Integridade referencial.</li><li>Persistência transacional do SLA.</li></ul>' },
+      { id: 'security', label: 'Segurança', html: '<h3>Segurança</h3><p>Token JWT apenas em memória, sem localStorage e sem cookie. Controle de acesso por perfil com middleware dedicado e validação de entrada.</p><ul><li>21 testes de middleware de segurança.</li><li>Sem segredos no repositório.</li><li>RBAC por perfil.</li></ul>' },
+      { id: 'code', label: 'Código', html: '<h3>Trecho relevante</h3><pre class="case-code"><code>// SLA persistido na mesma transação do chamado\nawait db.transaction(async (trx) => {\n  const ticket = await createTicket(input, trx);\n  await persistSla(ticket, policy, trx);\n});</code></pre>' }
+    ]
+  },
+  'sql-lab': {
+    title: 'SQL Lab',
+    description: 'Laboratório de SQL para diagnóstico e suporte a ERP sobre um banco relacional real.',
+    tabs: [
+      { id: 'architecture', label: 'Arquitetura', html: '<h3>Arquitetura</h3><p>10 cenários de consulta executados sobre tabelas de vendas, pedidos, produtos, pagamentos, estoque e chamados. Consultas read-only com resultados esperados.</p><ul><li>Separação entre cenários e validação.</li><li>Execução real sobre PostgreSQL.</li><li>108 testes automatizados.</li></ul>' },
+      { id: 'database', label: 'Banco de Dados', html: '<h3>Banco de Dados</h3><p>Schema relacional com vendas, pedidos, produtos, pagamentos, estoque e chamados. Ênfase em joins, agregações e diagnóstico operacional.</p><ul><li>Relacionamentos entre entidades.</li><li>Consultas de diagnóstico.</li><li>Validação de resultados esperados.</li></ul>' },
+      { id: 'security', label: 'Segurança', html: '<h3>Segurança</h3><p>Consultas read-only, sem operações destrutivas. Ambiente isolado para experimentação e aprendizado.</p><ul><li>Sem escrita em produção.</li><li>Cenários controlados.</li></ul>' },
+      { id: 'code', label: 'Código', html: '<h3>Trecho relevante</h3><pre class="case-code"><code>-- Diagnóstico de pedidos sem pagamento\nSELECT p.id, p.total, pg.status\nFROM pedidos p\nLEFT JOIN pagamentos pg ON pg.pedido_id = p.id\nWHERE pg.id IS NULL;</code></pre>' }
+    ]
+  },
+  'beauty-store': {
+    title: 'Beauty Store',
+    description: 'Catálogo interativo com estado centralizado e hardening contra XSS.',
+    tabs: [
+      { id: 'architecture', label: 'Arquitetura', html: '<h3>Arquitetura</h3><p>SPA em JavaScript puro com estado centralizado para produtos, filtros, favoritos e carrinho. Renderização por funções dedicadas.</p><ul><li>Busca, ordenação e filtros.</li><li>Detalhe de produto e checkout simulado.</li><li>Sanitização antes de innerHTML.</li></ul>' },
+      { id: 'database', label: 'Banco de Dados', html: '<h3>Banco de Dados</h3><p>Sem backend. Persistência local via localStorage para carrinho e favoritos, com validação da estrutura dos itens.</p><ul><li>Validação de itens armazenados.</li><li>Dados locais não sensíveis.</li></ul>' },
+      { id: 'security', label: 'Segurança', html: '<h3>Segurança</h3><p>escapeHtml aplicado a todos os dados vindos do localStorage e do catálogo antes da interpolação em innerHTML. Demos carregadas com sandbox.</p><ul><li>Testes de sanitização.</li><li>Sem parâmetros de URL consumidos.</li></ul>' },
+      { id: 'code', label: 'Código', html: '<h3>Trecho relevante</h3><pre class="case-code"><code>function escapeHtml(value) {\n  return String(value)\n    .replace(/&/g, \'&amp;\')\n    .replace(/</g, \'&lt;\')\n    .replace(/>/g, \'&gt;\');\n}</code></pre>' }
+    ]
+  },
+  'seu-manoel': {
+    title: 'Seu Manoel',
+    description: 'Agendamento em etapas com regras isoladas e testáveis.',
+    tabs: [
+      { id: 'architecture', label: 'Arquitetura', html: '<h3>Arquitetura</h3><p>Wizard de 6 etapas com validação progressiva. Regras de disponibilidade isoladas em módulo separado e testável.</p><ul><li>Escolha de serviço, profissional, data e horário.</li><li>Confirmação e histórico.</li><li>Cancelamento libera horários.</li></ul>' },
+      { id: 'database', label: 'Banco de Dados', html: '<h3>Banco de Dados</h3><p>Persistência local via localStorage para agendamentos. Estrutura validada antes do uso.</p><ul><li>Reservas ativas bloqueiam slots.</li><li>Cancelamentos liberam horários.</li></ul>' },
+      { id: 'security', label: 'Segurança', html: '<h3>Segurança</h3><p>Renderização com createElement e textContent, sem innerHTML com dados dinâmicos. Sem parâmetros de URL consumidos.</p><ul><li>Validação de entrada.</li><li>Demonstração local.</li></ul>' },
+      { id: 'code', label: 'Código', html: '<h3>Trecho relevante</h3><pre class="case-code"><code>export function getAvailableSlots(input) {\n  // respeita janela, duração e reservas\n  return slots.filter((slot) => !isReserved(slot));\n}</code></pre>' }
+    ]
+  }
+};
+
+const caseDialog = document.getElementById('case-dialog');
+const caseTitle = document.getElementById('case-dialog-title');
+const caseDescription = document.getElementById('case-dialog-description');
+const caseTabpanelsHost = document.getElementById('case-tabpanels');
+let caseLastFocus = null;
+let caseTabs = [];
+let casePanels = [];
+
+function renderCaseTabs(tabs) {
+  if (!caseDialog || !caseTabpanelsHost) return;
+  const tablist = caseDialog.querySelector('.case-tabs');
+  if (!tablist) return;
+  tablist.replaceChildren();
+  caseTabpanelsHost.replaceChildren();
+  tabs.forEach((tab, index) => {
+    const button = document.createElement('button');
+    button.className = 'case-tab';
+    button.type = 'button';
+    button.setAttribute('role', 'tab');
+    button.id = `case-tab-${tab.id}`;
+    button.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+    button.tabIndex = index === 0 ? 0 : -1;
+    button.setAttribute('aria-controls', `case-panel-${tab.id}`);
+    button.dataset.caseTab = tab.id;
+    button.textContent = tab.label;
+    tablist.append(button);
+
+    const panel = document.createElement('section');
+    panel.className = 'case-tabpanel';
+    panel.id = `case-panel-${tab.id}`;
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', button.id);
+    panel.hidden = index !== 0;
+    panel.innerHTML = tab.html;
+    caseTabpanelsHost.append(panel);
+  });
+  caseTabs = [...caseDialog.querySelectorAll('[role="tab"]')];
+  casePanels = [...caseDialog.querySelectorAll('[role="tabpanel"]')];
+  caseTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectCaseTab(index, false));
+    tab.addEventListener('keydown', (event) => {
+      let next = null;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % caseTabs.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + caseTabs.length) % caseTabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = caseTabs.length - 1;
+      if (next !== null) { event.preventDefault(); selectCaseTab(next, true); }
+    });
+  });
+}
+
+function selectCaseTab(index, moveFocus) {
+  caseTabs.forEach((tab, i) => {
+    const active = i === index;
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+  });
+  casePanels.forEach((panel, i) => { panel.hidden = i !== index; });
+  if (moveFocus && caseTabs[index]) caseTabs[index].focus();
+}
+
+function openCaseStudy(id) {
+  const data = caseStudies[id];
+  if (!data || !caseDialog) return;
+  caseLastFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  if (caseTitle) caseTitle.textContent = data.title;
+  if (caseDescription) caseDescription.textContent = data.description;
+  renderCaseTabs(data.tabs);
+  selectCaseTab(0, false);
+  document.body.classList.add('demo-open');
+  caseDialog.showModal();
+  const firstTab = caseDialog.querySelector('[role="tab"]');
+  if (firstTab) firstTab.focus();
+}
+
+function closeCaseStudy() {
+  if (!caseDialog) return;
+  caseDialog.close();
+}
+
+if (caseDialog) {
+  const closeButton = document.getElementById('case-close');
+  closeButton?.addEventListener('click', closeCaseStudy);
+  caseDialog.addEventListener('click', (event) => {
+    if (event.target === caseDialog) closeCaseStudy();
+  });
+  caseDialog.addEventListener('close', () => {
+    document.body.classList.remove('demo-open');
+    if (caseLastFocus) caseLastFocus.focus();
+  });
+  caseDialog.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    closeCaseStudy();
+  });
+}
+
+document.querySelectorAll('[data-case-study]').forEach((trigger) => {
+  trigger.addEventListener('click', () => openCaseStudy(trigger.dataset.caseStudy));
+});

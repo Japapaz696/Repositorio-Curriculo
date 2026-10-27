@@ -209,6 +209,7 @@
               <li>React</li><li>Vite</li><li>Express</li><li>TypeScript</li><li>PostgreSQL</li><li>JWT</li>
             </ul>
             <div class="project-links">
+              <button class="project-case-trigger" type="button" data-case-study="supportflow" aria-haspopup="dialog" aria-controls="case-dialog">Ver arquitetura <span aria-hidden="true">↗</span></button>
               <a href="https://github.com/Japapaz696/SupportFlow" target="_blank" rel="noopener" aria-label="Ver código do SupportFlow no GitHub">GitHub <span aria-hidden="true">↗</span></a>
             </div>
           </article>
@@ -239,6 +240,7 @@
               <li>JavaScript</li><li>LocalStorage</li><li>node:test</li>
             </ul>
             <div class="project-links">
+              <button class="project-case-trigger" type="button" data-case-study="seu-manoel" aria-haspopup="dialog" aria-controls="case-dialog">Ver arquitetura <span aria-hidden="true">↗</span></button>
               <a href="projetos/seu-manoel/index.html" target="_blank" rel="noopener" aria-label="Demo — Seu Manoel">Demo <span aria-hidden="true">↗</span></a>
               <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/seu-manoel" target="_blank" rel="noopener" aria-label="Ver código do Seu Manoel no GitHub">GitHub <span aria-hidden="true">↗</span></a>
             </div>
@@ -255,6 +257,7 @@
               <li>JavaScript</li><li>HTML/CSS</li><li>escapeHtml</li>
             </ul>
             <div class="project-links">
+              <button class="project-case-trigger" type="button" data-case-study="beauty-store" aria-haspopup="dialog" aria-controls="case-dialog">Ver arquitetura <span aria-hidden="true">↗</span></button>
               <a href="projetos/beauty-store/index.html" target="_blank" rel="noopener" aria-label="Demo — Beauty Store">Demo <span aria-hidden="true">↗</span></a>
               <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/beauty-store" target="_blank" rel="noopener" aria-label="Ver código da Beauty Store no GitHub">GitHub <span aria-hidden="true">↗</span></a>
             </div>
@@ -287,6 +290,7 @@
               <li>SQL</li><li>PostgreSQL</li><li>Diagnóstico</li>
             </ul>
             <div class="project-links">
+              <button class="project-case-trigger" type="button" data-case-study="sql-lab" aria-haspopup="dialog" aria-controls="case-dialog">Ver arquitetura <span aria-hidden="true">↗</span></button>
               <a href="https://github.com/Japapaz696/sql-lab" target="_blank" rel="noopener" aria-label="Ver código do SQL Lab no GitHub">GitHub <span aria-hidden="true">↗</span></a>
             </div>
           </article>
@@ -744,6 +748,26 @@
       </header>
       <p id="demo-loading" class="demo-dialog__status" role="status" aria-live="polite">Preparando demonstração.</p>
       <div id="demo-frame-host" class="demo-frame-host" aria-live="polite"></div>
+    </div>
+  </dialog>
+
+  <dialog id="case-dialog" class="case-dialog" aria-labelledby="case-dialog-title" aria-describedby="case-dialog-description">
+    <div class="case-dialog__shell">
+      <header class="case-dialog__header">
+        <div>
+          <p class="case-dialog__kicker">ESTUDO DE CASO TÉCNICO</p>
+          <h2 id="case-dialog-title">Detalhamento técnico</h2>
+          <p id="case-dialog-description">Arquitetura, banco de dados, segurança e desafios.</p>
+        </div>
+        <button id="case-close" class="demo-close" type="button" aria-label="Fechar estudo de caso">Fechar <span aria-hidden="true">Esc</span></button>
+      </header>
+      <div class="case-tabs" role="tablist" aria-label="Seções do estudo de caso">
+        <button class="case-tab" role="tab" id="case-tab-architecture" aria-selected="true" aria-controls="case-panel-architecture" tabindex="0" data-case-tab="architecture">Arquitetura</button>
+        <button class="case-tab" role="tab" id="case-tab-database" aria-selected="false" aria-controls="case-panel-database" tabindex="-1" data-case-tab="database">Banco de Dados</button>
+        <button class="case-tab" role="tab" id="case-tab-security" aria-selected="false" aria-controls="case-panel-security" tabindex="-1" data-case-tab="security">Segurança</button>
+        <button class="case-tab" role="tab" id="case-tab-code" aria-selected="false" aria-controls="case-panel-code" tabindex="-1" data-case-tab="code">Código</button>
+      </div>
+      <div class="case-tabpanels" id="case-tabpanels"></div>
     </div>
   </dialog>
 
