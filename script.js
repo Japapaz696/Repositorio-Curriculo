@@ -787,7 +787,7 @@ function runTerminalCommand(raw) {
       printTerminal('Backend: Node.js, Express, REST APIs; Frontend: JavaScript, HTML, CSS, React; Dados: PostgreSQL, SQL; IA: OpenAI API, n8n, Prompt Engineering; Ferramentas: Git, GitHub, Linux');
       break;
     case 'projects':
-      printTerminal('SupportFlow, Site-veronica, Seu Manoel, Beauty Store, Papitos, SQL Lab, barbearia');
+      printTerminal('OmniOps AI, SupportFlow, Site-veronica, Seu Manoel, Beauty Store, Papitos, SQL Lab, barbearia');
       break;
     case 'status':
       printTerminal('Atualizando status dos serviços…');
