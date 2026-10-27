@@ -64,7 +64,7 @@
         </ul>
       </nav>
       <div class="header-actions">
-        <button id="palette-toggle" class="palette-toggle" type="button" aria-haspopup="dialog" aria-controls="command-palette">
+        <button id="palette-toggle" class="palette-toggle" type="button" aria-haspopup="dialog" aria-controls="command-palette" aria-label="Buscar no portfólio">
           <span>Buscar</span><kbd data-shortcut-label>Ctrl K</kbd>
         </button>
         <button id="theme-toggle" class="icon-button" type="button" aria-label="Ativar tema escuro ◐" aria-pressed="false">
@@ -80,8 +80,10 @@
   <main id="conteudo">
     <section id="inicio" class="hero section-anchor" aria-labelledby="hero-title">
       <div class="hero-rule hero-rule-top" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
       <div class="shell hero-layout">
         <div class="hero-intro">
+          <p class="hero-availability" role="status"><span class="hero-availability-dot" aria-hidden="true"></span>Disponível para novos projetos</p>
           <p class="eyebrow">PORTFÓLIO PESSOAL · BELO HORIZONTE</p>
           <h1 id="hero-title" class="hero-title"><span class="hero-line"><span class="hero-line-inner">LUCAS</span></span><span class="hero-line"><span class="hero-line-inner">SANTANA</span></span><span class="hero-line"><span class="hero-line-inner">DA PAZ</span></span></h1>
           <p class="hero-descriptor">Desenvolvimento Web | Sistemas Empresariais e ERP | SQL | Automação e IA</p>
@@ -91,10 +93,11 @@
             <span>Suporte ERP TecFood · Teknisa</span>
             <span>JavaScript · SQL · Automação</span>
           </div>
-          <div class="hero-links">
-            <a href="#work">Ver projetos <span aria-hidden="true">↘</span></a>
-            <a href="#profile">Conhecer meu percurso <span aria-hidden="true">↘</span></a>
+          <div class="hero-ctas">
+            <a class="hero-cta hero-cta--primary" href="#work">Ver projetos <span aria-hidden="true">↘</span></a>
+            <a class="hero-cta hero-cta--secondary" href="assets/cv-lucas-santana-da-paz.pdf" download>Baixar CV <span aria-hidden="true">↓</span></a>
           </div>
+          <p class="hero-links"><a href="#profile">Conhecer meu percurso <span aria-hidden="true">↘</span></a></p>
         </div>
           <div class="hero-panel" data-hero-tabs>
             <div class="hero-panel-top">
