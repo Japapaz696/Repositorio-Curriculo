@@ -64,7 +64,7 @@
         </ul>
       </nav>
       <div class="header-actions">
-        <button id="palette-toggle" class="palette-toggle" type="button" aria-haspopup="dialog" aria-controls="command-palette" aria-label="Buscar no portfólio">
+        <button id="palette-toggle" class="palette-toggle" type="button" aria-haspopup="dialog" aria-controls="command-palette" aria-label="Buscar Ctrl K">
           <span>Buscar</span><kbd data-shortcut-label>Ctrl K</kbd>
         </button>
         <button id="theme-toggle" class="icon-button" type="button" aria-label="Ativar tema escuro ◐" aria-pressed="false">
@@ -195,6 +195,116 @@
           <p class="section-index">PROJETOS SELECIONADOS</p>
           <h2 id="work-title" class="display-title">Fluxos reais, limites claros.</h2>
           <p>Uma seleção enxuta de projetos pessoais. Cada case mostra o que funciona, como foi pensado e onde a demonstração termina.</p>
+        </div>
+
+        <div class="project-grid" aria-label="Vitrine de projetos">
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status project-status--live">Em produção</span>
+              <span class="project-category">Fullstack · Banco de Dados</span>
+            </div>
+            <h3 class="project-title">SupportFlow</h3>
+            <p class="project-desc">Sistema de chamados com 4 perfis, SLA por prioridade, comentários e histórico imutável. Monorepo com front-end React/Vite, API Express/TypeScript e PostgreSQL.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>React</li><li>Vite</li><li>Express</li><li>TypeScript</li><li>PostgreSQL</li><li>JWT</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Japapaz696/SupportFlow" target="_blank" rel="noopener" aria-label="Ver código do SupportFlow no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status project-status--live">Cliente real</span>
+              <span class="project-category">Fullstack · Banco de Dados</span>
+            </div>
+            <h3 class="project-title">Site-veronica</h3>
+            <p class="project-desc">Agendamento de consultas com PostgreSQL, sessão administrativa em cookie HttpOnly e token opaco por paciente. 90 testes automatizados.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>Node.js</li><li>PostgreSQL</li><li>Cookies HttpOnly</li><li>Testes</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Japapaz696/Site-veronica" target="_blank" rel="noopener" aria-label="Ver código do Site-veronica no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status">Demo local</span>
+              <span class="project-category">Frontend · Regras</span>
+            </div>
+            <h3 class="project-title">Seu Manoel</h3>
+            <p class="project-desc">Agendamento em etapas validadas com regras de disponibilidade isoladas em módulo testável e persistência local.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>JavaScript</li><li>LocalStorage</li><li>node:test</li>
+            </ul>
+            <div class="project-links">
+              <a href="projetos/seu-manoel/index.html" target="_blank" rel="noopener" aria-label="Demo — Seu Manoel">Demo <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/seu-manoel" target="_blank" rel="noopener" aria-label="Ver código do Seu Manoel no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status">Demo local</span>
+              <span class="project-category">Frontend · Estado</span>
+            </div>
+            <h3 class="project-title">Beauty Store</h3>
+            <p class="project-desc">Catálogo interativo com busca, filtros, favoritos, carrinho, cupom e frete em um único modelo de estado, com sanitização XSS.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>JavaScript</li><li>HTML/CSS</li><li>escapeHtml</li>
+            </ul>
+            <div class="project-links">
+              <a href="projetos/beauty-store/index.html" target="_blank" rel="noopener" aria-label="Demo — Beauty Store">Demo <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/beauty-store" target="_blank" rel="noopener" aria-label="Ver código da Beauty Store no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status">Demo local</span>
+              <span class="project-category">Frontend · Fluxo</span>
+            </div>
+            <h3 class="project-title">Papitos</h3>
+            <p class="project-desc">Fluxo de pedido no navegador, do cardápio ao checkout, com carrinho persistente e escolha entre entrega ou retirada.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>JavaScript</li><li>LocalStorage</li><li>CSS</li>
+            </ul>
+            <div class="project-links">
+              <a href="projetos/papitos/index.html" target="_blank" rel="noopener" aria-label="Demo — Papitos">Demo <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/papitos" target="_blank" rel="noopener" aria-label="Ver código do Papitos no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status project-status--study">Laboratório</span>
+              <span class="project-category">Banco de Dados · SQL</span>
+            </div>
+            <h3 class="project-title">SQL Lab</h3>
+            <p class="project-desc">Laboratório de SQL para diagnóstico e suporte a ERP, com 10 cenários de consulta executados sobre um banco real.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>SQL</li><li>PostgreSQL</li><li>Diagnóstico</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Japapaz696/sql-lab" target="_blank" rel="noopener" aria-label="Ver código do SQL Lab no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status project-status--study">Demo</span>
+              <span class="project-category">PWA · Segurança</span>
+            </div>
+            <h3 class="project-title">barbearia</h3>
+            <p class="project-desc">Demo de fidelidade com senha guardada como derivador PBKDF2 e PWA com cache offline.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>PWA</li><li>PBKDF2</li><li>Offline</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Japapaz696/barbearia" target="_blank" rel="noopener" aria-label="Ver código do projeto barbearia no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
         </div>
 
         <article class="case-study case-featured case-manoel" aria-labelledby="manoel-title" data-reveal>

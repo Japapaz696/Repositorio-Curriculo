@@ -248,6 +248,24 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
    Work / Cases
    ============================ */
 .work-section { padding-block: clamp(5.5rem, 10vw, 11rem); background: var(--surface-muted); }
+.project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); margin-top: clamp(2rem, 4vw, 3rem); }
+.project-card { position: relative; display: flex; flex-direction: column; gap: .85rem; padding: clamp(1.1rem, 2vw, 1.5rem); border: 1px solid var(--border); background: var(--surface); overflow: clip; transition: border-color .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease); }
+.project-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 55%); opacity: 0; transition: opacity .3s var(--ease); pointer-events: none; }
+.project-card:hover { border-color: var(--border-strong); transform: translateY(-4px); box-shadow: 0 18px 40px -24px color-mix(in srgb, var(--text) 35%, transparent); }
+.project-card:hover::before { opacity: 1; }
+.project-card-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; }
+.project-status { padding: .2rem .55rem; border: 1px solid var(--border-strong); color: var(--text-secondary); font: 600 .62rem/1.2 var(--font-mono); letter-spacing: .03em; }
+.project-status--live { border-color: color-mix(in srgb, var(--accent-text) 55%, var(--border-strong)); color: var(--accent-text); }
+.project-status--study { color: var(--text-muted); }
+.project-category { color: var(--text-muted); font: 500 .62rem/1.2 var(--font-mono); letter-spacing: .02em; }
+.project-title { margin: 0; font-family: var(--font-display); font-size: clamp(1.25rem, 1.8vw, 1.55rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; }
+.project-desc { margin: 0; color: var(--text-secondary); font-size: .88rem; line-height: 1.55; flex: 1; }
+.project-techs { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0; padding: 0; list-style: none; }
+.project-techs li { padding: .2rem .5rem; border: 1px solid var(--border); background: var(--surface-muted); color: var(--text); font: 500 .62rem/1.2 var(--font-mono); }
+.project-links { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: .35rem; }
+.project-links a { display: inline-flex; align-items: center; gap: .3rem; min-height: 2.75rem; color: var(--text); font: 600 .74rem/1.4 var(--font-mono); text-decoration: none; transition: color .2s var(--ease); }
+.project-links a:hover { color: var(--accent-text); }
+.project-links a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
 .case-study { margin-top: clamp(4rem, 10vw, 10rem); border-top: 1px solid var(--text); }
 .case-topline { display: grid; grid-template-columns: 4rem 1fr auto; gap: 1rem; padding-block: .75rem; border-bottom: 1px solid var(--border); color: var(--text-secondary); font: 500 .66rem/1.3 var(--font-mono); }
 .case-topline span:first-child { color: var(--accent-text); }
@@ -434,6 +452,7 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
   .hero-layout { grid-template-columns: minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); min-height: auto; padding-block: clamp(4.5rem, 10vw, 7rem); }
   .hero-title { font-size: clamp(4.25rem, 10.5vw, 6.4rem); }
   .hero-panel { align-self: center; width: min(100%, 44rem); justify-self: start; }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .case-featured .case-content, .secondary-case-grid, .papitos-layout { grid-template-columns: 1fr; gap: 2rem; }
   .case-featured .case-actions { grid-column: auto; }
   .case-body { grid-template-columns: minmax(0, 1.35fr) minmax(12rem, .65fr); }
@@ -454,6 +473,7 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
   .palette-toggle { width: 2.1rem; padding: 0; place-content: center; }
   .palette-toggle::before { content: var(--shortcut-hint, '⌘K'); color: var(--text-secondary); font: 500 .58rem/1 var(--font-mono); }
   .palette-toggle kbd { display: none; }
+  .project-grid { grid-template-columns: 1fr; }
   .hero-layout, .profile-layout, .journey-stack-layout, .contact-layout { grid-template-columns: 1fr; }
   .hero-layout { gap: 3rem; min-height: auto; padding-block: 4rem 4.5rem; }
   .hero-title { font-size: clamp(3.35rem, 16vw, 5.5rem); }
@@ -511,4 +531,5 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
   .case-media img, .lab-item video { transform: none !important; }
   .hero-line-inner { animation: none !important; transform: none; }
   .hero-chip:hover { transform: none; }
+  .project-card:hover { transform: none; }
 }
