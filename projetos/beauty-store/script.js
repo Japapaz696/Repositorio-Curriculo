@@ -43,6 +43,14 @@ function store(key, value) {
     }
 }
 
+// Alias para o utilitário puro (sanitize.js), carregado antes deste script.
+const escapeHtml = (typeof BeautySanitize !== 'undefined')
+    ? BeautySanitize.escapeHtml
+    : function (value) {
+        return String(value)
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    };
 let cart = loadStored('beauty-cart', item => item
     && typeof item.id === 'number'
     && typeof item.nome === 'string'
@@ -78,14 +86,14 @@ function renderProdutos() {
     grid.innerHTML = sorted.map(p => `
         <div class="produto-card" data-id="${p.id}">
             <div class="produto-img" onclick="openDetail(${p.id})">
-                ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
+                ${p.badge ? `<span class="badge">${escapeHtml(p.badge)}</span>` : ''}
                 ${p.antigo ? `<span class="badge desconto">${Math.round(((p.antigo - p.preco) / p.antigo) * 100)}% OFF</span>` : ''}
                 <button class="fav-icon ${favoritos.includes(p.id) ? 'active' : ''}" onclick="event.stopPropagation();toggleFav(${p.id})">${favoritos.includes(p.id) ? '💖' : '🤍'}</button>
-                <img src="${p.img}" alt="${p.nome}" loading="lazy">
+                <img src="${escapeHtml(p.img)}" alt="${escapeHtml(p.nome)}" loading="lazy">
             </div>
             <div class="produto-info">
-                <span class="produto-marca">${p.marca}</span>
-                <h3 class="produto-nome" onclick="openDetail(${p.id})" style="cursor:pointer">${p.nome}</h3>
+                <span class="produto-marca">${escapeHtml(p.marca)}</span>
+                <h3 class="produto-nome" onclick="openDetail(${p.id})" style="cursor:pointer">${escapeHtml(p.nome)}</h3>
                 <div class="produto-avaliacao">⭐ ${p.avaliacao} (${p.reviews})</div>
                 <div class="produto-precos">
                     <span class="produto-preco">R$ ${p.preco.toFixed(2).replace('.', ',')}</span>
@@ -147,17 +155,17 @@ function openDetail(id) {
     modal.setAttribute('aria-label', p.nome);
     modal.innerHTML = `
         <button class="detail-close" type="button" aria-label="Fechar detalhes do produto" onclick="closeDetail()">✕</button>
-        <div class="detail-img"><img src="${p.img}" alt="${p.nome}"></div>
+        <div class="detail-img"><img src="${escapeHtml(p.img)}" alt="${escapeHtml(p.nome)}"></div>
         <div class="detail-body">
-            <span class="detail-marca">${p.marca}</span>
-            <h2 class="detail-nome">${p.nome}</h2>
+            <span class="detail-marca">${escapeHtml(p.marca)}</span>
+            <h2 class="detail-nome">${escapeHtml(p.nome)}</h2>
             <div class="detail-avaliacao">⭐ ${p.avaliacao} <span>(${p.reviews} avaliações)</span></div>
             <div class="detail-preco">
                 <span class="detail-preco-atual">R$ ${p.preco.toFixed(2).replace('.', ',')}</span>
                 ${p.antigo ? `<span class="detail-preco-antigo">R$ ${p.antigo.toFixed(2).replace('.', ',')}</span>` : ''}
             </div>
             <p class="produto-parcela">ou 6x de R$ ${(p.preco / 6).toFixed(2).replace('.', ',')} sem juros</p>
-            <p class="detail-desc">${p.desc}</p>
+            <p class="detail-desc">${escapeHtml(p.desc)}</p>
             <div class="detail-actions">
                 <button class="btn btn-primary" onclick="addToCart(${p.id});closeDetail();">Adicionar ao carrinho</button>
                 <button class="btn btn-ghost" onclick="toggleFav(${p.id})">${favoritos.includes(p.id) ? '💖 Favoritado' : '🤍 Favoritar'}</button>
@@ -200,9 +208,9 @@ function renderFavoritos() {
     const items = favoritos.map(id => produtos.find(p => p.id === id)).filter(Boolean);
     body.innerHTML = `<div style="display:flex;flex-direction:column;gap:0.75rem;">${items.map(p => `
         <div class="cart-item">
-            <div class="cart-item-img"><img src="${p.img}" alt="${p.nome}"></div>
+            <div class="cart-item-img"><img src="${escapeHtml(p.img)}" alt="${escapeHtml(p.nome)}"></div>
             <div class="cart-item-info">
-                <span class="cart-item-name">${p.nome}</span>
+                <span class="cart-item-name">${escapeHtml(p.nome)}</span>
                 <span class="cart-item-price">R$ ${p.preco.toFixed(2).replace('.', ',')}</span>
             </div>
             <button class="cart-item-remove" onclick="toggleFav(${p.id})" title="Remover">🗑</button>
@@ -261,9 +269,9 @@ function renderCart() {
     footer.style.display = 'block';
     body.innerHTML = cart.map(item => `
         <div class="cart-item">
-            <div class="cart-item-img"><img src="${item.img}" alt="${item.nome}"></div>
+            <div class="cart-item-img"><img src="${escapeHtml(item.img)}" alt="${escapeHtml(item.nome)}"></div>
             <div class="cart-item-info">
-                <span class="cart-item-name">${item.nome}</span>
+                <span class="cart-item-name">${escapeHtml(item.nome)}</span>
                 <span class="cart-item-price">R$ ${item.preco.toFixed(2).replace('.', ',')}</span>
                 <div class="cart-item-qty">
                     <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
@@ -453,7 +461,7 @@ document.getElementById('checkout-form').addEventListener('submit', e => {
             <div aria-hidden="true" style="font-size:4rem;margin-bottom:1rem;">🎉</div>
             <h2 id="beauty-confirm-title" style="font-family:'Playfair Display',serif;font-size:1.75rem;margin-bottom:0.75rem;background:linear-gradient(135deg,#ec4899,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Pedido Confirmado!</h2>
             <div style="text-align:left;border:1px solid #eee;border-radius:12px;padding:1rem 1.1rem;margin-bottom:1rem;font-size:.9rem;color:#333;">
-                <ul style="margin:0 0 .6rem;padding-left:1.1rem;">${resumo.itens.map(i => `<li style="margin:.2rem 0;">${i.qty}× ${i.nome} — ${brl(i.preco * i.qty)}</li>`).join('')}</ul>
+                <ul style="margin:0 0 .6rem;padding-left:1.1rem;">${resumo.itens.map(i => `<li style="margin:.2rem 0;">${i.qty}× ${escapeHtml(i.nome)} — ${brl(i.preco * i.qty)}</li>`).join('')}</ul>
                 <div style="display:flex;justify-content:space-between;"><span>Subtotal</span><span>${brl(resumo.subtotal)}</span></div>
                 ${resumo.desconto > 0 ? `<div style="display:flex;justify-content:space-between;"><span>Desconto</span><span>-${brl(resumo.desconto)}</span></div>` : ''}
                 <div style="display:flex;justify-content:space-between;"><span>Frete</span><span>${brl(resumo.frete)}</span></div>
