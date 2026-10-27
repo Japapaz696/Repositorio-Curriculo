@@ -367,6 +367,38 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
 .journey-list p { margin: .25rem 0 0; color: var(--text-secondary); font-size: .85rem; }
 
 /* ============================
+   Tech stack interativo
+   ============================ */
+.stack-panel { margin-top: clamp(2rem, 4vw, 3rem); }
+.stack-tablist { display: flex; flex-wrap: wrap; gap: .5rem; border-bottom: 1px solid var(--border); padding-bottom: .85rem; }
+.stack-tab { min-height: 2.75rem; padding: .45rem .85rem; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); font: 600 .72rem/1.2 var(--font-mono); letter-spacing: .03em; cursor: pointer; transition: color .2s var(--ease), border-color .2s var(--ease), background-color .2s var(--ease); }
+.stack-tab:hover { color: var(--text); border-color: var(--border-strong); }
+.stack-tab[aria-selected='true'] { border-color: var(--accent-text); background: var(--accent-text); color: var(--accent-contrast); }
+.stack-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.75rem, 1.5vw, 1rem); margin-top: clamp(1.25rem, 2.5vw, 1.75rem); }
+.stack-card { display: flex; align-items: center; gap: .75rem; padding: .85rem .9rem; border: 1px solid var(--border); background: var(--surface); transition: border-color .2s var(--ease), transform .2s var(--ease); }
+.stack-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.stack-card[hidden] { display: none; }
+.stack-icon { flex: 0 0 2.25rem; width: 2.25rem; height: 2.25rem; color: var(--accent-text); }
+.stack-card-body { min-width: 0; display: grid; gap: .15rem; }
+.stack-card-title { margin: 0; font-family: var(--font-display); font-size: .95rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+.stack-card-desc { margin: 0; color: var(--text-secondary); font-size: .74rem; line-height: 1.35; }
+.stack-level { width: fit-content; padding: .15rem .4rem; border: 1px solid var(--border); color: var(--text-muted); font: 600 .6rem/1.2 var(--font-mono); letter-spacing: .03em; }
+.stack-level--study { color: var(--text-muted); border-style: dashed; }
+
+/* ============================
+   Timeline
+   ============================ */
+.timeline { position: relative; display: grid; gap: 0; margin: .3rem 0 0; padding: 0 0 0 1.25rem; list-style: none; border-left: 1px solid var(--border); }
+.timeline-item { position: relative; padding: .9rem 0 .9rem 1rem; }
+.timeline-marker { position: absolute; left: -1.62rem; top: 1.35rem; width: .65rem; height: .65rem; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent-text); }
+.timeline-item:first-child .timeline-marker { background: var(--accent-text); }
+.timeline-content { display: grid; gap: .2rem; }
+.timeline-date { margin: 0; color: var(--accent-text); font: 600 .65rem/1.3 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; }
+.timeline-title { margin: 0; font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; letter-spacing: -.03em; line-height: 1.1; }
+.timeline-desc { margin: 0; color: var(--text-secondary); font-size: .85rem; line-height: 1.5; }
+.journey-cta { margin-top: 1.25rem; }
+
+/* ============================
    Contact
    ============================ */
 .contact-section { background: var(--text); color: var(--bg); border: 0; }
@@ -453,6 +485,8 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
   .hero-title { font-size: clamp(4.25rem, 10.5vw, 6.4rem); }
   .hero-panel { align-self: center; width: min(100%, 44rem); justify-self: start; }
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stack-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stack-tablist { gap: .4rem; }
   .case-featured .case-content, .secondary-case-grid, .papitos-layout { grid-template-columns: 1fr; gap: 2rem; }
   .case-featured .case-actions { grid-column: auto; }
   .case-body { grid-template-columns: minmax(0, 1.35fr) minmax(12rem, .65fr); }
@@ -474,6 +508,8 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
   .palette-toggle::before { content: var(--shortcut-hint, '⌘K'); color: var(--text-secondary); font: 500 .58rem/1 var(--font-mono); }
   .palette-toggle kbd { display: none; }
   .project-grid { grid-template-columns: 1fr; }
+  .stack-grid { grid-template-columns: 1fr; }
+  .stack-tab { font-size: .68rem; padding: .4rem .7rem; }
   .hero-layout, .profile-layout, .journey-stack-layout, .contact-layout { grid-template-columns: 1fr; }
   .hero-layout { gap: 3rem; min-height: auto; padding-block: 4rem 4.5rem; }
   .hero-title { font-size: clamp(3.35rem, 16vw, 5.5rem); }
@@ -532,4 +568,5 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
   .hero-line-inner { animation: none !important; transform: none; }
   .hero-chip:hover { transform: none; }
   .project-card:hover { transform: none; }
+  .stack-card:hover { transform: none; }
 }

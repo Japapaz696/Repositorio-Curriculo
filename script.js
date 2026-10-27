@@ -185,6 +185,39 @@ if (heroTabsRoot) {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(heroStabilize);
 }
 
+/* Tech stack: filtros por pilar (enhancement progressivo) */
+const stackTabsRoot = document.querySelector('[data-stack-tabs]');
+if (stackTabsRoot) {
+  const stackTabs = Array.from(stackTabsRoot.querySelectorAll('[role="tab"]'));
+  const stackCards = Array.from(stackTabsRoot.querySelectorAll('.stack-card'));
+  const stackSelect = (index, moveFocus) => {
+    stackTabs.forEach((tab, i) => {
+      const active = i === index;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
+    const panel = stackTabsRoot.querySelector('[role="tabpanel"]');
+    if (panel) panel.setAttribute('aria-labelledby', stackTabs[index].id);
+    const filter = stackTabs[index].dataset.stackFilter;
+    stackCards.forEach((card) => {
+      card.hidden = !(filter === 'all' || card.dataset.stackCategory === filter);
+    });
+    if (moveFocus) stackTabs[index].focus();
+  };
+  stackTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => stackSelect(index, false));
+    tab.addEventListener('keydown', (event) => {
+      let next = null;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % stackTabs.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + stackTabs.length) % stackTabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = stackTabs.length - 1;
+      if (next !== null) { event.preventDefault(); stackSelect(next, true); }
+    });
+  });
+  stackSelect(0, false);
+}
+
 const labVideos = [...document.querySelectorAll('[data-lab-video]')];
 const videoObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
