@@ -60,11 +60,12 @@
           <li><a href="#capabilities">O que faço</a></li>
           <li><a href="#profile">Sobre</a></li>
           <li><a href="#lab">Lab</a></li>
+          <li><a href="#systems">Sistemas</a></li>
           <li><a href="#contact">Contato</a></li>
         </ul>
       </nav>
       <div class="header-actions">
-        <button id="palette-toggle" class="palette-toggle" type="button" aria-haspopup="dialog" aria-controls="command-palette">
+        <button id="palette-toggle" class="palette-toggle" type="button" aria-haspopup="dialog" aria-controls="command-palette" aria-label="Buscar Ctrl K">
           <span>Buscar</span><kbd data-shortcut-label>Ctrl K</kbd>
         </button>
         <button id="theme-toggle" class="icon-button" type="button" aria-label="Ativar tema escuro ◐" aria-pressed="false">
@@ -80,8 +81,10 @@
   <main id="conteudo">
     <section id="inicio" class="hero section-anchor" aria-labelledby="hero-title">
       <div class="hero-rule hero-rule-top" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
       <div class="shell hero-layout">
         <div class="hero-intro">
+          <p class="hero-availability" role="status"><span class="hero-availability-dot" aria-hidden="true"></span>Disponível para novos projetos</p>
           <p class="eyebrow">PORTFÓLIO PESSOAL · BELO HORIZONTE</p>
           <h1 id="hero-title" class="hero-title"><span class="hero-line"><span class="hero-line-inner">LUCAS</span></span><span class="hero-line"><span class="hero-line-inner">SANTANA</span></span><span class="hero-line"><span class="hero-line-inner">DA PAZ</span></span></h1>
           <p class="hero-descriptor">Desenvolvimento Web | Sistemas Empresariais e ERP | SQL | Automação e IA</p>
@@ -91,10 +94,11 @@
             <span>Suporte ERP TecFood · Teknisa</span>
             <span>JavaScript · SQL · Automação</span>
           </div>
-          <div class="hero-links">
-            <a href="#work">Ver projetos <span aria-hidden="true">↘</span></a>
-            <a href="#profile">Conhecer meu percurso <span aria-hidden="true">↘</span></a>
+          <div class="hero-ctas">
+            <a class="hero-cta hero-cta--primary" href="#work">Ver projetos <span aria-hidden="true">↘</span></a>
+            <a class="hero-cta hero-cta--secondary" href="assets/cv-lucas-santana-da-paz.pdf" download>Baixar CV <span aria-hidden="true">↓</span></a>
           </div>
+          <p class="hero-links"><a href="#profile">Conhecer meu percurso <span aria-hidden="true">↘</span></a></p>
         </div>
           <div class="hero-panel" data-hero-tabs>
             <div class="hero-panel-top">
@@ -192,6 +196,120 @@
           <p class="section-index">PROJETOS SELECIONADOS</p>
           <h2 id="work-title" class="display-title">Fluxos reais, limites claros.</h2>
           <p>Uma seleção enxuta de projetos pessoais. Cada case mostra o que funciona, como foi pensado e onde a demonstração termina.</p>
+        </div>
+
+        <div class="project-grid" aria-label="Vitrine de projetos">
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status project-status--live">Em produção</span>
+              <span class="project-category">Fullstack · Banco de Dados</span>
+            </div>
+            <h3 class="project-title">SupportFlow</h3>
+            <p class="project-desc">Sistema de chamados com 4 perfis, SLA por prioridade, comentários e histórico imutável. Monorepo com front-end React/Vite, API Express/TypeScript e PostgreSQL.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>React</li><li>Vite</li><li>Express</li><li>TypeScript</li><li>PostgreSQL</li><li>JWT</li>
+            </ul>
+            <div class="project-links">
+              <button class="project-case-trigger" type="button" data-case-study="supportflow" aria-haspopup="dialog" aria-controls="case-dialog">Ver arquitetura <span aria-hidden="true">↗</span></button>
+              <a href="https://github.com/Japapaz696/SupportFlow" target="_blank" rel="noopener" aria-label="Ver código do SupportFlow no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status project-status--live">Cliente real</span>
+              <span class="project-category">Fullstack · Banco de Dados</span>
+            </div>
+            <h3 class="project-title">Site-veronica</h3>
+            <p class="project-desc">Agendamento de consultas com PostgreSQL, sessão administrativa em cookie HttpOnly e token opaco por paciente. 90 testes automatizados.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>Node.js</li><li>PostgreSQL</li><li>Cookies HttpOnly</li><li>Testes</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Japapaz696/Site-veronica" target="_blank" rel="noopener" aria-label="Ver código do Site-veronica no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status">Demo local</span>
+              <span class="project-category">Frontend · Regras</span>
+            </div>
+            <h3 class="project-title">Seu Manoel</h3>
+            <p class="project-desc">Agendamento em etapas validadas com regras de disponibilidade isoladas em módulo testável e persistência local.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>JavaScript</li><li>LocalStorage</li><li>node:test</li>
+            </ul>
+            <div class="project-links">
+              <button class="project-case-trigger" type="button" data-case-study="seu-manoel" aria-haspopup="dialog" aria-controls="case-dialog">Ver arquitetura <span aria-hidden="true">↗</span></button>
+              <a href="projetos/seu-manoel/index.html" target="_blank" rel="noopener" aria-label="Demo — Seu Manoel">Demo <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/seu-manoel" target="_blank" rel="noopener" aria-label="Ver código do Seu Manoel no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status">Demo local</span>
+              <span class="project-category">Frontend · Estado</span>
+            </div>
+            <h3 class="project-title">Beauty Store</h3>
+            <p class="project-desc">Catálogo interativo com busca, filtros, favoritos, carrinho, cupom e frete em um único modelo de estado, com sanitização XSS.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>JavaScript</li><li>HTML/CSS</li><li>escapeHtml</li>
+            </ul>
+            <div class="project-links">
+              <button class="project-case-trigger" type="button" data-case-study="beauty-store" aria-haspopup="dialog" aria-controls="case-dialog">Ver arquitetura <span aria-hidden="true">↗</span></button>
+              <a href="projetos/beauty-store/index.html" target="_blank" rel="noopener" aria-label="Demo — Beauty Store">Demo <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/beauty-store" target="_blank" rel="noopener" aria-label="Ver código da Beauty Store no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status">Demo local</span>
+              <span class="project-category">Frontend · Fluxo</span>
+            </div>
+            <h3 class="project-title">Papitos</h3>
+            <p class="project-desc">Fluxo de pedido no navegador, do cardápio ao checkout, com carrinho persistente e escolha entre entrega ou retirada.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>JavaScript</li><li>LocalStorage</li><li>CSS</li>
+            </ul>
+            <div class="project-links">
+              <a href="projetos/papitos/index.html" target="_blank" rel="noopener" aria-label="Demo — Papitos">Demo <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/papitos" target="_blank" rel="noopener" aria-label="Ver código do Papitos no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status project-status--study">Laboratório</span>
+              <span class="project-category">Banco de Dados · SQL</span>
+            </div>
+            <h3 class="project-title">SQL Lab</h3>
+            <p class="project-desc">Laboratório de SQL para diagnóstico e suporte a ERP, com 10 cenários de consulta executados sobre um banco real.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>SQL</li><li>PostgreSQL</li><li>Diagnóstico</li>
+            </ul>
+            <div class="project-links">
+              <button class="project-case-trigger" type="button" data-case-study="sql-lab" aria-haspopup="dialog" aria-controls="case-dialog">Ver arquitetura <span aria-hidden="true">↗</span></button>
+              <a href="https://github.com/Japapaz696/sql-lab" target="_blank" rel="noopener" aria-label="Ver código do SQL Lab no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div class="project-card-top">
+              <span class="project-status project-status--study">Demo</span>
+              <span class="project-category">PWA · Segurança</span>
+            </div>
+            <h3 class="project-title">barbearia</h3>
+            <p class="project-desc">Demo de fidelidade com senha guardada como derivador PBKDF2 e PWA com cache offline.</p>
+            <ul class="project-techs" aria-label="Tecnologias">
+              <li>PWA</li><li>PBKDF2</li><li>Offline</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Japapaz696/barbearia" target="_blank" rel="noopener" aria-label="Ver código do projeto barbearia no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
         </div>
 
         <article class="case-study case-featured case-manoel" aria-labelledby="manoel-title" data-reveal>
@@ -299,33 +417,159 @@
           <p class="section-index">COMPETÊNCIAS E ÁREAS DE ATUAÇÃO</p>
           <h2 id="capabilities-title" class="display-title">Técnica aplicada a entrega.</h2>
         </div>
-        <div class="capabilities-matrix">
-          <div class="matrix-column">
-            <h3 class="matrix-title">Desenvolvimento Web</h3>
-            <ul class="matrix-list">
-              <li><strong>Interfaces:</strong> HTML5, CSS3 e layouts responsivos.</li>
-              <li><strong>Interatividade:</strong> JavaScript moderno e manipulação de DOM.</li>
-              <li><strong>UX/UI:</strong> Hierarquia visual, semântica e acessibilidade.</li>
-              <li class="matrix-evidence">Evidência: Papitos, Beauty Store, Portfólio.</li>
-            </ul>
+        <div class="stack-panel" data-stack-tabs>
+          <div class="stack-tablist" role="tablist" aria-label="Filtrar tecnologias por pilar">
+            <button class="stack-tab" role="tab" id="stack-tab-all" aria-selected="true" aria-controls="stack-grid" tabindex="0" data-stack-filter="all">Todas</button>
+            <button class="stack-tab" role="tab" id="stack-tab-backend" aria-selected="false" aria-controls="stack-grid" tabindex="-1" data-stack-filter="backend">Backend & APIs</button>
+            <button class="stack-tab" role="tab" id="stack-tab-frontend" aria-selected="false" aria-controls="stack-grid" tabindex="-1" data-stack-filter="frontend">Frontend & UI</button>
+            <button class="stack-tab" role="tab" id="stack-tab-data" aria-selected="false" aria-controls="stack-grid" tabindex="-1" data-stack-filter="data">Bancos de Dados</button>
+            <button class="stack-tab" role="tab" id="stack-tab-ai" aria-selected="false" aria-controls="stack-grid" tabindex="-1" data-stack-filter="ai">IA & Automação</button>
           </div>
-          <div class="matrix-column">
-            <h3 class="matrix-title">Sistemas e Dados</h3>
-            <ul class="matrix-list">
-              <li><strong>ERP:</strong> Suporte e operação de softwares empresariais.</li>
-              <li><strong>SQL:</strong> Consultas para diagnóstico e verificação de dados.</li>
-              <li><strong>Análise:</strong> Investigação de inconsistências e apoio à identificação de causas.</li>
-              <li class="matrix-evidence">Evidência: Experiência profissional na Teknisa.</li>
-            </ul>
-          </div>
-          <div class="matrix-column">
-            <h3 class="matrix-title">Automação e IA</h3>
-            <ul class="matrix-list">
-              <li><strong>Em estudo:</strong> Automação de processos com n8n.</li>
-              <li><strong>Em experimentação:</strong> Consumo de APIs e conectores.</li>
-              <li><strong>Em estudo:</strong> LLMs e ferramentas de IA generativa.</li>
-              <li class="matrix-evidence">Evidência: Estudos e experimentos no Lab.</li>
-            </ul>
+          <div class="stack-grid" id="stack-grid" role="tabpanel" aria-labelledby="stack-tab-all">
+            <article class="stack-card" data-stack-category="backend" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Nd</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">Node.js</h3>
+                <p class="stack-card-desc">Runtime para APIs e ferramentas.</p>
+                <span class="stack-level">Uso em projetos</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="backend" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Ex</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">Express</h3>
+                <p class="stack-card-desc">APIs REST e middlewares.</p>
+                <span class="stack-level">Uso em projetos</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="backend" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">API</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">REST APIs</h3>
+                <p class="stack-card-desc">Design de endpoints e contratos.</p>
+                <span class="stack-level">Prática</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="backend" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Py</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">Python</h3>
+                <p class="stack-card-desc">Scripts e estudo.</p>
+                <span class="stack-level stack-level--study">Em estudo</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="frontend" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">JS</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">JavaScript ES6+</h3>
+                <p class="stack-card-desc">Lógica, DOM e estado.</p>
+                <span class="stack-level">Uso diário</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="frontend" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">H5</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">HTML5</h3>
+                <p class="stack-card-desc">Semântica e acessibilidade.</p>
+                <span class="stack-level">Uso diário</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="frontend" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">C3</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">CSS3</h3>
+                <p class="stack-card-desc">Layout, responsividade e motion.</p>
+                <span class="stack-level">Uso diário</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="frontend" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Rx</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">React</h3>
+                <p class="stack-card-desc">Estudo e projetos próprios.</p>
+                <span class="stack-level stack-level--study">Em estudo</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="frontend" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">A11</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">Acessibilidade</h3>
+                <p class="stack-card-desc">ARIA, teclado e contraste.</p>
+                <span class="stack-level">Prática</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="data" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Pg</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">PostgreSQL</h3>
+                <p class="stack-card-desc">Modelagem e queries em projetos.</p>
+                <span class="stack-level">Prática</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="data" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">SQL</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">SQL</h3>
+                <p class="stack-card-desc">Diagnóstico e suporte a ERP.</p>
+                <span class="stack-level">Uso profissional</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="data" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Md</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">Modelagem</h3>
+                <p class="stack-card-desc">Entidades e relacionamentos.</p>
+                <span class="stack-level">Prática</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="data" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Qo</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">Query Optimization</h3>
+                <p class="stack-card-desc">Leitura de planos e índices.</p>
+                <span class="stack-level stack-level--study">Em estudo</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="ai" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">AI</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">OpenAI API</h3>
+                <p class="stack-card-desc">Experimentação e protótipos.</p>
+                <span class="stack-level stack-level--study">Experimentação</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="ai" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Pr</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">Prompt Engineering</h3>
+                <p class="stack-card-desc">Instruções e contexto.</p>
+                <span class="stack-level stack-level--study">Estudo</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="ai" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">n8</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">n8n</h3>
+                <p class="stack-card-desc">Automação de fluxos.</p>
+                <span class="stack-level stack-level--study">Estudo</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="ai" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Gh</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">Git/GitHub</h3>
+                <p class="stack-card-desc">Versionamento e CI.</p>
+                <span class="stack-level">Uso diário</span>
+              </div>
+            </article>
+            <article class="stack-card" data-stack-category="ai" data-reveal>
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Lx</text></svg>
+              <div class="stack-card-body">
+                <h3 class="stack-card-title">Linux</h3>
+                <p class="stack-card-desc">Ambiente e suporte.</p>
+                <span class="stack-level">Prática</span>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -357,13 +601,51 @@
           <h2 id="journey-title" class="display-title">Percurso em construção, ferramentas em uso.</h2>
         </div>
         <div class="journey-stack-content">
-          <ol class="journey-list">
-            <li><span>Atual</span><div><h3>Projetos próprios</h3><p>Web, automação, interfaces e experimentação visual</p></div></li>
-            <li><span>Experiência</span><div><h3>Suporte de software</h3><p>Diagnóstico, operação de sistemas e contato com SQL</p></div></li>
-            <li><span>Em curso</span><div><h3>ADS</h3><p>Formação em Análise e Desenvolvimento de Sistemas</p></div></li>
-            <li><span>2024-25</span><div><h3>Newcity Car</h3><p>Vistoriador veicular</p></div></li>
-            <li><span>2021</span><div><h3>Pirelli</h3><p>Logística</p></div></li>
+          <ol class="timeline" aria-label="Linha do tempo da trajetória">
+            <li class="timeline-item">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <div class="timeline-content">
+                <p class="timeline-date">Atual</p>
+                <h3 class="timeline-title">Projetos próprios</h3>
+                <p class="timeline-desc">Web, automação, interfaces e experimentação visual. Portfólio com demos testados e documentação de limites.</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <div class="timeline-content">
+                <p class="timeline-date">Experiência profissional</p>
+                <h3 class="timeline-title">Suporte de software · Teknisa</h3>
+                <p class="timeline-desc">Diagnóstico, operação de sistemas ERP TecFood e contato com SQL. Atendimento técnico e análise de processos.</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <div class="timeline-content">
+                <p class="timeline-date">Em curso</p>
+                <h3 class="timeline-title">ADS</h3>
+                <p class="timeline-desc">Análise e Desenvolvimento de Sistemas — previsão de conclusão em 2027.</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <div class="timeline-content">
+                <p class="timeline-date">2024–2025</p>
+                <h3 class="timeline-title">Newcity Car</h3>
+                <p class="timeline-desc">Vistoriador veicular.</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <div class="timeline-content">
+                <p class="timeline-date">2021</p>
+                <h3 class="timeline-title">Pirelli</h3>
+                <p class="timeline-desc">Logística.</p>
+              </div>
+            </li>
           </ol>
+          <div class="journey-cta">
+            <a class="hero-cta hero-cta--primary" href="assets/cv-lucas-santana-da-paz.pdf" download>Baixar CV <span aria-hidden="true">↓</span></a>
+          </div>
 
           <section id="stack" class="stack-section section-anchor" aria-labelledby="stack-title">
             <h3 id="stack-title">Stack com evidência</h3>
@@ -411,6 +693,72 @@
       </div>
     </section>
 
+    <section id="systems" class="systems-section section-anchor section-reveal" data-reveal aria-labelledby="systems-title">
+      <div class="shell">
+        <div class="section-heading narrow-heading">
+          <p class="section-index">ESTADO DOS SERVIÇOS</p>
+          <h2 id="systems-title" class="display-title">Live status e terminal de engenharia.</h2>
+          <p>Cheque endpoints e explore comandos técnicos em um console leve, sem dependências.</p>
+        </div>
+        <div class="systems-grid">
+          <div class="system-status-panel" aria-live="polite">
+            <div class="system-status-header">
+              <p class="section-index">SERVIÇOS MONITORADOS</p>
+              <button id="status-refresh" class="hero-cta hero-cta--secondary" type="button">Atualizar status</button>
+            </div>
+            <ul class="system-status-list" id="system-status-list">
+              <li class="system-status-item" data-status-service="github">
+                <span class="system-status-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="system-status-name">GitHub API</p>
+                  <p class="system-status-meta">Repositório e metadados</p>
+                </div>
+                <span class="system-status-value">Verificando…</span>
+              </li>
+              <li class="system-status-item" data-status-service="supportflow">
+                <span class="system-status-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="system-status-name">SupportFlow</p>
+                  <p class="system-status-meta">Repositório e disponibilidade</p>
+                </div>
+                <span class="system-status-value">Verificando…</span>
+              </li>
+              <li class="system-status-item" data-status-service="beauty-store">
+                <span class="system-status-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="system-status-name">Beauty Store</p>
+                  <p class="system-status-meta">Demo local</p>
+                </div>
+                <span class="system-status-value">Verificando…</span>
+              </li>
+              <li class="system-status-item" data-status-service="site-veronica">
+                <span class="system-status-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="system-status-name">Site-veronica</p>
+                  <p class="system-status-meta">Repositório e disponibilidade</p>
+                </div>
+                <span class="system-status-value">Verificando…</span>
+              </li>
+            </ul>
+          </div>
+          <div class="terminal-panel">
+            <div class="terminal-header">
+              <span class="terminal-dot" aria-hidden="true"></span>
+              <span class="terminal-dot" aria-hidden="true"></span>
+              <span class="terminal-dot" aria-hidden="true"></span>
+              <p class="terminal-title">lucas@portfolio:~</p>
+            </div>
+            <div class="terminal-output" id="terminal-output" role="log" aria-live="polite" aria-label="Saída do terminal"></div>
+            <form class="terminal-form" id="terminal-form">
+              <label class="sr-only" for="terminal-input">Comando do terminal</label>
+              <span class="terminal-prompt" aria-hidden="true">$</span>
+              <input id="terminal-input" class="terminal-input" type="text" autocomplete="off" spellcheck="false" aria-label="Comando do terminal">
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="contact-section section-anchor section-reveal" data-reveal aria-labelledby="contact-title">
       <div class="shell contact-layout">
         <div>
@@ -425,13 +773,51 @@
             <li><a href="https://www.linkedin.com/in/lucas-santana-da-paz-215816247/" target="_blank" rel="noopener">LinkedIn <span>lucas-santana-da-paz</span><em aria-hidden="true">↗</em></a></li>
             <li><a href="https://wa.me/5531973403545" target="_blank" rel="noopener">WhatsApp <span>+55 31 97340-3545</span><em aria-hidden="true">↗</em></a></li>
           </ul>
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="contact-form-field">
+              <label for="contact-name">Nome</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" required minlength="2" spellcheck="false">
+              <p class="contact-form-error" id="contact-name-error" aria-live="polite"></p>
+            </div>
+            <div class="contact-form-field">
+              <label for="contact-email">E-mail</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" required inputmode="email" spellcheck="false">
+              <p class="contact-form-error" id="contact-email-error" aria-live="polite"></p>
+            </div>
+            <div class="contact-form-field">
+              <label for="contact-message">Mensagem</label>
+              <textarea id="contact-message" name="message" rows="5" required minlength="10"></textarea>
+              <p class="contact-form-error" id="contact-message-error" aria-live="polite"></p>
+            </div>
+            <div class="contact-form-actions">
+              <button class="hero-cta hero-cta--primary" type="submit">Enviar mensagem</button>
+              <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="shell"><p>Feito por Lucas Santana da Paz <span aria-hidden="true">/</span> <span id="year"></span></p></div>
+    <div class="shell footer-layout">
+      <div class="footer-brand">
+        <p class="footer-name">Lucas Santana da Paz</p>
+        <p class="footer-tagline">Desenvolvimento web, sistemas e automação.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Navegação do rodapé">
+        <a href="#work">Projetos</a>
+        <a href="#experience">Experiência</a>
+        <a href="#capabilities">Competências</a>
+        <a href="#contact">Contato</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://github.com/Japapaz696" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/lucas-santana-da-paz-215816247/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:lucaspaz696@gmail.com">E-mail</a>
+      </div>
+      <p class="footer-meta">© <span id="year"></span> Lucas Santana da Paz · HTML, CSS e JavaScript.</p>
+    </div>
   </footer>
   <button id="back-to-top" class="back-to-top" type="button" aria-label="Voltar ao topo ↑"><span aria-hidden="true">↑</span></button>
 
@@ -450,6 +836,26 @@
       </header>
       <p id="demo-loading" class="demo-dialog__status" role="status" aria-live="polite">Preparando demonstração.</p>
       <div id="demo-frame-host" class="demo-frame-host" aria-live="polite"></div>
+    </div>
+  </dialog>
+
+  <dialog id="case-dialog" class="case-dialog" aria-labelledby="case-dialog-title" aria-describedby="case-dialog-description">
+    <div class="case-dialog__shell">
+      <header class="case-dialog__header">
+        <div>
+          <p class="case-dialog__kicker">ESTUDO DE CASO TÉCNICO</p>
+          <h2 id="case-dialog-title">Detalhamento técnico</h2>
+          <p id="case-dialog-description">Arquitetura, banco de dados, segurança e desafios.</p>
+        </div>
+        <button id="case-close" class="demo-close" type="button" aria-label="Fechar estudo de caso">Fechar <span aria-hidden="true">Esc</span></button>
+      </header>
+      <div class="case-tabs" role="tablist" aria-label="Seções do estudo de caso">
+        <button class="case-tab" role="tab" id="case-tab-architecture" aria-selected="true" aria-controls="case-panel-architecture" tabindex="0" data-case-tab="architecture">Arquitetura</button>
+        <button class="case-tab" role="tab" id="case-tab-database" aria-selected="false" aria-controls="case-panel-database" tabindex="-1" data-case-tab="database">Banco de Dados</button>
+        <button class="case-tab" role="tab" id="case-tab-security" aria-selected="false" aria-controls="case-panel-security" tabindex="-1" data-case-tab="security">Segurança</button>
+        <button class="case-tab" role="tab" id="case-tab-code" aria-selected="false" aria-controls="case-panel-code" tabindex="-1" data-case-tab="code">Código</button>
+      </div>
+      <div class="case-tabpanels" id="case-tabpanels"></div>
     </div>
   </dialog>
 

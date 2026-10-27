@@ -185,6 +185,39 @@ if (heroTabsRoot) {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(heroStabilize);
 }
 
+/* Tech stack: filtros por pilar (enhancement progressivo) */
+const stackTabsRoot = document.querySelector('[data-stack-tabs]');
+if (stackTabsRoot) {
+  const stackTabs = Array.from(stackTabsRoot.querySelectorAll('[role="tab"]'));
+  const stackCards = Array.from(stackTabsRoot.querySelectorAll('.stack-card'));
+  const stackSelect = (index, moveFocus) => {
+    stackTabs.forEach((tab, i) => {
+      const active = i === index;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
+    const panel = stackTabsRoot.querySelector('[role="tabpanel"]');
+    if (panel) panel.setAttribute('aria-labelledby', stackTabs[index].id);
+    const filter = stackTabs[index].dataset.stackFilter;
+    stackCards.forEach((card) => {
+      card.hidden = !(filter === 'all' || card.dataset.stackCategory === filter);
+    });
+    if (moveFocus) stackTabs[index].focus();
+  };
+  stackTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => stackSelect(index, false));
+    tab.addEventListener('keydown', (event) => {
+      let next = null;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % stackTabs.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + stackTabs.length) % stackTabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = stackTabs.length - 1;
+      if (next !== null) { event.preventDefault(); stackSelect(next, true); }
+    });
+  });
+  stackSelect(0, false);
+}
+
 const labVideos = [...document.querySelectorAll('[data-lab-video]')];
 const videoObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -298,13 +331,31 @@ function openDemo(event) {
 
   const frame = ensureDemoFrame(config);
   frame.title = `${config.title} - demonstração interativa`;
+  const loadingTimer = window.setTimeout(() => {
+    if (activeDemoId === trigger.dataset.demoId && demoLoading) {
+      demoLoading.hidden = false;
+      demoLoading.textContent = 'A demonstração está demorando para carregar. Tente abrir o projeto completo.';
+    }
+  }, 8000);
+
   frame.onload = () => {
+    window.clearTimeout(loadingTimer);
     if (demoLoading && frame.dataset.loadedFor === activeDemoId) demoLoading.hidden = true;
+  };
+  frame.onerror = () => {
+    window.clearTimeout(loadingTimer);
+    if (demoLoading) {
+      demoLoading.hidden = false;
+      demoLoading.textContent = 'Não foi possível carregar a demonstração. Use “Abrir projeto completo”.';
+    }
   };
   if (frame.dataset.loadedFor !== activeDemoId) {
     frame.dataset.loadedFor = activeDemoId;
+    demoLoading.hidden = false;
+    demoLoading.textContent = 'Carregando interface local...';
     frame.src = config.url;
   } else {
+    window.clearTimeout(loadingTimer);
     demoLoading.hidden = true;
   }
 
@@ -517,3 +568,307 @@ document.addEventListener('keydown', (event) => {
 });
 
 renderPalette();
+
+/* Estudos de caso técnicos (modal acessível) */
+const caseStudies = {
+  supportflow: {
+    title: 'SupportFlow',
+    description: 'Arquitetura, banco de dados, segurança e desafios de um sistema de chamados em produção.',
+    tabs: [
+      { id: 'architecture', label: 'Arquitetura', html: '<h3>Arquitetura</h3><p>Monorepo com front-end React/Vite, API Express/TypeScript e PostgreSQL. A API usa JWT em memória, RBAC para quatro perfis e SLA calculado e persistido na mesma transação do chamado.</p><ul><li>Comentários públicos e internos.</li><li>Histórico imutável de eventos.</li><li>Notificações e diagnóstico por chamado.</li></ul>' },
+      { id: 'database', label: 'Banco de Dados', html: '<h3>Banco de Dados</h3><p>PostgreSQL 16 com migrations versionadas. Tabelas para usuários, chamados, comentários, eventos e políticas de SLA, com chaves estrangeiras e transações.</p><ul><li>110 testes de integração contra banco real.</li><li>Integridade referencial.</li><li>Persistência transacional do SLA.</li></ul>' },
+      { id: 'security', label: 'Segurança', html: '<h3>Segurança</h3><p>Token JWT apenas em memória, sem localStorage e sem cookie. Controle de acesso por perfil com middleware dedicado e validação de entrada.</p><ul><li>21 testes de middleware de segurança.</li><li>Sem segredos no repositório.</li><li>RBAC por perfil.</li></ul>' },
+      { id: 'code', label: 'Código', html: '<h3>Trecho relevante</h3><pre class="case-code"><code>// SLA persistido na mesma transação do chamado\nawait db.transaction(async (trx) => {\n  const ticket = await createTicket(input, trx);\n  await persistSla(ticket, policy, trx);\n});</code></pre>' }
+    ]
+  },
+  'sql-lab': {
+    title: 'SQL Lab',
+    description: 'Laboratório de SQL para diagnóstico e suporte a ERP sobre um banco relacional real.',
+    tabs: [
+      { id: 'architecture', label: 'Arquitetura', html: '<h3>Arquitetura</h3><p>10 cenários de consulta executados sobre tabelas de vendas, pedidos, produtos, pagamentos, estoque e chamados. Consultas read-only com resultados esperados.</p><ul><li>Separação entre cenários e validação.</li><li>Execução real sobre PostgreSQL.</li><li>108 testes automatizados.</li></ul>' },
+      { id: 'database', label: 'Banco de Dados', html: '<h3>Banco de Dados</h3><p>Schema relacional com vendas, pedidos, produtos, pagamentos, estoque e chamados. Ênfase em joins, agregações e diagnóstico operacional.</p><ul><li>Relacionamentos entre entidades.</li><li>Consultas de diagnóstico.</li><li>Validação de resultados esperados.</li></ul>' },
+      { id: 'security', label: 'Segurança', html: '<h3>Segurança</h3><p>Consultas read-only, sem operações destrutivas. Ambiente isolado para experimentação e aprendizado.</p><ul><li>Sem escrita em produção.</li><li>Cenários controlados.</li></ul>' },
+      { id: 'code', label: 'Código', html: '<h3>Trecho relevante</h3><pre class="case-code"><code>-- Diagnóstico de pedidos sem pagamento\nSELECT p.id, p.total, pg.status\nFROM pedidos p\nLEFT JOIN pagamentos pg ON pg.pedido_id = p.id\nWHERE pg.id IS NULL;</code></pre>' }
+    ]
+  },
+  'beauty-store': {
+    title: 'Beauty Store',
+    description: 'Catálogo interativo com estado centralizado e hardening contra XSS.',
+    tabs: [
+      { id: 'architecture', label: 'Arquitetura', html: '<h3>Arquitetura</h3><p>SPA em JavaScript puro com estado centralizado para produtos, filtros, favoritos e carrinho. Renderização por funções dedicadas.</p><ul><li>Busca, ordenação e filtros.</li><li>Detalhe de produto e checkout simulado.</li><li>Sanitização antes de innerHTML.</li></ul>' },
+      { id: 'database', label: 'Banco de Dados', html: '<h3>Banco de Dados</h3><p>Sem backend. Persistência local via localStorage para carrinho e favoritos, com validação da estrutura dos itens.</p><ul><li>Validação de itens armazenados.</li><li>Dados locais não sensíveis.</li></ul>' },
+      { id: 'security', label: 'Segurança', html: '<h3>Segurança</h3><p>escapeHtml aplicado a todos os dados vindos do localStorage e do catálogo antes da interpolação em innerHTML. Demos carregadas com sandbox.</p><ul><li>Testes de sanitização.</li><li>Sem parâmetros de URL consumidos.</li></ul>' },
+      { id: 'code', label: 'Código', html: '<h3>Trecho relevante</h3><pre class="case-code"><code>function escapeHtml(value) {\n  return String(value)\n    .replace(/&/g, \'&amp;\')\n    .replace(/</g, \'&lt;\')\n    .replace(/>/g, \'&gt;\');\n}</code></pre>' }
+    ]
+  },
+  'seu-manoel': {
+    title: 'Seu Manoel',
+    description: 'Agendamento em etapas com regras isoladas e testáveis.',
+    tabs: [
+      { id: 'architecture', label: 'Arquitetura', html: '<h3>Arquitetura</h3><p>Wizard de 6 etapas com validação progressiva. Regras de disponibilidade isoladas em módulo separado e testável.</p><ul><li>Escolha de serviço, profissional, data e horário.</li><li>Confirmação e histórico.</li><li>Cancelamento libera horários.</li></ul>' },
+      { id: 'database', label: 'Banco de Dados', html: '<h3>Banco de Dados</h3><p>Persistência local via localStorage para agendamentos. Estrutura validada antes do uso.</p><ul><li>Reservas ativas bloqueiam slots.</li><li>Cancelamentos liberam horários.</li></ul>' },
+      { id: 'security', label: 'Segurança', html: '<h3>Segurança</h3><p>Renderização com createElement e textContent, sem innerHTML com dados dinâmicos. Sem parâmetros de URL consumidos.</p><ul><li>Validação de entrada.</li><li>Demonstração local.</li></ul>' },
+      { id: 'code', label: 'Código', html: '<h3>Trecho relevante</h3><pre class="case-code"><code>export function getAvailableSlots(input) {\n  // respeita janela, duração e reservas\n  return slots.filter((slot) => !isReserved(slot));\n}</code></pre>' }
+    ]
+  }
+};
+
+const caseDialog = document.getElementById('case-dialog');
+const caseTitle = document.getElementById('case-dialog-title');
+const caseDescription = document.getElementById('case-dialog-description');
+const caseTabpanelsHost = document.getElementById('case-tabpanels');
+let caseLastFocus = null;
+let caseTabs = [];
+let casePanels = [];
+
+function renderCaseTabs(tabs) {
+  if (!caseDialog || !caseTabpanelsHost) return;
+  const tablist = caseDialog.querySelector('.case-tabs');
+  if (!tablist) return;
+  tablist.replaceChildren();
+  caseTabpanelsHost.replaceChildren();
+  tabs.forEach((tab, index) => {
+    const button = document.createElement('button');
+    button.className = 'case-tab';
+    button.type = 'button';
+    button.setAttribute('role', 'tab');
+    button.id = `case-tab-${tab.id}`;
+    button.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+    button.tabIndex = index === 0 ? 0 : -1;
+    button.setAttribute('aria-controls', `case-panel-${tab.id}`);
+    button.dataset.caseTab = tab.id;
+    button.textContent = tab.label;
+    tablist.append(button);
+
+    const panel = document.createElement('section');
+    panel.className = 'case-tabpanel';
+    panel.id = `case-panel-${tab.id}`;
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', button.id);
+    panel.hidden = index !== 0;
+    panel.innerHTML = tab.html;
+    caseTabpanelsHost.append(panel);
+  });
+  caseTabs = [...caseDialog.querySelectorAll('[role="tab"]')];
+  casePanels = [...caseDialog.querySelectorAll('[role="tabpanel"]')];
+  caseTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectCaseTab(index, false));
+    tab.addEventListener('keydown', (event) => {
+      let next = null;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % caseTabs.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + caseTabs.length) % caseTabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = caseTabs.length - 1;
+      if (next !== null) { event.preventDefault(); selectCaseTab(next, true); }
+    });
+  });
+}
+
+function selectCaseTab(index, moveFocus) {
+  caseTabs.forEach((tab, i) => {
+    const active = i === index;
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+  });
+  casePanels.forEach((panel, i) => { panel.hidden = i !== index; });
+  if (moveFocus && caseTabs[index]) caseTabs[index].focus();
+}
+
+function openCaseStudy(id) {
+  const data = caseStudies[id];
+  if (!data || !caseDialog) return;
+  caseLastFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  if (caseTitle) caseTitle.textContent = data.title;
+  if (caseDescription) caseDescription.textContent = data.description;
+  renderCaseTabs(data.tabs);
+  selectCaseTab(0, false);
+  document.body.classList.add('demo-open');
+  caseDialog.showModal();
+  const firstTab = caseDialog.querySelector('[role="tab"]');
+  if (firstTab) firstTab.focus();
+}
+
+function closeCaseStudy() {
+  if (!caseDialog) return;
+  caseDialog.close();
+}
+
+if (caseDialog) {
+  const closeButton = document.getElementById('case-close');
+  closeButton?.addEventListener('click', closeCaseStudy);
+  caseDialog.addEventListener('click', (event) => {
+    if (event.target === caseDialog) closeCaseStudy();
+  });
+  caseDialog.addEventListener('close', () => {
+    document.body.classList.remove('demo-open');
+    if (caseLastFocus) caseLastFocus.focus();
+  });
+  caseDialog.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    closeCaseStudy();
+  });
+}
+
+document.querySelectorAll('[data-case-study]').forEach((trigger) => {
+  trigger.addEventListener('click', () => openCaseStudy(trigger.dataset.caseStudy));
+});
+
+/* Live status, terminal e formulário de contato seguro */
+const statusList = document.getElementById('system-status-list');
+const statusRefresh = document.getElementById('status-refresh');
+const systemServices = ['github', 'supportflow', 'beauty-store', 'site-veronica'];
+const serviceUrls = {
+  github: 'https://api.github.com/repos/Japapaz696/Repositorio-Curriculo',
+  supportflow: 'https://api.github.com/repos/Japapaz696/SupportFlow',
+  'beauty-store': 'projetos/beauty-store/index.html',
+  'site-veronica': 'https://api.github.com/repos/Japapaz696/Site-veronica'
+};
+
+function setServiceStatus(service, state, text) {
+  if (!statusList) return;
+  const item = statusList.querySelector(`[data-status-service="${service}"]`);
+  if (!item) return;
+  const value = item.querySelector('.system-status-value');
+  item.classList.remove('is-online', 'is-offline', 'is-checking');
+  item.classList.add(state);
+  if (value) value.textContent = text;
+}
+
+async function checkService(service) {
+  setServiceStatus(service, 'is-checking', 'Verificando…');
+  const start = performance.now();
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 6000);
+  try {
+    const response = await fetch(serviceUrls[service], { signal: controller.signal, cache: 'no-store' });
+    clearTimeout(timeoutId);
+    const latency = Math.round(performance.now() - start);
+    if (response.ok) {
+      setServiceStatus(service, 'is-online', `${response.status} · ${latency}ms`);
+    } else {
+      setServiceStatus(service, 'is-offline', `HTTP ${response.status}`);
+    }
+  } catch (error) {
+    clearTimeout(timeoutId);
+    setServiceStatus(service, 'is-offline', error.name === 'AbortError' ? 'Timeout' : 'Indisponível');
+  }
+}
+
+async function refreshSystemStatus() {
+  await Promise.all(systemServices.map((service) => checkService(service)));
+}
+
+statusRefresh?.addEventListener('click', refreshSystemStatus);
+if (statusList) refreshSystemStatus();
+
+const terminalForm = document.getElementById('terminal-form');
+const terminalInput = document.getElementById('terminal-input');
+const terminalOutput = document.getElementById('terminal-output');
+
+function printTerminal(text, className = '') {
+  if (!terminalOutput) return;
+  const line = document.createElement('p');
+  line.className = `terminal-line${className ? ` ${className}` : ''}`;
+  line.textContent = text;
+  terminalOutput.append(line);
+  terminalOutput.scrollTop = terminalOutput.scrollHeight;
+}
+
+function runTerminalCommand(raw) {
+  const command = raw.trim();
+  if (!command) return;
+  printTerminal(`$ ${command}`, 'terminal-line--command');
+  const [name] = command.toLowerCase().split(/\s+/);
+  switch (name) {
+    case 'help':
+      printTerminal('Comandos: help, skills, projects, status, contact, clear');
+      break;
+    case 'skills':
+      printTerminal('Backend: Node.js, Express, REST APIs; Frontend: JavaScript, HTML, CSS, React; Dados: PostgreSQL, SQL; IA: OpenAI API, n8n, Prompt Engineering; Ferramentas: Git, GitHub, Linux');
+      break;
+    case 'projects':
+      printTerminal('SupportFlow, Site-veronica, Seu Manoel, Beauty Store, Papitos, SQL Lab, barbearia');
+      break;
+    case 'status':
+      printTerminal('Atualizando status dos serviços…');
+      refreshSystemStatus();
+      break;
+    case 'contact':
+      printTerminal('E-mail: lucaspaz696@gmail.com | GitHub: Japapaz696 | LinkedIn: lucas-santana-da-paz');
+      break;
+    case 'clear':
+      if (terminalOutput) terminalOutput.replaceChildren();
+      break;
+    default:
+      printTerminal(`Comando não encontrado: ${name}. Use help.`, 'terminal-line--error');
+  }
+}
+
+if (terminalOutput) {
+  printTerminal('Terminal de engenharia pronto. Digite help para começar.');
+}
+terminalForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!terminalInput) return;
+  runTerminalCommand(terminalInput.value);
+  terminalInput.value = '';
+  terminalInput.focus();
+});
+
+const contactForm = document.getElementById('contact-form');
+const contactName = document.getElementById('contact-name');
+const contactEmail = document.getElementById('contact-email');
+const contactMessage = document.getElementById('contact-message');
+const contactNameError = document.getElementById('contact-name-error');
+const contactEmailError = document.getElementById('contact-email-error');
+const contactMessageError = document.getElementById('contact-message-error');
+const contactStatus = document.getElementById('contact-form-status');
+
+function sanitizeContactValue(value) {
+  return value.trim().replace(/\s+/g, ' ');
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function validateContactField(field) {
+  if (!field) return true;
+  const value = sanitizeContactValue(field.value);
+  let message = '';
+  if (field === contactName) {
+    if (value.length < 2) message = 'Informe um nome com pelo menos 2 caracteres.';
+  } else if (field === contactEmail) {
+    if (!isValidEmail(value)) message = 'Informe um e-mail válido.';
+  } else if (field === contactMessage) {
+    if (value.length < 10) message = 'A mensagem deve ter pelo menos 10 caracteres.';
+  }
+  const errorElement = field === contactName ? contactNameError : field === contactEmail ? contactEmailError : contactMessageError;
+  if (errorElement) errorElement.textContent = message;
+  field.setAttribute('aria-invalid', message ? 'true' : 'false');
+  return !message;
+}
+
+function validateContactForm() {
+  return [contactName, contactEmail, contactMessage].map(validateContactField).every(Boolean);
+}
+
+[contactName, contactEmail, contactMessage].forEach((field) => {
+  field?.addEventListener('input', () => validateContactField(field));
+  field?.addEventListener('blur', () => validateContactField(field));
+});
+
+contactForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!validateContactForm()) {
+    if (contactStatus) contactStatus.textContent = 'Corrija os campos destacados antes de enviar.';
+    return;
+  }
+  const name = sanitizeContactValue(contactName.value);
+  const email = sanitizeContactValue(contactEmail.value);
+  const message = sanitizeContactValue(contactMessage.value);
+  const subject = encodeURIComponent(`Contato do portfólio: ${name}`);
+  const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\n${message}`);
+  if (contactStatus) contactStatus.textContent = 'Abrindo seu cliente de e-mail com a mensagem preparada.';
+  window.location.href = `mailto:lucaspaz696@gmail.com?subject=${subject}&body=${body}`;
+});
