@@ -60,6 +60,7 @@
           <li><a href="#capabilities">O que faço</a></li>
           <li><a href="#profile">Sobre</a></li>
           <li><a href="#lab">Lab</a></li>
+          <li><a href="#systems">Sistemas</a></li>
           <li><a href="#contact">Contato</a></li>
         </ul>
       </nav>
@@ -692,6 +693,72 @@
       </div>
     </section>
 
+    <section id="systems" class="systems-section section-anchor section-reveal" data-reveal aria-labelledby="systems-title">
+      <div class="shell">
+        <div class="section-heading narrow-heading">
+          <p class="section-index">ESTADO DOS SERVIÇOS</p>
+          <h2 id="systems-title" class="display-title">Live status e terminal de engenharia.</h2>
+          <p>Cheque endpoints e explore comandos técnicos em um console leve, sem dependências.</p>
+        </div>
+        <div class="systems-grid">
+          <div class="system-status-panel" aria-live="polite">
+            <div class="system-status-header">
+              <p class="section-index">SERVIÇOS MONITORADOS</p>
+              <button id="status-refresh" class="hero-cta hero-cta--secondary" type="button">Atualizar status</button>
+            </div>
+            <ul class="system-status-list" id="system-status-list">
+              <li class="system-status-item" data-status-service="github">
+                <span class="system-status-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="system-status-name">GitHub API</p>
+                  <p class="system-status-meta">Repositório e metadados</p>
+                </div>
+                <span class="system-status-value">Verificando…</span>
+              </li>
+              <li class="system-status-item" data-status-service="supportflow">
+                <span class="system-status-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="system-status-name">SupportFlow</p>
+                  <p class="system-status-meta">Repositório e disponibilidade</p>
+                </div>
+                <span class="system-status-value">Verificando…</span>
+              </li>
+              <li class="system-status-item" data-status-service="beauty-store">
+                <span class="system-status-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="system-status-name">Beauty Store</p>
+                  <p class="system-status-meta">Demo local</p>
+                </div>
+                <span class="system-status-value">Verificando…</span>
+              </li>
+              <li class="system-status-item" data-status-service="site-veronica">
+                <span class="system-status-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="system-status-name">Site-veronica</p>
+                  <p class="system-status-meta">Repositório e disponibilidade</p>
+                </div>
+                <span class="system-status-value">Verificando…</span>
+              </li>
+            </ul>
+          </div>
+          <div class="terminal-panel">
+            <div class="terminal-header">
+              <span class="terminal-dot" aria-hidden="true"></span>
+              <span class="terminal-dot" aria-hidden="true"></span>
+              <span class="terminal-dot" aria-hidden="true"></span>
+              <p class="terminal-title">lucas@portfolio:~</p>
+            </div>
+            <div class="terminal-output" id="terminal-output" role="log" aria-live="polite" aria-label="Saída do terminal"></div>
+            <form class="terminal-form" id="terminal-form">
+              <label class="sr-only" for="terminal-input">Comando do terminal</label>
+              <span class="terminal-prompt" aria-hidden="true">$</span>
+              <input id="terminal-input" class="terminal-input" type="text" autocomplete="off" spellcheck="false" aria-label="Comando do terminal">
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="contact-section section-anchor section-reveal" data-reveal aria-labelledby="contact-title">
       <div class="shell contact-layout">
         <div>
@@ -706,6 +773,27 @@
             <li><a href="https://www.linkedin.com/in/lucas-santana-da-paz-215816247/" target="_blank" rel="noopener">LinkedIn <span>lucas-santana-da-paz</span><em aria-hidden="true">↗</em></a></li>
             <li><a href="https://wa.me/5531973403545" target="_blank" rel="noopener">WhatsApp <span>+55 31 97340-3545</span><em aria-hidden="true">↗</em></a></li>
           </ul>
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="contact-form-field">
+              <label for="contact-name">Nome</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" required minlength="2" spellcheck="false">
+              <p class="contact-form-error" id="contact-name-error" aria-live="polite"></p>
+            </div>
+            <div class="contact-form-field">
+              <label for="contact-email">E-mail</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" required inputmode="email" spellcheck="false">
+              <p class="contact-form-error" id="contact-email-error" aria-live="polite"></p>
+            </div>
+            <div class="contact-form-field">
+              <label for="contact-message">Mensagem</label>
+              <textarea id="contact-message" name="message" rows="5" required minlength="10"></textarea>
+              <p class="contact-form-error" id="contact-message-error" aria-live="polite"></p>
+            </div>
+            <div class="contact-form-actions">
+              <button class="hero-cta hero-cta--primary" type="submit">Enviar mensagem</button>
+              <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
         </div>
       </div>
     </section>

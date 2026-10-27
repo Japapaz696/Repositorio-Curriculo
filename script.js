@@ -712,3 +712,163 @@ if (caseDialog) {
 document.querySelectorAll('[data-case-study]').forEach((trigger) => {
   trigger.addEventListener('click', () => openCaseStudy(trigger.dataset.caseStudy));
 });
+
+/* Live status, terminal e formulário de contato seguro */
+const statusList = document.getElementById('system-status-list');
+const statusRefresh = document.getElementById('status-refresh');
+const systemServices = ['github', 'supportflow', 'beauty-store', 'site-veronica'];
+const serviceUrls = {
+  github: 'https://api.github.com/repos/Japapaz696/Repositorio-Curriculo',
+  supportflow: 'https://api.github.com/repos/Japapaz696/SupportFlow',
+  'beauty-store': 'projetos/beauty-store/index.html',
+  'site-veronica': 'https://api.github.com/repos/Japapaz696/Site-veronica'
+};
+
+function setServiceStatus(service, state, text) {
+  if (!statusList) return;
+  const item = statusList.querySelector(`[data-status-service="${service}"]`);
+  if (!item) return;
+  const value = item.querySelector('.system-status-value');
+  item.classList.remove('is-online', 'is-offline', 'is-checking');
+  item.classList.add(state);
+  if (value) value.textContent = text;
+}
+
+async function checkService(service) {
+  setServiceStatus(service, 'is-checking', 'Verificando…');
+  const start = performance.now();
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 6000);
+  try {
+    const response = await fetch(serviceUrls[service], { signal: controller.signal, cache: 'no-store' });
+    clearTimeout(timeoutId);
+    const latency = Math.round(performance.now() - start);
+    if (response.ok) {
+      setServiceStatus(service, 'is-online', `${response.status} · ${latency}ms`);
+    } else {
+      setServiceStatus(service, 'is-offline', `HTTP ${response.status}`);
+    }
+  } catch (error) {
+    clearTimeout(timeoutId);
+    setServiceStatus(service, 'is-offline', error.name === 'AbortError' ? 'Timeout' : 'Indisponível');
+  }
+}
+
+async function refreshSystemStatus() {
+  await Promise.all(systemServices.map((service) => checkService(service)));
+}
+
+statusRefresh?.addEventListener('click', refreshSystemStatus);
+if (statusList) refreshSystemStatus();
+
+const terminalForm = document.getElementById('terminal-form');
+const terminalInput = document.getElementById('terminal-input');
+const terminalOutput = document.getElementById('terminal-output');
+
+function printTerminal(text, className = '') {
+  if (!terminalOutput) return;
+  const line = document.createElement('p');
+  line.className = `terminal-line${className ? ` ${className}` : ''}`;
+  line.textContent = text;
+  terminalOutput.append(line);
+  terminalOutput.scrollTop = terminalOutput.scrollHeight;
+}
+
+function runTerminalCommand(raw) {
+  const command = raw.trim();
+  if (!command) return;
+  printTerminal(`$ ${command}`, 'terminal-line--command');
+  const [name] = command.toLowerCase().split(/\s+/);
+  switch (name) {
+    case 'help':
+      printTerminal('Comandos: help, skills, projects, status, contact, clear');
+      break;
+    case 'skills':
+      printTerminal('Backend: Node.js, Express, REST APIs; Frontend: JavaScript, HTML, CSS, React; Dados: PostgreSQL, SQL; IA: OpenAI API, n8n, Prompt Engineering; Ferramentas: Git, GitHub, Linux');
+      break;
+    case 'projects':
+      printTerminal('SupportFlow, Site-veronica, Seu Manoel, Beauty Store, Papitos, SQL Lab, barbearia');
+      break;
+    case 'status':
+      printTerminal('Atualizando status dos serviços…');
+      refreshSystemStatus();
+      break;
+    case 'contact':
+      printTerminal('E-mail: lucaspaz696@gmail.com | GitHub: Japapaz696 | LinkedIn: lucas-santana-da-paz');
+      break;
+    case 'clear':
+      if (terminalOutput) terminalOutput.replaceChildren();
+      break;
+    default:
+      printTerminal(`Comando não encontrado: ${name}. Use help.`, 'terminal-line--error');
+  }
+}
+
+if (terminalOutput) {
+  printTerminal('Terminal de engenharia pronto. Digite help para começar.');
+}
+terminalForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!terminalInput) return;
+  runTerminalCommand(terminalInput.value);
+  terminalInput.value = '';
+  terminalInput.focus();
+});
+
+const contactForm = document.getElementById('contact-form');
+const contactName = document.getElementById('contact-name');
+const contactEmail = document.getElementById('contact-email');
+const contactMessage = document.getElementById('contact-message');
+const contactNameError = document.getElementById('contact-name-error');
+const contactEmailError = document.getElementById('contact-email-error');
+const contactMessageError = document.getElementById('contact-message-error');
+const contactStatus = document.getElementById('contact-form-status');
+
+function sanitizeContactValue(value) {
+  return value.trim().replace(/\s+/g, ' ');
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function validateContactField(field) {
+  if (!field) return true;
+  const value = sanitizeContactValue(field.value);
+  let message = '';
+  if (field === contactName) {
+    if (value.length < 2) message = 'Informe um nome com pelo menos 2 caracteres.';
+  } else if (field === contactEmail) {
+    if (!isValidEmail(value)) message = 'Informe um e-mail válido.';
+  } else if (field === contactMessage) {
+    if (value.length < 10) message = 'A mensagem deve ter pelo menos 10 caracteres.';
+  }
+  const errorElement = field === contactName ? contactNameError : field === contactEmail ? contactEmailError : contactMessageError;
+  if (errorElement) errorElement.textContent = message;
+  field.setAttribute('aria-invalid', message ? 'true' : 'false');
+  return !message;
+}
+
+function validateContactForm() {
+  return [contactName, contactEmail, contactMessage].map(validateContactField).every(Boolean);
+}
+
+[contactName, contactEmail, contactMessage].forEach((field) => {
+  field?.addEventListener('input', () => validateContactField(field));
+  field?.addEventListener('blur', () => validateContactField(field));
+});
+
+contactForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!validateContactForm()) {
+    if (contactStatus) contactStatus.textContent = 'Corrija os campos destacados antes de enviar.';
+    return;
+  }
+  const name = sanitizeContactValue(contactName.value);
+  const email = sanitizeContactValue(contactEmail.value);
+  const message = sanitizeContactValue(contactMessage.value);
+  const subject = encodeURIComponent(`Contato do portfólio: ${name}`);
+  const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\n${message}`);
+  if (contactStatus) contactStatus.textContent = 'Abrindo seu cliente de e-mail com a mensagem preparada.';
+  window.location.href = `mailto:lucaspaz696@gmail.com?subject=${subject}&body=${body}`;
+});
