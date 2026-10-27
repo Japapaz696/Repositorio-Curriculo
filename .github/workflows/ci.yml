@@ -2,14 +2,14 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'integrate/*']
   pull_request:
-    branches: [main]
+    branches: [main, 'integrate/*']
   workflow_dispatch:
 
 jobs:
   test:
-    name: Testes das regras de agendamento
+    name: Testes e validacao de sintaxe
     runs-on: ubuntu-latest
 
     steps:
@@ -22,14 +22,14 @@ jobs:
           node-version: 20
           cache: npm
 
-      # A unica dependencia do projeto e o Playwright, usado apenas pela
-      # auditoria visual. O postinstall dele baixa os navegadores do Chromium,
-      # que a suite de testes nao usa -- por isso os scripts sao desativados
-      # para manter o CI rapido e deterministico.
       - name: Instalar dependencias
         run: npm ci --ignore-scripts
 
-      # Comando real da suite: node --test sobre o arquivo que o proprio
-      # repositorio indica no cabecalho do teste.
+      - name: Validar sintaxe dos scripts
+        run: |
+          node --check script.js
+          node --check projetos/beauty-store/script.js
+          node --check projetos/beauty-store/sanitize.js
+
       - name: Rodar os testes
-        run: node --test projetos/seu-manoel/booking-rules.test.mjs
+        run: node --test projetos/seu-manoel/booking-rules.test.mjs projetos/beauty-store/sanitize.test.mjs
