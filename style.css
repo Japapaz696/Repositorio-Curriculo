@@ -778,3 +778,61 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
   padding: 2rem;
   color: #f5f5f5;
 }
+
+/* Certifications styling */
+.cert-shell .cert-tabs {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.cert-tabs button {
+  background: transparent;
+  border: 1px solid #262626;
+  color: #f5f5f5;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font: 600 .72rem/1 var(--font-mono);
+}
+.cert-tabs button.active,
+.cert-tabs button[aria-selected="true"] {
+  background: #ff3b00;
+  border-color: #ff3b00;
+  color: #fff;
+}
+#cert-preview-card {
+  width: 100%;
+  max-width: 650px;
+  background: #121212;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+#cert-preview-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+#cert-specs-panel {
+  width: 100%;
+  max-width: 750px;
+  background: #121212;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  padding: 2rem;
+  color: #f5f5f5;
+  margin-top: 1.5rem;
+}
+.cert-tag {
+  background: #1f1f1f;
+  border: 1px solid #262626;
+  color: #f5f5f5;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.2rem;
+  display: inline-block;
+  font: 600 .68rem/1 var(--font-mono);
+}
