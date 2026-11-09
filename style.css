@@ -694,3 +694,58 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
 .cert-lightbox .lightbox-content { position: relative; }
 .cert-lightbox img { max-width: 90vw; max-height: 90vh; }
 .cert-lightbox .lightbox-close { position: absolute; top: .5rem; right: .5rem; background: var(--accent); color: var(--accent-contrast); border: none; font-size: 1.2rem; cursor: pointer; }
+/* Dark theme overrides for Certifications section */
+#certifications {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  padding: 2rem 0;
+}
+
+/* Override carousel container to dark theme */
+.carousel-container {
+  background: #121212;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.cert-image {
+  border: 2px solid #262626;
+}
+
+.cert-nav {
+  background: #1f1f1f;
+  color: #ff3b00;
+  border: 1px solid #262626;
+}
+.cert-nav:hover {
+  background: #ff3b00;
+  color: #ffffff;
+}
+
+.cert-tag {
+  background: #1f1f1f;
+  color: #a3a3a3;
+  border: 1px solid #262626;
+}
+
+.cert-verify {
+  color: #ff3b00;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Placeholder for missing certificates */
+.cert-placeholder {
+  width: 100%;
+  height: 300px;
+  background: #1a1a1a;
+  border: 2px solid #262626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5f5f5;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1rem;
+}

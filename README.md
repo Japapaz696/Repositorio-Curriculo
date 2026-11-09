@@ -73,3 +73,42 @@ O CI (`.github/workflows/ci.yml`) roda os testes a cada commit.
 ## Autor
 
 [Lucas Santana da Paz](https://github.com/Japapaz696) · [LinkedIn](https://www.linkedin.com/in/lucas-santana-da-paz-215816247/) · [E-mail](mailto:lucaspaz696@gmail.com)
+
+---
+
+## Novas Seções
+
+### Certificações & Credenciais
+
+A nova seção interativa **#certifications** exibe um carrossel de certificados com navegação por setas, swipe mobile, indicadores (dots) e autoplay de 5 s. Cada slide inclui imagem (ou placeholder), informações detalhadas (emissor, carga horária, descrição, tags) e link "Ver Credencial" que abre a verificação em nova aba. Um lightbox permite ampliar a imagem.
+
+#### Certificados incluídos
+
+- **FreeCodeCamp – Banco de Dados Relacional** (300 h / 9 Cursos) – Emissor: freeCodeCamp
+- **FreeCodeCamp – Computação Científica com Python** (300 h / 9 Cursos) – Emissor: freeCodeCamp
+- **FreeCodeCamp – Design Web Responsivo** (300 h / 9 Cursos) – Emissor: freeCodeCamp
+- **Google – Especialização em Banco de Dados** (9 Cursos) – Emissor: Google
+
+> **Diretório de assets**: coloque as imagens PNG dos diplomas em `assets/certificates/` com nomes `fcc-db.png`, `fcc-python.png`, `fcc-web.png`, `google-db.png`.
+
+### Currículos por Foco de Atuação
+
+A seção **#curriculos** lista cartões para diferentes perfis profissionais, cada um com botões "Visualizar" e "Baixar PDF". Os PDFs devem estar em `assets/cv/`:
+
+- `curriculo-geral.pdf` – Currículo completo
+- `curriculo-fullstack.pdf` – Foco Full‑Stack/Web
+- `curriculo-suporte-sql.pdf` – Foco Suporte ERP & Banco de Dados
+
+> **Diretório de assets**: crie `assets/cv/` e adicione os PDFs acima. Caso algum arquivo ainda não exista, o botão exibirá um placeholder estilizado.
+
+---
+
+## Guia de Manutenção de Assets
+
+- **Imagens de Certificados**: `assets/certificates/` – PNG 300 × 400 px (ou similar). Nomeie seguindo o padrão `fcc-*.png` ou `google-*.png`.
+- **Currículos PDF**: `assets/cv/` – PDFs com nome conforme listado. Atualize os links em `index.html` caso altere nomes.
+- **Estilos**: As cores do tema escuro permanecem (`#0a0a0a`, borda `#262626`, destaque `#ff3b00`). Qualquer alteração de design deve manter esse esquema.
+
+---
+
+*Documentação atualizada em 09/11/2026.*

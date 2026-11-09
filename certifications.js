@@ -55,6 +55,13 @@ function renderSlide(index) {
   const cert = certifications[index];
   slideImg.src = cert.image;
   slideImg.alt = `Diploma de ${cert.title}`;
+  // Fallback placeholder if image fails to load
+  slideImg.onerror = function () {
+    const placeholder = document.createElement('div');
+    placeholder.className = 'cert-placeholder';
+    placeholder.textContent = `${cert.title} – imagem indisponível`;
+    slideImg.replaceWith(placeholder);
+  };
   slideInfo.innerHTML = `
     <h3 class="cert-title">${cert.title}</h3>
     <p><strong>Emissor:</strong> ${cert.issuer}</p>
