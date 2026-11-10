@@ -188,7 +188,7 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
 /* ============================
    Reusable section system
    ============================ */
-.profile-section, .capabilities-section, .journey-section, .stack-section, .contact-section { padding-block: clamp(5.5rem, 10vw, 11rem); border-bottom: 1px solid var(--border); }
+.profile-section, .capabilities-section, .journey-section, .contact-section { padding-block: clamp(5.5rem, 10vw, 11rem); border-bottom: 1px solid var(--border); }
 
 /* ============================
    Experience Section
@@ -250,15 +250,8 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
 .project-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 55%); opacity: 0; transition: opacity .3s var(--ease); pointer-events: none; }
 .project-card:hover { border-color: var(--border-strong); transform: translateY(-4px); box-shadow: 0 18px 40px -24px color-mix(in srgb, var(--text) 35%, transparent); }
 .project-card:hover::before { opacity: 1; }
-.project-card-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; }
-.project-status { padding: .2rem .55rem; border: 1px solid var(--border-strong); color: var(--text-secondary); font: 600 .62rem/1.2 var(--font-mono); letter-spacing: .03em; }
-.project-status--live { border-color: color-mix(in srgb, var(--accent-text) 55%, var(--border-strong)); color: var(--accent-text); }
-.project-status--study { color: var(--text-muted); }
-.project-category { color: var(--text-muted); font: 500 .62rem/1.2 var(--font-mono); letter-spacing: .02em; }
 .project-title { margin: 0; font-family: var(--font-display); font-size: clamp(1.25rem, 1.8vw, 1.55rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; }
 .project-desc { margin: 0; color: var(--text-secondary); font-size: .88rem; line-height: 1.55; flex: 1; }
-.project-techs { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0; padding: 0; list-style: none; }
-.project-techs li { padding: .2rem .5rem; border: 1px solid var(--border); background: var(--surface-muted); color: var(--text); font: 500 .62rem/1.2 var(--font-mono); }
 .project-links { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: .35rem; }
 .project-links a { display: inline-flex; align-items: center; gap: .3rem; min-height: 2.75rem; color: var(--text); font: 600 .74rem/1.4 var(--font-mono); text-decoration: none; transition: color .2s var(--ease); }
 .project-links a:hover { color: var(--accent-text); }
@@ -282,13 +275,6 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
    ============================ */
 .journey-layout { display: grid; grid-template-columns: minmax(0, .7fr) minmax(18rem, .8fr); gap: clamp(3rem, 10vw, 12rem); align-items: start; }
 .journey-content { display: grid; gap: clamp(2rem, 4vw, 4rem); }
-.journey-list { position: relative; display: grid; gap: 0; margin: .3rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--text); }
-.journey-list li { position: relative; display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 1.25rem; padding: 1.2rem 0 1.2rem 1rem; border-bottom: 1px solid var(--border); }
-.journey-list li::before { position: absolute; top: 1.5rem; left: 0; width: 5px; height: 5px; background: var(--accent); content: ''; }
-.journey-list > li > span { color: var(--text-muted); font: 500 .65rem/1.5 var(--font-mono); }
-.journey-list h3 { margin: 0; font-family: var(--font-display); font-size: 1.25rem; letter-spacing: -.04em; line-height: 1.1; }
-.journey-list p { margin: .25rem 0 0; color: var(--text-secondary); font-size: .85rem; }
-
 /* ============================
    Tech stack interativo
    ============================ */
