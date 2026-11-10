@@ -298,6 +298,19 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
 .cert-link:hover { color: var(--accent-text); }
 .cert-link--primary { color: var(--accent-text); }
 .cert-link:focus-visible, .cert-tab:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+.coursera-certifications { margin-top: clamp(4rem, 8vw, 7rem); padding-top: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--border); }
+.coursera-heading { max-width: 48rem; margin-bottom: 2rem; }
+.coursera-heading .section-index { margin: 0 0 .75rem; color: var(--accent-text); font: 600 .68rem/1.4 var(--font-mono); letter-spacing: .02em; }
+.coursera-heading h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1.05; letter-spacing: -.05em; text-wrap: balance; }
+.coursera-heading > p:last-child { max-width: 42rem; color: var(--text-secondary); font-size: .95rem; line-height: 1.7; }
+.coursera-cert-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: stretch; }
+.coursera-cert-card { display: flex; flex-direction: column; min-width: 0; padding: clamp(1.2rem, 2.5vw, 1.8rem); border: 1px solid var(--border); background: var(--surface); }
+.coursera-cert-card--featured { grid-column: 1 / -1; border-color: var(--border-strong); }
+.coursera-cert-card h4 { margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.65rem); line-height: 1.15; letter-spacing: -.035em; text-wrap: balance; }
+.coursera-cert-date { margin: .6rem 0 0; color: var(--text-muted); font: 500 .65rem/1.5 var(--font-mono); }
+.coursera-cert-description, .coursera-cert-value { margin: .9rem 0 0; color: var(--text-secondary); font-size: .88rem; line-height: 1.65; }
+.coursera-cert-value strong { color: var(--text); }
+.coursera-cert-card .cert-actions { margin-top: auto; padding-top: 1rem; }
 
 /* ============================
    Capabilities and stack
@@ -458,6 +471,8 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
   .cert-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cert-learning-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .cert-artwork { width: 100%; }
+  .coursera-cert-grid { grid-template-columns: minmax(0, 1fr); }
+  .coursera-cert-card--featured { grid-column: auto; }
   .split-heading { gap: 1rem; }
   .profile-section, .capabilities-section, .journey-section, .contact-section, .work-section { padding-block: 5.5rem; }
   .profile-facts { grid-template-columns: 1fr; }

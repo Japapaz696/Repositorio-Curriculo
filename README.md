@@ -12,7 +12,7 @@ Site estático feito com HTML, CSS e JavaScript, sem framework ou etapa de build
 
 - **Experiência:** atuação com suporte ERP e diagnóstico de sistemas.
 - **Projetos:** OmniOps AI, SupportFlow, Sistema Verônica, Seu Manoel, Beauty Store, Papitos, SQL Lab e barbearia, com links para demonstrações ou repositórios.
-- **Certificações & Credenciais:** três certificados freeCodeCamp, com imagens, links oficiais e resumo dos conteúdos e projetos das trilhas.
+- **Certificações & Credenciais:** três certificados freeCodeCamp e dez credenciais Coursera do Google (nove cursos e o Certificado Profissional Google Data Analytics), com resumos, links de verificação e PDFs locais.
 - **Técnica aplicada a entrega:** tecnologias e práticas usadas nos projetos.
 - **Perfil e processo:** formação, foco profissional e etapas de planejamento, estudo, estruturação, desenvolvimento, validação e entrega.
 - **Contato:** links e formulário.
