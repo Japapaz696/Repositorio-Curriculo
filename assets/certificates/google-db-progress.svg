@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="var(--surface, #f0f0f0)"/>
+  <!-- Abstract cloud -->
+  <path d="M120 140 a40 40 0 0 1 80 0 a40 40 0 0 1 80 0 a30 30 0 0 1 0 60 h-160 a30 30 0 0 1 0 -60" fill="var(--accent, #ff8c00)" opacity="0.2"/>
+  <!-- Abstract database cylinder -->
+  <ellipse cx="200" cy="150" rx="80" ry="20" fill="var(--accent-text, #555)" opacity="0.3"/>
+  <rect x="120" y="150" width="160" height="80" fill="var(--accent-text, #555)" opacity="0.3"/>
+  <ellipse cx="200" cy="230" rx="80" ry="20" fill="var(--accent-text, #555)" opacity="0.3"/>
+  <!-- Text -->
+  <text x="200" y="100" text-anchor="middle" font-family="var(--font-display, sans-serif)" font-size="24" fill="var(--text, #111)">Google Cloud Database Engineer</text>
+  <text x="200" y="140" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="18" fill="var(--text-muted, #777)">EM ANDAMENTO</text>
+  <text x="200" y="170" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="14" fill="var(--text-muted, #777)">Certificado ainda não emitido</text>
+</svg>
