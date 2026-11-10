@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="100%" height="100%" fill="var(--surface, #f0f0f0)"/>
-  <!-- Abstract cloud -->
-  <path d="M120 140 a40 40 0 0 1 80 0 a40 40 0 0 1 80 0 a30 30 0 0 1 0 60 h-160 a30 30 0 0 1 0 -60" fill="var(--accent, #ff8c00)" opacity="0.2"/>
-  <!-- Abstract database cylinder -->
-  <ellipse cx="200" cy="150" rx="80" ry="20" fill="var(--accent-text, #555)" opacity="0.3"/>
-  <rect x="120" y="150" width="160" height="80" fill="var(--accent-text, #555)" opacity="0.3"/>
-  <ellipse cx="200" cy="230" rx="80" ry="20" fill="var(--accent-text, #555)" opacity="0.3"/>
-  <!-- Text -->
-  <text x="200" y="100" text-anchor="middle" font-family="var(--font-display, sans-serif)" font-size="24" fill="var(--text, #111)">Google Cloud Database Engineer</text>
-  <text x="200" y="140" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="18" fill="var(--text-muted, #777)">EM ANDAMENTO</text>
-  <text x="200" y="170" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="14" fill="var(--text-muted, #777)">Certificado ainda não emitido</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Google Cloud Database Engineer — em andamento</title>
+  <desc id="desc">Arte de progresso da trilha de estudos. Certificado ainda não emitido.</desc>
+  <rect width="1200" height="800" rx="36" fill="#f1f0eb"/>
+  <rect x="28" y="28" width="1144" height="744" rx="24" fill="#ffffff" stroke="#deddd6" stroke-width="4"/>
+  <path d="M0 605h1200v195H0z" fill="#f8f7f3"/>
+  <g fill="none" stroke="#c43d2a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M475 198c0-44 36-80 80-80 35 0 65 23 76 54 9-6 20-10 32-10 32 0 58 26 58 58 0 5-1 11-2 16 23 7 39 28 39 53 0 31-25 56-56 56H505c-37 0-67-30-67-67 0-34 25-62 57-67"/>
+    <ellipse cx="600" cy="390" rx="70" ry="19"/>
+    <path d="M530 390v90c0 11 31 20 70 20s70-9 70-20v-90M530 435c0 11 31 20 70 20s70-9 70-20"/>
+  </g>
+  <text x="600" y="570" text-anchor="middle" fill="#6b6a64" font-family="Arial,sans-serif" font-size="25" font-weight="700" letter-spacing="5">TRILHA DE ESTUDOS</text>
+  <text x="600" y="625" text-anchor="middle" fill="#1a1a1a" font-family="Arial,sans-serif" font-size="42" font-weight="700">Google Cloud Database Engineer</text>
+  <rect x="420" y="660" width="360" height="54" rx="27" fill="#c43d2a"/>
+  <text x="600" y="696" text-anchor="middle" fill="#ffffff" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="2">EM ANDAMENTO</text>
+  <text x="600" y="746" text-anchor="middle" fill="#5e5e59" font-family="Arial,sans-serif" font-size="19">Certificado ainda não emitido</text>
 </svg>

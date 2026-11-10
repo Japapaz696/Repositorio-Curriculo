@@ -1,153 +1,106 @@
-// Certifications tabs implementation
-// Data for certificates
 const certifications = [
-  {
-    id: "relational-db",
-    title: "FreeCodeCamp – Banco de Dados Relacional V8",
-    issuer: "freeCodeCamp",
-    hours: "300 horas",
-    description: "Projeto de modelagem, consultas SQL avançadas e otimização de índices.",
-    requirements: "Modelagem relacional, PostgreSQL, Bash, Git, scripts em SQL complexos e automação de banco de dados.",
-    application: "Diagnóstico e verificação de inconsistências no ERP TecFood na Teknisa.",
-    tags: ["SQL", "PostgreSQL", "Bash", "Modelagem"],
-    image: "assets/certificates/banco-de-dados-relacional-v8.png",
-    verify: "https://freecodecamp.org/certification/lucaspaz696/relational-database-v8"
-  },
-  {
-    id: "python",
-    title: "FreeCodeCamp – Computação Científica com Python",
-    issuer: "freeCodeCamp",
-    hours: "300 horas",
-    description: "Análise de dados, NumPy, Pandas, visualizações e algoritmos numéricos.",
-    requirements: "Algoritmos estruturados, manipulação de dados avançada.",
-    application: "Automação de rotinas e suporte à programação orientada a dados.",
-    tags: ["Python", "NumPy", "Pandas", "Algoritmos"],
-    image: "assets/certificates/fcc-python.png",
-    verify: "https://freecodecamp.org/certification/lucaspaz696/scientific-computing-with-python-v7"
-  },
-  {
-    id: "web-design",
-    title: "FreeCodeCamp – Design Web Responsivo Legado V8",
-    issuer: "freeCodeCamp",
-    hours: "300 horas",
-    description: "Layouts flexíveis, CSS Grid, acessibilidade e performance.",
-    requirements: "HTML5 semântico, CSS3 (Flexbox/Grid), mobile‑first, acessibilidade.",
-    application: "Construção de interfaces web funcionais e otimizadas.",
-    tags: ["HTML5", "CSS3", "Flexbox", "Grid", "Acessibilidade"],
-    image: "assets/certificates/fcc-web.png",
-    verify: "https://freecodecamp.org/certification/lucaspaz696/responsive-web-design"
-  },
-  {
-    id: "google-db",
-    title: "Google – Cloud Database Engineer (Em andamento)",
-    issuer: "Google",
-    hours: "–",
-    description: "Especialização em Google Cloud Database Engineer – BigQuery, Cloud SQL, modelagem de dados e pipelines ETL.",
-    requirements: "Fundamentos de bancos de dados relacionais e não‑relacionais, arquitetura de dados.",
-    application: "Diagnósticos em sistemas legados e análise de registros operacionais.",
-    tags: ["Google", "SQL", "Data Architecture", "BigQuery"],
-    image: "assets/certificates/google-db-progress.svg",
-    status: "inprogress",
-    verify: "https://www.coursera.org/specializations/google-cloud-database-engineer",
-    buttonLabel: "Ver especialização na Coursera"
-  }
+  { id:'relational-db', title:'Banco de Dados Relacional V8', issuer:'freeCodeCamp', workload:'Aproximadamente 300 horas', completed:'2 de novembro de 2026', description:'Certificação de conclusão em banco de dados relacional.', image:'assets/certificates/fcc-db.jpg', imageAlt:'Certificado Banco de Dados Relacional V8 da freeCodeCamp, emitido para Lucas Santana da Paz', verify:'https://freecodecamp.org/certification/lucaspaz696/relational-database-v8', buttonLabel:'Ver credencial oficial' },
+  { id:'python', title:'Computação Científica com Python', issuer:'freeCodeCamp', workload:'Aproximadamente 300 horas', completed:'3 de novembro de 2026', description:'Certificação de conclusão em computação científica com Python.', image:'assets/certificates/fcc-python.jpg', imageAlt:'Certificado Computação Científica com Python da freeCodeCamp, emitido para Lucas Santana da Paz', verify:'https://freecodecamp.org/certification/lucaspaz696/scientific-computing-with-python-v7', buttonLabel:'Ver credencial oficial' },
+  { id:'web-design', title:'Design Web Responsivo Legado V8', issuer:'freeCodeCamp', workload:'Aproximadamente 300 horas', completed:'3 de novembro de 2026', description:'Certificação de conclusão em design web responsivo.', image:'assets/certificates/fcc-web.jpg', imageAlt:'Certificado Design Web Responsivo Legado V8 da freeCodeCamp, emitido para Lucas Santana da Paz', verify:'https://freecodecamp.org/certification/lucaspaz696/responsive-web-design', buttonLabel:'Ver credencial oficial' },
+  { id:'google-db', title:'Google Cloud Database Engineer', issuer:'Google Cloud', description:'Especialização em andamento. Esta arte indica progresso e não é um certificado emitido.', image:'assets/certificates/google-db-progress.svg', imageAlt:'Ilustração de progresso: Google Cloud Database Engineer. Em andamento; certificado ainda não emitido.', status:'inprogress', verify:'https://www.coursera.org/specializations/google-cloud-database-engineer', buttonLabel:'Ver especialização na Coursera' }
 ];
-
-let currentIndex = 0;
-
 const tabsContainer = document.getElementById('cert-tabs');
-const infoPanel = document.getElementById('cert-specs-panel');
+const contentPanel = document.getElementById('cert-content');
 const previewCard = document.getElementById('cert-preview-card');
+const infoPanel = document.getElementById('cert-specs-panel');
 
-function createImgElement(src, alt) {
-  const img = document.createElement('img');
-  img.id = 'cert-img';
-  img.className = 'cert-image';
-  img.loading = 'lazy';
-  img.src = src;
-  img.alt = alt;
-  img.onerror = () => fallbackImage();
-  return img;
+function addFact(list, label, value) {
+  if (!value) return;
+  const item = document.createElement('div');
+  const term = document.createElement('dt');
+  const detail = document.createElement('dd');
+  term.textContent = label;
+  detail.textContent = value;
+  item.append(term, detail);
+  list.append(item);
 }
 
-function fallbackImage() {
-  const placeholder = document.createElement('div');
-  placeholder.className = 'cert-placeholder';
-  placeholder.style.cssText = 'background:#121212;color:#f5f5f5;padding:2rem;border:1px solid #262626;border-radius:8px;text-align:center';
-  placeholder.textContent = 'Imagem indisponível';
-  previewCard.innerHTML = '';
-  previewCard.appendChild(placeholder);
-}
-
-function renderCertificate(index) {
-  const cert = certifications[index];
-  // Update image (recreate each time to avoid stale references)
-  previewCard.innerHTML = '';
-  const imgEl = createImgElement(cert.image, `Diploma de ${cert.title}`);
-  previewCard.appendChild(imgEl);
-
-  const statusBadge = cert.status === 'inprogress' ? `<span class="cert-status" aria-label="Em andamento">Em andamento</span>` : '';
-  const buttonLabel = cert.buttonLabel || 'Ver Credencial Oficial';
-
-  infoPanel.innerHTML = `
-    <h3 class="cert-title">${cert.title} ${statusBadge}</h3>
-    <p><strong>Emissor:</strong> ${cert.issuer}</p>
-    <p><strong>Carga Horária:</strong> ${cert.hours}</p>
-    <p>${cert.description}</p>
-    <p><strong>Exigências:</strong> ${cert.requirements}</p>
-    <div class="cert-tags">${cert.tags.map(t => `<span class="cert-tag">${t}</span>`).join(' ')}</div>
-    <p><strong>Aplicação Prática:</strong> ${cert.application}</p>
-    <a href="${cert.verify}" target="_blank" rel="noopener" class="cert-verify">${buttonLabel}</a>
-  `;
-
-  // Update tab selected state based on data-cert attribute
-  const buttons = tabsContainer.querySelectorAll('button');
-  buttons.forEach(btn => {
-    const isSelected = btn.getAttribute('data-cert') === cert.id;
-    btn.setAttribute('aria-selected', isSelected);
-    btn.classList.toggle('active', isSelected);
+function renderCertificate(cert) {
+  if (!cert || !previewCard || !infoPanel || !contentPanel) return;
+  const selectedTab = tabsContainer.querySelector('[data-cert="' + cert.id + '"]');
+  tabsContainer.querySelectorAll('[role="tab"]').forEach(tab => {
+    const selected = tab === selectedTab;
+    tab.setAttribute('aria-selected', String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+    tab.classList.toggle('active', selected);
   });
+  contentPanel.setAttribute('aria-labelledby', selectedTab ? selectedTab.id : 'cert-tab-relational-db');
+
+  const image = document.createElement('img');
+  image.className = 'cert-image';
+  image.src = cert.image;
+  image.alt = cert.imageAlt;
+  image.loading = 'lazy';
+  image.decoding = 'async';
+  image.addEventListener('error', () => {
+    const placeholder = document.createElement('div');
+    placeholder.className = 'cert-placeholder';
+    placeholder.setAttribute('role', 'img');
+    placeholder.setAttribute('aria-label', cert.title + ': imagem indisponível');
+    placeholder.textContent = 'Imagem do certificado indisponível';
+    previewCard.replaceChildren(placeholder);
+  }, { once: true });
+  previewCard.replaceChildren(image);
+
+  const headingRow = document.createElement('div');
+  headingRow.className = 'cert-heading-row';
+  const heading = document.createElement('h3');
+  heading.className = 'cert-title';
+  heading.textContent = cert.title;
+  headingRow.append(heading);
+  if (cert.status === 'inprogress') {
+    const badge = document.createElement('span');
+    badge.className = 'cert-status';
+    badge.textContent = 'Em andamento';
+    headingRow.append(badge);
+  }
+  const description = document.createElement('p');
+  description.className = 'cert-description';
+  description.textContent = cert.description;
+  const facts = document.createElement('dl');
+  facts.className = 'cert-facts';
+  addFact(facts, 'Instituição', cert.issuer);
+  addFact(facts, 'Carga horária', cert.workload);
+  addFact(facts, 'Concluído em', cert.completed);
+  const link = document.createElement('a');
+  link.className = 'cert-verify';
+  link.href = cert.verify;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.textContent = cert.buttonLabel;
+  link.setAttribute('aria-label', cert.buttonLabel + ': ' + cert.title + ' (abre em nova aba)');
+  infoPanel.replaceChildren(headingRow, description, facts, link);
 }
 
 function initTabs() {
-  const buttons = tabsContainer.querySelectorAll('button');
-  buttons.forEach(btn => {
-    const certId = btn.getAttribute('data-cert');
-    const idx = certifications.findIndex(c => c.id === certId);
-    if (idx !== -1) {
-      btn.addEventListener('click', () => {
-        currentIndex = idx;
-        renderCertificate(idx);
-      });
-    }
+  if (!tabsContainer || !contentPanel || !previewCard || !infoPanel) return;
+  const tabs = Array.from(tabsContainer.querySelectorAll('[role="tab"][data-cert]'));
+  tabs.forEach((tab, index) => {
+    const cert = certifications.find(item => item.id === tab.dataset.cert);
+    if (!cert) return;
+    tab.addEventListener('click', () => renderCertificate(cert));
+    tab.addEventListener('keydown', event => {
+      let nextIndex;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === 'Home') nextIndex = 0;
+      else if (event.key === 'End') nextIndex = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      tabs[nextIndex].click();
+    });
   });
-  // Render first (default) certificate based on first button
-  if (buttons.length) {
-    const firstId = buttons[0].getAttribute('data-cert');
-    const firstIdx = certifications.findIndex(c => c.id === firstId);
-    if (firstIdx !== -1) {
-      currentIndex = firstIdx;
-      renderCertificate(firstIdx);
-    }
+  const initialTab = tabs.find(tab => certifications.some(cert => cert.id === tab.dataset.cert)) || tabs[0];
+  if (initialTab) {
+    initialTab.setAttribute('aria-selected', 'true');
+    initialTab.tabIndex = 0;
+    renderCertificate(certifications.find(cert => cert.id === initialTab.dataset.cert));
   }
 }
-
-// Swipe support for mobile (keeps index logic)
-let touchStartX = null;
-if (previewCard) {
-  previewCard.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; });
-  previewCard.addEventListener('touchend', e => {
-    if (touchStartX === null) return;
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 50) {
-      currentIndex = diff > 0 ? (currentIndex + 1) % certifications.length : (currentIndex - 1 + certifications.length) % certifications.length;
-      renderCertificate(currentIndex);
-    }
-    touchStartX = null;
-  });
-}
-
-if (tabsContainer && previewCard && infoPanel) {
-  initTabs();
-}
+initTabs();

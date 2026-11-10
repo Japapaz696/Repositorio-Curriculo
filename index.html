@@ -159,18 +159,20 @@
     <!-- Certifications Carousel -->
     <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
       <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
+        <h2 id="certifications-title" class="section-title">Certificações &amp; Credenciais</h2>
         <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
+          <button id="cert-tab-relational-db" type="button" class="cert-tab" role="tab" aria-controls="cert-content" aria-selected="false" tabindex="-1" data-cert="relational-db">Banco de Dados Relacional</button>
+          <button id="cert-tab-python" type="button" class="cert-tab" role="tab" aria-controls="cert-content" aria-selected="false" tabindex="-1" data-cert="python">Python</button>
+          <button id="cert-tab-web-design" type="button" class="cert-tab" role="tab" aria-controls="cert-content" aria-selected="false" tabindex="-1" data-cert="web-design">Design Web</button>
+          <button id="cert-tab-google-db" type="button" class="cert-tab" role="tab" aria-controls="cert-content" aria-selected="false" tabindex="-1" data-cert="google-db">Google Cloud Database Engineer</button>
         </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
+        <div id="cert-content" class="cert-content" role="tabpanel" aria-labelledby="cert-tab-relational-db" tabindex="0">
+          <div id="cert-preview-card" class="cert-preview-card">
+            <img id="cert-img" class="cert-image" src="assets/certificates/fcc-db.jpg" alt="Certificado Banco de Dados Relacional V8 da freeCodeCamp, emitido para Lucas Santana da Paz" loading="lazy" decoding="async" />
+          </div>
+          <div id="cert-specs-panel" class="cert-specs-panel" aria-live="polite">
+            <!-- Dynamic content injected by certifications.js -->
+          </div>
         </div>
       </div>
     </section>
@@ -209,24 +211,6 @@
       </div>
     </section>
 
-    <!-- Certifications Carousel -->
-    <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
-      <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
-        <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
-        </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
-        </div>
-      </div>
-    </section>
 
     <section id="work" class="work-section section-anchor section-reveal" data-reveal aria-labelledby="work-title">
       <div class="shell">
@@ -465,24 +449,6 @@
       </div>
     </section>
 
-    <!-- Certifications Carousel -->
-    <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
-      <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
-        <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
-        </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
-        </div>
-      </div>
-    </section>
 
     <section id="capabilities" class="capabilities-section section-anchor section-reveal" data-reveal aria-labelledby="capabilities-title">
       <div class="shell">
@@ -648,24 +614,6 @@
       </div>
     </section>
 
-    <!-- Certifications Carousel -->
-    <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
-      <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
-        <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
-        </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
-        </div>
-      </div>
-    </section>
 
     <section id="profile" class="profile-section section-anchor section-reveal" data-reveal aria-labelledby="profile-title">
       <div class="shell profile-layout">
@@ -686,24 +634,6 @@
       </div>
     </section>
 
-    <!-- Certifications Carousel -->
-    <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
-      <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
-        <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
-        </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
-        </div>
-      </div>
-    </section>
 
     <section id="journey" class="journey-section section-anchor section-reveal" data-reveal aria-labelledby="journey-title">
       <div class="shell journey-stack-layout">
@@ -767,46 +697,10 @@
             </dl>
           </section>
 
-    <!-- Certifications Carousel -->
-    <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
-      <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
-        <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
-        </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
-        </div>
-      </div>
-    </section>
         </div>
       </div>
     </section>
 
-    <!-- Certifications Carousel -->
-    <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
-      <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
-        <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
-        </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
-        </div>
-      </div>
-    </section>
 
     <section id="lab" class="lab-section section-anchor section-reveal" data-reveal aria-labelledby="lab-title">
       <div class="shell">
@@ -842,24 +736,6 @@
       </div>
     </section>
 
-    <!-- Certifications Carousel -->
-    <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
-      <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
-        <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
-        </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
-        </div>
-      </div>
-    </section>
 
     <section id="systems" class="systems-section section-anchor section-reveal" data-reveal aria-labelledby="systems-title">
       <div class="shell">
@@ -927,24 +803,6 @@
       </div>
     </section>
 
-    <!-- Certifications Carousel -->
-    <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
-      <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
-        <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
-        </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
-        </div>
-      </div>
-    </section>
 
     <section id="contact" class="contact-section section-anchor section-reveal" data-reveal aria-labelledby="contact-title">
       <div class="shell contact-layout">
@@ -985,24 +843,6 @@
       </div>
     </section>
 
-    <!-- Certifications Carousel -->
-    <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
-      <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
-        <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
-        </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -1077,24 +917,6 @@
       <ul id="palette-list" class="palette-list"></ul>
     </section>
 
-    <!-- Certifications Carousel -->
-    <section id="certifications" class="certifications-section section-anchor section-reveal" data-reveal aria-labelledby="certifications-title">
-      <div class="shell">
-        <h2 class="section-title">Certificações &amp; Credenciais</h2>
-        <div id="cert-tabs" class="cert-tabs" role="tablist" aria-label="Seleção de certificação">
-          <button type="button" class="cert-tab" data-cert="relational-db">Banco de Dados Relacional</button>
-          <button type="button" class="cert-tab" data-cert="python">Python</button>
-          <button type="button" class="cert-tab" data-cert="web-design">Design Web</button>
-          <button type="button" class="cert-tab" data-cert="google-db">Google Cloud Database Engineer</button>
-        </div>
-        <div id="cert-preview-card">
-          <img id="cert-img" class="cert-image" src="" alt="Diploma" loading="lazy" onerror="this.src='assets/certificates/fallback.png'; this.alt='Certificado não encontrado';" />
-        </div>
-        <div id="cert-specs-panel" class="cert-specs-panel">
-          <!-- Dynamic content injected by certifications.js -->
-        </div>
-      </div>
-    </section>
   </div>
 
   <script src="script.js"></script>
