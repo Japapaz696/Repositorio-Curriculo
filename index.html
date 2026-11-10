@@ -102,15 +102,17 @@
           <div class="hero-panel" data-hero-tabs>
             <div class="hero-panel-top">
               <p class="section-index">Perfil em resumo</p>
+            <div class="hero-tabs-nav">
               <div class="hero-tablist" role="tablist">
                 <button type="button" class="hero-tab" role="tab" id="hero-tab-exp" aria-selected="true" aria-controls="hero-panel-exp">Experiência</button>
                 <button type="button" class="hero-tab" role="tab" id="hero-tab-comp" aria-selected="false" aria-controls="hero-panel-comp" tabindex="-1">Competências</button>
                 <button type="button" class="hero-tab" role="tab" id="hero-tab-evo" aria-selected="false" aria-controls="hero-panel-evo" tabindex="-1">Evolução</button>
-                <a href="#certifications" class="hero-tab hero-tab--link" id="hero-tab-cert" aria-label="Ir para a seção Certificações">
-                  <svg class="hero-tab-icon" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="m9 12-2 9 5-3 5 3-2-9"/></svg>
-                  <span>Certificates</span>
-                </a>
               </div>
+              <a href="#certifications" class="hero-tab hero-tab--link" id="hero-tab-cert" aria-label="Ir para a seção Certificações">
+                <svg class="hero-tab-icon" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="m9 12-2 9 5-3 5 3-2-9"/></svg>
+                <span>Certificações</span>
+              </a>
+            </div>
             </div>
             <div class="hero-tabpanels">
               <div class="hero-tabpanel" role="tabpanel" id="hero-panel-exp" aria-labelledby="hero-tab-exp" tabindex="0">
@@ -166,27 +168,42 @@
           <h2 id="exp-title" class="display-title">Sistemas e Operações.</h2>
           <p>Atuação técnica em software de gestão empresarial, com foco em atendimento, investigação e resolução de problemas.</p>
         </div>
-        <div class="experience-grid">
-          <div class="exp-card">
-            <div class="exp-header">
-              <div class="exp-company">
-                <strong class="exp-brand">Teknisa</strong>
-                <span class="exp-role">Estágio · Suporte Técnico ERP TecFood</span>
+        <div class="experience-layout">
+          <div class="experience-aside">
+            <p>Minha experiência no suporte técnico a software corporativo formou a base do meu método de trabalho: diagnosticar anomalias a partir da operação real, verificar registros no banco com consultas precisas e compreender o impacto do sistema no fluxo diário do usuário.</p>
+            <dl class="experience-meta">
+              <div>
+                <dt>Escopo de Atuação</dt>
+                <dd>ERP corporativo voltado à gestão de alimentação coletiva e redes de alimentação.</dd>
               </div>
-            </div>
-            <div class="exp-body">
-              <p>Atuação no suporte ao ERP TecFood, solução voltada à gestão de empresas do setor de alimentação.</p>
-              <ul class="exp-list">
-                <li>Investigação de inconsistências e anomalias em ambiente de software empresarial.</li>
-                <li>Utilização de consultas SQL para verificação de registros e diagnóstico de divergências.</li>
-                <li>Atendimento técnico a usuários, orientando a operação do sistema e acompanhando chamados.</li>
-                <li>Análise de processos operacionais para apoiar a identificação de causas de incidentes.</li>
-              </ul>
-            </div>
-            <div class="exp-footer">
-              <span class="exp-tag">Sistemas ERP</span>
-              <span class="exp-tag">SQL</span>
-              <span class="exp-tag">Diagnóstico Técnico</span>
+              <div>
+                <dt>Trajetória Complementar</dt>
+                <dd>Newcity Car — Vistoriador veicular (2024–2025) · Pirelli — Logística (2021).</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="experience-grid">
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-company">
+                  <strong class="exp-brand">Teknisa</strong>
+                  <span class="exp-role">Estágio · Suporte Técnico ERP TecFood</span>
+                </div>
+              </div>
+              <div class="exp-body">
+                <p>Atuação no suporte ao ERP TecFood, solução voltada à gestão de empresas do setor de alimentação.</p>
+                <ul class="exp-list">
+                  <li>Investigação de inconsistências e anomalias em ambiente de software empresarial.</li>
+                  <li>Utilização de consultas SQL para verificação de registros e diagnóstico de divergências.</li>
+                  <li>Atendimento técnico a usuários, orientando a operação do sistema e acompanhando chamados.</li>
+                  <li>Análise de processos operacionais para apoiar a identificação de causas de incidentes.</li>
+                </ul>
+              </div>
+              <div class="exp-footer">
+                <span class="exp-tag">Sistemas ERP</span>
+                <span class="exp-tag">SQL</span>
+                <span class="exp-tag">Diagnóstico Técnico</span>
+              </div>
             </div>
           </div>
         </div>
@@ -202,71 +219,246 @@
         </div>
 
         <div class="project-grid" aria-label="Vitrine de projetos">
-          <article class="project-card" data-reveal>
-            <h3 class="project-title">OmniOps AI</h3>
-            <p class="project-desc">Plataforma DevSecOps para análise de código, detecção de vulnerabilidades e apoio à correção.</p>
-            <div class="project-links">
-              <a href="https://omniops-ai.vercel.app" target="_blank" rel="noopener" aria-label="Live Demo — OmniOps AI">Live Demo <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/Japapaz696/OmniOps-AI" target="_blank" rel="noopener" aria-label="Ver código do OmniOps AI no GitHub">Repositório <span aria-hidden="true">↗</span></a>
+          <article class="project-card project-card--featured" data-reveal>
+            <div class="project-chrome" aria-hidden="true">
+              <span class="chrome-dots"><span></span><span></span><span></span></span>
+              <span class="chrome-address">omniops-ai.vercel.app</span>
+              <span class="chrome-badge">Live Demo</span>
+            </div>
+            <div class="project-preview project-preview--terminal" aria-hidden="true">
+              <span class="terminal-prompt">$ omniops audit --repo=core-api --strict</span>
+              <span class="terminal-line terminal-line--dim">Scanning AST &amp; dependency graph for OWASP Top 10...</span>
+              <span class="terminal-line terminal-line--success">✓ SAST analysis: 0 critical vulnerabilities</span>
+              <span class="terminal-line terminal-line--accent">⚡ DevSecOps Pipeline: automated remediation suggested</span>
+            </div>
+            <div class="project-content">
+              <p class="project-category">DevSecOps &amp; IA</p>
+              <h3 class="project-title">OmniOps AI</h3>
+              <p class="project-desc">Plataforma DevSecOps para análise de código, detecção de vulnerabilidades e apoio à correção com inteligência artificial.</p>
+              <ul class="project-tags" aria-label="Tecnologias do projeto OmniOps AI">
+                <li class="project-tag">DevSecOps</li>
+                <li class="project-tag">IA / LLMs</li>
+                <li class="project-tag">TypeScript</li>
+                <li class="project-tag">Next.js</li>
+                <li class="project-tag">Segurança</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://omniops-ai.vercel.app" target="_blank" rel="noopener" aria-label="Live Demo — OmniOps AI">Live Demo <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/Japapaz696/OmniOps-AI" target="_blank" rel="noopener" aria-label="Ver código do OmniOps AI no GitHub">Repositório <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured" data-reveal>
+            <div class="project-chrome" aria-hidden="true">
+              <span class="chrome-dots"><span></span><span></span><span></span></span>
+              <span class="chrome-address">supportflow.app/tickets</span>
+              <span class="chrome-badge">SLA Engine</span>
+            </div>
+            <div class="project-preview project-preview--dashboard" aria-hidden="true">
+              <div class="dash-row">
+                <span class="dash-pill dash-pill--urgent">Urgente</span>
+                <span class="dash-id">#SF-1048</span>
+                <span class="dash-title">Conciliação fiscal ERP TecFood</span>
+                <span class="dash-sla">SLA: 18m</span>
+              </div>
+              <div class="dash-row">
+                <span class="dash-pill dash-pill--high">Alta</span>
+                <span class="dash-id">#SF-1047</span>
+                <span class="dash-title">Diagnóstico de travamento de sessão SQL</span>
+                <span class="dash-sla">SLA: 2h</span>
+              </div>
+              <div class="dash-meta-bar">
+                <span>React · Express · PostgreSQL</span>
+                <span>4 Perfis · Histórico Imutável</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-category">Full Stack · SaaS</p>
+              <h3 class="project-title">SupportFlow</h3>
+              <p class="project-desc">Sistema de chamados com 4 perfis, SLA por prioridade, comentários e histórico imutável. Monorepo com front-end React/Vite, API Express/TypeScript e PostgreSQL.</p>
+              <ul class="project-tags" aria-label="Tecnologias do projeto SupportFlow">
+                <li class="project-tag">React</li>
+                <li class="project-tag">TypeScript</li>
+                <li class="project-tag">Node.js / Express</li>
+                <li class="project-tag">PostgreSQL</li>
+                <li class="project-tag">Vite</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/Japapaz696/SupportFlow" target="_blank" rel="noopener" aria-label="Ver código do SupportFlow no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </article>
 
           <article class="project-card" data-reveal>
-            <h3 class="project-title">SupportFlow</h3>
-            <p class="project-desc">Sistema de chamados com 4 perfis, SLA por prioridade, comentários e histórico imutável. Monorepo com front-end React/Vite, API Express/TypeScript e PostgreSQL.</p>
-            <div class="project-links">
-              <a href="https://github.com/Japapaz696/SupportFlow" target="_blank" rel="noopener" aria-label="Ver código do SupportFlow no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            <div class="project-chrome" aria-hidden="true">
+              <span class="chrome-dots"><span></span><span></span><span></span></span>
+              <span class="chrome-address">agendamento-veronica.local</span>
+              <span class="chrome-badge">HttpOnly</span>
+            </div>
+            <div class="project-preview project-preview--security" aria-hidden="true">
+              <div class="security-row">
+                <span class="security-badge">HttpOnly Cookie</span>
+                <span class="security-key">Token opaco por paciente</span>
+              </div>
+              <div class="security-terminal">
+                <span>✓ Sessão administrativa isolada · Pool PostgreSQL</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-category">Sistemas &amp; Segurança</p>
+              <h3 class="project-title">Sistema Verônica</h3>
+              <p class="project-desc">Agendamento de consultas com PostgreSQL, sessão administrativa em cookie HttpOnly e token opaco por paciente. 90 testes automatizados.</p>
+              <ul class="project-tags" aria-label="Tecnologias do projeto Sistema Verônica">
+                <li class="project-tag">PostgreSQL</li>
+                <li class="project-tag">Node.js</li>
+                <li class="project-tag">Segurança Web</li>
+                <li class="project-tag">90 Testes</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/Japapaz696/Site-veronica" target="_blank" rel="noopener" aria-label="Ver código do Site-veronica no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </article>
 
           <article class="project-card" data-reveal>
-            <h3 class="project-title">Sistema Verônica</h3>
-            <p class="project-desc">Agendamento de consultas com PostgreSQL, sessão administrativa em cookie HttpOnly e token opaco por paciente. 90 testes automatizados.</p>
-            <div class="project-links">
-              <a href="https://github.com/Japapaz696/Site-veronica" target="_blank" rel="noopener" aria-label="Ver código do Site-veronica no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            <div class="project-chrome" aria-hidden="true">
+              <span class="chrome-dots"><span></span><span></span><span></span></span>
+              <span class="chrome-address">barbearia-seumanoel.local</span>
+              <span class="chrome-badge">6 Etapas</span>
+            </div>
+            <figure class="project-preview">
+              <img src="assets/project-previews/seu-manoel-home.webp" alt="Interface de agendamento em etapas do projeto Seu Manoel" width="600" height="340" loading="lazy">
+            </figure>
+            <div class="project-content">
+              <p class="project-category">Agendamento &amp; Estado</p>
+              <h3 class="project-title">Seu Manoel</h3>
+              <p class="project-desc">Agendamento em 6 etapas validadas com regras de disponibilidade isoladas em módulo testável e persistência local.</p>
+              <ul class="project-tags" aria-label="Tecnologias do projeto Seu Manoel">
+                <li class="project-tag">JavaScript Modular</li>
+                <li class="project-tag">Regras Isoladas</li>
+                <li class="project-tag">26 Testes</li>
+                <li class="project-tag">LocalStorage</li>
+              </ul>
+              <div class="project-links">
+                <a href="projetos/seu-manoel/index.html" target="_blank" rel="noopener" aria-label="Demo — Seu Manoel">Demo <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/seu-manoel" target="_blank" rel="noopener" aria-label="Ver código do Seu Manoel no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </article>
 
           <article class="project-card" data-reveal>
-            <h3 class="project-title">Seu Manoel</h3>
-            <p class="project-desc">Agendamento em etapas validadas com regras de disponibilidade isoladas em módulo testável e persistência local.</p>
-            <div class="project-links">
-              <a href="projetos/seu-manoel/index.html" target="_blank" rel="noopener" aria-label="Demo — Seu Manoel">Demo <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/seu-manoel" target="_blank" rel="noopener" aria-label="Ver código do Seu Manoel no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            <div class="project-chrome" aria-hidden="true">
+              <span class="chrome-dots"><span></span><span></span><span></span></span>
+              <span class="chrome-address">beautystore.local</span>
+              <span class="chrome-badge">XSS Safe</span>
+            </div>
+            <figure class="project-preview">
+              <img src="assets/project-previews/beauty-store-home.webp" alt="Catálogo com filtros e carrinho da Beauty Store" width="600" height="340" loading="lazy">
+            </figure>
+            <div class="project-content">
+              <p class="project-category">E-Commerce &amp; Sanitização</p>
+              <h3 class="project-title">Beauty Store</h3>
+              <p class="project-desc">Catálogo interativo com busca, filtros, favoritos, carrinho, cupom e frete em um único modelo de estado, com sanitização XSS.</p>
+              <ul class="project-tags" aria-label="Tecnologias do projeto Beauty Store">
+                <li class="project-tag">Modelo de Estado Único</li>
+                <li class="project-tag">Sanitização XSS</li>
+                <li class="project-tag">Filtros &amp; Busca</li>
+                <li class="project-tag">Carrinho</li>
+              </ul>
+              <div class="project-links">
+                <a href="projetos/beauty-store/index.html" target="_blank" rel="noopener" aria-label="Demo — Beauty Store">Demo <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/beauty-store" target="_blank" rel="noopener" aria-label="Ver código da Beauty Store no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </article>
 
           <article class="project-card" data-reveal>
-            <h3 class="project-title">Beauty Store</h3>
-            <p class="project-desc">Catálogo interativo com busca, filtros, favoritos, carrinho, cupom e frete em um único modelo de estado, com sanitização XSS.</p>
-            <div class="project-links">
-              <a href="projetos/beauty-store/index.html" target="_blank" rel="noopener" aria-label="Demo — Beauty Store">Demo <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/beauty-store" target="_blank" rel="noopener" aria-label="Ver código da Beauty Store no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            <div class="project-chrome" aria-hidden="true">
+              <span class="chrome-dots"><span></span><span></span><span></span></span>
+              <span class="chrome-address">papitosburgers.local</span>
+              <span class="chrome-badge">Delivery</span>
+            </div>
+            <figure class="project-preview">
+              <img src="assets/project-previews/papitos-home.webp" alt="Interface de cardápio e checkout da hamburgueria Papitos" width="600" height="340" loading="lazy">
+            </figure>
+            <div class="project-content">
+              <p class="project-category">Delivery &amp; Checkout</p>
+              <h3 class="project-title">Papitos</h3>
+              <p class="project-desc">Fluxo de pedido no navegador, do cardápio ao checkout, com carrinho persistente e escolha entre entrega ou retirada.</p>
+              <ul class="project-tags" aria-label="Tecnologias do projeto Papitos">
+                <li class="project-tag">Fast Food UI</li>
+                <li class="project-tag">Carrinho Persistente</li>
+                <li class="project-tag">Checkout Simulado</li>
+                <li class="project-tag">LocalStorage</li>
+              </ul>
+              <div class="project-links">
+                <a href="projetos/papitos/index.html" target="_blank" rel="noopener" aria-label="Demo — Papitos">Demo <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/papitos" target="_blank" rel="noopener" aria-label="Ver código do Papitos no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </article>
 
           <article class="project-card" data-reveal>
-            <h3 class="project-title">Papitos</h3>
-            <p class="project-desc">Fluxo de pedido no navegador, do cardápio ao checkout, com carrinho persistente e escolha entre entrega ou retirada.</p>
-            <div class="project-links">
-              <a href="projetos/papitos/index.html" target="_blank" rel="noopener" aria-label="Demo — Papitos">Demo <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/Japapaz696/Repositorio-Curriculo/tree/main/projetos/papitos" target="_blank" rel="noopener" aria-label="Ver código do Papitos no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            <div class="project-chrome" aria-hidden="true">
+              <span class="chrome-dots"><span></span><span></span><span></span></span>
+              <span class="chrome-address">sqllab.internal</span>
+              <span class="chrome-badge">10 Cenários</span>
+            </div>
+            <div class="project-preview project-preview--sql" aria-hidden="true">
+              <div class="sql-code">
+                <span class="sql-kw">SELECT</span> ped.id, cli.nome, SUM(it.valor)<br>
+                <span class="sql-kw">FROM</span> erp_pedidos ped <span class="sql-kw">JOIN</span> clientes cli <span class="sql-kw">ON</span> ped.cliente_id = cli.id<br>
+                <span class="sql-kw">GROUP BY</span> ped.id, cli.nome <span class="sql-kw">HAVING</span> divergencia = <span class="sql-val">TRUE</span>;
+              </div>
+              <div class="sql-status">
+                <span>10 cenários de diagnóstico real · Banco PostgreSQL</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-category">Diagnóstico ERP &amp; SQL</p>
+              <h3 class="project-title">SQL Lab</h3>
+              <p class="project-desc">Laboratório de SQL para diagnóstico e suporte a ERP, com 10 cenários de consulta executados sobre um banco real.</p>
+              <ul class="project-tags" aria-label="Tecnologias do projeto SQL Lab">
+                <li class="project-tag">PostgreSQL</li>
+                <li class="project-tag">SQL Avançado</li>
+                <li class="project-tag">Suporte ERP</li>
+                <li class="project-tag">136 Testes</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/Japapaz696/sql-lab" target="_blank" rel="noopener" aria-label="Ver código do SQL Lab no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </article>
 
           <article class="project-card" data-reveal>
-            <h3 class="project-title">SQL Lab</h3>
-            <p class="project-desc">Laboratório de SQL para diagnóstico e suporte a ERP, com 10 cenários de consulta executados sobre um banco real.</p>
-            <div class="project-links">
-              <a href="https://github.com/Japapaz696/sql-lab" target="_blank" rel="noopener" aria-label="Ver código do SQL Lab no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            <div class="project-chrome" aria-hidden="true">
+              <span class="chrome-dots"><span></span><span></span><span></span></span>
+              <span class="chrome-address">fidelidade-barbearia.pwa</span>
+              <span class="chrome-badge">PBKDF2</span>
             </div>
-          </article>
-
-          <article class="project-card" data-reveal>
-            <h3 class="project-title">barbearia</h3>
-            <p class="project-desc">Demo de fidelidade com senha guardada como derivador PBKDF2 e PWA com cache offline.</p>
-            <div class="project-links">
-              <a href="https://github.com/Japapaz696/barbearia" target="_blank" rel="noopener" aria-label="Ver código do projeto barbearia no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+            <div class="project-preview project-preview--pwa" aria-hidden="true">
+              <div class="pwa-row">
+                <span class="pwa-badge">PWA Service Worker</span>
+                <span class="pwa-state">Offline Ready</span>
+              </div>
+              <div class="pwa-meta">
+                <span>Derivação PBKDF2 · Cache First Assets</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-category">PWA &amp; Criptografia</p>
+              <h3 class="project-title">barbearia</h3>
+              <p class="project-desc">Demo de fidelidade com senha guardada como derivador PBKDF2 e PWA com cache offline.</p>
+              <ul class="project-tags" aria-label="Tecnologias do projeto barbearia">
+                <li class="project-tag">Service Worker</li>
+                <li class="project-tag">PWA Offline</li>
+                <li class="project-tag">Criptografia PBKDF2</li>
+                <li class="project-tag">Segurança</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/Japapaz696/barbearia" target="_blank" rel="noopener" aria-label="Ver código do projeto barbearia no GitHub">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </article>
         </div>
@@ -283,11 +475,11 @@
 
         <div class="cert-tabs-panel" data-cert-tabs>
           <div class="cert-tablist" role="tablist" aria-label="Selecionar certificação">
-            <span class="cert-tab-group-label" aria-hidden="true">freeCodeCamp</span>
+            <span class="cert-tab-group-label" role="presentation" aria-hidden="true">freeCodeCamp</span>
             <button class="cert-tab" type="button" role="tab" id="cert-tab-database" aria-selected="true" aria-controls="cert-panel-database" tabindex="0">Relational Database V8</button>
             <button class="cert-tab" type="button" role="tab" id="cert-tab-python" aria-selected="false" aria-controls="cert-panel-python" tabindex="-1">Scientific Computing with Python</button>
             <button class="cert-tab" type="button" role="tab" id="cert-tab-web" aria-selected="false" aria-controls="cert-panel-web" tabindex="-1">Responsive Web Design V8</button>
-            <span class="cert-tab-group-label cert-tab-group-label--spaced" aria-hidden="true">Google · Coursera</span>
+            <span class="cert-tab-group-label cert-tab-group-label--spaced" role="presentation" aria-hidden="true">Google · Coursera</span>
             <button class="cert-tab" type="button" role="tab" id="cert-tab-google-data-analytics" aria-selected="false" aria-controls="cert-panel-google-data-analytics" tabindex="-1">Google Data Analytics</button>
             <button class="cert-tab" type="button" role="tab" id="cert-tab-foundations" aria-selected="false" aria-controls="cert-panel-foundations" tabindex="-1">Foundations: Data, Data, Everywhere</button>
             <button class="cert-tab" type="button" role="tab" id="cert-tab-questions" aria-selected="false" aria-controls="cert-panel-questions" tabindex="-1">Ask Questions</button>
@@ -1026,7 +1218,7 @@
           </div>
           <div class="stack-grid" id="stack-grid" role="tabpanel" aria-labelledby="stack-tab-all">
             <article class="stack-card" data-stack-category="backend" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Nd</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">Nd</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">Node.js</h3>
                 <p class="stack-card-desc">Runtime para APIs e ferramentas.</p>
@@ -1034,7 +1226,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="backend" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Ex</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">Ex</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">Express</h3>
                 <p class="stack-card-desc">APIs REST e middlewares.</p>
@@ -1042,7 +1234,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="backend" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">API</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">API</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">REST APIs</h3>
                 <p class="stack-card-desc">Design de endpoints e contratos.</p>
@@ -1050,7 +1242,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="backend" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Py</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">Py</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">Python</h3>
                 <p class="stack-card-desc">Scripts e estudo.</p>
@@ -1058,7 +1250,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="frontend" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">JS</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">JS</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">JavaScript ES6+</h3>
                 <p class="stack-card-desc">Lógica, DOM e estado.</p>
@@ -1066,7 +1258,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="frontend" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">H5</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">H5</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">HTML5</h3>
                 <p class="stack-card-desc">Semântica e acessibilidade.</p>
@@ -1074,7 +1266,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="frontend" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">C3</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">C3</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">CSS3</h3>
                 <p class="stack-card-desc">Estilo visual e responsividade.</p>
@@ -1082,7 +1274,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="frontend" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Rx</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">Rx</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">React</h3>
                 <p class="stack-card-desc">Estudo e projetos próprios.</p>
@@ -1090,7 +1282,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="frontend" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">A11</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">A11</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">Acessibilidade</h3>
                 <p class="stack-card-desc">ARIA, teclado e contraste.</p>
@@ -1098,7 +1290,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="data" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Pg</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">Pg</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">PostgreSQL</h3>
                 <p class="stack-card-desc">Modelagem e queries em projetos.</p>
@@ -1106,7 +1298,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="data" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">SQL</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">SQL</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">SQL</h3>
                 <p class="stack-card-desc">Diagnóstico e suporte a ERP.</p>
@@ -1114,7 +1306,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="data" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Md</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">Md</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">Modelagem</h3>
                 <p class="stack-card-desc">Entidades e relacionamentos.</p>
@@ -1122,7 +1314,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="data" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Qo</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">Qo</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">Query Optimization</h3>
                 <p class="stack-card-desc">Leitura de planos e índices.</p>
@@ -1130,7 +1322,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="ai" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">AI</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">AI</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">OpenAI API</h3>
                 <p class="stack-card-desc">Experimentação e protótipos.</p>
@@ -1138,7 +1330,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="ai" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Pr</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">Pr</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">Prompt Engineering</h3>
                 <p class="stack-card-desc">Instruções e contexto.</p>
@@ -1146,7 +1338,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="ai" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">n8</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">n8</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">n8n</h3>
                 <p class="stack-card-desc">Automação de fluxos.</p>
@@ -1154,7 +1346,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="ai" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Gh</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">Gh</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">Git/GitHub</h3>
                 <p class="stack-card-desc">Versionamento e CI.</p>
@@ -1162,7 +1354,7 @@
               </div>
             </article>
             <article class="stack-card" data-stack-category="ai" data-reveal>
-              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="monospace" fill="currentColor">Lx</text></svg>
+              <span class="stack-badge-icon" aria-hidden="true">Lx</span>
               <div class="stack-card-body">
                 <h3 class="stack-card-title">Linux</h3>
                 <p class="stack-card-desc">Ambiente e suporte.</p>
