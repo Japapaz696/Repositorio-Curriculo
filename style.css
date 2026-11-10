@@ -298,6 +298,16 @@ html:not(.js) .hero-tabpanel + .hero-tabpanel { margin-top: 1.6rem; padding-top:
 .cert-link:hover { color: var(--accent-text); }
 .cert-link--primary { color: var(--accent-text); }
 .cert-link:focus-visible, .cert-tab:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+/* Tab group labels */
+.cert-tab-group-label { display: inline-flex; align-items: center; align-self: center; padding: .2rem .6rem; border: 1px solid var(--border); background: var(--surface-muted); color: var(--text-muted); font: 600 .58rem/1.3 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
+.cert-tab-group-label--spaced { margin-left: .55rem; }
+/* Issuer badge (Certificado Profissional) */
+.cert-issuer-badge { display: inline-block; padding: .15rem .45rem; border: 1px solid var(--accent-text); color: var(--accent-text); font: 600 .55rem/1.3 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; vertical-align: middle; }
+/* Skills tags block */
+.cert-skills { margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.cert-skills-label { margin: 0 0 .65rem; color: var(--text-muted); font: 500 .6rem/1.3 var(--font-mono); text-transform: uppercase; letter-spacing: .04em; }
+.cert-skills-list { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; }
+.cert-skills-list li { padding: .3rem .65rem; border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary); font: 600 .67rem/1.3 var(--font-mono); white-space: nowrap; }
 /* ============================
    Capabilities and stack
    ============================ */
