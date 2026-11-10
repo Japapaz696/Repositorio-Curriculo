@@ -211,6 +211,41 @@ if (stackTabsRoot) {
   stackSelect(0, false);
 }
 
+/* Certifications: accessible single-selection tabs. */
+const certTabsRoot = document.querySelector('[data-cert-tabs]');
+if (certTabsRoot) {
+  const certTabs = Array.from(certTabsRoot.querySelectorAll('[role="tab"]'));
+  const certPanels = certTabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
+
+  const selectCertTab = (index, moveFocus = false) => {
+    certTabs.forEach((tab, tabIndex) => {
+      const active = tabIndex === index;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      certPanels[tabIndex].hidden = !active;
+    });
+    if (moveFocus) certTabs[index].focus();
+  };
+
+  certTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectCertTab(index));
+    tab.addEventListener('keydown', (event) => {
+      let nextIndex = null;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % certTabs.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + certTabs.length) % certTabs.length;
+      else if (event.key === 'Home') nextIndex = 0;
+      else if (event.key === 'End') nextIndex = certTabs.length - 1;
+
+      if (nextIndex !== null) {
+        event.preventDefault();
+        selectCertTab(nextIndex, true);
+      }
+    });
+  });
+
+  selectCertTab(0);
+}
+
 reducedMotion.addEventListener?.('change', (event) => {
   if (!event.matches) return;
   document.querySelectorAll('[data-reveal]').forEach((section) => section.classList.add('is-visible'));
@@ -237,6 +272,7 @@ emailLink?.addEventListener('click', async (event) => {
 
 const paletteItems = [
   { label: 'Projetos', command: '/projetos', href: '#work' },
+  { label: 'Certificações', command: '/certificacoes', href: '#certifications' },
   { label: 'Experiência', command: '/experiencia', href: '#experience' },
   { label: 'O que faço', command: '/capacidades', href: '#capabilities' },
   { label: 'Sobre', command: '/sobre', href: '#profile' },
