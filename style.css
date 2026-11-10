@@ -159,6 +159,8 @@ a { color: inherit; }
 .hero-panel-top .section-index { margin: 0; }
 .hero-tablist { display: flex; flex-wrap: wrap; gap: .35rem; }
 .hero-tab { min-height: 2.75rem; padding: .45rem .8rem; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); font: 600 .72rem/1.2 var(--font-mono); letter-spacing: .04em; cursor: pointer; transition: color .2s var(--ease), border-color .2s var(--ease), background-color .2s var(--ease); }
+.hero-tab--link { display: inline-flex; align-items: center; justify-content: center; gap: .38rem; text-decoration: none; }
+.hero-tab-icon { width: .82rem; height: .82rem; flex-shrink: 0; color: currentColor; }
 .hero-tab:hover { color: var(--text); border-color: var(--border-strong); }
 .hero-tab[aria-selected='true'] { border-color: var(--accent-text); background: var(--accent-text); color: var(--accent-contrast); }
 .hero-tabpanel { outline-offset: 3px; animation: hero-panel-in .3s var(--ease); }
